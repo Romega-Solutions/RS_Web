@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romega Solutions - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <!-- source sans 3 and merriweather -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation Container -->
+    <div id="navbar-container"></div>
+    <!-- Hero Section -->
+    <main class="bg-gray-50">
+      <section>
+        <div
+          class="flex flex-col md:flex-row sm:flex-col md:max-h-[540px] relative"
+        >
+          <div class="basis-1/2 relative p-6 md:p-16 space-y-6 md:space-y-16">
+            <img
+              src="./assets/images/homepage/hero-bg-romega.png"
+              alt=""
+              class="absolute -left-4 top-4 w-full h-full object-cover overflow-hidden"
+            />
+            <h1
+              class="text-merriweather-h2 font-bold text-gray-800 relative z-10 text-center md:text-left"
+            >
+              Empower Your Team with
+              <span class="block text-merriweather-h2"
+                >Smarter HR<span class="text-rs-primary">S</span
+                ><span class="text-yellow-500 text-4xl">OLUTIONS</span></span
+              >
+            </h1>
+            <p
+              class="text-gray-600 text-sm md:text-base leading-relaxed relative z-10 max-w-md text-center md:text-left mx-auto md:mx-0"
+            >
+              Transform your HR operations to boost productivity, engagement,
+              and growth for your business:
+            </p>
+            <ul
+              class="text-neutral-700 space-y-4 relative z-10 flex flex-col items-start ml-10 md:ml-0"
+            >
+              <li class="flex items-center space-x-3">
+                <img
+                  src="./assets/images/homepage/search-check.png"
+                  alt="Check icon"
+                  class="w-5 h-5 flex-shrink-0"
+                />
+                <span>Cutting edge tools</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <img
+                  src="./assets/images/homepage/search-check.png"
+                  alt="Check icon"
+                  class="w-5 h-5 flex-shrink-0"
+                />
+                <span>Expert insights</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <img
+                  src="./assets/images/homepage/search-check.png"
+                  alt="Check icon"
+                  class="w-5 h-5 flex-shrink-0"
+                />
+                <span>Tailored strategies for growth</span>
+              </li>
+            </ul>
+
+            <!-- Mobile Button - Below the list -->
+            <div class="md:hidden mt-8 flex justify-center relative z-10">
+              <a
+                href="#"
+                class="flex items-center justify-center text-sm font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300"
+                style="width: 280px; height: 50px"
+              >
+                <img
+                  src="./assets/images/homepage/calendar-days.png"
+                  alt="Calendar icon"
+                  class="w-4 h-4 mr-2"
+                />
+                Book An Appointment
+              </a>
+            </div>
+          </div>
+          <div class="basis-1/2 flex">
+            <img
+              src="./assets/images/homepage/hero-right.png"
+              alt="Hero Image"
+              class="w-full h-auto"
+            />
+          </div>
+
+          <!-- Desktop Button - Centered between divs -->
+          <a
+            href="#"
+            class="hidden md:flex absolute book-call-btn drop-shadow-lg items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 left-1/2 top-[80%] transform -translate-x-1/2 -translate-y-1/2 z-10"
+            style="width: 400px; height: 57px"
+            id="nav-cta"
+          >
+            <img
+              src="./assets/images/homepage/calendar-days.png"
+              alt="Calendar icon"
+              class="w-4 h-4 mr-2"
+            />
+            Book An Appointment
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

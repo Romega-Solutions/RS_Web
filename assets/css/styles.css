@@ -1,0 +1,294 @@
+/* Custom styles for Romega Solutions website */
+
+/* Additional custom styles can be added here */
+.mobile-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom focus styles */
+.focus-ring:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Form styling enhancements */
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* font styles section */
+.text-preset-hero {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 700;
+  font-family: "Source Sans 3", sans-serif;
+}
+/* Set Source Sans 3 as the default font family */
+* {
+  font-family: "Source Sans 3", sans-serif;
+}
+
+/* ================================
+   ROMEGA SOLUTIONS COLOR SYSTEM
+   ================================ */
+
+/* PRIMARY & ACCENT COLORS */
+:root {
+  /* Primary Blues */
+  --rs-primary-50: #f0f9ff; /* Very light blue */
+  --rs-primary-100: #e0f2fe; /* Light blue */
+  --rs-primary-200: #bae6fd; /* Lighter blue */
+  --rs-primary-300: #7dd3fc; /* Light blue */
+  --rs-primary-400: #38bdf8; /* Medium blue */
+  --rs-primary-500: #0ea5e9; /* Primary blue (main brand) */
+  --rs-primary-600: #0284c7; /* Darker blue */
+  --rs-primary-700: #0369a1; /* Dark blue */
+  --rs-primary-800: #075985; /* Very dark blue */
+  --rs-primary-900: #0c4a6e; /* Darkest blue */
+
+  /* Accent Yellows/Oranges */
+  --rs-accent-100: #fef3c7; /* Very light yellow */
+  --rs-accent-200: #fde68a; /* Light yellow */
+  --rs-accent-300: #fcd34d; /* Medium yellow */
+  --rs-accent-400: #f59e0b; /* Orange-yellow */
+  --rs-accent-500: #d97706; /* Primary orange */
+  --rs-accent-600: #b45309; /* Dark orange */
+  --rs-accent-700: #92400e; /* Very dark orange */
+
+  /* Neutral Colors */
+  --rs-neutral-50: #f8fafc; /* Almost white */
+  --rs-neutral-100: #f1f5f9; /* Very light gray */
+  --rs-neutral-200: #e2e8f0; /* Light gray */
+  --rs-neutral-300: #cbd5e1; /* Medium light gray */
+  --rs-neutral-400: #94a3b8; /* Medium gray */
+  --rs-neutral-500: #64748b; /* Gray */
+  --rs-neutral-600: #475569; /* Dark gray */
+  --rs-neutral-700: #334155; /* Very dark gray */
+  --rs-neutral-800: #1e293b; /* Almost black */
+  --rs-neutral-900: #0f172a; /* Black */
+
+  /* Semantic Colors */
+  --rs-success: #10b981; /* Green for success */
+  --rs-warning: #f59e0b; /* Orange for warnings */
+  --rs-error: #ef4444; /* Red for errors */
+  --rs-info: #3b82f6; /* Blue for information */
+}
+
+/* UTILITY CLASSES FOR EASY USE */
+/* Background Colors */
+.bg-rs-primary {
+  background-color: var(--rs-primary-50);
+}
+.bg-rs-primary-light {
+  background-color: var(--rs-primary-100);
+}
+.bg-rs-primary-dark {
+  background-color: var(--rs-primary-700);
+}
+.bg-rs-accent {
+  background-color: var(--rs-accent-500);
+}
+.bg-rs-neutral {
+  background-color: var(--rs-neutral-100);
+}
+
+/* Text Colors */
+.text-rs-primary {
+  color: var(--rs-primary-500);
+}
+.text-rs-primary-dark {
+  color: var(--rs-primary-700);
+}
+.text-rs-accent {
+  color: var(--rs-accent-500);
+}
+.text-rs-neutral {
+  color: var(--rs-neutral-600);
+}
+.text-rs-neutral-dark {
+  color: var(--rs-neutral-800);
+}
+
+/* Border Colors */
+.border-rs-primary {
+  border-color: var(--rs-primary-500);
+}
+.border-rs-accent {
+  border-color: var(--rs-accent-500);
+}
+.border-rs-neutral {
+  border-color: var(--rs-neutral-300);
+}
+
+/* EXAMPLE COMPONENT STYLES USING THE COLOR SYSTEM */
+.rs-button-primary {
+  background-color: var(--rs-primary-500);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.rs-button-primary:hover {
+  background-color: var(--rs-primary-600);
+}
+
+.rs-button-secondary {
+  background-color: transparent;
+  color: var(--rs-primary-500);
+  border: 2px solid var(--rs-primary-500);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.rs-button-secondary:hover {
+  background-color: var(--rs-primary-500);
+  color: white;
+}
+
+.rs-card {
+  background-color: white;
+  border: 1px solid var(--rs-neutral-200);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.rs-alert-success {
+  background-color: #ecfdf5;
+  border: 1px solid var(--rs-success);
+  color: #065f46;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.rs-alert-warning {
+  background-color: #fffbeb;
+  border: 1px solid var(--rs-warning);
+  color: #92400e;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* ================================
+   END COLOR SYSTEM
+   ================================ */
+
+/* Navigation Bar Styles */
+.navbar-custom {
+  /* Layout */
+  display: flex;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+  padding: 0.5rem 1rem; /* Add horizontal padding for spacing between links */
+
+  /* Typography */
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0%;
+
+  /* Appearance */
+  opacity: 100%;
+  border-radius: 0px;
+
+  /* Fill */
+  color: #6b7280;
+}
+
+/* Book a Call Button Styles */
+.book-call-btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 28px;
+  margin-left: 1rem; /* Add some space from nav links */
+
+  /* Typography */
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+
+  /* Rest of styles remain the same... */
+  background-color: var(--rs-primary-500);
+  color: white;
+  border-radius: 1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Mobile responsiveness - hide button on small screens */
+@media (max-width: 768px) {
+  .book-call-btn {
+    display: none !important;
+  }
+}
+
+/* Show button only on medium screens and up */
+@media (min-width: 769px) {
+  .book-call-btn {
+    display: inline-flex !important;
+  }
+}
+
+/* Merriweather Text Presets */
+.text-merriweather-h1 {
+  font-family: "Merriweather", serif;
+  font-size: 3rem; /* 48px */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.text-merriweather-h2 {
+  font-family: "Merriweather", serif;
+  font-size: 2rem; /* 32px */
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--rs-primary-600);
+}
+
+.text-merriweather-h3 {
+  font-family: "Merriweather", serif;
+  font-size: 1.875rem; /* 30px */
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-merriweather-body {
+  font-family: "Merriweather", serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.6;
+}
