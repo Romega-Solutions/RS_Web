@@ -4,9 +4,6 @@
 
 A cutting-edge, fully responsive website showcasing executive talent and market intelligence services. Built with modern web technologies and a focus on performance, accessibility, and user experience.
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://romega-solutions.com)
-[![Version](https://img.shields.io/badge/Version-1.0.0-green?style=for-the-badge)](https://github.com/romega-solutions/website)
-
 ---
 
 ## ✨ Features & Highlights
@@ -179,7 +176,7 @@ npm run build
 \_Senior Web Developer
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/kenpatrickgarcia)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/kenpatrickgarcia)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/KpG782)
 [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=flat&logo=google-chrome&logoColor=white)](https://kenpatrickgarcia.dev)
 
 ---
@@ -212,8 +209,8 @@ We welcome contributions! Please feel free to submit a Pull Request.
 ## 📞 Support & Contact
 
 **Romega Solutions**  
-📧 Email: [hello@romegasolutions.com](mailto:hello@romegasolutions.com)  
-🌐 Website: [https://romegasolutions.com](https://romegasolutions.com)  
+📧 Email:  
+🌐 Website:  
 📍 Address: 333 Pacific Coast Hwy, #10 El Segundo, CA 90245
 
 ---

@@ -1,4 +1,4 @@
-
+// Main JavaScript file for Romega Solutions website - Navbar functionality only
 
 // Function to load HTML components
 async function loadComponent(elementId, componentPath) {
@@ -11,14 +11,17 @@ async function loadComponent(elementId, componentPath) {
     const element = document.getElementById(elementId);
     if (element) {
       element.innerHTML = html;
+      return true; // Return success
     }
+    return false;
   } catch (error) {
     console.error("Error loading component:", error);
+    return false;
   }
 }
 
 // Load components when DOM is ready
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   // Load unified navbar and footer components
   const isInPagesFolder = window.location.pathname.includes("/pages/");
   const navbarPath = isInPagesFolder
@@ -28,23 +31,20 @@ document.addEventListener("DOMContentLoaded", function () {
     ? "../components/footer.html"
     : "./components/footer.html";
 
-  loadComponent("navbar-container", navbarPath);
-  loadComponent("footer-container", footerPath);
+  // Load components and wait for them to complete
+  const navbarLoaded = await loadComponent("navbar-container", navbarPath);
+  const footerLoaded = await loadComponent("footer-container", footerPath);
 
-  // Wait a bit for the navbar to load before setting up paths and event listeners
-  setTimeout(() => {
-    setupNavbarPaths();
-    setupMobileMenu();
-
-    // Retry mobile menu setup if elements not found initially
+  // Only proceed if navbar loaded successfully
+  if (navbarLoaded) {
+    // Small delay to ensure DOM is fully updated
     setTimeout(() => {
-      const mobileMenuButton = document.querySelector(".mobile-menu-button");
-      if (!mobileMenuButton) {
-        console.log("Retrying mobile menu setup...");
-        setupMobileMenu();
-      }
-    }, 200);
-  }, 150);
+      setupNavbarPaths();
+      setupMobileMenu();
+    }, 100);
+  } else {
+    console.error("Failed to load navbar component");
+  }
 });
 
 // Function to setup navbar paths based on current page location
@@ -67,14 +67,19 @@ function setupNavbarPaths() {
   const navResources = document.getElementById("nav-resources");
   const navContact = document.getElementById("nav-contact");
   const navCta = document.getElementById("nav-cta");
+  const navCtaIcon = document.getElementById("nav-cta-icon");
 
   if (navHome) navHome.href = pathPrefix + "index.html";
-  if (navAbout) navAbout.href = pagesPrefix + "about.html";
-  if (navServices) navServices.href = pagesPrefix + "services.html";
-  if (navCareers) navCareers.href = pagesPrefix + "careers.html";
-  if (navResources) navResources.href = pagesPrefix + "resources.html";
-  if (navContact) navContact.href = pagesPrefix + "contact.html";
-  if (navCta) navCta.href = pagesPrefix + "contact.html";
+  if (navAbout) navAbout.href = pathPrefix + pagesPrefix + "about.html";
+  if (navServices)
+    navServices.href = pathPrefix + pagesPrefix + "services.html";
+  if (navCareers) navCareers.href = pathPrefix + pagesPrefix + "careers.html";
+  if (navResources)
+    navResources.href = pathPrefix + pagesPrefix + "resources.html";
+  if (navContact) navContact.href = pathPrefix + pagesPrefix + "contact.html";
+  if (navCta) navCta.href = pathPrefix + pagesPrefix + "contact.html";
+  if (navCtaIcon)
+    navCtaIcon.src = pathPrefix + "assets/images/homepage/calendar-days.png";
 
   // Set mobile navigation paths
   const mobileNavHome = document.getElementById("mobile-nav-home");
@@ -84,15 +89,30 @@ function setupNavbarPaths() {
   const mobileNavResources = document.getElementById("mobile-nav-resources");
   const mobileNavContact = document.getElementById("mobile-nav-contact");
   const mobileNavCta = document.getElementById("mobile-nav-cta");
+  const mobileNavCtaIcon = document.getElementById("mobile-nav-cta-icon");
 
   if (mobileNavHome) mobileNavHome.href = pathPrefix + "index.html";
-  if (mobileNavAbout) mobileNavAbout.href = pagesPrefix + "about.html";
-  if (mobileNavServices) mobileNavServices.href = pagesPrefix + "services.html";
-  if (mobileNavCareers) mobileNavCareers.href = pagesPrefix + "careers.html";
+  if (mobileNavAbout)
+    mobileNavAbout.href = pathPrefix + pagesPrefix + "about.html";
+  if (mobileNavServices)
+    mobileNavServices.href = pathPrefix + pagesPrefix + "services.html";
+  if (mobileNavCareers)
+    mobileNavCareers.href = pathPrefix + pagesPrefix + "careers.html";
   if (mobileNavResources)
-    mobileNavResources.href = pagesPrefix + "resources.html";
-  if (mobileNavContact) mobileNavContact.href = pagesPrefix + "contact.html";
-  if (mobileNavCta) mobileNavCta.href = pagesPrefix + "contact.html";
+    mobileNavResources.href = pathPrefix + pagesPrefix + "resources.html";
+  if (mobileNavContact)
+    mobileNavContact.href = pathPrefix + pagesPrefix + "contact.html";
+  if (mobileNavCta)
+    mobileNavCta.href = pathPrefix + pagesPrefix + "contact.html";
+  if (mobileNavCtaIcon)
+    mobileNavCtaIcon.src =
+      pathPrefix + "assets/images/homepage/calendar-days.png";
+
+  console.log("Navigation paths setup complete", {
+    isInPagesFolder,
+    pathPrefix,
+    pagesPrefix,
+  });
 }
 
 // Mobile menu toggle functionality
@@ -101,110 +121,45 @@ function setupMobileMenu() {
   const mobileMenu = document.querySelector(".mobile-menu");
 
   if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener("click", function (e) {
+    // Remove any existing event listeners by cloning the button
+    const newButton = mobileMenuButton.cloneNode(true);
+    mobileMenuButton.parentNode.replaceChild(newButton, mobileMenuButton);
+
+    newButton.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      mobileMenu.classList.toggle("hidden");
 
-      // Toggle aria-expanded for accessibility
-      const isExpanded = !mobileMenu.classList.contains("hidden");
-      mobileMenuButton.setAttribute("aria-expanded", isExpanded);
+      const isHidden = mobileMenu.classList.contains("hidden");
+
+      if (isHidden) {
+        mobileMenu.classList.remove("hidden");
+        newButton.setAttribute("aria-expanded", "true");
+      } else {
+        mobileMenu.classList.add("hidden");
+        newButton.setAttribute("aria-expanded", "false");
+      }
     });
 
-    console.log("Mobile menu setup complete"); // Debug log
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", function (event) {
+      if (
+        mobileMenu &&
+        newButton &&
+        !mobileMenu.contains(event.target) &&
+        !newButton.contains(event.target)
+      ) {
+        mobileMenu.classList.add("hidden");
+        newButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    console.log("Mobile menu setup complete");
   } else {
-    console.warn("Mobile menu elements not found"); // Debug log
-  }
-
-  // Close mobile menu when clicking outside
-  document.addEventListener("click", function (event) {
-    if (
-      mobileMenu &&
-      mobileMenuButton &&
-      !mobileMenu.contains(event.target) &&
-      !mobileMenuButton.contains(event.target)
-    ) {
-      mobileMenu.classList.add("hidden");
-      mobileMenuButton.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  // Setup contact form handling
-  setupContactForm();
-}
-
-// Contact form handling
-function setupContactForm() {
-  const contactForm = document.getElementById("contact-form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      // Get form data
-      const formData = new FormData(contactForm);
-      const data = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        subject: formData.get("subject"),
-        message: formData.get("message"),
-      };
-
-      // Simple form validation
-      if (!data.name || !data.email || !data.subject || !data.message) {
-        alert("Please fill in all fields.");
-        return;
-      }
-
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(data.email)) {
-        alert("Please enter a valid email address.");
-        return;
-      }
-
-      // Simulate form submission
-      alert("Thank you for your message! We will get back to you soon.");
-      contactForm.reset();
-
-      // In a real application, you would send this data to your server
-      console.log("Form data:", data);
+    console.warn("Mobile menu elements not found:", {
+      button: !!mobileMenuButton,
+      menu: !!mobileMenu,
     });
   }
-
-  // Add fade-in animation to sections
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in");
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-    }
-  );
-
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-
-  // Smooth scrolling for anchor links
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  anchorLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    });
-  });
 }
 
 // Utility functions
@@ -220,28 +175,6 @@ const utils = {
       clearTimeout(timeout);
       timeout = setTimeout(later, wait);
     };
-  },
-
-  // Simple API call helper
-  apiCall: async function (url, options = {}) {
-    try {
-      const response = await fetch(url, {
-        headers: {
-          "Content-Type": "application/json",
-          ...options.headers,
-        },
-        ...options,
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error("API call failed:", error);
-      throw error;
-    }
   },
 };
 
