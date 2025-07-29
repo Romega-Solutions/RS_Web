@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Romega Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <!-- source sans 3 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+        <!-- Navigation -->
+    <nav
+      id="navbar-container"
+      role="navigation"
+      aria-label="Main navigation"
+      class="text-source-sans bg-rs-primary-50 shadow-sm border-b-2 border-blue-400"
+    >
+      <div style="padding-left: 0px; padding-right: 0px">
+        <div
+          class="flex justify-between items-center bg-white px-8"
+          style="height: 104px; width: 100%"
+        >
+          <!-- Logo -->
+          <div class="flex pl-0 md:pl-16 items-center flex-shrink-0">
+            <a href="#" class="flex items-center" id="logo-link">
+              <img
+                src="./assets/images/homepage/logo.png"
+                alt="Romega Solutions"
+                style="height: 83px; width: auto; max-width: 301px"
+                class="md:h-20 h-16"
+                id="logo-img"
+              />
+            </a>
+          </div>
+
+          <!-- Desktop Navigation Links - Centered -->
+          <div class="hidden md:flex items-center justify-center flex-1 mx-8">
+            <div class="flex items-center space-x-12">
+              <a
+                href="index.html"
+                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-home"
+              >
+                Home
+              </a>
+              <a
+                href="about.html"
+                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-about"
+              >
+                About
+              </a>
+              <a
+                href="services.html"
+                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-services"
+              >
+                Services
+              </a>
+              <a
+                href="careers.html"
+                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-careers"
+              >
+                Careers & Talent
+              </a>
+              <a
+                href="resources.html""
+                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-resources"
+              >
+                Resources
+              </a>
+              <a
+                href="contact.html"
+                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-contact"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+
+          <!-- Book a Call Button -->
+          <a
+            href="#"
+            class="hidden md:text-[18px] md:inline-flex items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 mr-14"
+            style="width: 172px; height: 46px"
+            id="nav-cta"
+          >
+            <img
+              src="/assets/images/homepage/calendar-days.png"
+              alt="Calendar icon"
+              class="w-[22px] mr-2"
+              id="nav-cta-icon"
+            />
+            Book a Call
+          </a>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden ">
+            <button
+              class="mobile-menu-button p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+              aria-label="Open mobile menu"
+              aria-expanded="false"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Mobile Menu -->
+    <div class="hidden mobile-menu md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+        <a
+          href="index.html"
+          class="block px-3 py-2 text-rs-accent font-medium bg-rs-primary-50 rounded-md"
+          id="mobile-nav-home"
+        >
+          Home
+        </a>
+        <a
+          href="about.html"
+          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+          id="mobile-nav-about"
+        >
+          About
+        </a>
+        <a
+          href="services.html"
+          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+          id="mobile-nav-services"
+        >
+          Services
+        </a>
+        <a
+          href="careers.html"
+          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+          id="mobile-nav-careers"
+        >
+          Careers & Talent
+        </a>
+        <a
+          href="resources.html"
+          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+          id="mobile-nav-resources"
+        >
+          Resources
+        </a>
+        <a
+          href="contact.html"
+          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+          id="mobile-nav-contact"
+        >
+          Contact
+        </a>
+        <!-- Mobile CTA Button -->
+        <a
+          href="contact.html"
+          class="flex items-center justify-center mx-3 mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300"
+          id="mobile-nav-cta"
+          role="button"
+          aria-label="Book a call with Romega Solutions"
+        >
+          <img
+            src="#"
+            alt="Calendar icon"
+            class="w-4 h-4 mr-2"
+            id="mobile-nav-cta-icon"
+          />
+          Book a Call
+        </a>
+      </div>
+    </nav>
+
+    <!-- About Page Content -->
+    <main class="bg-gray-50 min-h-screen">
+    <!-- Hero Section -->
+    <main id="main-content" class="bg-gray-50">
+      <section aria-labelledby="hero-heading">
+        <div
+          class="flex flex-col md:flex-row sm:flex-col md:max-h-[540px] relative"
+        >
+          <!-- left side content -->
+          <div
+            class="basis-1/2 md:basis-[45%] relative p-6 md:p-16 md:pl-24 space-y-6 md:space-y-6"
+          >
+            <img
+              src="./assets/images/homepage/hero-bg-romega.png"
+              alt="Romega Solutions background pattern"
+              class="absolute -left-4 top-4 w-full h-full object-cover overflow-hidden"
+              loading="lazy"
+            />
+            <h1
+              id="hero-heading"
+              class="text-merriweather-h3 md:text-merriweather-h1 text-[40px] text-rs-primary-dark font-bold relative z-10 text-center md:text-left"
+            >
+              Why We Exist
+
+            </h1>
+            <p
+              class="text-rs-neutral md:pb-20 text-[1rem] md:text-[1.25rem] leading-relaxed relative z-10 max-w-md text-center md:text-left mx-auto md:mx-0"
+            >
+              At Romega Solutions, our mission is to connect visionary leaders with opportunities that drive growth, innovation, and lasting impact.
+
+            </p>
+            
+
+            <!-- Mobile Button - Below the list -->
+            <div class="mt-8 flex justify-center md:justify-start  relative z-10 pb-4">
+              <a
+                href="#contact"
+                class="drop-shadow-xl w-[400px] h-[57px] flex items-center justify-center text-[22.5px] font-semibold rounded-xl text-white bg-[#0284c7] hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300"
+              
+                aria-label="Book an appointment with Romega Solutions"
+              >
+                <img
+                  src="./assets/images/homepage/bag.png"
+                  alt=""
+                  class="w-8 h-8 mr-2"
+                  role="presentation"
+                  loading="lazy"
+                />
+                Our Services
+              </a>
+            </div>
+          </div>
+
+          <!-- right side content the video part -->
+          <div class="basis-1/2 md:basis-[55%] flex">
+            <!-- Video version (commented out for now) -->
+            <!--
+            <video
+              class="w-full h-auto object-cover rounded-lg"
+              controls
+              muted
+              loop
+              poster="./assets/images/homepage/hero-right.png"
+              aria-label="Romega Solutions promotional video"
+            >
+              <source src="./assets/videos/hero-video.mp4" type="video/mp4">
+              <source src="./assets/videos/hero-video.webm" type="video/webm">
+              <p>Your browser does not support the video tag. <a href="./assets/videos/hero-video.mp4">Download the video</a> to view it.</p>
+            </video>
+            -->
+
+            <!-- Current image placeholder -->
+            <img
+              src="./assets/images/homepage/about2.png"
+              alt="Professional team working with HR solutions and technology"
+              class="hidden md:block md:w-full md:h-auto"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+          </div>
+      </section>
+
+      <!-- Mission & Vision Section -->
+      <section class="relative bg-[#f7fbff] py-20 px-4 md:px-0 overflow-hidden w-full">
+        <div class="flex flex-col md:flex-row w-full max-w-none md:space-x-0 mx-0">
+          <!-- Mission -->
+          <div class="flex-1 px-2 md:px-32">
+            <h2 class="text-merriweather-h3 md:text-[2rem] text-[30px] text-rs-primary-dark font-bold mb-4 text-left">
+              Our Mission
+            </h2>
+            <p class="text-rs-neutral text-[16px] md:text-[1.1rem] leading-relaxed mb-4 text-left">
+              To revolutionize the future of work by empowering Philippine-based talent to lead global innovation.
+            </p>
+            <p class="text-rs-neutral text-[16px] md:text-[1.1rem] leading-relaxed text-left">
+              We envision a world where businesses thrive through strategic remote collaboration, improving lives and shaping industries worldwide.
+            </p>
+          </div>
+          <!-- Vision -->
+          <div class="flex-1 px-2 md:px-32 flex flex-col justify-between">
+            <div>
+              <h2 class="text-merriweather-h3 md:text-[2rem] text-[30px] text-rs-primary-dark font-bold mb-4 text-left">
+                Our Vision
+              </h2>
+              <p class="text-rs-neutral text-[16px] md:text-[1.1rem] leading-relaxed mb-4 text-left">
+                To bridge the gap between exceptional tech talent and forward-thinking companies, fostering mutual growth through meaningful connections.
+              </p>
+              <p class="text-rs-neutral text-[16px] md:text-[1.1rem] leading-relaxed text-left">
+                By matching skilled professionals with innovative employers, we unlock potential, drive progress, and create lasting impact in the global tech ecosystem.
+              </p>
+            </div>
+            <div class="flex justify-start md:justify-end mt-8">
+              <a
+                href="resources.html"
+                class="drop-shadow-xl w-[90vw] max-w-[400px] h-[57px] flex items-center justify-center text-[22.5px] font-semibold rounded-xl text-white bg-[#0284c7] hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300 mx-auto md:mx-0"
+                aria-label="Checkout Our Resources"
+              >
+                <img
+                  src="./assets/images/homepage/book.png"
+                  alt=""
+                  class="w-8 h-8 mr-2"
+                  role="presentation"
+                  loading="lazy"
+                />
+                Checkout Our Resources
+              </a>
+            </div>
+          </div>
+        </div>
+
+</section>
+
+<!-- Team Section -->
+<section class="relative bg-[#232f3e] pt-24 pb-32 px-4 md:px-0 overflow-hidden w-full">
+  <!-- Top SVG Wave -->
+  <div class="absolute left-0 right-0 top-0 w-full pointer-events-none" style="z-index:1;">
+    <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-[60px] md:h-[120px]">
+      <path fill="#f7fbff" fill-opacity="1" d="M0,64L80,80C160,96,320,128,480,133.3C640,139,800,117,960,112C1120,107,1280,117,1440,101.3C1600,85,1760,43,1840,21.3L1920,0L1920,0L1840,0C1760,0,1600,0,1440,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+    </svg>
+  </div>
+  <div class="relative z-10 max-w-6xl mx-auto flex flex-col items-center">
+    <span class="bg-blue-700 text-white text-xs px-4 py-1 rounded-full mb-4">TEAM</span>
+    <h2 class="text-white text-center text-[2rem] md:text-[2.5rem] font-bold mb-2 leading-tight">
+      Our team is the best in the business
+    </h2>
+    <p class="text-gray-200 text-center text-[1rem] md:text-[1.15rem] mb-8 max-w-2xl">
+      Highly professional and capable of running your business across all digital channels.
+    </p>
+    <a
+      href="careers.html"
+      class="drop-shadow-xl w-[90vw] max-w-[340px] h-[50px] flex items-center justify-center text-[18px] font-semibold rounded-xl text-white bg-[#0284c7] hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300 mb-12"
+      aria-label="Career & Talents"
+    >
+      <img
+        src="./assets/images/homepage/bag.png"
+        alt=""
+        class="w-6 h-6 mr-2"
+        role="presentation"
+        loading="lazy"
+      />
+      Career & Talents
+    </a>
+
+    <!-- Carousel -->
+    <div class="relative w-full max-w-5xl mx-auto">
+      <div id="team-carousel" class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory space-x-6 pb-4">
+        <!-- Example Team Member Card -->
+        <a href="https://www.linkedin.com/in/example1" target="_blank" class="snap-center flex-shrink-0 bg-[#232f3e] rounded-xl shadow-lg overflow-hidden w-[220px] md:w-[260px] group transition-transform hover:-translate-y-2 border-2 border-transparent hover:border-blue-400">
+          <img src="./assets/images/team/member1.jpg" alt="Christine Valerio" class="w-full h-[180px] object-cover" />
+          <div class="p-4">
+            <div class="text-white text-lg font-semibold">Christine Valerio</div>
+            <div class="text-blue-200 text-xs mb-1">BDR & SOURCING LEAD</div>
+            <img src="./assets/images/homepage/linkedin.png" alt="LinkedIn" class="w-5 h-5 inline-block" />
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/example2" target="_blank" class="snap-center flex-shrink-0 bg-[#232f3e] rounded-xl shadow-lg overflow-hidden w-[220px] md:w-[260px] group transition-transform hover:-translate-y-2 border-2 border-transparent hover:border-blue-400">
+          <img src="./assets/images/team/member2.jpg" alt="Jyrra Arcales" class="w-full h-[180px] object-cover" />
+          <div class="p-4">
+            <div class="text-white text-lg font-semibold">Jyrra Arcales</div>
+            <div class="text-blue-200 text-xs mb-1">BDR & PROJECT MANAGER</div>
+            <img src="./assets/images/homepage/linkedin.png" alt="LinkedIn" class="w-5 h-5 inline-block" />
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/example3" target="_blank" class="snap-center flex-shrink-0 bg-[#232f3e] rounded-xl shadow-lg overflow-hidden w-[220px] md:w-[260px] group transition-transform hover:-translate-y-2 border-2 border-transparent hover:border-blue-400">
+          <img src="./assets/images/team/member3.jpg" alt="Robbie Galoso" class="w-full h-[180px] object-cover" />
+          <div class="p-4">
+            <div class="text-white text-lg font-semibold">Robbie Galoso</div>
+            <div class="text-yellow-400 text-xs mb-1">FOUNDER & CEO</div>
+            <img src="./assets/images/homepage/linkedin.png" alt="LinkedIn" class="w-5 h-5 inline-block" />
+          </div>
+        </a>
+        <!-- Add more team members as needed -->
+      </div>
+      <!-- Carousel Dots (optional, static for now) -->
+      <div class="flex justify-center mt-4 space-x-2">
+        <span class="w-3 h-3 rounded-full bg-blue-400 inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-blue-200 inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-blue-200 inline-block"></span>
+      </div>
+    </div>
+  </div>
+  <!-- Bottom SVG Wave -->
+  <div class="absolute left-0 right-0 bottom-0 w-full pointer-events-none" style="z-index:1;">
+    <svg viewBox="0 0 1920 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-[60px] md:h-[120px]">
+      <path fill="#232f3e" fill-opacity="1" d="M0,64L80,80C160,96,320,128,480,133.3C640,139,800,117,960,112C1120,107,1280,117,1440,101.3C1600,85,1760,43,1840,21.3L1920,0L1920,120L1840,120C1760,120,1600,120,1440,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+    </svg>
+  </div>
+</section>
+
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
