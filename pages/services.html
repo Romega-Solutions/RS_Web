@@ -169,12 +169,13 @@
         <div class="relative">
           <img src="../assets/images/services/Romega-Logo-BG.png" alt="Romega Logo Background"
             class="absolute -left-20 -top-40 w-96 -z-20">
-          <div class="relative z-10 text-center">
-            <h1 class="self-stretch justify-start text-rs-primary-700 text-5xl font-bold text-merriweather mb-">
+          <div class="relative z-10 text-center mx-auto max-w-[90%] md:max-w-[80%] xl:max-w-full mx-auto">
+            <h1
+              class="self-stretch justify-start text-rs-primary-700 text-4xl lg:text-5xl font-bold text-merriweather  leading-tight">
               Recruitment re-engineered for speed and fit
             </h1>
 
-            <div class="text-center max-w-4xl mx-auto mt-[12px] mb-[32px]"><span
+            <div class="text-center max-w-[642px] mx-auto mt-[12px] mb-[32px]"><span
                 class="text-rs-neutral-600 text-2xl font-medium">We provide a full suite of business
                 support services designed to </span><span class="text-rs-primary-700 text-2xl font-bold">help
                 companies</span><span class="text-rs-neutral-600 text-2xl font-medium"> </span><span
@@ -189,129 +190,103 @@
         </div>
 
         <!-- Service Grid - Mobile First -->
-        <div class="flex justify-start items-center gap-8 mx-auto w-fit">
-          <div
-            class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden">
-            <div data-icon="cog" class="size-12 relative overflow-hidden">
-              <svg class="size-12" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_2001_3497)">
-                  <path
-                    d="M24.9998 45C30.3041 45 35.3912 42.8929 39.1419 39.1421C42.8926 35.3914 44.9998 30.3043 44.9998 25C44.9998 19.6957 42.8926 14.6086 39.1419 10.8579C35.3912 7.10714 30.3041 5 24.9998 5M24.9998 45C19.6954 45 14.6083 42.8929 10.8576 39.1421C7.10689 35.3914 4.99976 30.3043 4.99976 25M24.9998 45V50M24.9998 5C19.6954 5 14.6083 7.10714 10.8576 10.8579C7.10689 14.6086 4.99976 19.6957 4.99976 25M24.9998 5V0M4.99976 25H-0.000244141M29.9998 25C29.9998 26.3261 29.473 27.5978 28.5353 28.5355C27.5976 29.4732 26.3258 30 24.9998 30C23.6737 30 22.4019 29.4732 21.4642 28.5355C20.5265 27.5978 19.9998 26.3261 19.9998 25C19.9998 23.6739 20.5265 22.4021 21.4642 21.4645C22.4019 20.5268 23.6737 20 24.9998 20C26.3258 20 27.5976 20.5268 28.5353 21.4645C29.473 22.4021 29.9998 23.6739 29.9998 25ZM29.9998 25H49.9998M37.4998 46.65L34.9998 42.325M22.4998 20.675L12.4998 3.35M46.6498 37.5L42.3248 35M3.34976 12.5L7.67476 15M46.6498 12.5L42.3248 15M3.34976 37.5L7.67476 35M37.4998 3.35L34.9998 7.675M22.4998 29.325L12.4998 46.65"
-                    stroke="#003B73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_2001_3497">
-                    <rect width="50" height="50" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-            <div data-text-type="Card Header" class="w-36 h-8 relative">
-              <div class="w-36 left-0 top-0 absolute text-center justify-start text-rs-primary-700 text-2xl font-bold">
-                RPO</div>
-            </div>
-            <div data-text-type="Card Description" class="w-36 h-8 relative">
-              <div class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal">
-                On-demand hiring at scale</div>
-            </div>
+        <section class="flex flex-col gap-8 mx-auto w-full items-center sm:w-fit sm:flex-col lg:flex-row">
+          <!-- First Row -->
+          <div class="flex flex-col sm:flex-row gap-8">
+            <!-- RPO Card -->
+            <article
+              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+              aria-labelledby="rpo-title">
+              <div data-icon="cog" class="size-12 relative overflow-hidden">
+                <img src="/assets/images/services/ft.1/hero-card-1.svg" alt="RPO Icon" width="48" height="48">
+              </div>
+              <header id="rpo-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">RPO
+              </header>
+              <p class="w-36 h-8 relative text-center text-cyan-900 text-lg font-normal">On-demand hiring at scale</p>
+            </article>
+
+            <!-- BPO Card -->
+            <article
+              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+              aria-labelledby="bpo-title">
+              <div data-icon="globe" class="size-12 relative overflow-hidden">
+                <img src="/assets/images/services/ft.1/hero-card-2.svg" alt="RPO Icon" width="48" height="48">
+              </div>
+              <header id="bpo-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">BPO
+              </header>
+              <p class="w-36 h-8 relative text-center text-cyan-900 text-lg font-normal">Free your team to deliver value
+              </p>
+            </article>
           </div>
-          <div
-            class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden">
-            <div data-icon="globe" class="size-12 relative overflow-hidden">
-              <svg class="size-12" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M45.8332 24.9993C45.8332 36.5053 36.5058 45.8327 24.9998 45.8327M45.8332 24.9993C45.8332 13.4934 36.5058 4.16602 24.9998 4.16602M45.8332 24.9993H4.1665M24.9998 45.8327C13.4939 45.8327 4.1665 36.5053 4.1665 24.9993M24.9998 45.8327C19.6503 40.2157 16.6665 32.7561 16.6665 24.9993C16.6665 17.2426 19.6503 9.783 24.9998 4.16602M24.9998 45.8327C30.3494 40.2157 33.3332 32.7561 33.3332 24.9993C33.3332 17.2426 30.3494 9.783 24.9998 4.16602M4.1665 24.9993C4.1665 13.4934 13.4939 4.16602 24.9998 4.16602"
-                  stroke="#003B73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
-            <div data-text-type="Card Header" class="w-36 h-8 relative">
-              <div class="w-36 left-0 top-0 absolute text-center justify-start text-rs-primary-700 text-2xl font-bold">
-                BPO</div>
-            </div>
-            <div data-text-type="Card Description" class="w-36 h-8 relative">
-              <div class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal">
-                Free your team to deliver value</div>
-            </div>
+
+          <!-- Second Row -->
+          <div class="flex flex-col sm:flex-row gap-8">
+            <!-- Strategic HR Card -->
+            <article
+              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+              aria-labelledby="hr-title">
+              <div data-icon="file-user" class="size-12 relative overflow-hidden">
+                <img src="/assets/images/services/ft.1/hero-card-3.svg" alt="RPO Icon" width="48" height="48">
+              </div>
+              <header id="hr-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">
+                Strategic HR</header>
+              <p class="w-36 h-8 relative text-center text-cyan-900 text-lg font-normal">Align your people strategically
+              </p>
+            </article>
+
+            <!-- Quality Hire Card -->
+            <article
+              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+              aria-labelledby="quality-title">
+              <div data-icon="user-search" class="size-12 relative overflow-hidden">
+                <img src="/assets/images/services/ft.1/hero-card-4.svg" alt="RPO Icon" width="48" height="48">
+              </div>
+              <header id="quality-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">
+                Quality Hire</header>
+              <p class="w-36 h-8 relative text-center text-cyan-900 text-lg font-normal">Find leaders who drive impact
+              </p>
+            </article>
           </div>
-          <div
-            class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden">
-            <div data-icon="file-user" class="size-12 relative overflow-hidden">
-              <svg class="size-12" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M29.1666 4.16602V12.4993C29.1666 13.6044 29.6056 14.6642 30.387 15.4456C31.1684 16.227 32.2282 16.666 33.3333 16.666H41.6666M31.2499 37.4993C31.2499 35.8417 30.5914 34.252 29.4193 33.0799C28.2472 31.9078 26.6575 31.2493 24.9999 31.2493M24.9999 31.2493C23.3423 31.2493 21.7526 31.9078 20.5805 33.0799C19.4084 34.252 18.7499 35.8417 18.7499 37.4993M24.9999 31.2493C27.3011 31.2493 29.1666 29.3839 29.1666 27.0827C29.1666 24.7815 27.3011 22.916 24.9999 22.916C22.6987 22.916 20.8333 24.7815 20.8333 27.0827C20.8333 29.3839 22.6987 31.2493 24.9999 31.2493ZM31.2499 4.16602H12.4999C11.3948 4.16602 10.335 4.605 9.55364 5.3864C8.77224 6.16781 8.33325 7.22761 8.33325 8.33268V41.666C8.33325 42.7711 8.77224 43.8309 9.55364 44.6123C10.335 45.3937 11.3948 45.8327 12.4999 45.8327H37.4999C38.605 45.8327 39.6648 45.3937 40.4462 44.6123C41.2276 43.8309 41.6666 42.7711 41.6666 41.666V14.5827L31.2499 4.16602Z"
-                  stroke="#003B73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
-            <div data-text-type="Card Header" class="w-36 h-8 relative">
-              <div class="w-36 left-0 top-0 absolute text-center justify-start text-rs-primary-700 text-2xl font-bold">
-                Strategic HR</div>
-            </div>
-            <div data-text-type="Card Description" class="w-36 h-8 relative">
-              <div class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal">
-                Align your people strategically</div>
-            </div>
-          </div>
-          <div
-            class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden">
-            <div data-icon="user-search" class="size-12 relative overflow-hidden">
-              <svg class="size-12" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M21.4583 31.25H14.5833C12.3732 31.25 10.2536 32.128 8.69078 33.6908C7.12797 35.2536 6.25 37.3732 6.25 39.5833V43.75M43.75 43.75L39.7917 39.7917M29.1667 14.5833C29.1667 19.1857 25.4357 22.9167 20.8333 22.9167C16.231 22.9167 12.5 19.1857 12.5 14.5833C12.5 9.98096 16.231 6.25 20.8333 6.25C25.4357 6.25 29.1667 9.98096 29.1667 14.5833ZM41.6667 35.4167C41.6667 38.8684 38.8684 41.6667 35.4167 41.6667C31.9649 41.6667 29.1667 38.8684 29.1667 35.4167C29.1667 31.9649 31.9649 29.1667 35.4167 29.1667C38.8684 29.1667 41.6667 31.9649 41.6667 35.4167Z"
-                  stroke="#003B73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
-            <div data-text-type="Card Header" class="w-36 h-8 relative">
-              <div class="w-36 left-0 top-0 absolute text-center justify-start text-rs-primary-700 text-2xl font-bold">
-                Quality Hire</div>
-            </div>
-            <div data-text-type="Card Description" class="w-36 h-8 relative">
-              <div class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal">
-                Find leaders who drive impact</div>
-            </div>
-          </div>
-        </div>
+        </section>
+
+
       </div>
 
       <!-- Other Services Section -->
-      <section class="py-8 sm:py-12 px-4 max-w-4xl mx-auto">
+      <section class="my-8 sm:my-12 max-w-[816px] rounded-[6px] mx-auto border-rs-neutral-300 border-[1.25px]">
         <!-- RPO Program Detail Section -->
-        <div class="bg-white rounded-xl shadow-lg border border-rs-neutral-100 overflow-hidden">
+        <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
           <!-- Header -->
-          <div class="p-4 sm:p-6 border-b border-rs-neutral-100 cursor-pointer"
+          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 rounded-t-xl cursor-pointer"
             onclick="toggleExpandable('rpo-detail')">
             <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <div
-                  class="w-8 h-8 sm:w-10 sm:h-10 bg-rs-primary-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
-                  <img src="/assets/images/services/ft.1/accordion-Icon_1.svg" alt="RPO Icon" class="w-5 h-5">
-                </div>
-                <h3 class="text-lg sm:text-xl font-bold text-rs-neutral-900">RPO: Executive Recruitment Program
+              <div class="flex items-center gap-[6px]">
+                <img src="/assets/images/services/ft.1/accordion-Icon_1.svg" alt="RPO Icon" class="w-5 h-5">
+                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
+                    class="text-rs-primary-800 font-bold">RPO:</span> Executive
+                  Recruitment
+                  Program
                 </h3>
               </div>
-              <svg id="rpo-arrow" class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transform transition-transform rotate-90"
-                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
+              <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down"
+                class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
 
           <!-- Expandable Content -->
-          <div id="rpo-detail" class="expandable-content expanded">
+          <div id="rpo-detail" class="expandable-content bg-rs-neutral-50 border-rs-neutral-100 border-b-[1.25px]">
             <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-base">
+              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
                 Romega Solutions delivers a dedicated Recruitment-Process-Outsourcing program that identifies,
                 evaluates, and places senior artificial-intelligence and machine-learning leaders.
               </p>
 
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
                 <!-- Problem -->
-                <div class="problem-bg p-4 sm:p-6 rounded-lg border-l-4 border-red-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 9.75a3 3 0 11-6 0 3 3 0 016 0z">
-                      </path>
-                    </svg>
+                <div
+                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                  <div class="absolute top-0 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="RPO Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-red-800 text-sm sm:text-base mb-3">Your Problem</h4>
@@ -324,15 +299,10 @@
                 </div>
 
                 <!-- Solution -->
-                <div class="solution-bg p-4 sm:p-6 rounded-lg border-l-4 border-blue-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                      </path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
+                <div
+                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="RPO Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-blue-800 text-sm sm:text-base mb-3">Our Solution</h4>
@@ -346,13 +316,10 @@
                 </div>
 
                 <!-- Result -->
-                <div class="result-bg p-4 sm:p-6 rounded-lg border-l-4 border-green-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                      </path>
-                    </svg>
+                <div
+                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-2 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="RPO Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-green-800 text-sm sm:text-base mb-3">Result</h4>
@@ -367,43 +334,34 @@
             </div>
           </div>
         </div>
-        </div>
 
         <!-- BPO Service -->
-        <div class="bg-white rounded-lg shadow-md border border-rs-neutral-100 overflow-hidden">
-          <div class="p-4 sm:p-6 cursor-pointer" onclick="toggleExpandable('bpo-service')">
+        <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
+          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer"
+            onclick="toggleExpandable('bpo-detail')">
             <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <div
-                  class="w-8 h-8 sm:w-10 sm:h-10 bg-rs-primary-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
-                  <img src="/assets/images/services/ft.1/accordion-Icon_2.svg" alt="BPO Icon" class="w-5 h-5">
-                </div>
-                <h3 class="text-base sm:text-lg font-semibold text-rs-neutral-900">BPO: Scalable Support for
-                  Tech-Driven
-                  Teams</h3>
+              <div class="flex items-center gap-[6px]">
+                <img src="/assets/images/services/ft.1/accordion-Icon_2.svg" alt="BPO Icon" class="w-5 h-5">
+                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
+                    class="text-rs-primary-800 font-bold">BPO:</span> Scalable Support for Tech-Driven Teams
+                </h3>
               </div>
-              <svg id="bpo-arrow" class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transform transition-transform" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
+              <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="bpo-arrow"
+                class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
-          <div id="bpo-service" class="expandable-content">
-            <div class="px-4 sm:px-6 pb-4 sm:pb-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-base">
+          <div id="bpo-detail" class="expandable-content bg-rs-neutral-50 border-rs-neutral-100 border-b-[1.25px]">
+            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
                 Romega Solutions supplies business-process outsourcing teams that manage customer support and
                 back-office work for technology companies.
               </p>
-
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
                 <!-- Problem -->
-                <div class="problem-bg p-4 sm:p-6 rounded-lg border-l-4 border-red-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 9.75a3 3 0 11-6 0 3 3 0 016 0z">
-                      </path>
-                    </svg>
+                <div
+                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                  <div class="absolute top-0 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="BPO Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-red-800 text-sm sm:text-base mb-3">Your Problem</h4>
@@ -412,17 +370,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Solution -->
-                <div class="solution-bg p-4 sm:p-6 rounded-lg border-l-4 border-blue-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                      </path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
+                <div
+                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="BPO Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-blue-800 text-sm sm:text-base mb-3">Our Solution</h4>
@@ -431,15 +383,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Result -->
-                <div class="result-bg p-4 sm:p-6 rounded-lg border-l-4 border-green-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                      </path>
-                    </svg>
+                <div
+                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-2 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="BPO Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-green-800 text-sm sm:text-base mb-3">Result</h4>
@@ -454,42 +402,32 @@
         </div>
 
         <!-- Strategic HR Service -->
-        <div class="bg-white rounded-lg shadow-md border border-rs-neutral-100 overflow-hidden">
-          <div class="p-4 sm:p-6 cursor-pointer" onclick="toggleExpandable('hr-service')">
+        <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
+          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer" onclick="toggleExpandable('hr-detail')">
             <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <div
-                  class="w-8 h-8 sm:w-10 sm:h-10 bg-rs-primary-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
-                  <img src="/assets/images/services/ft.1/accordion-Icon_3.svg" alt="Strategic HR Icon" class="w-5 h-5">
-                </div>
-                <h3 class="text-base sm:text-lg font-semibold text-rs-neutral-900">Strategic HR Advisory:
-                  Leadership
-                  Growth
+              <div class="flex items-center gap-[6px]">
+                <img src="/assets/images/services/ft.1/accordion-Icon_3.svg" alt="Strategic HR Icon" class="w-5 h-5">
+                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
+                    class="text-rs-primary-800 font-bold">Strategic HR:</span> Leadership Growth
                 </h3>
               </div>
-              <svg id="hr-arrow" class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transform transition-transform" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
+              <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="hr-arrow"
+                class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
-          <div id="hr-service" class="expandable-content">
-            <div class="px-4 sm:px-6 pb-4 sm:pb-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-base">
+          <div id="hr-detail" class="expandable-content bg-rs-neutral-50 border-rs-neutral-100 border-b-[1.25px]">
+            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
                 Senior HR advisors align people strategy with business goals, covering org design, headcount
                 planning,
                 and culture programs.
               </p>
-
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
                 <!-- Problem -->
-                <div class="problem-bg p-4 sm:p-6 rounded-lg border-l-4 border-red-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 9.75a3 3 0 11-6 0 3 3 0 016 0z">
-                      </path>
-                    </svg>
+                <div
+                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                  <div class="absolute top-0 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="Strategic HR Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-red-800 text-sm sm:text-base mb-3">Your Problem</h4>
@@ -498,17 +436,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Solution -->
-                <div class="solution-bg p-4 sm:p-6 rounded-lg border-l-4 border-blue-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                      </path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
+                <div
+                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="Strategic HR Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-blue-800 text-sm sm:text-base mb-3">Our Solution</h4>
@@ -517,15 +449,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Result -->
-                <div class="result-bg p-4 sm:p-6 rounded-lg border-l-4 border-green-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                      </path>
-                    </svg>
+                <div
+                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-2 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="Strategic HR Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-green-800 text-sm sm:text-base mb-3">Result</h4>
@@ -540,40 +468,33 @@
         </div>
 
         <!-- Quality Hire Service -->
-        <div class="bg-white rounded-lg shadow-md border border-rs-neutral-100 overflow-hidden">
-          <div class="p-4 sm:p-6 cursor-pointer" onclick="toggleExpandable('quality-service')">
+        <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
+          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer"
+            onclick="toggleExpandable('quality-detail')">
             <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <div
-                  class="w-8 h-8 sm:w-10 sm:h-10 bg-rs-primary-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
-                  <img src="/assets/images/services/ft.1/accordion-Icon_4.svg" alt="Quality Hire Icon" class="w-5 h-5">
-                </div>
-                <h3 class="text-base sm:text-lg font-semibold text-rs-neutral-900">Quality Hire: Executive Search
+              <div class="flex items-center gap-[6px]">
+                <img src="/assets/images/services/ft.1/accordion-Icon_4.svg" alt="Quality Hire Icon" class="w-5 h-5">
+                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
+                    class="text-rs-primary-800 font-bold">Quality Hire:</span> Executive Search
                 </h3>
               </div>
-              <svg id="quality-arrow" class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transform transition-transform"
-                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
+              <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="quality-arrow"
+                class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
-          <div id="quality-service" class="expandable-content">
-            <div class="px-4 sm:px-6 pb-4 sm:pb-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-base">
+          <div id="quality-detail" class="expandable-content bg-rs-neutral-50 border-rs-neutral-100 border-b-[1.25px]">
+            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
                 Focused searches secure high-grade leaders in finance, ops, sales, and product through data checks
                 and
                 deep interviews.
               </p>
-
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
                 <!-- Problem -->
-                <div class="problem-bg p-4 sm:p-6 rounded-lg border-l-4 border-red-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 9.75a3 3 0 11-6 0 3 3 0 016 0z">
-                      </path>
-                    </svg>
+                <div
+                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                  <div class="absolute top-0 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="Quality Hire Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-red-800 text-sm sm:text-base mb-3">Your Problem</h4>
@@ -582,17 +503,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Solution -->
-                <div class="solution-bg p-4 sm:p-6 rounded-lg border-l-4 border-blue-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                      </path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
+                <div
+                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="Quality Hire Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-blue-800 text-sm sm:text-base mb-3">Our Solution</h4>
@@ -601,15 +516,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Result -->
-                <div class="result-bg p-4 sm:p-6 rounded-lg border-l-4 border-green-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                      </path>
-                    </svg>
+                <div
+                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-2 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="Quality Hire Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-green-800 text-sm sm:text-base mb-3">Result</h4>
@@ -625,38 +536,32 @@
         </div>
 
         <!-- Mentoring Service -->
-        <div class="bg-white rounded-lg shadow-md border border-rs-neutral-100 overflow-hidden">
-          <div class="p-4 sm:p-6 cursor-pointer" onclick="toggleExpandable('mentoring-service')">
+        <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
+          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer"
+            onclick="toggleExpandable('mentoring-detail')">
             <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <div
-                  class="w-8 h-8 sm:w-10 sm:h-10 bg-rs-primary-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
-                  <img src="/assets/images/services/ft.1/accordion-Icon_5.svg" alt="Mentoring Icon" class="w-5 h-5">
-                </div>
-                <h3 class="text-base sm:text-lg font-semibold text-rs-neutral-900">Mentoring: Leadership Growth
+              <div class="flex items-center gap-[6px]">
+                <img src="/assets/images/services/ft.1/accordion-Icon_5.svg" alt="Mentoring Icon" class="w-5 h-5">
+                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
+                    class="text-rs-primary-800 font-bold">Mentoring:</span> Leadership Growth
                 </h3>
               </div>
-              <svg id="mentoring-arrow" class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transform transition-transform"
-                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
+              <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="mentoring-arrow"
+                class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
-          <div id="mentoring-service" class="expandable-content">
-            <div class="px-4 sm:px-6 pb-4 sm:pb-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-base">
+          <div id="mentoring-detail"
+            class="expandable-content bg-rs-neutral-50 border-rs-neutral-100 border-b-[1.25px]">
+            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
                 Seasoned technology executives provide structured one-to-one coaching for newly promoted managers.
               </p>
-
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
                 <!-- Problem -->
-                <div class="problem-bg p-4 sm:p-6 rounded-lg border-l-4 border-red-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 9.75a3 3 0 11-6 0 3 3 0 016 0z">
-                      </path>
-                    </svg>
+                <div
+                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                  <div class="absolute top-0 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="Mentoring Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-red-800 text-sm sm:text-base mb-3">Your Problem</h4>
@@ -665,17 +570,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Solution -->
-                <div class="solution-bg p-4 sm:p-6 rounded-lg border-l-4 border-blue-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                      </path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
+                <div
+                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="Mentoring Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-blue-800 text-sm sm:text-base mb-3">Our Solution</h4>
@@ -685,15 +584,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Result -->
-                <div class="result-bg p-4 sm:p-6 rounded-lg border-l-4 border-green-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                      </path>
-                    </svg>
+                <div
+                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-2 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="Mentoring Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-green-800 text-sm sm:text-base mb-3">Result</h4>
@@ -708,40 +603,32 @@
         </div>
 
         <!-- Teaching Service -->
-        <div class="bg-white rounded-lg shadow-md border border-rs-neutral-100 overflow-hidden">
-          <div class="p-4 sm:p-6 cursor-pointer" onclick="toggleExpandable('teaching-service')">
+        <div class="bg-rs-primary-50 rounded-b-xl shadow-lg overflow-hidden">
+          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer"
+            onclick="toggleExpandable('teaching-detail')">
             <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <div
-                  class="w-8 h-8 sm:w-10 sm:h-10 bg-rs-primary-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4">
-                  <img src="/assets/images/services/ft.1/accordion-Icon_6.svg" alt="Teaching Icon" class="w-5 h-5">
-                </div>
-                <h3 class="text-base sm:text-lg font-semibold text-rs-neutral-900">Teaching: Upskill Your
-                  Organization
+              <div class="flex items-center gap-[6px]">
+                <img src="/assets/images/services/ft.1/accordion-Icon_6.svg" alt="Teaching Icon" class="w-5 h-5">
+                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
+                    class="text-rs-primary-800 font-bold">Teaching:</span> Upskill Your Organization
                 </h3>
               </div>
-              <svg id="teaching-arrow" class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 transform transition-transform"
-                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
+              <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="teaching-arrow"
+                class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
-          <div id="teaching-service" class="expandable-content">
-            <div class="px-4 sm:px-6 pb-4 sm:pb-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-base">
+          <div id="teaching-detail" class="expandable-content bg-rs-neutral-50">
+            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
                 Instructor-led AI and machine-learning workshops integrate your live codebase and data to ensure
                 practical learning.
               </p>
-
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
                 <!-- Problem -->
-                <div class="problem-bg p-4 sm:p-6 rounded-lg border-l-4 border-red-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 9.75a3 3 0 11-6 0 3 3 0 016 0z">
-                      </path>
-                    </svg>
+                <div
+                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                  <div class="absolute top-0 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="Teaching Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-red-800 text-sm sm:text-base mb-3">Your Problem</h4>
@@ -750,17 +637,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Solution -->
-                <div class="solution-bg p-4 sm:p-6 rounded-lg border-l-4 border-blue-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                      </path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
+                <div
+                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-10 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="Teaching Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-blue-800 text-sm sm:text-base mb-3">Our Solution</h4>
@@ -769,15 +650,11 @@
                     </p>
                   </div>
                 </div>
-
                 <!-- Result -->
-                <div class="result-bg p-4 sm:p-6 rounded-lg border-l-4 border-green-400 relative overflow-hidden">
-                  <div class="absolute top-2 right-2 opacity-20">
-                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                      </path>
-                    </svg>
+                <div
+                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                  <div class="absolute -top-2 -right-2 opacity-80">
+                    <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="Teaching Icon">
                   </div>
                   <div class="relative z-10">
                     <h4 class="font-semibold text-green-800 text-sm sm:text-base mb-3">Result</h4>
@@ -793,23 +670,25 @@
         </div>
         </div>
         </div>
-
-        <article>
-          <div class="max-w-[918px] pt-16 flex flex-col justify-start items-center gap-3 mx-auto">
-            <div class="justify-start text-rs-primary-700 text-4xl font-bold text-merriweather">Culture Fit-Diagnostic
-            </div>
-            <div class="text-center justify-start"><span class="text-rs-neutral-600 text-2xl font-medium">We
-              </span><span class="text-rs-primary-700 text-2xl font-bold">translate your culture</span><span
-                class="text-rs-neutral-600 text-2xl font-medium"> into measurable metrics, </span><span
-                class="text-rs-primary-600 text-2xl font-bold">assess every candidate</span><span
-                class="text-rs-neutral-600 text-2xl font-medium"> against them, and give you
-              </span><span class="text-rs-primary-600 text-2xl font-bold">clear data</span><span
-                class="text-rs-neutral-600 text-2xl font-medium"> to </span><span
-                class="text-rs-primary-700 text-2xl font-bold">hire the right leaders</span><span
-                class="text-rs-neutral-600 text-2xl font-medium"> quickly and confidently.</span></div>
-          </div>
-        </article>
       </section>
+
+      <article>
+        <div class="max-w-[918px] pb-16 flex flex-col justify-start items-center gap-3 mx-auto">
+          <div class="justify-start text-rs-primary-700 text-4xl font-bold text-merriweather mx-auto text-center">
+            Culture
+            Fit-Diagnostic
+          </div>
+          <div class="text-center justify-start"><span class="text-rs-neutral-600 text-2xl font-medium">We
+            </span><span class="text-rs-primary-700 text-2xl font-bold">translate your culture</span><span
+              class="text-rs-neutral-600 text-2xl font-medium"> into measurable metrics, </span><span
+              class="text-rs-primary-600 text-2xl font-bold">assess every candidate</span><span
+              class="text-rs-neutral-600 text-2xl font-medium"> against them, and give you
+            </span><span class="text-rs-primary-600 text-2xl font-bold">clear data</span><span
+              class="text-rs-neutral-600 text-2xl font-medium"> to </span><span
+              class="text-rs-primary-700 text-2xl font-bold">hire the right leaders</span><span
+              class="text-rs-neutral-600 text-2xl font-medium"> quickly and confidently.</span></div>
+        </div>
+      </article>
 
       <!-- Culture Fit Diagnostic Section -->
       <section
