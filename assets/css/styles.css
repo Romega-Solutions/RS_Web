@@ -62,7 +62,7 @@ textarea:focus {
   --rs-primary-200: #bae6fd; /* Lighter blue */
   --rs-primary-300: #7dd3fc; /* Light blue */
   --rs-primary-400: #38bdf8; /* Medium blue */
-  --rs-primary-500: #0ea5e9; /* Primary blue (main brand) */
+  --rs-primary-500: #0076e5; /* Primary blue (main brand) */
   --rs-primary-600: #0284c7; /* Darker blue */
   --rs-primary-700: #0369a1; /* Dark blue */
   --rs-primary-800: #075985; /* Very dark blue */
@@ -131,6 +131,13 @@ textarea:focus {
   color: var(--rs-neutral-800);
 }
 
+.text-rs-neutral-700 {
+  color: var(--rs-neutral-700);
+}
+.text-rs-neutral-900 {
+  color: var(--rs-neutral-900);
+}
+
 /* Text Colors */
 .text-rs-primary {
   color: var(--rs-primary-500);
@@ -160,6 +167,12 @@ textarea:focus {
 }
 .border-rs-neutral {
   border-color: var(--rs-neutral-300);
+}
+.border-rs-neutral-100 {
+  border-color: var(--rs-neutral-100);
+}
+.border-rs-neutral-200 {
+  border-color: var(--rs-neutral-200);
 }
 
 /* EXAMPLE COMPONENT STYLES USING THE COLOR SYSTEM */
