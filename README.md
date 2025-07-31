@@ -30,8 +30,6 @@ A cutting-edge, fully responsive website showcasing executive talent and market 
 ### **Design & Development Tools**
 
 - 🎨 **Custom Design System** - RS-branded color variables
-- 📐 **Component Architecture** - Reusable navbar/footer components
-- 🔄 **Dynamic Path Resolution** - Smart routing for multi-level pages
 - 📊 **Performance Optimized** - Minimal dependencies, fast loading
 
 ### **Key Libraries & Frameworks**
@@ -50,26 +48,26 @@ A cutting-edge, fully responsive website showcasing executive talent and market 
 ## 📁 Project Architecture
 
 ```
-🏗️ ROMEGA_WEBSITE/
-├── 🏠 index.html                    # Landing page with hero section
-├── 📄 pages/                        # Application pages
-│   ├── about.html                   # Company information
-│   ├── services.html                # Service offerings
-│   ├── careers.html                 # Career opportunities
-│   ├── resources.html               # Resources & insights
-│   └── contact.html                 # Contact & location info
-├── 🧩 components/                   # Reusable components
-│   ├── navbar-unified.html          # Responsive navigation
-│   └── footer.html                  # Site footer
-├── 🎨 assets/                       # Static resources
+ROMega_WEBSITE/
+├── index.html
+├── pages/
+│   ├── about.html
+│   ├── services.html
+│   ├── careers.html
+│   ├── resources.html
+│   └── contact.html
+├── components/
+│   ├── navbar-unified.html
+│   └── footer.html
+├── assets/
 │   ├── css/
-│   │   └── styles.css               # Custom CSS & design system
+│   │   └── styles.css
 │   ├── js/
-│   │   └── main.js                  # Component loading & interactions
-│   └── images/                      # Brand assets & graphics
-│       ├── homepage/                # Hero section images
-│       └── logo/                    # Brand logos
-└── 📋 README.md                     # Project documentation
+│   │   └── main.js
+│   └── images/
+│       ├── homepage/
+│       └── logo/
+└── README.md
 ```
 
 ---
@@ -104,12 +102,6 @@ open index.html
 ---
 
 ## 💡 Key Features & Innovations
-
-### **🔧 Advanced Component System**
-
-- **Dynamic Component Loading**: JavaScript-powered component injection
-- **Smart Path Resolution**: Automatic path detection for nested pages
-- **Unified Navigation**: Single navbar component across all pages
 
 ### **🎨 Professional Design System**
 
@@ -170,10 +162,13 @@ npm run build
 ## 👨‍💻 Developers
 
 **Ken Patrick Garcia**  
-\_Full-Stack Developer
+_Full-Stack Developer_
 
-**Jem Laguada**
-\_Senior Web Developer
+**Jem Laguada**  
+_Senior Web Developer_
+
+**Mark Siazon**  
+_Front-End Developer_
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/kenpatrickgarcia)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/KpG782)
@@ -220,5 +215,3 @@ We welcome contributions! Please feel free to submit a Pull Request.
 **⭐ Star this repository if you found it helpful!**
 
 Made with ❤️ by [Ken Patrick Garcia](https://github.com/kenpatrickgarcia) for [Romega Solutions](https://romegasolutions.com)
-
-</div>
