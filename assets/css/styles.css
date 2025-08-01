@@ -318,6 +318,18 @@ textarea:focus {
   }
 }
 
+.text-merriweather {
+  font-family: "Merriweather", serif;
+}
+.text-merriweather-careers {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+}
+
+.text-source-sans {
+  font-family: "Source Sans 3", sans-serif;
+}
+
 /* Merriweather Text Presets */
 .text-merriweather-h1 {
   font-family: "Merriweather", serif;
@@ -325,9 +337,6 @@ textarea:focus {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.025em;
-}
-.text-merriweather {
-  font-family: "Merriweather", serif;
 }
 
 .text-merriweather-h2 {
@@ -445,6 +454,16 @@ textarea:focus {
 .text-rs-linked-neutral {
   color: var(--rs-neutral-600);
   font-weight: 400;
+}
+
+.text-footer-neutral {
+  color: var(--rs-neutral-600);
+  font-family: "Source Sans 3", sans-serif;
+}
+.text-career-neutral {
+  color: var(--rs-primary-600);
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 500;
 }
 
 /* ✅ Primary Blue (--rs-primary-*) */
