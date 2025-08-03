@@ -1,5 +1,7 @@
 /* Custom styles for Romega Solutions website */
-
+* {
+  box-sizing: border-box;
+}
 /* Additional custom styles can be added here */
 .mobile-menu {
   transition: all 0.3s ease-in-out;
@@ -170,6 +172,10 @@ textarea:focus {
   color: var(--rs-neutral-800);
 }
 
+.hover {
+  color: var(--rs-primary-600);
+}
+
 /* Border Colors */
 .border-rs-primary {
   border-color: var(--rs-primary-500);
@@ -242,25 +248,15 @@ textarea:focus {
 /* Navigation Bar Styles */
 .navbar-custom {
   /* Layout */
-  display: flex;
-  width: auto;
-  height: auto;
-  white-space: nowrap;
-  padding: 0.5rem 1rem; /* Add horizontal padding for spacing between links */
+  align-items: center;
+
+  /* Add horizontal padding for spacing between links */
 
   /* Typography */
   font-family: "Source Sans 3", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.2;
-  letter-spacing: 0%;
-
-  /* Appearance */
-  opacity: 100%;
-  border-radius: 0px;
 
   /* Fill */
-  color: #6b7280;
+  color: hsla(216, 17%, 50%, 1);
 }
 
 /* Book a Call Button Styles */
