@@ -318,6 +318,22 @@ textarea:focus {
   }
 }
 
+.flash {
+  animation: flash 0.3s ease-in-out;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .text-merriweather {
   font-family: "Merriweather", serif;
 }
@@ -765,4 +781,8 @@ textarea:focus {
 
 .border-rs-grey-400 {
   border-color: var(--rs-neutral-grey-400);
+}
+
+.outline-rs-neutral-400 {
+  outline-color: var(--rs-neutral-400);
 }
