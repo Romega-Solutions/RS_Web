@@ -20,118 +20,218 @@
 
 <body class="bg-gray-50 font-sans">
   <!-- Navigation Container -->
-  <nav id="navbar-container" role="navigation" aria-label="Main navigation"
-    class="bg-rs-primary-50 shadow-sm border-b-2 border-neutral-400 w-full fixed top-0 z-50">
-    <div class="max-w-[1920px] mx-auto">
-      <div class="flex justify-between items-center bg-rs-primary-50 px-4 md:px-8 lg:px-[89.5px]" style="height: 84px">
+  <nav id="navbar-container" role="navigation" aria-label="Main navigation" class="
+      fixed top-0 z-50 w-full
+      bg-rs-primary-50
+      border-b-2 border-neutral-400
+      shadow-sm
+    ">
+    <div class="mx-auto max-w-[1920px]">
+      <div class="
+        flex items-center justify-between
+        h-[84px]
+        bg-rs-primary-50
+        px-4 md:px-8 lg:px-[89.5px]
+      ">
         <!-- Logo -->
         <div class="flex items-center flex-shrink-0">
           <a href="index.html" class="flex items-center" id="logo-link">
             <img src="../assets/images/navbar-company-logo.svg" alt="Romega Solutions Logo"
-              class="max-h-14 sm:max-h-16 w-auto">
+              class="w-auto max-h-14 sm:max-h-16">
           </a>
         </div>
 
         <!-- Desktop Navigation Links - Centered -->
-        <div class="hidden lg:flex items-center justify-center flex-1 mx-4 xl:mx-8">
+        <div class="
+          hidden mx-4 flex-1
+          lg:flex lg:items-center lg:justify-center
+          xl:mx-8
+        ">
           <div class="flex items-center space-x-4">
-            <a href="index.html"
-              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
-              id="nav-home">
+            <a href="index.html" id="nav-home" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
               Home
             </a>
-            <a href="about.html"
-              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
-              id="nav-about">
+            <a href="about.html" id="nav-about" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
               About
             </a>
-            <a href="services.html"
-              class="navbar-custom text-rs-accent-500 underline hover:text-rs-accent-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
-              id="nav-services">
+            <a href="services.html" id="nav-services" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                text-rs-accent-500 underline
+                transition duration-300
+                hover:text-rs-accent-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
               Services
             </a>
-            <a href="careers.html"
-              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
-              id="nav-careers">
+            <a href="careers.html" id="nav-careers" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
               Careers & Talent
             </a>
-            <a href="resources.html"
-              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
-              id="nav-resources">
+            <a href="resources.html" id="nav-resources" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
               Resources
             </a>
-            <a href="contact.html"
-              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
-              id="nav-contact">
+            <a href="contact.html" id="nav-contact" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
               Contact
             </a>
           </div>
         </div>
 
         <!-- Book a Call Button -->
-        <a href="#" class="
-          hidden lg:inline-flex
-          items-center justify-center align-middle
-          px-[10px] lg:px-[28px] border-[1.5px] border-rs-primary-600 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)]
-          h-[46px] lg:min-w-[172px]
-          text-[18px] font-medium
-          rounded-xl text-rs-primary-100
-          bg-rs-primary-500 hover:bg-rs-primary-700
-          transition duration-300
-          " id="nav-cta">
+        <a href="#" id="nav-cta" class="
+            hidden
+            h-[46px]
+            items-center justify-center align-middle
+            rounded-xl
+            border-[1.5px] border-rs-primary-600
+            bg-rs-primary-500
+            px-[10px]
+            text-[18px] font-medium
+            text-rs-primary-100
+            shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)]
+            transition duration-300
+            hover:bg-rs-primary-700
+            lg:inline-flex lg:min-w-[172px] lg:px-[28px]
+          ">
           <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="mr-1 w-[22px]">
           Book a Call
         </a>
 
         <!-- Mobile menu button -->
         <div class="lg:hidden">
-          <button class="mobile-menu-button p-2 rounded-md hover:bg-rs-neutral-200 transition duration-300"
-            aria-label="Open mobile menu" aria-expanded="false">
+          <button class="
+              mobile-menu-button
+              rounded-md p-2
+              transition duration-300
+              hover:bg-rs-neutral-200
+            " aria-label="Open mobile menu" aria-expanded="false">
             <img src="../assets/images/icon-menu.svg" alt="Menu icon" class="w-[22px]">
           </button>
         </div>
       </div>
     </div>
 
-
     <!-- Mobile Menu -->
-    <div class="hidden mobile-menu lg:hidden">
-      <div class="px-4 py-3 space-y-2 bg-rs-primary-50 border-t border-gray-200">
-        <a href="index.html"
-          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
-          id="mobile-nav-home">
+    <div class="mobile-menu hidden lg:hidden">
+      <div class="
+        space-y-2
+        border-t border-gray-200
+        bg-rs-primary-50
+        px-4 py-3
+      ">
+        <a href="index.html" id="mobile-nav-home" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
           Home
         </a>
-        <a href="about.html"
-          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
-          id="mobile-nav-about">
+        <a href="about.html" id="mobile-nav-about" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
           About
         </a>
-        <a href="services.html"
-          class="block px-4 py-2.5 text-[1rem] text-rs-accent-500 underline font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
-          id="mobile-nav-services">
+        <a href="services.html" id="mobile-nav-services" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-accent-500 underline
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
           Services
         </a>
-        <a href="careers.html"
-          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
-          id="mobile-nav-careers">
+        <a href="careers.html" id="mobile-nav-careers" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
           Careers & Talent
         </a>
-        <a href="resources.html"
-          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
-          id="mobile-nav-resources">
+        <a href="resources.html" id="mobile-nav-resources" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
           Resources
         </a>
-        <a href="contact.html"
-          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
-          id="mobile-nav-contact">
+        <a href="contact.html" id="mobile-nav-contact" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
           Contact
         </a>
         <!-- Mobile CTA Button -->
-        <a href="contact.html"
-          class="flex items-center justify-center mx-0 mt-4 px-4 py-3 bg-rs-primary-500 text-white text-[1rem] font-medium rounded-lg hover:bg-rs-primary-700 transition duration-300"
-          id="mobile-nav-cta" role="button" aria-label="Book a call with Romega Solutions">
-          <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="w-[22px] mr-2"
+        <a href="contact.html" id="mobile-nav-cta" class="
+            mt-4 mx-0
+            flex items-center justify-center
+            rounded-lg
+            bg-rs-primary-500
+            px-4 py-3
+            text-[1rem] font-medium text-white
+            transition duration-300
+            hover:bg-rs-primary-700
+          " role="button" aria-label="Book a call with Romega Solutions">
+          <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="mr-2 w-[22px]"
             id="mobile-nav-cta-icon" />
           Book a Call
         </a>
@@ -174,33 +274,78 @@
           <!-- First Row -->
           <div class="flex flex-col sm:flex-row gap-8">
             <!-- RPO Card -->
-            <article
-              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
-              aria-labelledby="rpo-title">
-              <div data-icon="cog" class="size-12 relative overflow-hidden" role="img" aria-label="Cog icon for RPO">
+            <article class="
+                flex flex-col items-center justify-start
+                w-44 min-w-44 min-h-52
+                gap-2.5
+                px-4 py-7
+                bg-rs-primary-50
+                rounded-md
+                outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400
+                overflow-hidden
+              " aria-labelledby="rpo-title">
+              <div data-icon="cog" class="
+                  relative
+                  size-12
+                  overflow-hidden
+                " role="img" aria-label="Cog icon for RPO">
                 <img src="/assets/images/services/ft.1/hero-card-1.svg" alt="Illustration of a cog" width="48"
                   height="48">
               </div>
-              <header id="rpo-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">RPO
+              <header id="rpo-title" class="
+                  relative
+                  w-36 h-8
+                  text-center text-2xl font-bold
+                  text-rs-primary-700
+                ">
+                RPO
               </header>
-              <p class="w-36 lg:w-[130px] h-8 relative text-center text-cyan-900 text-lg font-normal">On-demand hiring
-                at
-                scale</p>
+              <p class="
+                relative
+                w-36 h-8
+                text-center text-lg font-normal
+                text-cyan-900
+                lg:w-[130px]
+              ">
+                On-demand hiring at scale
+              </p>
             </article>
 
             <!-- BPO Card -->
-            <article
-              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
-              aria-labelledby="bpo-title">
-              <div data-icon="globe" class="size-12 relative overflow-hidden" role="img"
-                aria-label="Globe icon for BPO">
+            <article class="
+                flex flex-col items-center justify-start
+                w-44 min-w-44 min-h-52
+                gap-2.5
+                px-4 py-7
+                bg-rs-primary-50
+                rounded-md
+                outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400
+                overflow-hidden
+              " aria-labelledby="bpo-title">
+              <div data-icon="globe" class="
+                  relative
+                  size-12
+                  overflow-hidden
+                " role="img" aria-label="Globe icon for BPO">
                 <img src="/assets/images/services/ft.1/hero-card-2.svg" alt="Illustration of a globe" width="48"
                   height="48">
               </div>
-              <header id="bpo-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">BPO
+              <header id="bpo-title" class="
+                  relative
+                  w-36 h-8
+                  text-center text-2xl font-bold
+                  text-rs-primary-700
+                ">
+                BPO
               </header>
-              <p class="w-36 lg:w-[130px] h-8 relative text-center text-cyan-900 text-lg font-normal">Free your team to
-                deliver value
+              <p class="
+                relative
+                w-36 h-8
+                text-center text-lg font-normal
+                text-cyan-900
+                lg:w-[130px]
+              ">
+                Free your team to deliver value
               </p>
             </article>
           </div>
@@ -247,17 +392,28 @@
       <section class="my-8 sm:my-12 max-w-[816px] rounded-[6px] mx-auto border-rs-neutral-300 border-[1.25px]">
         <!-- Displays a grid of services with expandable details -->
         <!-- RPO Program Detail Section -->
-        <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
+        <div class="
+          overflow-hidden
+          bg-rs-primary-50
+          shadow-lg
+        ">
           <!-- Header -->
-          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 rounded-t-xl cursor-pointer"
-            onclick="toggleExpandable('rpo-detail')">
+          <div class="
+              cursor-pointer
+              border-b border-rs-neutral-400
+              rounded-t-xl
+              p-4 sm:p-6
+            " onclick="toggleExpandable('rpo-detail')">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/ft.1/accordion-Icon_1.svg" alt="RPO Icon" class="w-5 h-5">
-                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
-                    class="text-rs-primary-800 font-bold">RPO:</span> Executive
-                  Recruitment
-                  Program
+                <h3 class="
+                  text-lg font-semibold
+                  text-rs-neutral-700
+                  sm:text-[22px]
+                ">
+                  <span class="text-rs-primary-800 font-bold">RPO:</span>
+                  Executive Recruitment Program
                 </h3>
               </div>
               <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="rpo-arrow"
@@ -266,23 +422,58 @@
           </div>
 
           <!-- Expandable Content -->
-          <div id="rpo-detail" class="expandable-content bg-rs-neutral-50 border-rs-neutral-100 border-b-[1.25px]">
-            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
+          <div id="rpo-detail" class="
+              expandable-content
+              border-b-[1.25px] border-rs-neutral-100
+              bg-rs-neutral-50
+            ">
+            <div class="
+              space-y-4
+              p-4
+              sm:space-y-6 sm:p-6
+            ">
+              <p class="
+                text-sm leading-relaxed
+                text-rs-neutral-700
+                sm:text-lg
+              ">
                 Romega Solutions delivers a dedicated Recruitment-Process-Outsourcing program that identifies,
                 evaluates, and places senior artificial-intelligence and machine-learning leaders.
               </p>
 
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
+              <div class="
+                grid grid-cols-1 gap-4
+                max-w-[784px]
+                md:grid-cols-3
+                sm:gap-0
+              ">
                 <!-- Problem -->
-                <div
-                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  problem-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-red-600
+                  p-4
+                  sm:rounded-none sm:rounded-tl-lg sm:p-6
+                ">
                   <div class="absolute top-0 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="RPO Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-red-900 text-sm sm:text-base mb-3">Your Problem:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-red-900
+                      sm:text-base
+                    ">
+                      Your Problem:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
                       Vacant executive AI roles
                       <span class="font-semibold text-red-800">delay product timelines</span> and erode competitive
                       advantage.
@@ -291,32 +482,67 @@
                 </div>
 
                 <!-- Solution -->
-                <div
-                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  solution-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-blue-600
+                  p-4
+                  sm:rounded-none sm:p-6
+                ">
                   <div class="absolute -top-2 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="RPO Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-blue-900 text-sm sm:text-base mb-3">Our Solution:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-blue-900
+                      sm:text-base
+                    ">
+                      Our Solution:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
                       Our RPO team
                       <span class="font-semibold text-blue-800">maps the global AI talent market</span>, applies a
-                      culture-fit
-                      diagnostic, and
+                      culture-fit diagnostic, and
                       <span class="font-semibold text-blue-800">presents an evaluated shortlist</span> within a week.
                     </p>
                   </div>
                 </div>
 
                 <!-- Result -->
-                <div
-                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  result-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-green-600
+                  p-4
+                  sm:rounded-none sm:rounded-tr-lg sm:p-6
+                ">
                   <div class="absolute -top-2 -right-2 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="RPO Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-green-900 text-sm sm:text-base mb-3">Result:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-green-900
+                      sm:text-base
+                    ">
+                      Result:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
                       Critical positions are filled in
                       <span class="font-semibold text-green-800">roughly 2 weeks</span>, with a
                       <span class="font-semibold text-green-800">12-months retention rate above 95%</span>.
@@ -329,50 +555,116 @@
         </div>
 
         <!-- BPO Service -->
-        <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
-          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer"
-            onclick="toggleExpandable('bpo-detail')">
+        <div class="
+          overflow-hidden
+          bg-rs-primary-50
+          shadow-lg
+        ">
+          <div class="
+              cursor-pointer
+              border-b border-rs-neutral-400
+              p-4
+              sm:p-6
+            " onclick="toggleExpandable('bpo-detail')">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/ft.1/accordion-Icon_2.svg" alt="BPO Icon" class="w-5 h-5">
-                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
-                    class="text-rs-primary-800 font-bold">BPO:</span> Scalable Support for Tech-Driven Teams
+                <h3 class="
+                  text-lg font-semibold
+                  text-rs-neutral-700
+                  sm:text-[22px]
+                ">
+                  <span class="text-rs-primary-800 font-bold">BPO:</span>
+                  Scalable Support for Tech-Driven Teams
                 </h3>
               </div>
               <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="bpo-arrow"
                 class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
-          <div id="bpo-detail" class="expandable-content bg-rs-neutral-50 border-rs-neutral-100 border-b-[1.25px]">
-            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
+          <div id="bpo-detail" class="
+              expandable-content
+              border-b-[1.25px] border-rs-neutral-100
+              bg-rs-neutral-50
+            ">
+            <div class="
+              space-y-4
+              p-4
+              sm:space-y-6 sm:p-6
+            ">
+              <p class="
+                text-sm leading-relaxed
+                text-rs-neutral-700
+                sm:text-lg
+              ">
                 Romega Solutions supplies business-process outsourcing teams that manage customer support and
                 back-office work for technology companies.
               </p>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
+              <div class="
+                grid grid-cols-1 gap-4
+                max-w-[784px]
+                md:grid-cols-3
+                sm:gap-0
+              ">
                 <!-- Problem -->
-                <div
-                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  problem-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-red-600
+                  p-4
+                  sm:rounded-none sm:rounded-tl-lg sm:p-6
+                ">
                   <div class="absolute top-0 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="BPO Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-red-900 text-sm sm:text-base mb-3">Your Problem:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
-                      Internal staff spend excessive time on non-core operations, <span
-                        class="font-semibold text-red-800">driving up fixed costs</span>.
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-red-900
+                      sm:text-base
+                    ">
+                      Your Problem:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
+                      Internal staff spend excessive time on non-core operations,
+                      <span class="font-semibold text-red-800">driving up fixed costs</span>.
                     </p>
                   </div>
                 </div>
                 <!-- Solution -->
-                <div
-                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  solution-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-blue-600
+                  p-4
+                  sm:rounded-none sm:p-6
+                ">
                   <div class="absolute -top-2 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="BPO Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-blue-900 text-sm sm:text-base mb-3">Our Solution:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-blue-900
+                      sm:text-base
+                    ">
+                      Our Solution:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
                       <span class="font-semibold text-blue-800">Flexible BPO</span> teams operate around the clock on
                       your systems and <span class="font-semibold text-blue-800">follow ISO quality controls</span>.
                     </p>
@@ -468,69 +760,152 @@
         </div>
 
         <!-- Quality Hire Service -->
-        <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
-          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer"
-            onclick="toggleExpandable('quality-detail')">
+        <div class="
+          overflow-hidden
+          bg-rs-primary-50
+          shadow-lg
+        ">
+          <div class="
+              cursor-pointer
+              border-b border-rs-neutral-400
+              p-4
+              sm:p-6
+            " onclick="toggleExpandable('quality-detail')">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/ft.1/accordion-Icon_4.svg" alt="Quality Hire Icon" class="w-5 h-5">
-                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
-                    class="text-rs-primary-800 font-bold">Quality Hire:</span> Executive Search
+                <h3 class="
+                  text-lg font-semibold
+                  text-rs-neutral-700
+                  sm:text-[22px]
+                ">
+                  <span class="text-rs-primary-800 font-bold">Quality Hire:</span>
+                  Executive Search
                 </h3>
               </div>
               <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="quality-arrow"
                 class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
-          <div id="quality-detail" class="expandable-content bg-rs-neutral-50 border-rs-neutral-100 border-b-[1.25px]">
-            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
+          <div id="quality-detail" class="
+              expandable-content
+              border-b-[1.25px] border-rs-neutral-100
+              bg-rs-neutral-50
+            ">
+            <div class="
+              space-y-4
+              p-4
+              sm:space-y-6 sm:p-6
+            ">
+              <p class="
+                text-sm leading-relaxed
+                text-rs-neutral-700
+                sm:text-lg
+              ">
                 Focused searches secure high-grade leaders in finance, ops, sales, and product through data checks
-                and
-                deep interviews.
+                and deep interviews.
               </p>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
+              <div class="
+                grid grid-cols-1 gap-4
+                max-w-[784px]
+                md:grid-cols-3
+                sm:gap-0
+              ">
                 <!-- Problem -->
-                <div
-                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  problem-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-red-600
+                  p-4
+                  sm:rounded-none sm:rounded-tl-lg sm:p-6
+                ">
                   <div class="absolute top-0 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="Quality Hire Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-red-900 text-sm sm:text-base mb-3">Your Problem:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-red-900
+                      sm:text-base
+                    ">
+                      Your Problem:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
                       Traditional searches <span class="font-semibold text-red-800">take months</span> and often yield
                       misaligned leaders.
                     </p>
                   </div>
                 </div>
                 <!-- Solution -->
-                <div
-                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  solution-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-blue-600
+                  p-4
+                  sm:rounded-none sm:p-6
+                ">
                   <div class="absolute -top-2 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="Quality Hire Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-blue-900 text-sm sm:text-base mb-3">Our Solution:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
-                      <span class="font-semibold text-blue-800">We use data analytics</span> and <span
-                        class="font-semibold text-blue-800">structured interviews</span>
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-blue-900
+                      sm:text-base
+                    ">
+                      Our Solution:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
+                      <span class="font-semibold text-blue-800">We use data analytics</span> and
+                      <span class="font-semibold text-blue-800">structured interviews</span>
                       to find who fit culture and goals.
                     </p>
                   </div>
                 </div>
                 <!-- Result -->
-                <div
-                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  result-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-green-600
+                  p-4
+                  sm:rounded-none sm:rounded-tr-lg sm:p-6
+                ">
                   <div class="absolute -top-2 -right-2 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="Quality Hire Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-green-900 text-sm sm:text-base mb-3">Result:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-green-900
+                      sm:text-base
+                    ">
+                      Result:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
                       Positions fill in about 4 weeks. New leaders
-                      <span class="font-semibold text-green-800">reach full productivity faster</span> and gain <span
-                        class="font-semibold text-green-800">higher trust of stakeholders</span>.
+                      <span class="font-semibold text-green-800">reach full productivity faster</span> and gain
+                      <span class="font-semibold text-green-800">higher trust of stakeholders</span>.
                     </p>
                   </div>
                 </div>
@@ -540,65 +915,148 @@
         </div>
 
         <!-- Mentoring Service -->
-        <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
-          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer"
-            onclick="toggleExpandable('mentoring-detail')">
+        <div class="
+          overflow-hidden
+          bg-rs-primary-50
+          shadow-lg
+        ">
+          <div class="
+              cursor-pointer
+              border-b border-rs-neutral-400
+              p-4
+              sm:p-6
+            " onclick="toggleExpandable('mentoring-detail')">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/ft.1/accordion-Icon_5.svg" alt="Mentoring Icon" class="w-5 h-5">
-                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
-                    class="text-rs-primary-800 font-bold">Mentoring:</span> Leadership Growth
+                <h3 class="
+                  text-lg font-semibold
+                  text-rs-neutral-700
+                  sm:text-[22px]
+                ">
+                  <span class="text-rs-primary-800 font-bold">Mentoring:</span>
+                  Leadership Growth
                 </h3>
               </div>
               <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="mentoring-arrow"
                 class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
-          <div id="mentoring-detail"
-            class="expandable-content bg-rs-neutral-50 border-rs-neutral-100 border-b-[1.25px]">
-            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
+          <div id="mentoring-detail" class="
+              expandable-content
+              border-b-[1.25px] border-rs-neutral-100
+              bg-rs-neutral-50
+            ">
+            <div class="
+              space-y-4
+              p-4
+              sm:space-y-6 sm:p-6
+            ">
+              <p class="
+                text-sm leading-relaxed
+                text-rs-neutral-700
+                sm:text-lg
+              ">
                 Seasoned technology executives provide structured one-to-one coaching for newly promoted managers.
               </p>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
+              <div class="
+                grid grid-cols-1 gap-4
+                max-w-[784px]
+                md:grid-cols-3
+                sm:gap-0
+              ">
                 <!-- Problem -->
-                <div
-                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  problem-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-red-600
+                  p-4
+                  sm:rounded-none sm:rounded-tl-lg sm:p-6
+                ">
                   <div class="absolute top-0 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="Mentoring Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-red-900 text-sm sm:text-base mb-3">Your Problem:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
-                      New managers struggle with strategy and people issues, <span
-                        class="font-semibold text-red-800">missing early KPIs</span>.
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-red-900
+                      sm:text-base
+                    ">
+                      Your Problem:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
+                      New managers struggle with strategy and people issues,
+                      <span class="font-semibold text-red-800">missing early KPIs</span>.
                     </p>
                   </div>
                 </div>
                 <!-- Solution -->
-                <div
-                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  solution-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-blue-600
+                  p-4
+                  sm:rounded-none sm:p-6
+                ">
                   <div class="absolute -top-2 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="Mentoring Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-blue-900 text-sm sm:text-base mb-3">Our Solution:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
-                      Veteran executives run <span class="font-semibold text-blue-800">monthly 1-on-1 coaching
-                        sessions</span>, share playbooks, and track
-                      progress.
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-blue-900
+                      sm:text-base
+                    ">
+                      Our Solution:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
+                      Veteran executives run
+                      <span class="font-semibold text-blue-800">monthly 1-on-1 coaching sessions</span>,
+                      share playbooks, and track progress.
                     </p>
                   </div>
                 </div>
                 <!-- Result -->
-                <div
-                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  result-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-green-600
+                  p-4
+                  sm:rounded-none sm:rounded-tr-lg sm:p-6
+                ">
                   <div class="absolute -top-2 -right-2 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="Mentoring Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-green-900 text-sm sm:text-base mb-3">Result:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-green-900
+                      sm:text-base
+                    ">
+                      Result:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
                       Leaders <span class="font-semibold text-green-800">hit targets twice as fast.</span> Team
                       turnover drops within the first quarter.
                     </p>
@@ -610,64 +1068,148 @@
         </div>
 
         <!-- Teaching Service -->
-        <div class="bg-rs-primary-50 rounded-b-xl shadow-lg overflow-hidden">
-          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer"
-            onclick="toggleExpandable('teaching-detail')">
+        <div class="
+          overflow-hidden
+          bg-rs-primary-50
+          rounded-b-xl
+          shadow-lg
+        ">
+          <div class="
+              cursor-pointer
+              border-b border-rs-neutral-400
+              p-4
+              sm:p-6
+            " onclick="toggleExpandable('teaching-detail')">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/ft.1/accordion-Icon_6.svg" alt="Teaching Icon" class="w-5 h-5">
-                <h3 class="text-lg sm:text-[22px] font-semibold text-rs-neutral-700"><span
-                    class="text-rs-primary-800 font-bold">Teaching:</span> Upskill Your Organization
+                <h3 class="
+                  text-lg font-semibold
+                  text-rs-neutral-700
+                  sm:text-[22px]
+                ">
+                  <span class="text-rs-primary-800 font-bold">Teaching:</span>
+                  Upskill Your Organization
                 </h3>
               </div>
               <img src="/assets/images/services/accordion-arrow-Icon.svg" alt="Arrow Down" id="teaching-arrow"
                 class="w-4 h-4 sm:w-5 sm:h-5">
             </div>
           </div>
-          <div id="teaching-detail" class="expandable-content bg-rs-neutral-50">
-            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
-              <p class="text-rs-neutral-700 leading-relaxed text-sm sm:text-lg">
+          <div id="teaching-detail" class="
+              expandable-content
+              bg-rs-neutral-50
+            ">
+            <div class="
+              space-y-4
+              p-4
+              sm:space-y-6 sm:p-6
+            ">
+              <p class="
+                text-sm leading-relaxed
+                text-rs-neutral-700
+                sm:text-lg
+              ">
                 Instructor-led AI and machine-learning workshops integrate your live codebase and data to ensure
                 practical learning.
               </p>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-0 max-w-[784px]">
+              <div class="
+                grid grid-cols-1 gap-4
+                max-w-[784px]
+                md:grid-cols-3
+                sm:gap-0
+              ">
                 <!-- Problem -->
-                <div
-                  class="problem-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tl-lg border-t-4 border-red-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  problem-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-red-600
+                  p-4
+                  sm:rounded-none sm:rounded-tl-lg sm:p-6
+                ">
                   <div class="absolute top-0 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-1.svg" alt="Teaching Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-red-900 text-sm sm:text-base mb-3">Your Problem:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
-                      Standard online courses feel abstract and <span class="font-semibold text-red-800">skills rarely
-                        reach production</span>.
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-red-900
+                      sm:text-base
+                    ">
+                      Your Problem:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
+                      Standard online courses feel abstract and
+                      <span class="font-semibold text-red-800">skills rarely reach production</span>.
                     </p>
                   </div>
                 </div>
                 <!-- Solution -->
-                <div
-                  class="solution-bg p-4 sm:p-6 rounded-lg sm:rounded-none border-t-4 border-blue-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  solution-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-blue-600
+                  p-4
+                  sm:rounded-none sm:p-6
+                ">
                   <div class="absolute -top-2 -right-10 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-2.svg" alt="Teaching Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-blue-900 text-sm sm:text-base mb-3">Our Solution:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-blue-900
+                      sm:text-base
+                    ">
+                      Our Solution:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
                       <span class="font-semibold text-blue-800">Live AI and ML workshops</span> use your real code and
                       data, plus 30 days of follow-up support.
                     </p>
                   </div>
                 </div>
                 <!-- Result -->
-                <div
-                  class="result-bg p-4 sm:p-6 rounded-lg sm:rounded-none sm:rounded-tr-lg border-t-4 border-green-600 relative overflow-hidden">
+                <div class="
+                  relative
+                  result-bg
+                  overflow-hidden
+                  rounded-lg
+                  border-t-4 border-green-600
+                  p-4
+                  sm:rounded-none sm:rounded-tr-lg sm:p-6
+                ">
                   <div class="absolute -top-2 -right-2 opacity-80">
                     <img src="/assets/images/services/ft.1/accordion-bg-3.svg" alt="Teaching Icon">
                   </div>
                   <div class="relative z-10">
-                    <h4 class="font-semibold text-green-900 text-sm sm:text-base mb-3">Result:</h4>
-                    <p class="text-neutral-700 text-sm sm:text-base">
+                    <h4 class="
+                      mb-3
+                      text-sm font-semibold
+                      text-green-900
+                      sm:text-base
+                    ">
+                      Result:
+                    </h4>
+                    <p class="
+                      text-sm
+                      text-neutral-700
+                      sm:text-base
+                    ">
                       Teams <span class="font-semibold text-green-800">ship AI features up to 4 weeks faster</span>.
                       Staff earn certificates that prove new capability.
                     </p>
@@ -677,75 +1219,137 @@
             </div>
           </div>
         </div>
-        </div>
-        </div>
       </section>
 
       <article>
-        <div class="max-w-[918px] sm:w-9/12 lg:w-full pb-16 flex flex-col justify-start items-center gap-3 mx-auto">
-          <div class="justify-start text-rs-primary-700 text-4xl font-bold text-merriweather mx-auto text-center">
-            Culture
-            Fit-Diagnostic
+        <div class="
+          flex flex-col items-center justify-start
+          gap-3
+          mx-auto
+          max-w-[918px]
+          pb-16
+          sm:w-9/12
+          lg:w-full
+        ">
+          <div class="
+            mx-auto
+            text-center
+            text-4xl font-bold
+            text-rs-primary-700
+            text-merriweather
+          ">
+            Culture Fit-Diagnostic
           </div>
-          <div class="text-center justify-start text-center max-w-[850px]"><span
-              class="text-rs-neutral-600 text-2xl font-medium">We
-            </span><span class="text-rs-primary-700 text-2xl font-bold">translate your culture</span><span
-              class="text-rs-neutral-600 text-2xl font-medium"> into measurable metrics, </span><span
-              class="text-rs-primary-600 text-2xl font-bold">assess every candidate</span><span
-              class="text-rs-neutral-600 text-2xl font-medium"> against them, and give you
-            </span><span class="text-rs-primary-600 text-2xl font-bold">clear data</span><span
-              class="text-rs-neutral-600 text-2xl font-medium"> to </span><span
-              class="text-rs-primary-700 text-2xl font-bold">hire the right leaders</span><span
-              class="text-rs-neutral-600 text-2xl font-medium"> quickly and confidently.</span></div>
+          <div class="
+            max-w-[850px]
+            text-center
+          ">
+            <span class="text-2xl font-medium text-rs-neutral-600">We </span>
+            <span class="text-2xl font-bold text-rs-primary-700">translate your culture</span>
+            <span class="text-2xl font-medium text-rs-neutral-600"> into measurable metrics, </span>
+            <span class="text-2xl font-bold text-rs-primary-600">assess every candidate</span>
+            <span class="text-2xl font-medium text-rs-neutral-600"> against them, and give you </span>
+            <span class="text-2xl font-bold text-rs-primary-600">clear data</span>
+            <span class="text-2xl font-medium text-rs-neutral-600"> to </span>
+            <span class="text-2xl font-bold text-rs-primary-700">hire the right leaders</span>
+            <span class="text-2xl font-medium text-rs-neutral-600"> quickly and confidently.</span>
+          </div>
         </div>
       </article>
     </section>
 
     <!-- Culture Fit Diagnostic Section -->
-    <section
-      class="culture-fit-section relative px-4 sm:px-8 lg:px-16 py-[32px] border-t-4 border-b-4 border-slate-400 overflow-hidden"
-      aria-labelledby="culture-fit-heading">
-      <!-- Outlines the company's culture fit diagnostic process -->
-
+    <section class="
+        relative
+        overflow-hidden
+        border-t-4 border-b-4 border-slate-400
+        px-4 py-[32px]
+        sm:px-8
+        lg:px-16
+        culture-fit-section
+      " aria-labelledby="culture-fit-heading">
       <!-- Background Decorative Elements -->
-      <div class="culture-fit-bg absolute inset-0 pointer-events-none bg-[url('/assets/images/services/ft.2/RS-Services-Road-BG.png')] bg-repeat-y bg-center
+      <div class="
+          absolute inset-0
+          pointer-events-none
+          bg-[url('/assets/images/services/ft.2/RS-Services-Road-BG.png')] bg-center bg-repeat-y
+          opacity-20
+          bg-[length:400px_auto]
           sm:bg-[url('/assets/images/services/ft.2/RS-Services-Road-BG.png')]
-          bg-[length:400px_auto] sm:bg-[length:auto] opacity-20 md:opacity-100 bg-no-repeat sm:bg-repeat-y"
-        aria-hidden="true"></div>
+          sm:bg-[length:auto]
+          sm:bg-repeat-y
+          md:opacity-100
+        " aria-hidden="true"></div>
 
       <!-- Main Content Container -->
-      <div class="relative z-10 max-w-6xl mx-auto">
-
-
+      <div class="
+        relative z-10
+        mx-auto
+        max-w-6xl
+      ">
         <!-- Process Steps -->
-        <div class="process-steps relative">
-
+        <div class="relative process-steps">
           <!-- Step 1: Discover -->
-          <article
-            class="flex flex-col md:flex-row items-center gap-8 md:gap-4 w-fit mx-auto mb-16 md:mb-[82px] text-center md:text-left">
+          <article class="
+            flex flex-col items-center
+            gap-8
+            mx-auto
+            mb-16
+            w-fit
+            text-center
+            md:flex-row md:gap-4 md:mb-[82px] md:text-left
+          ">
             <img src="/assets/images/services/ft.2/RS-Services-Road-Icon-1.png" alt="Discover"
               class="w-[100px] md:w-[153px]">
-            <div class="step-content max-w-[500px]">
-              <h3 class="step-title text-sky-800 text-3xl font-bold text-merriweather mb-2">01 Discover</h3>
-              <p class="step-description text-slate-700 text-lg font-medium leading-relaxed">
+            <div class="max-w-[500px] step-content">
+              <h3 class="
+                mb-2
+                text-3xl font-bold
+                text-sky-800
+                text-merriweather
+              ">
+                01 Discover
+              </h3>
+              <p class="
+                text-lg font-medium
+                text-slate-700
+                leading-relaxed
+              ">
                 We meet with key stakeholders to confirm the role goals, company values, and day-to-day team
-                dynamics.
-                The outcome is a clear
-                <span class="text-rs-primary-700 font-bold">success profile</span>
+                dynamics. The outcome is a clear
+                <span class="font-bold text-rs-primary-700">success profile</span>
                 that becomes the
-                <span class="text-[var(--rs-primary-500)] font-bold">screening baseline</span>.
+                <span class="font-bold text-[var(--rs-primary-500)]">screening baseline</span>.
               </p>
             </div>
           </article>
 
           <!-- Step 2: Map -->
-          <article
-            class="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-4 w-fit mx-auto mb-16 md:mb-[91px] text-center md:text-right">
-            <div class="step-content max-w-[500px]">
-              <h3 class="step-title text-sky-800 text-3xl font-bold text-merriweather mb-2">02 Map</h3>
-              <p class="step-description text-slate-700 text-lg font-medium leading-relaxed">
+          <article class="
+            flex flex-col-reverse items-center
+            gap-8
+            mx-auto
+            mb-16
+            w-fit
+            text-center
+            md:flex-row md:gap-4 md:mb-[91px] md:text-right
+          ">
+            <div class="max-w-[500px] step-content">
+              <h3 class="
+                mb-2
+                text-3xl font-bold
+                text-sky-800
+                text-merriweather
+              ">
+                02 Map
+              </h3>
+              <p class="
+                text-lg font-medium
+                text-slate-700
+                leading-relaxed
+              ">
                 Your cultural values are converted into
-                <span class="text-[var(--rs-primary-500)] font-bold">measurable behaviors</span>
+                <span class="font-bold text-[var(--rs-primary-500)]">measurable behaviors</span>
                 and added to a
                 <span class="text-rs-primary-700 font-bold">hiring scorecard</span>.
                 At the same time, we map the talent market and create a targeted sourcing plan.
@@ -836,83 +1440,216 @@
         </div>
 
         <!-- FAQ Items List -->
-        <div class="faq-list w-full max-w-[740px]" role="list">
-
+        <div class="
+            w-full
+            max-w-[740px]
+            faq-list
+          " role="list">
           <!-- FAQ Item 1 -->
-          <article class="faq-item w-full" role="listitem">
-            <div class="faq-card bg-indigo-50 border border-slate-400 rounded-lg overflow-hidden">
-
-              <!-- Question Header -->
-              <button
-                class="faq-question-btn w-full px-4 py-3 bg-indigo-50 border-b border-slate-400 flex items-center justify-between gap-3 cursor-pointer hover:bg-indigo-100 transition-colors"
-                onclick="toggleFAQ('faq-1')" aria-expanded="false" aria-controls="faq-1">
-                <h3 class="faq-question text-cyan-900 text-xl font-semibold text-left">
-                  1. What industries does Romega specialize in?
-                </h3>
-                <span class="" aria-hidden="true">
-                  <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-1-arrow"
-                    src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
-                </span>
-              </button>
-
-              <!-- Answer Content -->
-              <div id="faq-1" class="faq-content hidden" role="region" aria-labelledby="faq-1-question">
-                <div class="faq-answer-wrapper p-4">
-                  <div class="faq-answer-card bg-sky-50 border-t-4 border-rs-primary-600 rounded-md p-4 relative">
-                    <div class="faq-answer-label text-sky-900 text-xl font-medium mb-2">Answer:</div>
-                    <p class="faq-answer-text text-cyan-900 text-lg font-normal leading-relaxed">
-                      We focus on tech-driven organizations, private equity firms, and global enterprises needing
-                      leadership hires in sales, operations, finance, and technology.
-                    </p>
-                    <!-- Decorative Background Icon -->
-                    <div
-                      class="faq-bg-icon absolute top-12 right-0 translate-x-1/4 -translate-y-1/4 w-36 h-36 pointer-events-none"
-                      aria-hidden="true">
-                      <img src="/assets/images/services/services-qna-icon.svg" alt=""
-                        class="w-28 h-28 absolute text-rs-primary-600">
+          <div class="
+            flex flex-col items-start justify-start
+            w-full
+            faq-item
+          ">
+            <div class="
+              flex flex-col items-start justify-start
+              w-full
+              bg-rs-primary-50
+              outline outline-1 outline-offset-[-1px] outline-slate-400
+            ">
+              <div class="
+                  flex items-center justify-start
+                  w-full
+                  gap-3
+                  px-4 py-3
+                  bg-rs-primary-50
+                  outline outline-1 outline-offset-[-1px] outline-slate-400
+                  cursor-pointer
+                " onclick="toggleFAQ('faq-1')">
+                <div class="
+                  flex items-start justify-start
+                  flex-1
+                  gap-1.5
+                ">
+                  <div class="
+                    flex-1
+                    text-xl font-semibold
+                    text-cyan-900
+                  ">
+                    1. What industries does Romega specialize in?
+                  </div>
+                </div>
+                <div class="
+                  relative
+                  w-8 h-8
+                  overflow-hidden
+                ">
+                  <span class="" aria-hidden="true">
+                    <img src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon" class="
+                        w-3/4
+                        opacity-75
+                        lg:w-full
+                        faq-toggle-icon
+                      " id="faq-1-arrow">
+                  </span>
+                </div>
+              </div>
+              <div id="faq-1" class="hidden faq-content">
+                <div class="
+                  flex flex-col items-center justify-center
+                  w-full
+                  gap-6
+                  p-4
+                ">
+                  <div class="
+                    flex items-start justify-start
+                    w-full
+                    overflow-hidden
+                    rounded-md
+                    outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400
+                  ">
+                    <div class="
+                      relative
+                      flex flex-col items-start justify-start
+                      flex-1
+                      gap-2.5
+                      px-3 pt-3 pb-6
+                      bg-rs-neutral-50
+                      border-t-4 border-[var(--rs-primary-700)]
+                    ">
+                      <div class="
+                        text-xl font-medium
+                        text-sky-900
+                      ">
+                        Answer:
+                      </div>
+                      <div class="
+                        w-full
+                        text-lg font-normal
+                        text-cyan-900
+                      ">
+                        We focus on tech-driven organizations, private equity firms, and global enterprises needing
+                        leadership hires in sales, operations, finance, and technology.
+                      </div>
+                      <div class="
+                          absolute top-12 right-0
+                          w-36 h-36
+                          translate-x-1/4 -translate-y-1/4
+                          pointer-events-none
+                          faq-bg-icon
+                        " aria-hidden="true">
+                        <img src="/assets/images/services/services-qna-icon.svg" alt="" class="
+                            absolute
+                            w-28 h-28
+                            text-rs-primary-600
+                          ">
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </article>
+          </div>
 
           <!-- FAQ Item 2 -->
-          <div class="faq-item w-full flex flex-col justify-start items-start">
-            <div
-              class="self-stretch bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex flex-col justify-start items-start">
-              <div
-                class="self-stretch px-4 py-3 bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex justify-start items-center gap-3 cursor-pointer"
-                onclick="toggleFAQ('faq-2')">
-                <div class="flex-1 flex justify-start items-start gap-1.5">
-                  <div class="flex-1 text-cyan-900 text-xl font-semibold">2. How does the Culture Fit Diagnostic
-                    work?
+          <div class="
+            flex flex-col items-start justify-start
+            w-full
+            faq-item
+          ">
+            <div class="
+              flex flex-col items-start justify-start
+              w-full
+              bg-rs-primary-50
+              outline outline-1 outline-offset-[-1px] outline-slate-400
+            ">
+              <div class="
+                  flex items-center justify-start
+                  w-full
+                  gap-3
+                  px-4 py-3
+                  bg-rs-primary-50
+                  outline outline-1 outline-offset-[-1px] outline-slate-400
+                  cursor-pointer
+                " onclick="toggleFAQ('faq-2')">
+                <div class="
+                  flex items-start justify-start
+                  flex-1
+                  gap-1.5
+                ">
+                  <div class="
+                    flex-1
+                    text-xl font-semibold
+                    text-cyan-900
+                  ">
+                    2. How does the Culture Fit Diagnostic work?
                   </div>
                 </div>
-                <div class="w-8 h-8 relative overflow-hidden">
+                <div class="
+                  relative
+                  w-8 h-8
+                  overflow-hidden
+                ">
                   <span class="" aria-hidden="true">
-                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-2-arrow"
-                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                    <img src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon" class="
+                        w-3/4
+                        opacity-75
+                        lg:w-full
+                        faq-toggle-icon
+                      " id="faq-2-arrow">
                   </span>
                 </div>
               </div>
-              <div id="faq-2" class="faq-content hidden">
-                <div class="self-stretch p-4 flex flex-col justify-center items-center gap-6">
-                  <div
-                    class="self-stretch rounded-md outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400 flex justify-start items-start overflow-hidden">
-                    <div
-                      class="flex-1 self-stretch px-3 pt-3 pb-6 relative bg-rs-neutral-50 border-t-4 border-[var(--rs-primary-700)] flex flex-col justify-start items-start gap-2.5">
-                      <div class="text-sky-900 text-xl font-medium">Answer:</div>
-                      <div class="self-stretch text-cyan-900 text-lg font-normal">
+              <div id="faq-2" class="hidden faq-content">
+                <div class="
+                  flex flex-col items-center justify-center
+                  w-full
+                  gap-6
+                  p-4
+                ">
+                  <div class="
+                    flex items-start justify-start
+                    w-full
+                    overflow-hidden
+                    rounded-md
+                    outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400
+                  ">
+                    <div class="
+                      relative
+                      flex flex-col items-start justify-start
+                      flex-1
+                      gap-2.5
+                      px-3 pt-3 pb-6
+                      bg-rs-neutral-50
+                      border-t-4 border-[var(--rs-primary-700)]
+                    ">
+                      <div class="
+                        text-xl font-medium
+                        text-sky-900
+                      ">
+                        Answer:
+                      </div>
+                      <div class="
+                        w-full
+                        text-lg font-normal
+                        text-cyan-900
+                      ">
                         Our process assesses cultural alignment alongside technical skills. Through a streamlined
                         workflow and data-driven insights, we help you hire leaders who thrive in your unique
                         environment. A downloadable one-pager is also available for internal presentations.
                       </div>
-                      <div
-                        class="faq-bg-icon absolute top-12 right-0 translate-x-1/4 -translate-y-1/4 w-36 h-36 pointer-events-none"
-                        aria-hidden="true">
-                        <img src="/assets/images/services/services-qna-icon.svg" alt=""
-                          class="w-28 h-28 absolute text-rs-primary-600">
+                      <div class="
+                          absolute top-12 right-0
+                          w-36 h-36
+                          translate-x-1/4 -translate-y-1/4
+                          pointer-events-none
+                          faq-bg-icon
+                        " aria-hidden="true">
+                        <img src="/assets/images/services/services-qna-icon.svg" alt="" class="
+                            absolute
+                            w-28 h-28
+                            text-rs-primary-600
+                          ">
                       </div>
                     </div>
                   </div>
@@ -922,39 +1659,103 @@
           </div>
 
           <!-- FAQ Item 3 -->
-          <div class="faq-item w-full flex flex-col justify-start items-start">
-            <div
-              class="self-stretch bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex flex-col justify-start items-start">
-              <div
-                class="self-stretch px-4 py-3 bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex justify-start items-center gap-3 cursor-pointer"
-                onclick="toggleFAQ('faq-3')">
-                <div class="flex-1 flex justify-start items-start gap-1.5">
-                  <div class="flex-1 text-cyan-900 text-xl font-semibold">3. Can Romega manage bulk hiring across
-                    multiple
-                    companies?</div>
+          <div class="
+            flex flex-col items-start justify-start
+            w-full
+            faq-item
+          ">
+            <div class="
+              flex flex-col items-start justify-start
+              w-full
+              bg-rs-primary-50
+              outline outline-1 outline-offset-[-1px] outline-slate-400
+            ">
+              <div class="
+                  flex items-center justify-start
+                  w-full
+                  gap-3
+                  px-4 py-3
+                  bg-rs-primary-50
+                  outline outline-1 outline-offset-[-1px] outline-slate-400
+                  cursor-pointer
+                " onclick="toggleFAQ('faq-3')">
+                <div class="
+                  flex items-start justify-start
+                  flex-1
+                  gap-1.5
+                ">
+                  <div class="
+                    flex-1
+                    text-xl font-semibold
+                    text-cyan-900
+                  ">
+                    3. Can Romega manage bulk hiring across multiple companies?
+                  </div>
                 </div>
-                <div class="w-8 h-8 relative overflow-hidden">
+                <div class="
+                  relative
+                  w-8 h-8
+                  overflow-hidden
+                ">
                   <span class="" aria-hidden="true">
-                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-3-arrow"
-                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                    <img src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon" class="
+                        w-3/4
+                        opacity-75
+                        lg:w-full
+                        faq-toggle-icon
+                      " id="faq-3-arrow">
                   </span>
                 </div>
               </div>
-              <div id="faq-3" class="faq-content hidden">
-                <div class="self-stretch p-4 flex flex-col justify-center items-center gap-6">
-                  <div
-                    class="self-stretch rounded-md outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400 flex justify-start items-start overflow-hidden">
-                    <div
-                      class="flex-1 self-stretch px-3 pt-3 pb-6 relative bg-rs-neutral-50 border-t-4 border-[var(--rs-primary-700)] flex flex-col justify-start items-start gap-2.5">
-                      <div class="text-sky-900 text-xl font-medium">Answer:</div>
-                      <div class="self-stretch text-cyan-900 text-lg font-normal">Yes. We provide scalable RPO
-                        solutions and multi-role hiring for enterprise clients, supported by a secure client portal
-                        for real-time updates across all active searches.</div>
-                      <div
-                        class="faq-bg-icon absolute top-12 right-0 translate-x-1/4 -translate-y-1/4 w-36 h-36 pointer-events-none"
-                        aria-hidden="true">
-                        <img src="/assets/images/services/services-qna-icon.svg" alt=""
-                          class="w-28 h-28 absolute text-rs-primary-600">
+              <div id="faq-3" class="hidden faq-content">
+                <div class="
+                  flex flex-col items-center justify-center
+                  w-full
+                  gap-6
+                  p-4
+                ">
+                  <div class="
+                    flex items-start justify-start
+                    w-full
+                    overflow-hidden
+                    rounded-md
+                    outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400
+                  ">
+                    <div class="
+                      relative
+                      flex flex-col items-start justify-start
+                      flex-1
+                      gap-2.5
+                      px-3 pt-3 pb-6
+                      bg-rs-neutral-50
+                      border-t-4 border-[var(--rs-primary-700)]
+                    ">
+                      <div class="
+                        text-xl font-medium
+                        text-sky-900
+                      ">
+                        Answer:
+                      </div>
+                      <div class="
+                        w-full
+                        text-lg font-normal
+                        text-cyan-900
+                      ">
+                        Yes. We provide scalable RPO solutions and multi-role hiring for enterprise clients,
+                        supported by a secure client portal for real-time updates across all active searches.
+                      </div>
+                      <div class="
+                          absolute top-12 right-0
+                          w-36 h-36
+                          translate-x-1/4 -translate-y-1/4
+                          pointer-events-none
+                          faq-bg-icon
+                        " aria-hidden="true">
+                        <img src="/assets/images/services/services-qna-icon.svg" alt="" class="
+                            absolute
+                            w-28 h-28
+                            text-rs-primary-600
+                          ">
                       </div>
                     </div>
                   </div>
@@ -964,37 +1765,103 @@
           </div>
 
           <!-- FAQ Item 4 -->
-          <div class="faq-item w-full flex flex-col justify-start items-start">
-            <div
-              class="self-stretch bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex flex-col justify-start items-start">
-              <div
-                class="self-stretch px-4 py-3 bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex justify-start items-center gap-3 cursor-pointer"
-                onclick="toggleFAQ('faq-4')">
-                <div class="flex-1 flex justify-start items-start gap-1.5">
-                  <div class="flex-1 text-cyan-900 text-xl font-semibold">4. What's your average time-to-hire?</div>
+          <div class="
+            flex flex-col items-start justify-start
+            w-full
+            faq-item
+          ">
+            <div class="
+              flex flex-col items-start justify-start
+              w-full
+              bg-rs-primary-50
+              outline outline-1 outline-offset-[-1px] outline-slate-400
+            ">
+              <div class="
+                  flex items-center justify-start
+                  w-full
+                  gap-3
+                  px-4 py-3
+                  bg-rs-primary-50
+                  outline outline-1 outline-offset-[-1px] outline-slate-400
+                  cursor-pointer
+                " onclick="toggleFAQ('faq-4')">
+                <div class="
+                  flex items-start justify-start
+                  flex-1
+                  gap-1.5
+                ">
+                  <div class="
+                    flex-1
+                    text-xl font-semibold
+                    text-cyan-900
+                  ">
+                    4. What's your average time-to-hire?
+                  </div>
                 </div>
-                <div class="w-8 h-8 relative overflow-hidden">
+                <div class="
+                  relative
+                  w-8 h-8
+                  overflow-hidden
+                ">
                   <span class="" aria-hidden="true">
-                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-4-arrow"
-                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                    <img src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon" class="
+                        w-3/4
+                        opacity-75
+                        lg:w-full
+                        faq-toggle-icon
+                      " id="faq-4-arrow">
                   </span>
                 </div>
               </div>
-              <div id="faq-4" class="faq-content hidden">
-                <div class="self-stretch p-4 flex flex-col justify-center items-center gap-6">
-                  <div
-                    class="self-stretch rounded-md outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400 flex justify-start items-start overflow-hidden">
-                    <div
-                      class="flex-1 self-stretch px-3 pt-3 pb-6 relative bg-rs-neutral-50 border-t-4 border-[var(--rs-primary-700)] flex flex-col justify-start items-start gap-2.5">
-                      <div class="text-sky-900 text-xl font-medium">Answer:</div>
-                      <div class="self-stretch text-cyan-900 text-lg font-normal">We fill senior roles in as little as
-                        14 days, helping you minimize leadership gaps and reduce operational downtime.
+              <div id="faq-4" class="hidden faq-content">
+                <div class="
+                  flex flex-col items-center justify-center
+                  w-full
+                  gap-6
+                  p-4
+                ">
+                  <div class="
+                    flex items-start justify-start
+                    w-full
+                    overflow-hidden
+                    rounded-md
+                    outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400
+                  ">
+                    <div class="
+                      relative
+                      flex flex-col items-start justify-start
+                      flex-1
+                      gap-2.5
+                      px-3 pt-3 pb-6
+                      bg-rs-neutral-50
+                      border-t-4 border-[var(--rs-primary-700)]
+                    ">
+                      <div class="
+                        text-xl font-medium
+                        text-sky-900
+                      ">
+                        Answer:
                       </div>
-                      <div
-                        class="faq-bg-icon absolute top-12 right-0 translate-x-1/4 -translate-y-1/4 w-36 h-36 pointer-events-none"
-                        aria-hidden="true">
-                        <img src="/assets/images/services/services-qna-icon.svg" alt=""
-                          class="w-28 h-28 absolute text-rs-primary-600">
+                      <div class="
+                        w-full
+                        text-lg font-normal
+                        text-cyan-900
+                      ">
+                        We fill senior roles in as little as 14 days, helping you minimize leadership gaps
+                        and reduce operational downtime.
+                      </div>
+                      <div class="
+                          absolute top-12 right-0
+                          w-36 h-36
+                          translate-x-1/4 -translate-y-1/4
+                          pointer-events-none
+                          faq-bg-icon
+                        " aria-hidden="true">
+                        <img src="/assets/images/services/services-qna-icon.svg" alt="" class="
+                            absolute
+                            w-28 h-28
+                            text-rs-primary-600
+                          ">
                       </div>
                     </div>
                   </div>
@@ -1004,41 +1871,102 @@
           </div>
 
           <!-- FAQ Item 5 -->
-          <div class="faq-item w-full flex flex-col justify-start items-start">
-            <div
-              class="self-stretch bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex flex-col justify-start items-start">
-              <div
-                class="self-stretch px-4 py-3 bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex justify-start items-center gap-3 cursor-pointer"
-                onclick="toggleFAQ('faq-5')">
-                <div class="flex-1 flex justify-start items-start gap-1.5">
-                  <div class="flex-1 text-cyan-900 text-xl font-semibold">5. What technology supports your
-                    recruitment
-                    process?</div>
+          <div class="
+            flex flex-col items-start justify-start
+            w-full
+            faq-item
+          ">
+            <div class="
+              flex flex-col items-start justify-start
+              w-full
+              bg-rs-primary-50
+              outline outline-1 outline-offset-[-1px] outline-slate-400
+            ">
+              <div class="
+                  flex items-center justify-start
+                  w-full
+                  gap-3
+                  px-4 py-3
+                  bg-rs-primary-50
+                  outline outline-1 outline-offset-[-1px] outline-slate-400
+                  cursor-pointer
+                " onclick="toggleFAQ('faq-5')">
+                <div class="
+                  flex items-start justify-start
+                  flex-1
+                  gap-1.5
+                ">
+                  <div class="
+                    flex-1
+                    text-xl font-semibold
+                    text-cyan-900
+                  ">
+                    5. What technology supports your recruitment process?
+                  </div>
                 </div>
-                <div class="w-8 h-8 relative overflow-hidden">
+                <div class="
+                  relative
+                  w-8 h-8
+                  overflow-hidden
+                ">
                   <span class="" aria-hidden="true">
-                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-5-arrow"
-                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                    <img src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon" class="
+                        w-3/4
+                        opacity-75
+                        lg:w-full
+                        faq-toggle-icon
+                      " id="faq-5-arrow">
                   </span>
                 </div>
               </div>
-              <div id="faq-5" class="faq-content hidden">
-                <div class="self-stretch p-4 flex flex-col justify-center items-center gap-6">
-                  <div
-                    class="self-stretch rounded-md outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400 flex justify-start items-start overflow-hidden">
-                    <div
-                      class="flex-1 self-stretch px-3 pt-3 pb-6 relative bg-rs-neutral-50 border-t-4 border-[var(--rs-primary-700)] flex flex-col justify-start items-start gap-2.5">
-                      <div class="text-sky-900 text-xl font-medium">Answer:</div>
-                      <div class="self-stretch text-cyan-900 text-lg font-normal">
-                        We leverage AI-powered matching, a discreet candidate intake system, and an enterprise-grade
-                        portal keeping your hiring process fast, private, and transparent.
-                      </div>
-                      <div
-                        class="faq-bg-icon absolute top-12 right-0 translate-x-1/4 -translate-y-1/4 w-36 h-36 pointer-events-none"
-                        aria-hidden="true">
-                        <img src="/assets/images/services/services-qna-icon.svg" alt=""
-                          class="w-28 h-28 absolute text-rs-primary-600">
-                      </div>
+              <div id="faq-5" class="hidden faq-content" <div class="
+                  flex flex-col items-center justify-center
+                  w-full
+                  gap-6
+                  p-4
+                ">
+                <div class="
+                    flex items-start justify-start
+                    w-full
+                    overflow-hidden
+                    rounded-md
+                    outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400
+                  ">
+                  <div class="
+                      relative
+                      flex flex-col items-start justify-start
+                      flex-1
+                      gap-2.5
+                      px-3 pt-3 pb-6
+                      bg-rs-neutral-50
+                      border-t-4 border-[var(--rs-primary-700)]
+                    ">
+                    <div class="
+                        text-xl font-medium
+                        text-sky-900
+                      ">
+                      Answer:
+                    </div>
+                    <div class="
+                        w-full
+                        text-lg font-normal
+                        text-cyan-900
+                      ">
+                      We leverage AI-powered matching, a discreet candidate intake system, and an enterprise-grade
+                      portal keeping your hiring process fast, private, and transparent.
+                    </div>
+                    <div class="
+                          absolute top-12 right-0
+                          w-36 h-36
+                          translate-x-1/4 -translate-y-1/4
+                          pointer-events-none
+                          faq-bg-icon
+                        " aria-hidden="true">
+                      <img src="/assets/images/services/services-qna-icon.svg" alt="" class="
+                            absolute
+                            w-28 h-28
+                            text-rs-primary-600
+                          ">
                     </div>
                   </div>
                 </div>
@@ -1047,39 +1975,103 @@
           </div>
 
           <!-- FAQ Item 6 -->
-          <div class="faq-item w-full flex flex-col justify-start items-start">
-            <div
-              class="self-stretch bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex flex-col justify-start items-start">
-              <div
-                class="self-stretch px-4 py-3 bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex justify-start items-center gap-3 cursor-pointer"
-                onclick="toggleFAQ('faq-6')">
-                <div class="flex-1 flex justify-start items-start gap-1.5">
-                  <div class="flex-1 text-cyan-900 text-xl font-semibold">6. How transparent is Romega's pricing?
+          <div class="
+              flex flex-col items-start justify-start
+              w-full
+              faq-item
+            ">
+            <div class="
+                flex flex-col items-start justify-start
+                w-full
+                bg-rs-primary-50
+                outline outline-1 outline-offset-[-1px] outline-slate-400
+              ">
+              <div class="
+                    flex items-center justify-start
+                    w-full
+                    gap-3
+                    px-4 py-3
+                    bg-rs-primary-50
+                    outline outline-1 outline-offset-[-1px] outline-slate-400
+                    cursor-pointer
+                  " onclick="toggleFAQ('faq-6')">
+                <div class="
+                    flex items-start justify-start
+                    flex-1
+                    gap-1.5
+                  ">
+                  <div class="
+                      flex-1
+                      text-xl font-semibold
+                      text-cyan-900
+                    ">
+                    6. How transparent is Romega's pricing?
                   </div>
                 </div>
-                <div class="w-8 h-8 relative overflow-hidden">
+                <div class="
+                    relative
+                    w-8 h-8
+                    overflow-hidden
+                  ">
                   <span class="" aria-hidden="true">
-                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-6-arrow"
-                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                    <img src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon" class="
+                          w-3/4
+                          opacity-75
+                          lg:w-full
+                          faq-toggle-icon
+                        " id="faq-6-arrow">
                   </span>
                 </div>
               </div>
-              <div id="faq-6" class="faq-content hidden">
-                <div class="self-stretch p-4 flex flex-col justify-center items-center gap-6">
-                  <div
-                    class="self-stretch rounded-md outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400 flex justify-start items-start overflow-hidden">
-                    <div
-                      class="flex-1 self-stretch px-3 pt-3 pb-6 relative bg-rs-neutral-50 border-t-4 border-[var(--rs-primary-700)] flex flex-col justify-start items-start gap-2.5">
-                      <div class="text-sky-900 text-xl font-medium">Answer:</div>
-                      <div class="self-stretch text-cyan-900 text-lg font-normal">We offer upfront pricing models
-                        tailored for single placements or enterprise-scale engagements. Every proposal includes
-                        service level guarantees for clarity and confidence.
+              <div id="faq-6" class="hidden faq-content">
+                <div class="
+                    flex flex-col items-center justify-center
+                    w-full
+                    gap-6
+                    p-4
+                  ">
+                  <div class="
+                      flex items-start justify-start
+                      w-full
+                      overflow-hidden
+                      rounded-md
+                      outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400
+                    ">
+                    <div class="
+                        relative
+                        flex flex-col items-start justify-start
+                        flex-1
+                        gap-2.5
+                        px-3 pt-3 pb-6
+                        bg-rs-neutral-50
+                        border-t-4 border-[var(--rs-primary-700)]
+                      ">
+                      <div class="
+                          text-xl font-medium
+                          text-sky-900
+                        ">
+                        Answer:
                       </div>
-                      <div
-                        class="faq-bg-icon absolute top-12 right-0 translate-x-1/4 -translate-y-1/4 w-36 h-36 pointer-events-none"
-                        aria-hidden="true">
-                        <img src="/assets/images/services/services-qna-icon.svg" alt=""
-                          class="w-28 h-28 absolute text-rs-primary-600">
+                      <div class="
+                          w-full
+                          text-lg font-normal
+                          text-cyan-900
+                        ">
+                        We offer upfront pricing models tailored for single placements or enterprise-scale engagements.
+                        Every proposal includes service level guarantees for clarity and confidence.
+                      </div>
+                      <div class="
+                            absolute top-12 right-0
+                            w-36 h-36
+                            translate-x-1/4 -translate-y-1/4
+                            pointer-events-none
+                            faq-bg-icon
+                          " aria-hidden="true">
+                        <img src="/assets/images/services/services-qna-icon.svg" alt="" class="
+                              absolute
+                              w-28 h-28
+                              text-rs-primary-600
+                            ">
                       </div>
                     </div>
                   </div>
@@ -1089,37 +2081,103 @@
           </div>
 
           <!-- FAQ Item 7 -->
-          <div class="faq-item w-full flex flex-col justify-start items-start">
-            <div
-              class="self-stretch bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex flex-col justify-start items-start">
-              <div
-                class="self-stretch px-4 py-3 bg-indigo-50 outline outline-1 outline-offset-[-1px] outline-slate-400 flex justify-start items-center gap-3 cursor-pointer"
-                onclick="toggleFAQ('faq-7')">
-                <div class="flex-1 flex justify-start items-start gap-1.5">
-                  <div class="flex-1 text-cyan-900 text-xl font-semibold">7. What happens after I book a call?</div>
+          <div class="
+              flex flex-col items-start justify-start
+              w-full
+              faq-item
+            ">
+            <div class="
+                flex flex-col items-start justify-start
+                w-full
+                bg-rs-primary-50
+                outline outline-1 outline-offset-[-1px] outline-slate-400
+              ">
+              <div class="
+                    flex items-center justify-start
+                    w-full
+                    gap-3
+                    px-4 py-3
+                    bg-rs-primary-50
+                    outline outline-1 outline-offset-[-1px] outline-slate-400
+                    cursor-pointer
+                  " onclick="toggleFAQ('faq-7')">
+                <div class="
+                    flex items-start justify-start
+                    flex-1
+                    gap-1.5
+                  ">
+                  <div class="
+                      flex-1
+                      text-xl font-semibold
+                      text-cyan-900
+                    ">
+                    7. What happens after I book a call?
+                  </div>
                 </div>
-                <div class="w-8 h-8 relative overflow-hidden">
+                <div class="
+                    relative
+                    w-8 h-8
+                    overflow-hidden
+                  ">
                   <span class="" aria-hidden="true">
-                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-7-arrow"
-                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                    <img src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon" class="
+                          w-3/4
+                          opacity-75
+                          lg:w-full
+                          faq-toggle-icon
+                        " id="faq-7-arrow">
                   </span>
                 </div>
               </div>
-              <div id="faq-7" class="faq-content hidden">
-                <div class="self-stretch p-4 flex flex-col justify-center items-center gap-6">
-                  <div
-                    class="self-stretch rounded-md outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400 flex justify-start items-start overflow-hidden">
-                    <div
-                      class="flex-1 self-stretch px-3 pt-3 pb-6 relative bg-rs-neutral-50 border-t-4 border-[var(--rs-primary-700)] flex flex-col justify-start items-start gap-2.5">
-                      <div class="text-sky-900 text-xl font-medium">Answer:</div>
-                      <div class="self-stretch text-cyan-900 text-lg font-normal">
+              <div id="faq-7" class="hidden faq-content">
+                <div class="
+                    flex flex-col items-center justify-center
+                    w-full
+                    gap-6
+                    p-4
+                  ">
+                  <div class="
+                      flex items-start justify-start
+                      w-full
+                      overflow-hidden
+                      rounded-md
+                      outline outline-[0.50px] outline-offset-[-0.50px] outline-gray-400
+                    ">
+                    <div class="
+                        relative
+                        flex flex-col items-start justify-start
+                        flex-1
+                        gap-2.5
+                        px-3 pt-3 pb-6
+                        bg-rs-neutral-50
+                        border-t-4 border-[var(--rs-primary-700)]
+                      ">
+                      <div class="
+                          text-xl font-medium
+                          text-sky-900
+                        ">
+                        Answer:
+                      </div>
+                      <div class="
+                          w-full
+                          text-lg font-normal
+                          text-cyan-900
+                        ">
                         You'll be matched with a dedicated account lead who will walk you through next steps, timeline
-                        estimates, and a tailored hiring plan for your organization.</div>
-                      <div
-                        class="faq-bg-icon absolute top-12 right-0 translate-x-1/4 -translate-y-1/4 w-36 h-36 pointer-events-none"
-                        aria-hidden="true">
-                        <img src="/assets/images/services/services-qna-icon.svg" alt=""
-                          class="w-28 h-28 absolute text-rs-primary-600">
+                        estimates, and a tailored hiring plan for your organization.
+                      </div>
+                      <div class="
+                            absolute top-12 right-0
+                            w-36 h-36
+                            translate-x-1/4 -translate-y-1/4
+                            pointer-events-none
+                            faq-bg-icon
+                          " aria-hidden="true">
+                        <img src="/assets/images/services/services-qna-icon.svg" alt="" class="
+                              absolute
+                              w-28 h-28
+                              text-rs-primary-600
+                            ">
                       </div>
                     </div>
                   </div>
@@ -1128,6 +2186,8 @@
             </div>
           </div>
         </div>
+
+      </div>
 
       </div>
 
@@ -1289,24 +2349,55 @@
 
       <!-- Arrows -->
       <!-- Navigation -->
-      <div class="flex justify-center items-center gap-8 md:gap-16 lg:gap-24 mt-6">
+      <div class="
+        flex items-center justify-center
+        gap-8 mt-6
+        md:gap-16
+        lg:gap-24
+      ">
         <!-- Left Arrow -->
-        <button class="w-12 h-12 rounded-full bg-rs-primary-100/50 flex items-center justify-center group"
-          aria-label="Previous testimonial">
+        <button class="
+            flex items-center justify-center
+            w-12 h-12
+            bg-rs-primary-100/50
+            rounded-full
+            group
+          " aria-label="Previous testimonial">
           <img src="/assets/images/services/carousel-arrow-left.svg" alt="Arrow Icon" class="w-[50px]">
         </button>
 
         <!-- Dots -->
         <div class="flex gap-3">
-          <button class="w-2 h-2 rounded-full bg-rs-accent-500" data-slide-to="0"></button>
-          <button class="w-2 h-2 rounded-full bg-rs-primary-200" data-slide-to="1"></button>
-          <button class="w-2 h-2 rounded-full bg-rs-primary-200" data-slide-to="2"></button>
-          <button class="w-2 h-2 rounded-full bg-rs-primary-200" data-slide-to="3"></button>
+          <button class="
+              w-2 h-2
+              bg-rs-accent-500
+              rounded-full
+            " data-slide-to="0"></button>
+          <button class="
+              w-2 h-2
+              bg-rs-primary-200
+              rounded-full
+            " data-slide-to="1"></button>
+          <button class="
+              w-2 h-2
+              bg-rs-primary-200
+              rounded-full
+            " data-slide-to="2"></button>
+          <button class="
+              w-2 h-2
+              bg-rs-primary-200
+              rounded-full
+            " data-slide-to="3"></button>
         </div>
 
         <!-- Right Arrow -->
-        <button class="w-12 h-12 rounded-full bg-rs-primary-100/50 flex items-center justify-center group"
-          aria-label="Next testimonial">
+        <button class="
+            flex items-center justify-center
+            w-12 h-12
+            bg-rs-primary-100/50
+            rounded-full
+            group
+          " aria-label="Next testimonial">
           <img src="/assets/images/services/carousel-arrow-right.svg" alt="Arrow Icon" class="w-[50px]">
         </button>
       </div>
@@ -1315,58 +2406,156 @@
     </section>
 
     <!-- CTA Section -->
-
-    <section class="w-full relative overflow-hidden h-auto py-10 sm:py-12 md:py-16">
-      <!-- A call-to-action section with buttons to book a call or download a PDF -->
-      <div class="absolute inset-0 z-0 pointer-events-none">
-        <div class="w-full h-full bg-cover bg-center opacity-60"
-          style="background-image: url('/assets/images/services/Services-CTA-BG.png');"></div>
+    <section class="
+      relative
+      w-full h-auto
+      overflow-hidden
+      py-10
+      sm:py-12
+      md:py-16
+    ">
+      <!-- Background Image -->
+      <div class="
+        absolute inset-0
+        z-0
+        pointer-events-none
+      ">
+        <div class="
+            w-full h-full
+            bg-cover bg-center
+            opacity-60
+          " style="background-image: url('/assets/images/services/Services-CTA-BG.png');"></div>
       </div>
-      <div
-        class="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-8 md:px-16 flex flex-col items-center text-center gap-6"
-        aria-labelledby="cta-title">
 
+      <!-- Content Container -->
+      <div class="
+          relative
+          flex flex-col items-center
+          z-10
+          gap-6
+          mx-auto
+          max-w-screen-xl
+          px-4
+          text-center
+          sm:px-8
+          md:px-16
+        " aria-labelledby="cta-title">
         <!-- Headings -->
-        <div class="flex flex-col items-center gap-3">
-          <h2 id="cta-title" class="text-rs-primary-600 text-2xl sm:text-3xl md:text-4xl font-bold text-merriweather">
+        <div class="
+          flex flex-col items-center
+          gap-3
+        ">
+          <h2 id="cta-title" class="
+              text-2xl font-bold
+              text-rs-primary-600
+              text-merriweather
+              sm:text-3xl
+              md:text-4xl
+            ">
             Ready to hire leaders who fit and perform?
           </h2>
-          <p
-            class="text-sky-950 text-base sm:text-lg md:text-xl font-medium font-['Source_Sans_3'] [text-shadow:_0px_4px_30px_rgb(25_31_41_/_1.00)] max-w-3xl">
+          <p class="
+            max-w-3xl
+            text-base font-medium
+            text-sky-950
+            font-['Source_Sans_3']
+            [text-shadow:_0px_4px_30px_rgb(25_31_41_/_1.00)]
+            sm:text-lg
+            md:text-xl
+          ">
             We help companies fill senior roles in as little as 14 days while ensuring cultural alignment and
             long-term success.
           </p>
         </div>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-start gap-6 w-full max-w-4xl">
+        <div class="
+          flex flex-col items-stretch
+          w-full
+          gap-6
+          max-w-4xl
+          sm:flex-row sm:items-start
+        ">
           <!-- Book a Call -->
-          <div class="flex-1 flex flex-col items-center gap-2">
-            <button
-              class="w-full py-3 bg-rs-primary-500 rounded-xl shadow-[0px_2.5px_8.75px_2.5px_rgba(18,91,161,0.30)] outline outline-[1.25px] outline-offset-[-1.25px] outline-rs-primary-700 flex justify-center items-center gap-2 text-rs-primary-100 text-xl sm:text-2xl font-bold font-['Source_Sans_3'] cursor-pointer transition-all duration-200 ease-in-out hover:bg-rs-primary-600 hover:shadow-md active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rs-primary-400">
+          <div class="
+            flex flex-col items-center
+            flex-1
+            gap-2
+          ">
+            <button class="
+              flex items-center justify-center
+              w-full
+              gap-2
+              py-3
+              bg-rs-primary-500
+              rounded-xl
+              text-xl font-bold
+              text-rs-primary-100
+              font-['Source_Sans_3']
+              outline outline-[1.25px] outline-offset-[-1.25px] outline-rs-primary-700
+              shadow-[0px_2.5px_8.75px_2.5px_rgba(18,91,161,0.30)]
+              cursor-pointer
+              transition-all duration-200 ease-in-out
+              hover:bg-rs-primary-600 hover:shadow-md
+              active:scale-[0.98]
+              focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rs-primary-400
+              sm:text-2xl
+            ">
               <img src="/assets/images/services/Services-CTA-Icon1.svg" alt="Book A Call" loading="lazy">
               Book A Call
             </button>
-            <p
-              class="text-cyan-900 text-sm sm:text-base font-normal font-['Source_Sans_3'] text-center [text-shadow:_0px_4px_30px_rgb(25_31_41_/_1.00)]">
+            <p class="
+              text-sm font-normal
+              text-cyan-900
+              text-center
+              font-['Source_Sans_3']
+              [text-shadow:_0px_4px_30px_rgb(25_31_41_/_1.00)]
+              sm:text-base
+            ">
               Instantly schedule with our team
             </p>
           </div>
 
           <!-- Download PDF -->
-          <div class="flex-1 flex flex-col items-center gap-2">
-            <button
-              class="w-full py-3 rounded-xl shadow-[0px_2.5px_8.75px_2.5px_rgba(18,91,161,0.30)] outline outline-[1.25px] outline-offset-[-1.25px] outline-rs-primary-600 flex justify-center items-center gap-2 text-sky-800 text-base md:text-xl lg:text-2xl font-medium font-['Source_Sans_3'] cursor-pointer transition-all duration-200 ease-in-out hover:bg-rs-primary-50 hover:text-rs-primary-700 hover:outline-rs-primary-700 hover:shadow-md active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rs-primary-400">
+          <div class="
+            flex flex-col items-center
+            flex-1
+            gap-2
+          ">
+            <button class="
+              flex items-center justify-center
+              w-full
+              gap-2
+              py-3
+              rounded-xl
+              text-base font-medium
+              text-sky-800
+              font-['Source_Sans_3']
+              outline outline-[1.25px] outline-offset-[-1.25px] outline-rs-primary-600
+              shadow-[0px_2.5px_8.75px_2.5px_rgba(18,91,161,0.30)]
+              cursor-pointer
+              transition-all duration-200 ease-in-out
+              hover:bg-rs-primary-50 hover:text-rs-primary-700 hover:outline-rs-primary-700 hover:shadow-md
+              active:scale-[0.98]
+              focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rs-primary-400
+              md:text-xl
+              lg:text-2xl
+            ">
               <img src="/assets/images/services/Services-CTA-Icon2.svg" alt="Download Service Overview" loading="lazy">
               Download Service Overview
             </button>
-            <p
-              class="text-cyan-900 text-sm sm:text-base font-normal font-['Source_Sans_3'] text-center [text-shadow:_0px_4px_30px_rgb(25_31_41_/_1.00)]">
+            <p class="
+              text-sm font-normal
+              text-cyan-900
+              text-center
+              font-['Source_Sans_3']
+              [text-shadow:_0px_4px_30px_rgb(25_31_41_/_1.00)]
+              sm:text-base
+            ">
               Get a one-page summary for internal sharing
             </p>
           </div>
         </div>
-
       </div>
     </section>
   </main>
