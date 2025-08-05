@@ -185,6 +185,11 @@ textarea:focus {
 .border-rs-primary {
   border-color: var(--rs-primary-500);
 }
+
+.border-rs-primary-600 {
+  border-color: var(--rs-primary-600);
+}
+
 .border-rs-accent {
   border-color: var(--rs-accent-500);
 }

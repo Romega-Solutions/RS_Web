@@ -14,15 +14,134 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
     rel="stylesheet" />
+  <script src="../js/main.js" defer></script>
 
 </head>
 
 <body class="bg-gray-50 font-sans">
   <!-- Navigation Container -->
-  <div id="navbar-container"></div>
+  <nav id="navbar-container" role="navigation" aria-label="Main navigation"
+    class="bg-rs-primary-50 shadow-sm border-b-2 border-neutral-400 w-full fixed top-0 z-50">
+    <div class="max-w-[1920px] mx-auto">
+      <div class="flex justify-between items-center bg-rs-primary-50 px-4 md:px-8 lg:px-[89.5px]" style="height: 84px">
+        <!-- Logo -->
+        <div class="flex items-center flex-shrink-0">
+          <a href="index.html" class="flex items-center" id="logo-link">
+            <img src="../assets/images/navbar-company-logo.svg" alt="Romega Solutions Logo"
+              class="max-h-14 sm:max-h-16 w-auto">
+          </a>
+        </div>
+
+        <!-- Desktop Navigation Links - Centered -->
+        <div class="hidden lg:flex items-center justify-center flex-1 mx-4 xl:mx-8">
+          <div class="flex items-center space-x-4">
+            <a href="index.html"
+              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
+              id="nav-home">
+              Home
+            </a>
+            <a href="about.html"
+              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
+              id="nav-about">
+              About
+            </a>
+            <a href="services.html"
+              class="navbar-custom text-rs-accent-500 underline hover:text-rs-accent-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
+              id="nav-services">
+              Services
+            </a>
+            <a href="careers.html"
+              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
+              id="nav-careers">
+              Careers & Talent
+            </a>
+            <a href="resources.html"
+              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
+              id="nav-resources">
+              Resources
+            </a>
+            <a href="contact.html"
+              class="navbar-custom hover:text-rs-primary-500 hover:underline transition duration-300 px-2 xl:px-4 py-2 text-[0.9rem] xl:text-[1rem] font-medium whitespace-nowrap"
+              id="nav-contact">
+              Contact
+            </a>
+          </div>
+        </div>
+
+        <!-- Book a Call Button -->
+        <a href="#" class="
+          hidden lg:inline-flex
+          items-center justify-center align-middle
+          px-[10px] lg:px-[28px] border-[1.5px] border-rs-primary-600 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)]
+          h-[46px] lg:min-w-[172px]
+          text-[18px] font-medium
+          rounded-xl text-rs-primary-100
+          bg-rs-primary-500 hover:bg-rs-primary-700
+          transition duration-300
+          " id="nav-cta">
+          <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="mr-1 w-[22px]">
+          Book a Call
+        </a>
+
+        <!-- Mobile menu button -->
+        <div class="lg:hidden">
+          <button class="mobile-menu-button p-2 rounded-md hover:bg-rs-neutral-200 transition duration-300"
+            aria-label="Open mobile menu" aria-expanded="false">
+            <img src="../assets/images/icon-menu.svg" alt="Menu icon" class="w-[22px]">
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Mobile Menu -->
+    <div class="hidden mobile-menu lg:hidden">
+      <div class="px-4 py-3 space-y-2 bg-rs-primary-50 border-t border-gray-200">
+        <a href="index.html"
+          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
+          id="mobile-nav-home">
+          Home
+        </a>
+        <a href="about.html"
+          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
+          id="mobile-nav-about">
+          About
+        </a>
+        <a href="services.html"
+          class="block px-4 py-2.5 text-[1rem] text-rs-accent-500 underline font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
+          id="mobile-nav-services">
+          Services
+        </a>
+        <a href="careers.html"
+          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
+          id="mobile-nav-careers">
+          Careers & Talent
+        </a>
+        <a href="resources.html"
+          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
+          id="mobile-nav-resources">
+          Resources
+        </a>
+        <a href="contact.html"
+          class="block px-4 py-2.5 text-[1rem] text-rs-neutral-600 font-medium hover:text-rs-primary-500 hover:underline hover:bg-gray-50 rounded-lg transition duration-300"
+          id="mobile-nav-contact">
+          Contact
+        </a>
+        <!-- Mobile CTA Button -->
+        <a href="contact.html"
+          class="flex items-center justify-center mx-0 mt-4 px-4 py-3 bg-rs-primary-500 text-white text-[1rem] font-medium rounded-lg hover:bg-rs-primary-700 transition duration-300"
+          id="mobile-nav-cta" role="button" aria-label="Book a call with Romega Solutions">
+          <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="w-[22px] mr-2"
+            id="mobile-nav-cta-icon" />
+          Book a Call
+        </a>
+      </div>
+    </div>
+  </nav>
+
 
   <!-- Services Page Content -->
-  <main class="min-h-screen bg-pattern">
+  <main class="min-h-screen bg-pattern pt-[104px]">
     <!-- Hero Section -->
     <section class="pt-16 sm:pt-20 lg:pt-24 relative">
       <div class="max-w-6xl mx-auto">
