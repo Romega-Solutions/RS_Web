@@ -14,146 +14,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
     rel="stylesheet" />
-  <style>
-    .service-card {
-      transition: all 0.3s ease;
-    }
 
-    .service-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .expandable-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
-    .expandable-content.expanded {
-      max-height: 800px;
-    }
-
-    .bg-pattern {
-      background-image:
-        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
-    }
-
-    .bg-logo-pattern {
-      background-image:
-        radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
-    }
-
-    .logo-bg {
-      position: absolute;
-      top: 10%;
-      left: 5%;
-      font-size: 15rem;
-      font-weight: 200;
-      color: rgba(59, 130, 246, 0.08);
-      z-index: 0;
-      line-height: 0.8;
-    }
-
-    .logo-bg::after {
-      content: "OMEGA";
-      position: absolute;
-      top: 2rem;
-      left: 0;
-      font-size: 2rem;
-      font-weight: 300;
-      color: rgba(59, 130, 246, 0.06);
-    }
-
-    .text-gradient {
-      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .problem-bg {
-      background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-    }
-
-    .solution-bg {
-      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-    }
-
-    .result-bg {
-      background: linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%);
-    }
-
-    /* FAQ Animations */
-    .faq-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-in-out;
-    }
-
-    .faq-content.hidden {
-      max-height: 0;
-    }
-
-    .faq-content:not(.hidden) {
-      max-height: 500px;
-    }
-
-    [id$="-arrow"] {
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .text-slate-600 {
-      color: var(--rs-neutral-600);
-    }
-
-    /* Culture Fit Section Styles */
-    .culture-fit-section {
-      min-height: 1154px;
-    }
-
-    .process-steps {
-      height: 900px;
-    }
-
-    /* Responsive adjustments for Culture Fit section */
-    @media (max-width: 1024px) {
-      .culture-fit-section {
-        padding: 2rem 1rem;
-        min-height: auto;
-      }
-
-      .process-step {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        margin-bottom: 3rem;
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .step-content {
-        max-width: 100% !important;
-        text-align: center !important;
-      }
-
-      .process-steps {
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-      }
-
-      .download-cta {
-        position: relative !important;
-        bottom: auto !important;
-        left: auto !important;
-        transform: none !important;
-        margin-top: 3rem;
-      }
-    }
-  </style>
 </head>
 
 <body class="bg-gray-50 font-sans">
@@ -171,7 +32,7 @@
             class="absolute -left-20 -top-40 w-96 -z-20">
           <div class="relative z-10 text-center mx-auto max-w-[90%] md:max-w-[80%] xl:max-w-full mx-auto">
             <h1
-              class="self-stretch justify-start text-rs-primary-700 text-4xl lg:text-5xl font-bold text-merriweather  leading-tight">
+              class="self-stretch justify-start text-rs-primary-700 text-[40px] font-bold text-merriweather  leading-tight">
               Recruitment re-engineered for speed and fit
             </h1>
 
@@ -179,13 +40,13 @@
                 class="text-rs-neutral-600 text-2xl font-medium">We provide a full suite of business
                 support services designed to </span><span class="text-rs-primary-700 text-2xl font-bold">help
                 companies</span><span class="text-rs-neutral-600 text-2xl font-medium"> </span><span
-                class="text-rs-primary-600 text-2xl font-bold">grow smarter</span><span
+                class="text-rs-primary-500 text-2xl font-bold">grow smarter</span><span
                 class="text-rs-neutral-600 text-2xl font-bold"> </span><span
                 class="text-rs-neutral-600 text-2xl font-normal">and</span><span
                 class="text-rs-neutral-600 text-2xl font-bold"> </span><span
                 class="text-rs-primary-700 text-2xl font-bold">operate</span><span
                 class="text-rs-neutral-600 text-2xl font-bold"> </span><span
-                class="text-rs-primary-600 text-2xl font-bold">more efficiently</span></div>
+                class="text-rs-primary-500 text-2xl font-bold">more efficiently</span></div>
           </div>
         </div>
 
@@ -197,24 +58,30 @@
             <article
               class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
               aria-labelledby="rpo-title">
-              <div data-icon="cog" class="size-12 relative overflow-hidden">
-                <img src="/assets/images/services/ft.1/hero-card-1.svg" alt="RPO Icon" width="48" height="48">
+              <div data-icon="cog" class="size-12 relative overflow-hidden" role="img" aria-label="Cog icon for RPO">
+                <img src="/assets/images/services/ft.1/hero-card-1.svg" alt="Illustration of a cog" width="48"
+                  height="48">
               </div>
               <header id="rpo-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">RPO
               </header>
-              <p class="w-36 h-8 relative text-center text-cyan-900 text-lg font-normal">On-demand hiring at scale</p>
+              <p class="w-36 lg:w-[130px] h-8 relative text-center text-cyan-900 text-lg font-normal">On-demand hiring
+                at
+                scale</p>
             </article>
 
             <!-- BPO Card -->
             <article
               class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
               aria-labelledby="bpo-title">
-              <div data-icon="globe" class="size-12 relative overflow-hidden">
-                <img src="/assets/images/services/ft.1/hero-card-2.svg" alt="RPO Icon" width="48" height="48">
+              <div data-icon="globe" class="size-12 relative overflow-hidden" role="img"
+                aria-label="Globe icon for BPO">
+                <img src="/assets/images/services/ft.1/hero-card-2.svg" alt="Illustration of a globe" width="48"
+                  height="48">
               </div>
               <header id="bpo-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">BPO
               </header>
-              <p class="w-36 h-8 relative text-center text-cyan-900 text-lg font-normal">Free your team to deliver value
+              <p class="w-36 lg:w-[130px] h-8 relative text-center text-cyan-900 text-lg font-normal">Free your team to
+                deliver value
               </p>
             </article>
           </div>
@@ -225,12 +92,15 @@
             <article
               class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
               aria-labelledby="hr-title">
-              <div data-icon="file-user" class="size-12 relative overflow-hidden">
-                <img src="/assets/images/services/ft.1/hero-card-3.svg" alt="RPO Icon" width="48" height="48">
+              <div data-icon="file-user" class="size-12 relative overflow-hidden" role="img"
+                aria-label="File with user icon for Strategic HR">
+                <img src="/assets/images/services/ft.1/hero-card-3.svg" alt="Illustration of a file with a user icon"
+                  width="48" height="48">
               </div>
               <header id="hr-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">
                 Strategic HR</header>
-              <p class="w-36 h-8 relative text-center text-cyan-900 text-lg font-normal">Align your people strategically
+              <p class="w-36  h-8 relative text-center text-cyan-900 text-lg font-normal">Align your people
+                strategically
               </p>
             </article>
 
@@ -238,8 +108,10 @@
             <article
               class="w-44 min-w-44 min-h-52 px-4 py-7 bg-rs-primary-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 flex flex-col justify-start items-center gap-2.5 overflow-hidden"
               aria-labelledby="quality-title">
-              <div data-icon="user-search" class="size-12 relative overflow-hidden">
-                <img src="/assets/images/services/ft.1/hero-card-4.svg" alt="RPO Icon" width="48" height="48">
+              <div data-icon="user-search" class="size-12 relative overflow-hidden" role="img"
+                aria-label="User search icon for Quality Hire">
+                <img src="/assets/images/services/ft.1/hero-card-4.svg"
+                  alt="Illustration of a user icon with a magnifying glass" width="48" height="48">
               </div>
               <header id="quality-title" class="w-36 h-8 relative text-center text-rs-primary-700 text-2xl font-bold">
                 Quality Hire</header>
@@ -254,6 +126,7 @@
 
       <!-- Other Services Section -->
       <section class="my-8 sm:my-12 max-w-[816px] rounded-[6px] mx-auto border-rs-neutral-300 border-[1.25px]">
+        <!-- Displays a grid of services with expandable details -->
         <!-- RPO Program Detail Section -->
         <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
           <!-- Header -->
@@ -709,8 +582,10 @@
     </section>
 
     <!-- Culture Fit Diagnostic Section -->
-    <section class="culture-fit-section relative px-16 py-[32px] border-t-4 border-b-4 border-slate-400 overflow-hidden"
+    <section
+      class="culture-fit-section relative px-4 sm:px-8 lg:px-16 py-[32px] border-t-4 border-b-4 border-slate-400 overflow-hidden"
       aria-labelledby="culture-fit-heading">
+      <!-- Outlines the company's culture fit diagnostic process -->
 
       <!-- Background Decorative Elements -->
       <div class="culture-fit-bg absolute inset-0 pointer-events-none bg-[url('/assets/images/services/ft.2/RS-Services-Road-BG.png')] bg-repeat-y bg-center
@@ -726,7 +601,8 @@
         <div class="process-steps relative">
 
           <!-- Step 1: Discover -->
-          <article class="flex items-center gap-4 w-fit mx-auto mb-[82px]">
+          <article
+            class="flex flex-col md:flex-row items-center gap-8 md:gap-4 w-fit mx-auto mb-16 md:mb-[82px] text-center md:text-left">
             <img src="/assets/images/services/ft.2/RS-Services-Road-Icon-1.png" alt="Discover"
               class="w-[100px] md:w-[153px]">
             <div class="step-content max-w-[500px]">
@@ -743,8 +619,9 @@
           </article>
 
           <!-- Step 2: Map -->
-          <article class="flex items-center gap-4 w-fit mx-auto mb-[91px]">
-            <div class="step-content max-w-[500px] text-right">
+          <article
+            class="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-4 w-fit mx-auto mb-16 md:mb-[91px] text-center md:text-right">
+            <div class="step-content max-w-[500px]">
               <h3 class="step-title text-sky-800 text-3xl font-bold text-merriweather mb-2">02 Map</h3>
               <p class="step-description text-slate-700 text-lg font-medium leading-relaxed">
                 Your cultural values are converted into
@@ -759,7 +636,8 @@
           </article>
 
           <!-- Step 3: Validate -->
-          <article class="flex items-center gap-4 w-fit mx-auto mb-[114px] ps-10">
+          <article
+            class="flex flex-col md:flex-row items-center gap-8 md:gap-4 w-fit mx-auto mb-16 md:mb-[114px] md:ps-10 text-center md:text-left">
             <img src="/assets/images/services/ft.2/RS-Services-Road-Icon-3.png" alt="Validate"
               class="w-[100px] md:w-[153px]">
             <div class="step-content max-w-[500px]">
@@ -775,8 +653,9 @@
           </article>
 
           <!-- Step 4: Report -->
-          <article class="flex items-center gap-4 w-fit mx-auto">
-            <div class="step-content max-w-[500px] text-right">
+          <article
+            class="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-4 w-fit mx-auto text-center md:text-right">
+            <div class="step-content max-w-[500px]">
               <h3 class="step-title text-sky-800 text-3xl font-bold font-merriweather mb-2">04 Report</h3>
               <p class="step-description text-cyan-900 text-lg font-medium leading-relaxed">
                 You receive a
@@ -792,10 +671,10 @@
 
           <!-- Download CTA Button -->
           <button
-            class="flex justify-center mt-[94px] gap-2 mx-auto download-btn w-96 max-w-96 min-w-72 py-3 bg-[var(--rs-primary-500)] rounded-xl shadow-[0px_2.5px_8.75px_2.5px_rgba(18,91,161,0.30)] border border-[var(--rs-primary-700)]  hover:bg-rs-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
+            class="flex justify-center mt-8 md:mt-[94px] gap-2 mx-auto download-btn w-full max-w-96 py-3 bg-[var(--rs-primary-500)] rounded-xl shadow-[0px_2.5px_8.75px_2.5px_rgba(18,91,161,0.30)] border border-[var(--rs-primary-700)]  hover:bg-rs-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
             <img src="/assets/images/services/ft.2/RS-Services-CTA-Icon.svg" alt="CTA Icon" width="24">
-            <span class="download-text text-[var(--rs-primary-100)] text-2xl font-bold">Download Diagnostic
-              PDF</span>
+            <span class="download-text text-[var(--rs-primary-100)] text-base md:text-xl lg:text-2xl font-bold">Download
+              Diagnostic PDF</span>
           </button>
         </div>
       </div>
@@ -803,6 +682,7 @@
 
     <!-- FAQ Section -->
     <section class="faq-section py-16 px-4 bg-sky-50" aria-labelledby="faq-heading">
+      <!-- Contains a list of frequently asked questions with expandable answers -->
       <div class="container mx-auto flex flex-col items-center gap-8 max-w-4xl">
 
         <!-- FAQ Header -->
@@ -810,7 +690,7 @@
           <h2 id="faq-heading" class="faq-title text-rs-primary-700 text-5xl font-bold text-merriweather-h1 mb-3">
             HR & Talent Acquisition FAQ
           </h2>
-          <p class="faq-subtitle text-rs-neutral-600 text-2xl font-medium max-w-[650px] mx-auto">
+          <p class="faq-subtitle text-rs-neutral-600 text-base md:text-2xl font-medium max-w-[650px] mx-auto">
             Here are some answers for you that is clear, concise, and designed for HR leaders seeking faster,
             smarter
             executive hiring.
@@ -823,7 +703,7 @@
             class="search-wrapper py-3 px-6 rounded-xl bg-white border border-[var(--rs-primary-700)] shadow-[0px_2.5px_8.75px_2.5px_rgba(18,91,161,0.30)] flex items-center gap-3">
             <label for="faq-search" class="sr-only">Search frequently asked questions</label>
             <input type="search" id="faq-search" placeholder="Ask me anything..."
-              class="search-input flex-1 text-rs-neutral-600 text-2xl font-normal bg-transparent border-none outline-none"
+              class="search-input flex-1 text-rs-neutral-600 text-base md:text-xl lg:text-2xl font-normal bg-transparent border-none outline-none"
               aria-label="Search FAQ questions and answers">
             <div class="search-icon w-7 h-7 flex items-center justify-center" aria-hidden="true">
               <svg class="w-4 h-4 text-rs-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -848,12 +728,9 @@
                 <h3 class="faq-question text-cyan-900 text-xl font-semibold text-left">
                   1. What industries does Romega specialize in?
                 </h3>
-                <span class="faq-toggle-icon w-8 h-8 flex items-center justify-center" aria-hidden="true">
-                  <svg id="faq-1-arrow" class="w-4 h-4 text-sky-900 transform transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
-                  </svg>
-
+                <span class="" aria-hidden="true">
+                  <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-1-arrow"
+                    src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
                 </span>
               </button>
 
@@ -892,11 +769,10 @@
                   </div>
                 </div>
                 <div class="w-8 h-8 relative overflow-hidden">
-                  <svg id="faq-2-arrow"
-                    class="w-2 h-4 absolute left-[12px] top-[8px] text-sky-900 transform transition-transform"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
-                  </svg>
+                  <span class="" aria-hidden="true">
+                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-2-arrow"
+                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                  </span>
                 </div>
               </div>
               <div id="faq-2" class="faq-content hidden">
@@ -937,11 +813,10 @@
                     companies?</div>
                 </div>
                 <div class="w-8 h-8 relative overflow-hidden">
-                  <svg id="faq-3-arrow"
-                    class="w-2 h-4 absolute left-[12px] top-[8px] text-sky-900 transform transition-transform"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
-                  </svg>
+                  <span class="" aria-hidden="true">
+                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-3-arrow"
+                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                  </span>
                 </div>
               </div>
               <div id="faq-3" class="faq-content hidden">
@@ -978,11 +853,10 @@
                   <div class="flex-1 text-cyan-900 text-xl font-semibold">4. What's your average time-to-hire?</div>
                 </div>
                 <div class="w-8 h-8 relative overflow-hidden">
-                  <svg id="faq-4-arrow"
-                    class="w-2 h-4 absolute left-[12px] top-[8px] text-sky-900 transform transition-transform"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
-                  </svg>
+                  <span class="" aria-hidden="true">
+                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-4-arrow"
+                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                  </span>
                 </div>
               </div>
               <div id="faq-4" class="faq-content hidden">
@@ -1021,11 +895,10 @@
                     process?</div>
                 </div>
                 <div class="w-8 h-8 relative overflow-hidden">
-                  <svg id="faq-5-arrow"
-                    class="w-2 h-4 absolute left-[12px] top-[8px] text-sky-900 transform transition-transform"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
-                  </svg>
+                  <span class="" aria-hidden="true">
+                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-5-arrow"
+                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                  </span>
                 </div>
               </div>
               <div id="faq-5" class="faq-content hidden">
@@ -1064,11 +937,10 @@
                   </div>
                 </div>
                 <div class="w-8 h-8 relative overflow-hidden">
-                  <svg id="faq-6-arrow"
-                    class="w-2 h-4 absolute left-[12px] top-[8px] text-sky-900 transform transition-transform"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
-                  </svg>
+                  <span class="" aria-hidden="true">
+                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-6-arrow"
+                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                  </span>
                 </div>
               </div>
               <div id="faq-6" class="faq-content hidden">
@@ -1106,11 +978,10 @@
                   <div class="flex-1 text-cyan-900 text-xl font-semibold">7. What happens after I book a call?</div>
                 </div>
                 <div class="w-8 h-8 relative overflow-hidden">
-                  <svg id="faq-7-arrow"
-                    class="w-2 h-4 absolute left-[12px] top-[8px] text-sky-900 transform transition-transform"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
-                  </svg>
+                  <span class="" aria-hidden="true">
+                    <img class="faq-toggle-icon w-3/4 lg:w-full opacity-75" id="faq-7-arrow"
+                      src="/assets/images/services/accordion-arrow-right.svg" alt="Arrow Icon">
+                  </span>
                 </div>
               </div>
               <div id="faq-7" class="faq-content hidden">
@@ -1150,9 +1021,9 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Testimonials Section -->
     <section class="bg-rs-primary-50 px-6 md:px-16 py-16 mx-auto">
-      <!-- Header -->
+      <!-- A carousel of client testimonials with navigation controls -->
       <div class="text-center mb-12">
         <h2 class="text-rs-primary-700 text-3xl md:text-4xl font-bold text-merriweather">What Our Clients Say</h2>
         <p class="text-rs-neutral-600 text-lg md:text-2xl font-medium mt-3">
@@ -1167,15 +1038,17 @@
           class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth px-1 -mx-1 scrollbar-none">
           <div
             class="w-72 flex-shrink-0 snap-start bg-rs-primary-100 rounded-2xl outline outline-rs-neutral-400 outline-offset-[-1.75px] outline-1 shadow-[0px_4px_10px_rgba(82,82,82,0.1)] flex flex-col items-center px-4 py-6 gap-4 transition-transform duration-300 testimonial-card">
-            <div class="relative w-full h-48 flex flex-col justify-end items-center">
+            <figure class="relative w-full h-48 flex flex-col justify-end items-center">
               <img src="https://placehold.co/268x200/png" alt="Marketing Director background"
                 class="absolute top-0 left-0 w-full h-full object-cover" />
               <div class="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-[#1C232D]/90 to-transparent">
               </div>
-              <span class="text-rs-primary-700 text-xl font-semibold relative">LOGO HERE</span>
-              <span class="text-rs-accent-500 text-xl font-bold relative mb-3">Marketing Director</span>
-            </div>
-            <div class="text-center flex flex-col gap-1 h-[93px]">
+              <figcaption class="text-center">
+                <span class="text-rs-primary-700 text-xl font-semibold relative">LOGO HERE</span>
+                <span class="text-rs-accent-500 text-xl font-bold relative mb-3">Marketing Director</span>
+              </figcaption>
+            </figure>
+            <blockquote class="text-center flex flex-col gap-1 h-[93px]">
               <p class="text-sm text-rs-neutral-600">Time to Hire: <span class="font-bold text-base">14 days</span>
               </p>
               <p class="text-rs-neutral-900 text-sm leading-snug">
@@ -1183,11 +1056,11 @@
                 performance
                 in just weeks."
               </p>
-            </div>
-            <div class="flex items-center gap-2 text-rs-primary-700 text-xl font-semibold cursor-pointer">
+            </blockquote>
+            <a href="#" class="flex items-center gap-2 text-rs-primary-700 text-xl font-semibold cursor-pointer">
               <span>View Full Story</span>
               <img src="/assets/images/services/arrow-right.svg" alt="Arrow Icon" class="w-5 h-5">
-            </div>
+            </a>
           </div>
           <div
             class="w-72 flex-shrink-0 snap-start bg-rs-primary-100 rounded-2xl outline outline-rs-neutral-400 outline-offset-[-1.75px] outline-1 shadow-[0px_4px_10px_rgba(82,82,82,0.1)] flex flex-col items-center px-4 py-6 gap-4 transition-transform duration-300 testimonial-card">
@@ -1207,10 +1080,10 @@
                 for.”"
               </p>
             </div>
-            <div class="flex items-center gap-2 text-rs-primary-700 text-xl font-semibold cursor-pointer">
+            <a href="#" class="flex items-center gap-2 text-rs-primary-700 text-xl font-semibold cursor-pointer">
               <span>View Full Story</span>
               <img src="/assets/images/services/arrow-right.svg" alt="Arrow Icon" class="w-5 h-5">
-            </div>
+            </a>
           </div>
           <div
             class="w-72 flex-shrink-0 snap-start bg-rs-primary-100 rounded-2xl outline outline-rs-neutral-400 outline-offset-[-1.75px] outline-1 shadow-[0px_4px_10px_rgba(82,82,82,0.1)] flex flex-col items-center px-4 py-6 gap-4 transition-transform duration-300 testimonial-card">
@@ -1230,22 +1103,24 @@
                 Romega.”
               </p>
             </div>
-            <div class="flex items-center gap-2 text-rs-primary-700 text-xl font-semibold cursor-pointer">
+            <a href="#" class="flex items-center gap-2 text-rs-primary-700 text-xl font-semibold cursor-pointer">
               <span>View Full Story</span>
               <img src="/assets/images/services/arrow-right.svg" alt="Arrow Icon" class="w-5 h-5">
-            </div>
+            </a>
           </div>
 
           <div
             class="w-72 flex-shrink-0 snap-start bg-rs-primary-100 rounded-2xl outline outline-rs-neutral-400 outline-offset-[-1.75px] outline-1 shadow-[0px_4px_10px_rgba(82,82,82,0.1)] flex flex-col items-center px-4 py-6 gap-4 transition-transform duration-300 testimonial-card">
-            <div class="relative w-full h-48 flex flex-col justify-end items-center">
+            <figure class="relative w-full h-48 flex flex-col justify-end items-center">
               <img src="https://placehold.co/268x200/png" alt="Marketing Director background"
                 class="absolute top-0 left-0 w-full h-full object-cover" />
               <div class="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-[#1C232D]/90 to-transparent">
               </div>
-              <span class="text-rs-primary-700 text-xl font-semibold relative">LOGO HERE</span>
-              <span class="text-rs-accent-500 text-xl font-bold relative mb-3">Marketing Director</span>
-            </div>
+              <figcaption class="text-center">
+                <span class="text-rs-primary-700 text-xl font-semibold relative">LOGO HERE</span>
+                <span class="text-rs-accent-500 text-xl font-bold relative mb-3">Marketing Director</span>
+              </figcaption>
+            </figure>
             <div class="text-center flex flex-col gap-1 h-[93px]">
               <p class="text-sm text-rs-neutral-600">Time to Hire: <span class="font-bold text-base">14 days</span>
               </p>
@@ -1254,10 +1129,35 @@
 
               </p>
             </div>
-            <div class="flex items-center gap-2 text-rs-primary-700 text-xl font-semibold cursor-pointer">
+            <a href="#" class="flex items-center gap-2 text-rs-primary-700 text-xl font-semibold cursor-pointer">
               <span>View Full Story</span>
               <img src="/assets/images/services/arrow-right.svg" alt="Arrow Icon" class="w-5 h-5">
+            </a>
+          </div>
+          <div
+            class="w-72 flex-shrink-0 snap-start bg-rs-primary-100 rounded-2xl outline outline-rs-neutral-400 outline-offset-[-1.75px] outline-1 shadow-[0px_4px_10px_rgba(82,82,82,0.1)] flex flex-col items-center px-4 py-6 gap-4 transition-transform duration-300 testimonial-card">
+            <figure class="relative w-full h-48 flex flex-col justify-end items-center">
+              <img src="https://placehold.co/268x200/png" alt="Marketing Director background"
+                class="absolute top-0 left-0 w-full h-full object-cover" />
+              <div class="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-[#1C232D]/90 to-transparent">
+              </div>
+              <figcaption class="text-center">
+                <span class="text-rs-primary-700 text-xl font-semibold relative">LOGO HERE</span>
+                <span class="text-rs-accent-500 text-xl font-bold relative mb-3">Marketing Director</span>
+              </figcaption>
+            </figure>
+            <div class="text-center flex flex-col gap-1 h-[93px]">
+              <p class="text-sm text-rs-neutral-600">Time to Hire: <span class="font-bold text-base">14 days</span>
+              </p>
+              <p class="text-rs-neutral-900 text-sm leading-snug">
+                “Swift and precise. Romega’s approach not only saved us time but also enriched our marketing team.”
+
+              </p>
             </div>
+            <a href="#" class="flex items-center gap-2 text-rs-primary-700 text-xl font-semibold cursor-pointer">
+              <span>View Full Story</span>
+              <img src="/assets/images/services/arrow-right.svg" alt="Arrow Icon" class="w-5 h-5">
+            </a>
           </div>
 
           <!-- 🔁 Duplicate more .w-72 cards here -->
@@ -1296,6 +1196,7 @@
     <!-- CTA Section -->
 
     <section class="w-full relative overflow-hidden h-auto py-10 sm:py-12 md:py-16">
+      <!-- A call-to-action section with buttons to book a call or download a PDF -->
       <div class="absolute inset-0 z-0 pointer-events-none">
         <div class="w-full h-full bg-cover bg-center opacity-60"
           style="background-image: url('/assets/images/services/Services-CTA-BG.png');"></div>
@@ -1317,7 +1218,7 @@
         </div>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col md:flex-row justify-center items-stretch sm:items-start gap-6 w-full max-w-4xl">
+        <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-start gap-6 w-full max-w-4xl">
           <!-- Book a Call -->
           <div class="flex-1 flex flex-col items-center gap-2">
             <button
@@ -1334,7 +1235,7 @@
           <!-- Download PDF -->
           <div class="flex-1 flex flex-col items-center gap-2">
             <button
-              class="w-full py-3 rounded-xl shadow-[0px_2.5px_8.75px_2.5px_rgba(18,91,161,0.30)] outline outline-[1.25px] outline-offset-[-1.25px] outline-rs-primary-600 flex justify-center items-center gap-2 text-sky-800 text-xl md:text-2xl font-medium font-['Source_Sans_3'] cursor-pointer transition-all duration-200 ease-in-out hover:bg-rs-primary-50 hover:text-rs-primary-700 hover:outline-rs-primary-700 hover:shadow-md active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rs-primary-400">
+              class="w-full py-3 rounded-xl shadow-[0px_2.5px_8.75px_2.5px_rgba(18,91,161,0.30)] outline outline-[1.25px] outline-offset-[-1.25px] outline-rs-primary-600 flex justify-center items-center gap-2 text-sky-800 text-base md:text-xl lg:text-2xl font-medium font-['Source_Sans_3'] cursor-pointer transition-all duration-200 ease-in-out hover:bg-rs-primary-50 hover:text-rs-primary-700 hover:outline-rs-primary-700 hover:shadow-md active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rs-primary-400">
               <img src="/assets/images/services/Services-CTA-Icon2.svg" alt="Download Service Overview" loading="lazy">
               Download Service Overview
             </button>

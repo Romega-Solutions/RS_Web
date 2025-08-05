@@ -337,6 +337,65 @@ textarea:focus {
 .text-merriweather {
   font-family: "Merriweather", serif;
 }
+
+.service-card {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+}
+
+.expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.expandable-content.expanded {
+  max-height: 800px;
+}
+
+.bg-pattern {
+  background-image: radial-gradient(
+      circle at 20% 80%,
+      rgba(59, 130, 246, 0.03) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(59, 130, 246, 0.03) 0%,
+      transparent 50%
+    );
+}
+
+.bg-logo-pattern {
+  background-image: radial-gradient(
+    circle at 10% 10%,
+    rgba(59, 130, 246, 0.05) 0%,
+    transparent 40%
+  );
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.problem-bg {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+}
+
+.solution-bg {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+}
+
+.result-bg {
+  background: linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%);
+}
+
 .text-merriweather-careers {
   font-family: "Merriweather", serif;
   font-weight: 700;
