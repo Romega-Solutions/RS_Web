@@ -6,191 +6,198 @@
     <title>Careers - Romega Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/styles.css" />
-    <!-- source sans 3 -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://romegasolutions.com" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+
+    <!-- Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-
-    
-<!-- Navigation -->
-<nav       id="navbar-container"
+    <nav
+      id="navbar-container"
       role="navigation"
-      aria-label="Main navigation" class="bg-rs-primary-50 shadow-sm border-b-2 border-blue-400">
-  <div style="padding-left: 30px; padding-right: 30px" >
-    <div
-      class="flex justify-between items-center mx-auto bg-white"
-      style="height: 104px; width: 100%; max-width: 1261px "
+      aria-label="Main navigation"
+      class="bg-rs-primary-50 shadow-sm border-b-2 border-[var(--rs-neutral-grey-500)]"
     >
-      <!-- Logo -->
-      <div class="flex items-center flex-shrink-0 ml-2 ">
-        <a href="#" class="flex items-center" id="logo-link">
-          <img
-            src="./assets/images/homepage/logo.png"
-            alt="Romega Solutions"
-            style="height: 83px; width: auto; max-width: 301px"
-            class="md:h-20 h-16"
-            id="logo-img"
-          />
-        </a>
-      </div>
-
-      <!-- Desktop Navigation Links - Centered -->
-      <div class="hidden md:flex items-center justify-center flex-1 mx-8 ">
-        <div class="flex items-center space-x-8">
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-home"
-          >
-            Home
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-about"
-          >
-            About
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-services"
-          >
-            Services
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-careers"
-          >
-            Careers & Talent
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-resources"
-          >
-            Resources
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-contact"
-          >
-            Contact
-          </a>
-        </div>
-      </div>
-        <!-- Book a Call Button -->
-        <a
-          href="#"
-          class="hidden md:text-[18px] md:inline-flex items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300"
-          style="width: 172px; height: 46px;"
-          id="nav-cta"
+      <div style="padding-left: 0px; padding-right: 0px">
+        <div
+          class="flex justify-between items-center bg-white px-8"
+          style="height: 104px; width: 100%"
         >
-          <img
-            src="/assets/images/homepage/calendar-days.png"
-            alt="Calendar icon"
-            class="w-[22px] mr-2"
-            id="nav-cta-icon"
-          />
-          Book a Call
-        </a>
-        <!-- Mobile menu button -->
-        <div class="md:hidden">
-          <button
-            class="mobile-menu-button p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
-            aria-label="Open mobile menu"
-            aria-expanded="false"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <!-- Logo: lg (desktop) -->
+          <div class="md:hidden lg:flex items-center flex-shrink-0 xl:ml-14">
+            <a href="index.html" class="flex items-center" id="logo-link-lg">
+              <img
+                src="../assets/images/homepage/logo.png"
+                alt="Romega Solutions"
+                style="height: 83px; width: auto; max-width: 301px"
+                class="h-16"
+                id="logo-img-lg"
+              />
+            </a>
+          </div>
+          <!-- Logo: md/sm (tablet/mobile) -->
+          <div class="flex hidden sm:hidden md:block lg:hidden items-center">
+            <a href="index.html" class="flex" id="logo-link-md">
+              <img
+                src="../assets/images/homepage/smlogo.png"
+                alt="Romega Solutions"
+                style="height: 83px; width: auto; max-width: 220px"
+                class="h-16"
+                id="logo-img-md"
+              />
+            </a>
+          </div>
+          <!-- Combined Navigation Links: lg, md, sm -->
+          <div class="hidden md:flex items-center justify-center flex-1 mx-2">
+            <div
+              class="flex items-center space-x-12 md:space-x-2 lg:space-x-0 xl:space-x-6 2xl:space-x-12"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </button>
+              <a
+                href="index.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-home"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-about"
+                >About</a
+              >
+              <a
+                href="services.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-services"
+                >Services</a
+              >
+              <a
+                href="careers.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-careers"
+                >Careers & Talent</a
+              >
+              <a
+                href="resources.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-resources"
+                >Resources</a
+              >
+              <a
+                href="contact.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-contact"
+                >Contact</a
+              >
+            </div>
+          </div>
+          <!-- Book a Call Button for lg and md -->
+          <a
+            href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+            class="hidden md:inline-flex items-center justify-center xl:text-[18px] lg:text-[14px] font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 ml-2 lg:ml-4 xl:mr-14"
+            style="width: 150px; height: 42px"
+            id="nav-cta"
+          >
+            <img
+              src="../assets/images/homepage/calendar-days.png"
+              alt="Calendar icon"
+              class="w-5 mr-2 md:w-[16px] lg:w-[16px] xl:w-[22px]"
+              id="nav-cta-icon"
+            />
+            Book a Call
+          </a>
+
+          <!-- Mobile menu button: sm only -->
+          <div class="md:hidden flex items-center">
+            <button
+              class="mobile-menu-button p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+              aria-label="Open mobile menu"
+              aria-expanded="false"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Mobile Menu -->
-    <div class="hidden mobile-menu md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-accent font-medium bg-rs-primary-50 rounded-md"
-          id="mobile-nav-home"
-        >
-          Home
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-about"
-        >
-          About
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-services"
-        >
-          Services
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-careers"
-        >
-          Careers & Talent
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-resources"
-        >
-          Resources
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-contact"
-        >
-          Contact
-        </a>
-        <!-- Mobile CTA Button -->
-        <a
-          href="#"
-          class="flex items-center justify-center mx-3 mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300"
-          id="mobile-nav-cta"
-          role="button"
-          aria-label="Book a call with Romega Solutions"
-        >
-          <img
-            src="#"
-            alt="Calendar icon"
-            class="w-4 h-4 mr-2"
-            id="mobile-nav-cta-icon"
-          />
-          Book a Call
-        </a>
+      <!-- Mobile Menu (sm only) -->
+      <div class="hidden mobile-menu md:hidden w-full">
+        <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+          <a
+            href="index.html"
+            class="block px-3 py-2 font-medium bg-rs-primary-50 rounded-md"
+            id="mobile-nav-home"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-about"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-services"
+            >Services</a
+          >
+          <a
+            href="careers.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-careers"
+            >Careers & Talent</a
+          >
+          <a
+            href="resources.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-resources"
+            >Resources</a
+          >
+          <a
+            href="contact.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-contact"
+            >Contact</a
+          >
+          <!-- Mobile CTA Button -->
+          <a
+            href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+            class="flex items-center justify-center mx-3 mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300"
+            id="mobile-nav-cta"
+            role="button"
+            aria-label="Book a call with Romega Solutions"
+          >
+            <img
+              src="../assets/images/homepage/calendar-days.png"
+              alt="Calendar icon"
+              class="w-4 h-4 mr-2"
+              id="mobile-nav-cta-icon"
+            />
+            Book a Call
+          </a>
+        </div>
       </div>
-    </div>
-  </div>
-</nav>
+    </nav>
 
     <!-- Careers Page Content -->
     <main class="bg-gray-50 min-h-screen">
@@ -250,10 +257,504 @@
           </div>
         </div>
       </section>
+
+      <!-- explore leadership opportunities section-->
+      <section></section>
+
+      <!-- your privacy section -->
+      <section></section>
+
+      <!-- the way we work section -->
+      <section
+        class="pt-16 pb-12 px-4 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20 relative"
+      >
+        <div class="max-w-6xl mx-auto">
+          <!-- Background Logo Pattern -->
+          <div class="relative">
+            <img
+              src="../assets/images/services/Romega-Logo-BG.png"
+              alt="Romega Logo Background"
+              class="absolute -left-20 -top-40 w-96 -z-20"
+            />
+            <div class="relative z-10 text-center">
+              <h1
+                class="self-stretch justify-start text-sky-700 text-5xl font-bold font-['Merriweather'] mb-"
+              >
+                Recruitment re-engineered for speed and fit
+              </h1>
+
+              <div class="text-center max-w-4xl mx-auto mt-[12px] mb-[32px]">
+                <span
+                  class="text-slate-600 text-2xl font-medium font-['Source_Sans_3']"
+                  >We provide a full suite of business support services designed
+                  to </span
+                ><span
+                  class="text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
+                  >help companies</span
+                ><span
+                  class="text-slate-600 text-2xl font-medium font-['Source_Sans_3']"
+                >
+                </span
+                ><span
+                  class="text-sky-600 text-2xl font-bold font-['Source_Sans_3']"
+                  >grow smarter</span
+                ><span
+                  class="text-slate-600 text-2xl font-bold font-['Source_Sans_3']"
+                >
+                </span
+                ><span
+                  class="text-slate-600 text-2xl font-normal font-['Source_Sans_3']"
+                  >and</span
+                ><span
+                  class="text-slate-600 text-2xl font-bold font-['Source_Sans_3']"
+                >
+                </span
+                ><span
+                  class="text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
+                  >operate</span
+                ><span
+                  class="text-slate-600 text-2xl font-bold font-['Source_Sans_3']"
+                >
+                </span
+                ><span
+                  class="text-sky-600 text-2xl font-bold font-['Source_Sans_3']"
+                  >more efficiently</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Grid - Mobile First -->
+          <div class="flex justify-start items-center gap-8 mx-auto w-fit">
+            <div
+              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-sky-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+            >
+              <div data-icon="cog" class="size-12 relative overflow-hidden">
+                <svg
+                  class="size-12"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_2001_3497)">
+                    <path
+                      d="M24.9998 45C30.3041 45 35.3912 42.8929 39.1419 39.1421C42.8926 35.3914 44.9998 30.3043 44.9998 25C44.9998 19.6957 42.8926 14.6086 39.1419 10.8579C35.3912 7.10714 30.3041 5 24.9998 5M24.9998 45C19.6954 45 14.6083 42.8929 10.8576 39.1421C7.10689 35.3914 4.99976 30.3043 4.99976 25M24.9998 45V50M24.9998 5C19.6954 5 14.6083 7.10714 10.8576 10.8579C7.10689 14.6086 4.99976 19.6957 4.99976 25M24.9998 5V0M4.99976 25H-0.000244141M29.9998 25C29.9998 26.3261 29.473 27.5978 28.5353 28.5355C27.5976 29.4732 26.3258 30 24.9998 30C23.6737 30 22.4019 29.4732 21.4642 28.5355C20.5265 27.5978 19.9998 26.3261 19.9998 25C19.9998 23.6739 20.5265 22.4021 21.4642 21.4645C22.4019 20.5268 23.6737 20 24.9998 20C26.3258 20 27.5976 20.5268 28.5353 21.4645C29.473 22.4021 29.9998 23.6739 29.9998 25ZM29.9998 25H49.9998M37.4998 46.65L34.9998 42.325M22.4998 20.675L12.4998 3.35M46.6498 37.5L42.3248 35M3.34976 12.5L7.67476 15M46.6498 12.5L42.3248 15M3.34976 37.5L7.67476 35M37.4998 3.35L34.9998 7.675M22.4998 29.325L12.4998 46.65"
+                      stroke="#003B73"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2001_3497">
+                      <rect width="50" height="50" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div data-text-type="Card Header" class="w-36 h-8 relative">
+                <div
+                  class="w-36 left-0 top-0 absolute text-center justify-start text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
+                >
+                  RPO
+                </div>
+              </div>
+              <div data-text-type="Card Description" class="w-36 h-8 relative">
+                <div
+                  class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal font-['Source_Sans_3']"
+                >
+                  On-demand hiring at scale
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-sky-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+            >
+              <div data-icon="globe" class="size-12 relative overflow-hidden">
+                <svg
+                  class="size-12"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M45.8332 24.9993C45.8332 36.5053 36.5058 45.8327 24.9998 45.8327M45.8332 24.9993C45.8332 13.4934 36.5058 4.16602 24.9998 4.16602M45.8332 24.9993H4.1665M24.9998 45.8327C13.4939 45.8327 4.1665 36.5053 4.1665 24.9993M24.9998 45.8327C19.6503 40.2157 16.6665 32.7561 16.6665 24.9993C16.6665 17.2426 19.6503 9.783 24.9998 4.16602M24.9998 45.8327C30.3494 40.2157 33.3332 32.7561 33.3332 24.9993C33.3332 17.2426 30.3494 9.783 24.9998 4.16602M4.1665 24.9993C4.1665 13.4934 13.4939 4.16602 24.9998 4.16602"
+                    stroke="#003B73"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div data-text-type="Card Header" class="w-36 h-8 relative">
+                <div
+                  class="w-36 left-0 top-0 absolute text-center justify-start text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
+                >
+                  BPO
+                </div>
+              </div>
+              <div data-text-type="Card Description" class="w-36 h-8 relative">
+                <div
+                  class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal font-['Source_Sans_3']"
+                >
+                  Free your team to deliver value
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-sky-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+            >
+              <div
+                data-icon="file-user"
+                class="size-12 relative overflow-hidden"
+              >
+                <svg
+                  class="size-12"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M29.1666 4.16602V12.4993C29.1666 13.6044 29.6056 14.6642 30.387 15.4456C31.1684 16.227 32.2282 16.666 33.3333 16.666H41.6666M31.2499 37.4993C31.2499 35.8417 30.5914 34.252 29.4193 33.0799C28.2472 31.9078 26.6575 31.2493 24.9999 31.2493M24.9999 31.2493C23.3423 31.2493 21.7526 31.9078 20.5805 33.0799C19.4084 34.252 18.7499 35.8417 18.7499 37.4993M24.9999 31.2493C27.3011 31.2493 29.1666 29.3839 29.1666 27.0827C29.1666 24.7815 27.3011 22.916 24.9999 22.916C22.6987 22.916 20.8333 24.7815 20.8333 27.0827C20.8333 29.3839 22.6987 31.2493 24.9999 31.2493ZM31.2499 4.16602H12.4999C11.3948 4.16602 10.335 4.605 9.55364 5.3864C8.77224 6.16781 8.33325 7.22761 8.33325 8.33268V41.666C8.33325 42.7711 8.77224 43.8309 9.55364 44.6123C10.335 45.3937 11.3948 45.8327 12.4999 45.8327H37.4999C38.605 45.8327 39.6648 45.3937 40.4462 44.6123C41.2276 43.8309 41.6666 42.7711 41.6666 41.666V14.5827L31.2499 4.16602Z"
+                    stroke="#003B73"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div data-text-type="Card Header" class="w-36 h-8 relative">
+                <div
+                  class="w-36 left-0 top-0 absolute text-center justify-start text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
+                >
+                  Strategic HR
+                </div>
+              </div>
+              <div data-text-type="Card Description" class="w-36 h-8 relative">
+                <div
+                  class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal font-['Source_Sans_3']"
+                >
+                  Align your people strategically
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-sky-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+            >
+              <div
+                data-icon="user-search"
+                class="size-12 relative overflow-hidden"
+              >
+                <svg
+                  class="size-12"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.4583 31.25H14.5833C12.3732 31.25 10.2536 32.128 8.69078 33.6908C7.12797 35.2536 6.25 37.3732 6.25 39.5833V43.75M43.75 43.75L39.7917 39.7917M29.1667 14.5833C29.1667 19.1857 25.4357 22.9167 20.8333 22.9167C16.231 22.9167 12.5 19.1857 12.5 14.5833C12.5 9.98096 16.231 6.25 20.8333 6.25C25.4357 6.25 29.1667 9.98096 29.1667 14.5833ZM41.6667 35.4167C41.6667 38.8684 38.8684 41.6667 35.4167 41.6667C31.9649 41.6667 29.1667 38.8684 29.1667 35.4167C29.1667 31.9649 31.9649 29.1667 35.4167 29.1667C38.8684 29.1667 41.6667 31.9649 41.6667 35.4167Z"
+                    stroke="#003B73"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div data-text-type="Card Header" class="w-36 h-8 relative">
+                <div
+                  class="w-36 left-0 top-0 absolute text-center justify-start text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
+                >
+                  Quality Hire
+                </div>
+              </div>
+              <div data-text-type="Card Description" class="w-36 h-8 relative">
+                <div
+                  class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal font-['Source_Sans_3']"
+                >
+                  Find leaders who drive impact
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer Container -->
-    <div id="footer-container"></div>
+    <footer
+      class="bg-[#e6f0f3] border-t-2 border-[var(--rs-neutral-grey-500)] text-rs-medium py-10 font-sans relative"
+    >
+      <!-- Scroll to Top Button -->
+      <a href="#">
+        <button
+          class="absolute -top-5 right-4 lg:right-12 hover:opacity-75 transition-opacity duration-300 z-10"
+          aria-label="Scroll to top"
+        >
+          <img
+            src="../assets/images/homepage/Btn_Arrow - Scroll UP.png"
+            alt="Scroll to top"
+            class="w-10 h-10 lg:w-12 lg:h-12"
+          />
+        </button>
+      </a>
+      <div
+        class="max-w-[1600px] mx-auto md:mx-0 lg:mx-auto px-4 md:px-2 lg:px-20"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+          <!-- Romega Info & Socials -->
+          <div class="lg:col-span-4 flex flex-col items-start mb-6">
+            <div class="w-full flex flex-row items-start">
+              <!-- Logo Left -->
+              <div class="flex justify-center lg:block lg:mr-4 flex-shrink-0">
+                <img
+                  src="../assets/images/homepage/footerLogo.png"
+                  alt="Romega Solutions Logo"
+                  class="w-[80px] lg:w-[94px] h-auto lg:h-[115px]"
+                />
+              </div>
+              <!-- Info + Socials Right -->
+              <div class="flex flex-col items-start text-left flex-1 ml-4">
+                <p
+                  class="text-sm lg:text-[15px] leading-snug text-[#334155] mb-2 lg:mb-1"
+                >
+                  <span class="font-bold">Romega Solutions</span>,
+                  <span> a US-based holding company founded by </span>
+                  <span class="font-bold">Robbie Galoso</span>.
+                </p>
+                <span
+                  class="uppercase tracking-widest text-[12px] lg:text-[13px] text-[#64748b] font-semibold mb-1"
+                >
+                  Follow us on
+                </span>
+                <div class="flex flex-row md:flex-row gap-2">
+                  <a
+                    href="https://www.linkedin.com/company/romega-solutions"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center px-3 lg:px-4 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] hover:bg-[#e6f0f3] hover:text-[#1e293b] transition gap-2"
+                  >
+                    <img
+                      src="../assets/images/homepage/linkedinIcon.png"
+                      alt="LinkedIn"
+                      class="w-4 lg:w-5 h-4 lg:h-5"
+                    />
+                    LINKEDIN
+                  </a>
+                  <a
+                    href="https://www.facebook.com/romegasolutions"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center px-3 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] hover:bg-[#e6f0f3] hover:text-[#1e293b] transition gap-2"
+                  >
+                    <img
+                      src="../assets/images/homepage/facebook.png"
+                      alt="Facebook"
+                      class="w-4 lg:w-5 h-4 lg:h-5"
+                    />
+                    FACEBOOK
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Schedule Button: Mobile & Medium -->
+            <div class="w-full flex lg:hidden justify-center mt-4">
+              <a
+                href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+                class="block w-full"
+              >
+                <button
+                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200"
+                >
+                  <img
+                    src="../assets/images/homepage/calendar-days.png"
+                    alt="Calendar"
+                    class="w-5 h-5"
+                  />
+                  <span>Schedule a Meeting</span>
+                </button>
+              </a>
+            </div>
+            <!-- Schedule Button: Desktop Only -->
+            <div class="hidden lg:flex w-full justify-start mt-4">
+              <a href="contact.html" class="block w-full max-w-[380px]">
+                <button
+                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-4 py-2 rounded-lg font-semibold text-[18px] flex items-center justify-center gap-2 shadow transition-all duration-200"
+                >
+                  <img
+                    src="../assets/images/homepage/calendar-days.png"
+                    alt="Calendar"
+                    class="w-6 h-6"
+                  />
+                  <span>Schedule a Meeting</span>
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Side Container for Desktop Only -->
+          <div
+            class="lg:col-span-8 flex flex-col lg:flex-row gap-8 lg:gap-8 mt-2 lg:mt-0"
+          >
+            <!-- Company & Help Section -->
+            <div class="flex flex-row lg:flex-row lg:flex-1">
+              <!-- Company -->
+              <div class="flex-1">
+                <h3
+                  class="text-[#38bdf8] text-center lg:text-left text-base mb-4 uppercase tracking-widest"
+                >
+                  COMPANY
+                </h3>
+                <ul class="space-y-3 text-center lg:text-left">
+                  <li>
+                    <a
+                      href="index.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Home</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="about.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >About</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="services.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Services</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="careers.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Careers & Talent</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- Divider -->
+              <div class="flex lg:flex flex-col justify-center">
+                <div class="w-px bg-[#cbd5e1] mx-4 h-full min-h-[180px]"></div>
+              </div>
+              <!-- Help -->
+              <div class="flex-1">
+                <h3
+                  class="text-[#38bdf8] text-base mb-4 uppercase tracking-widest text-center lg:text-left"
+                >
+                  HELP
+                </h3>
+                <ul class="space-y-3 text-center lg:text-left">
+                  <li>
+                    <a
+                      href="resources.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Resources</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="contact.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Contact</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#terms"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Terms of Service</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#privacy"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Reach Us Out -->
+            <div class="flex flex-col items-center lg:items-start lg:flex-1">
+              <div
+                class="relative border-2 border-dashed border-[#cbd5e1] rounded-lg p-4 mb-4 bg-[#e6f0f3] w-full max-w-md lg:max-w-none"
+              >
+                <h3
+                  class="absolute -top-3 left-1/2 lg:left-6 transform -translate-x-1/2 lg:-translate-x-0 bg-[#e6f0f3] px-4 text-[#4880b8] text-sm font-bold uppercase tracking-wide"
+                >
+                  REACH US OUT
+                </h3>
+                <div class="space-y-4 mt-4">
+                  <div class="text-center lg:text-left">
+                    <h4
+                      class="text-[#4880b8] font-bold text-sm mb-3 uppercase tracking-wide"
+                    >
+                      EMAIL US
+                    </h4>
+                    <div
+                      class="flex items-center justify-center lg:justify-start gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4 text-[#4880b8] flex-shrink-0"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"
+                        ></path>
+                      </svg>
+                      <a
+                        href="mailto:info@romega-solutions.com"
+                        class="text-[#4880b8] text-sm font-medium hover:text-rs-yellow transition-colors break-all lg:break-normal"
+                      >
+                        info@romega-solutions.com
+                      </a>
+                    </div>
+                  </div>
+                  <div class="text-center lg:text-left">
+                    <h4
+                      class="text-[#4880b8] font-bold text-sm mb-3 uppercase tracking-wide"
+                    >
+                      HEADQUARTERS
+                    </h4>
+                    <div
+                      class="flex items-start justify-center lg:justify-start gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4 mt-0.5 flex-shrink-0 text-[#4880b8]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
+                        ></path>
+                      </svg>
+                      <span
+                        class="text-[#4880b8] text-sm font-medium leading-relaxed max-w-xs"
+                      >
+                        222 Pacific Coast Hwy, #10 in El Segundo, CA 90245
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="text-center lg:text-left text-xs text-[#4880b8] w-full font-medium"
+              >
+                © 2025 Romega Solutions. All rights reserved
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="../assets/js/main.js"></script>
   </body>
