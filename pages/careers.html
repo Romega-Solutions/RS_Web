@@ -21,6 +21,459 @@
     />
   </head>
   <body>
+    <!-- Sidebar Overlay -->
+    <div id="jobsSidebar" class="fixed inset-0 z-50 hidden">
+      <!-- Background Overlay -->
+      <div
+        class="fixed inset-0 bg-black bg-opacity-50"
+        onclick="closeJobsSidebar()"
+      ></div>
+
+      <!-- Sidebar Panel -->
+      <div
+        class="fixed right-0 top-0 h-full w-[450px] bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out"
+        id="sidebarPanel"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-center justify-between p-6 border-b border-gray-200 bg-[#e8f4f8]"
+        >
+          <div>
+            <h2
+              class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans"
+            >
+              Current Roles Opened
+            </h2>
+            <p class="text-sm text-[var(--rs-neutral-600)] mt-1">
+              Company review time is typically 1 week
+            </p>
+          </div>
+          <button
+            onclick="closeJobsSidebar()"
+            class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            aria-label="Close sidebar"
+          >
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              class="text-gray-500"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Job Listings Content -->
+        <div class="h-[calc(100vh-140px)] overflow-y-auto p-6 space-y-6">
+          <!-- Job 1: Account Executive Intern -->
+          <div
+            class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-[var(--rs-primary-600)] hover:underline cursor-pointer"
+              >
+                Account Executive Intern
+              </h3>
+              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                >July 11, 2025</span
+              >
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Philippines
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+                Remote Work
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                  />
+                </svg>
+                Part-Time
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <button
+                class="bg-[var(--rs-primary-600)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--rs-primary-700)] transition flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                  />
+                </svg>
+                See Details on LinkedIn
+              </button>
+              <button
+                class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h6v6h6v10H6z"
+                  />
+                </svg>
+                View Job Poster
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 2: Senior Packaging Engineer -->
+          <div
+            class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-[var(--rs-primary-600)] hover:underline cursor-pointer"
+              >
+                Senior Packaging Engineer
+              </h3>
+              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                >July 2, 2025</span
+              >
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Santa Clara, CA
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+                On-Site
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                  />
+                </svg>
+                Full-Time
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <button
+                class="bg-[var(--rs-primary-600)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--rs-primary-700)] transition flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                  />
+                </svg>
+                See Details on LinkedIn
+              </button>
+              <button
+                class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h6v6h6v10H6z"
+                  />
+                </svg>
+                View Job Poster
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 3: Senior Optical Engineer -->
+          <div
+            class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-[var(--rs-primary-600)] hover:underline cursor-pointer"
+              >
+                Senior Optical Engineer
+              </h3>
+              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                >July 2, 2025</span
+              >
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Santa, Clara CA
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+                Remote Work
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                  />
+                </svg>
+                Part-Time
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <button
+                class="bg-gray-300 text-gray-500 px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"
+                  />
+                </svg>
+                No longer accepting applications
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 4: Senior Electrical Engineer -->
+          <div
+            class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-[var(--rs-primary-600)] hover:underline cursor-pointer"
+              >
+                Senior Electrical Engineer
+              </h3>
+              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                >July 2, 2025</span
+              >
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                United States
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+                Remote Work
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                  />
+                </svg>
+                Full-Time
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <button
+                class="bg-gray-300 text-gray-500 px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"
+                  />
+                </svg>
+                No longer accepting applications
+              </button>
+            </div>
+          </div>
+
+          <!-- Empty State at Bottom -->
+          <div class="text-center py-8">
+            <div class="w-16 h-16 mx-auto mb-4 opacity-30">
+              <svg
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                class="text-gray-400"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                />
+              </svg>
+            </div>
+            <p class="text-gray-500 text-sm mb-2">We're always growing :)</p>
+            <p class="text-gray-400 text-xs">new opportunities coming soon</p>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div
+          class="absolute bottom-0 left-0 right-0 p-4 bg-[var(--rs-primary-800)] text-white text-center"
+        >
+          <button
+            class="text-sm font-medium hover:underline"
+            onclick="window.open('https://linkedin.com/company/romega-solutions', '_blank')"
+          >
+            View Jobs in our LinkedIn Page
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- javascript -->
+    <script>
+      // Add this to your existing JavaScript file or create a new one
+
+      function openJobsSidebar() {
+        const sidebar = document.getElementById("jobsSidebar");
+        const panel = document.getElementById("sidebarPanel");
+
+        sidebar.classList.remove("hidden");
+        setTimeout(() => {
+          panel.classList.remove("translate-x-full");
+        }, 10);
+      }
+
+      function closeJobsSidebar() {
+        const sidebar = document.getElementById("jobsSidebar");
+        const panel = document.getElementById("sidebarPanel");
+
+        panel.classList.add("translate-x-full");
+        setTimeout(() => {
+          sidebar.classList.add("hidden");
+        }, 300);
+      }
+
+      // Update the "View Open Roles" button onclick
+      document.addEventListener("DOMContentLoaded", function () {
+        // Find the View Open Roles button and add the onclick event
+        const viewRolesButton = document.querySelector(
+          'button:contains("View Open Roles")'
+        );
+        if (viewRolesButton) {
+          viewRolesButton.onclick = openJobsSidebar;
+        }
+      });
+    </script>
+
+    <!-- navigation bar -->
     <nav
       id="navbar-container"
       role="navigation"
@@ -200,284 +653,624 @@
     </nav>
 
     <!-- Careers Page Content -->
-    <main class="bg-gray-50 min-h-screen">
-      <section class="py-20">
-        <div class="max-w-7xl mx-auto px-4">
-          <h1
-            class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-center"
-          >
-            Join Our Team
-          </h1>
-          <p class="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-            Explore exciting career opportunities and become part of our growing
-            team.
-          </p>
+    <main class="bg-[var(--rs-neutral-50)] min-h-screen ">\
 
-          <!-- Career Opportunities -->
-          <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-2xl font-bold mb-2">Position Title 1</h3>
-                  <p class="text-gray-600 mb-4">
-                    Department • Location • Full-time
-                  </p>
-                  <p class="text-gray-700">
-                    Brief description of the position...
-                  </p>
-                </div>
-                <a
-                  href="#"
-                  class="bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-600 transition duration-300"
-                >
-                  Apply Now
-                </a>
-              </div>
-            </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-2xl font-bold mb-2">Position Title 2</h3>
-                  <p class="text-gray-600 mb-4">
-                    Department • Location • Full-time
-                  </p>
-                  <p class="text-gray-700">
-                    Brief description of the position...
-                  </p>
-                </div>
-                <a
-                  href="#"
-                  class="bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-600 transition duration-300"
-                >
-                  Apply Now
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- explore leadership opportunities section-->
-      <section></section>
-
-      <!-- your privacy section -->
-      <section></section>
-
-      <!-- the way we work section -->
+      <!-- Explore Leadership Opportunities Section -->
       <section
-        class="pt-16 pb-12 px-4 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20 relative"
+        class="relative bg-[var(--rs-neutral-50)] py-12 md:py-16 lg:py-20 overflow-hidden"
       >
-        <div class="max-w-6xl mx-auto">
-          <!-- Background Logo Pattern -->
-          <div class="relative">
-            <img
-              src="../assets/images/services/Romega-Logo-BG.png"
-              alt="Romega Logo Background"
-              class="absolute -left-20 -top-40 w-96 -z-20"
-            />
-            <div class="relative z-10 text-center">
-              <h1
-                class="self-stretch justify-start text-sky-700 text-5xl font-bold font-['Merriweather'] mb-"
-              >
-                Recruitment re-engineered for speed and fit
-              </h1>
+        <!-- Background image - properly positioned -->
+        <img
+          src="../assets/images/careers/bg-top.png"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
+          loading="lazy"
+          aria-hidden="true"
+        />
 
-              <div class="text-center max-w-4xl mx-auto mt-[12px] mb-[32px]">
-                <span
-                  class="text-slate-600 text-2xl font-medium font-['Source_Sans_3']"
-                  >We provide a full suite of business support services designed
-                  to </span
-                ><span
-                  class="text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
-                  >help companies</span
-                ><span
-                  class="text-slate-600 text-2xl font-medium font-['Source_Sans_3']"
-                >
-                </span
-                ><span
-                  class="text-sky-600 text-2xl font-bold font-['Source_Sans_3']"
-                  >grow smarter</span
-                ><span
-                  class="text-slate-600 text-2xl font-bold font-['Source_Sans_3']"
-                >
-                </span
-                ><span
-                  class="text-slate-600 text-2xl font-normal font-['Source_Sans_3']"
-                  >and</span
-                ><span
-                  class="text-slate-600 text-2xl font-bold font-['Source_Sans_3']"
-                >
-                </span
-                ><span
-                  class="text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
-                  >operate</span
-                ><span
-                  class="text-slate-600 text-2xl font-bold font-['Source_Sans_3']"
-                >
-                </span
-                ><span
-                  class="text-sky-600 text-2xl font-bold font-['Source_Sans_3']"
-                  >more efficiently</span
-                >
-              </div>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <!-- Header -->
+          <div class="text-center mb-12">
+            <h2
+              class="text-3xl sm:text-4xl lg:text-[40px] text-merriweather font-bold text-[var(--rs-primary-600)] mb-4"
+            >
+              Explore Leadership Opportunities
+            </h2>
+            <p
+              class="text-lg sm:text-xl md:text-2xl text-[var(--rs-neutral-600)] max-w-6xl mx-auto"
+            >
+              Find your next impactful role or join our talent network for
+              future opportunities always with discretion.
+            </p>
+            <p class="text-sm text-[var(--rs-neutral-400)] mt-2">
+              Updated: July 1, 2024
+            </p>
           </div>
 
-          <!-- Service Grid - Mobile First -->
-          <div class="flex justify-start items-center gap-8 mx-auto w-fit">
-            <div
-              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-sky-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 justify-between mb-8">
+            <button
+              onclick="openJobsSidebar()"
+              class="text-[22px] bg-[var(--rs-primary-500)] border border-[var(--rs-primary-600)] w-full lg:w-[400px] text-[var(--rs-neutral-100)] px-8 py-3 rounded-[12.5px] font-semibold text-lg hover:bg-[var(--rs-primary-700)] transition flex items-center justify-center gap-2"
             >
-              <div data-icon="cog" class="size-12 relative overflow-hidden">
-                <svg
-                  class="size-12"
-                  viewBox="0 0 50 50"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g clip-path="url(#clip0_2001_3497)">
-                    <path
-                      d="M24.9998 45C30.3041 45 35.3912 42.8929 39.1419 39.1421C42.8926 35.3914 44.9998 30.3043 44.9998 25C44.9998 19.6957 42.8926 14.6086 39.1419 10.8579C35.3912 7.10714 30.3041 5 24.9998 5M24.9998 45C19.6954 45 14.6083 42.8929 10.8576 39.1421C7.10689 35.3914 4.99976 30.3043 4.99976 25M24.9998 45V50M24.9998 5C19.6954 5 14.6083 7.10714 10.8576 10.8579C7.10689 14.6086 4.99976 19.6957 4.99976 25M24.9998 5V0M4.99976 25H-0.000244141M29.9998 25C29.9998 26.3261 29.473 27.5978 28.5353 28.5355C27.5976 29.4732 26.3258 30 24.9998 30C23.6737 30 22.4019 29.4732 21.4642 28.5355C20.5265 27.5978 19.9998 26.3261 19.9998 25C19.9998 23.6739 20.5265 22.4021 21.4642 21.4645C22.4019 20.5268 23.6737 20 24.9998 20C26.3258 20 27.5976 20.5268 28.5353 21.4645C29.473 22.4021 29.9998 23.6739 29.9998 25ZM29.9998 25H49.9998M37.4998 46.65L34.9998 42.325M22.4998 20.675L12.4998 3.35M46.6498 37.5L42.3248 35M3.34976 12.5L7.67476 15M46.6498 12.5L42.3248 15M3.34976 37.5L7.67476 35M37.4998 3.35L34.9998 7.675M22.4998 29.325L12.4998 46.65"
-                      stroke="#003B73"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_2001_3497">
-                      <rect width="50" height="50" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </div>
-              <div data-text-type="Card Header" class="w-36 h-8 relative">
-                <div
-                  class="w-36 left-0 top-0 absolute text-center justify-start text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
-                >
-                  RPO
-                </div>
-              </div>
-              <div data-text-type="Card Description" class="w-36 h-8 relative">
-                <div
-                  class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal font-['Source_Sans_3']"
-                >
-                  On-demand hiring at scale
-                </div>
-              </div>
-            </div>
-            <div
-              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-sky-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden"
+              <img src="../assets/images/careers/bag-white.svg"  class="w-[27.5px] h-[27.5px]"  alt="">
+              </svg>
+              View Open Roles
+            </button>
+            <button
+              class="bg-[var(--rs-neutral-100)] text-[var(--rs-neutral-600)] px-8 py-3  lg:w-[590px] rounded-lg font-semibold text-[22px] border-2 border-[var(--rs-neutral-400)] hover:bg-[var(--rs-neutral-200)] transition flex items-center justify-center gap-2"
             >
-              <div data-icon="globe" class="size-12 relative overflow-hidden">
-                <svg
-                  class="size-12"
-                  viewBox="0 0 50 50"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M45.8332 24.9993C45.8332 36.5053 36.5058 45.8327 24.9998 45.8327M45.8332 24.9993C45.8332 13.4934 36.5058 4.16602 24.9998 4.16602M45.8332 24.9993H4.1665M24.9998 45.8327C13.4939 45.8327 4.1665 36.5053 4.1665 24.9993M24.9998 45.8327C19.6503 40.2157 16.6665 32.7561 16.6665 24.9993C16.6665 17.2426 19.6503 9.783 24.9998 4.16602M24.9998 45.8327C30.3494 40.2157 33.3332 32.7561 33.3332 24.9993C33.3332 17.2426 30.3494 9.783 24.9998 4.16602M4.1665 24.9993C4.1665 13.4934 13.4939 4.16602 24.9998 4.16602"
-                    stroke="#003B73"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <div data-text-type="Card Header" class="w-36 h-8 relative">
-                <div
-                  class="w-36 left-0 top-0 absolute text-center justify-start text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
-                >
-                  BPO
-                </div>
-              </div>
-              <div data-text-type="Card Description" class="w-36 h-8 relative">
-                <div
-                  class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal font-['Source_Sans_3']"
-                >
-                  Free your team to deliver value
-                </div>
-              </div>
-            </div>
-            <div
-              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-sky-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden"
-            >
-              <div
-                data-icon="file-user"
-                class="size-12 relative overflow-hidden"
+            <img src="../assets/images/careers/human.png" class="w-[27.5px] h-[27.5px]" alt="">
+              Stay Connected for Future Roles
+            </button>
+          </div>
+
+          <!-- Two Column Content -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- What We're Looking For -->
+            <div>
+              <h3
+                class="text-[28px] items-center font-bold text-[var(--rs-primary-600)] mb-6 text-merriweather"
               >
-                <svg
-                  class="size-12"
-                  viewBox="0 0 50 50"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M29.1666 4.16602V12.4993C29.1666 13.6044 29.6056 14.6642 30.387 15.4456C31.1684 16.227 32.2282 16.666 33.3333 16.666H41.6666M31.2499 37.4993C31.2499 35.8417 30.5914 34.252 29.4193 33.0799C28.2472 31.9078 26.6575 31.2493 24.9999 31.2493M24.9999 31.2493C23.3423 31.2493 21.7526 31.9078 20.5805 33.0799C19.4084 34.252 18.7499 35.8417 18.7499 37.4993M24.9999 31.2493C27.3011 31.2493 29.1666 29.3839 29.1666 27.0827C29.1666 24.7815 27.3011 22.916 24.9999 22.916C22.6987 22.916 20.8333 24.7815 20.8333 27.0827C20.8333 29.3839 22.6987 31.2493 24.9999 31.2493ZM31.2499 4.16602H12.4999C11.3948 4.16602 10.335 4.605 9.55364 5.3864C8.77224 6.16781 8.33325 7.22761 8.33325 8.33268V41.666C8.33325 42.7711 8.77224 43.8309 9.55364 44.6123C10.335 45.3937 11.3948 45.8327 12.4999 45.8327H37.4999C38.605 45.8327 39.6648 45.3937 40.4462 44.6123C41.2276 43.8309 41.6666 42.7711 41.6666 41.666V14.5827L31.2499 4.16602Z"
-                    stroke="#003B73"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <div data-text-type="Card Header" class="w-36 h-8 relative">
-                <div
-                  class="w-36 left-0 top-0 absolute text-center justify-start text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
-                >
-                  Strategic HR
+                What We're Looking For
+              </h3>
+              <div class="space-y-6 text-[20px] ">
+                <div class="flex items-start gap-2 items-center">
+                  <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                   <img src="/assets/images/careers/search-check.svg" alt="" class="w-[40px] h-[40px]">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed">
+                    We are looking for leaders who think big, move fast, and
+                    deliver results that matter.
+                  </p>
                 </div>
-              </div>
-              <div data-text-type="Card Description" class="w-36 h-8 relative">
-                <div
-                  class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal font-['Source_Sans_3']"
-                >
-                  Align your people strategically
+                <div class="flex items-start gap-2 items-center">
+                  <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+              <img src="/assets/images/careers/search-check.svg" alt="" class="w-[40px] h-[40px]">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed">
+                    If you thrive in high-growth environments, enjoy solving
+                    complex challenges, and bring bold solutions to the table,
+                    we want to meet you.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2 items-center">
+                  <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                 <img src="/assets/images/careers/search-check.svg" alt="" class="w-[40px] h-[40px]">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900 )] leading-relaxed">
+                    We value innovators who take charge of change and inspire
+                    teams to do their best work.
+                  </p>
                 </div>
               </div>
             </div>
-            <div
-              class="w-44 min-w-44 min-h-52 px-4 py-7 bg-sky-50 rounded-md outline outline-[1.25px] outline-offset-[-1.25px] outline-gray-400 inline-flex flex-col justify-start items-center gap-2.5 overflow-hidden"
-            >
-              <div
-                data-icon="user-search"
-                class="size-12 relative overflow-hidden"
+
+            <!-- What We Love -->
+            <div class="text-[20px] ">
+              <h3
+                class="text-[28px] font-bold text-[var(--rs-primary-600)] mb-6 text-merriweather"
               >
-                <svg
-                  class="size-12"
-                  viewBox="0 0 50 50"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M21.4583 31.25H14.5833C12.3732 31.25 10.2536 32.128 8.69078 33.6908C7.12797 35.2536 6.25 37.3732 6.25 39.5833V43.75M43.75 43.75L39.7917 39.7917M29.1667 14.5833C29.1667 19.1857 25.4357 22.9167 20.8333 22.9167C16.231 22.9167 12.5 19.1857 12.5 14.5833C12.5 9.98096 16.231 6.25 20.8333 6.25C25.4357 6.25 29.1667 9.98096 29.1667 14.5833ZM41.6667 35.4167C41.6667 38.8684 38.8684 41.6667 35.4167 41.6667C31.9649 41.6667 29.1667 38.8684 29.1667 35.4167C29.1667 31.9649 31.9649 29.1667 35.4167 29.1667C38.8684 29.1667 41.6667 31.9649 41.6667 35.4167Z"
-                    stroke="#003B73"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <div data-text-type="Card Header" class="w-36 h-8 relative">
-                <div
-                  class="w-36 left-0 top-0 absolute text-center justify-start text-sky-700 text-2xl font-bold font-['Source_Sans_3']"
-                >
-                  Quality Hire
+                What We Love
+              </h3>
+              <p class=" text-[var(--rs-neutral-900)] mb-6 leading-relaxed">
+                We love helping exceptional talent build careers that create
+                real impact. <span class="font-bold" >This drives us to:</span>
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2 items-center">
+                  <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                  <img src="../assets/images/careers/heart-handshake.svg" alt="">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed ">
+                    Connect visionary leaders with world-changing companies
+                  </p>
                 </div>
-              </div>
-              <div data-text-type="Card Description" class="w-36 h-8 relative">
-                <div
-                  class="w-36 left-0 top-0 absolute text-center justify-start text-cyan-900 text-lg font-normal font-['Source_Sans_3']"
-                >
-                  Find leaders who drive impact
+                <div class="flex items-start gap-2 items-center">
+                   <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                <img src="../assets/images/careers/heart-handshake.svg" alt="">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed">
+                    Support teams that deliver innovation on a global scale
+                  </p>
+                </div>
+                <div class="flex items-start gap-2 items-center">
+            <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                <img src="../assets/images/careers/heart-handshake.svg" alt="">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed">
+                    Celebrate success stories that inspire others to lead with
+                    purpose
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
+      <hr class="border border-[var(--rs-neutral-400)] sm:mx-12 md:mx-20 lg:mx-32" />
+
+      <!-- Your Privacy, Our Priority Section -->
+      <section
+        class="relative bg-[var(--rs-neutral-50)] pb-12 md:py-20 pt-12 overflow-hidden"
+      >
+
+        <!-- Background image -->
+        <img
+          src="../assets/images/careers/bg-top.png"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none select-none"
+          loading="lazy"
+          aria-hidden="true"
+        />
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <!-- Header -->
+          <div class="text-center mb-12">
+            <h2
+              class="text-[28px]  text-merriweather font-bold text-[var(--rs-primary-600)] mb-4"
+            >
+              Your Privacy, Our Priority
+            </h2>
+            <p
+              class="text-2xl text-[var(--rs-neutral-600)] max-w-3xl mx-auto leading-relaxed"
+            >
+              We treat every career journey with the highest level of
+              confidentiality.
+            </p>
+            <p
+              class="text-2xl text-[var(--rs-neutral-600)] max-w-3xl mx-auto leading-relaxed"
+            >
+              Your information stays secure and your current role is never
+              compromised.
+            </p>
+          </div>
+
+         <!-- Privacy Features Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-4xl mx-auto">
+  <!-- Fully Confidential Process -->
+  <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
+      <img src="../assets/images/careers/shield.svg" alt="" class="w-[50px] h-[50px]">
+    </div>
+    <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
+      Fully confidential process
+    </h3>
+  </div>
+
+  <!-- Your Role Stays Private -->
+  <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
+      <img src="../assets/images/careers/eye.svg" alt="" class="w-[50px] h-[50px]">
+    </div>
+    <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
+      Your role stays private
+    </h3>
+  </div>
+
+  <!-- We Never Share Without Approval -->
+  <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
+      <img src="../assets/images/careers/human-check.svg" alt="" class="w-[50px] h-[50px]">
+    </div>
+    <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
+      We never share without approval
+    </h3>
+  </div>
+
+  <!-- GDPR Compliant by Default -->
+  <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
+      <img src="../assets/images/careers/lock.svg" alt="" class="w-[50px] h-[50px]">
+    </div>
+    <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
+      GDPR compliant by default
+    </h3>
+  </div>
+</div>
+
+          <!-- Testimonial Quote -->
+          <div class="mt-16 text-center">
+            <blockquote
+              class="text-[18px] text-[var(--rs-neutral-400)] italic max-w-lg mx-auto leading-relaxed mb-4"
+            >
+              "Romega guided me into a VP role with complete discretion. I
+              trusted their process from start to finish."
+                <cite 
+              >- Anonymous Candidate</cite
+            >
+            </blockquote>
+          
+          </div>
+        </div>
+      </section>
+
+      <!-- The Way We Work & What's In It For You Combined Section -->
+      <section
+        class="relative bg-[var(--rs-neutral-800)] py-16 md:py-20 lg:py-24 text-white overflow-hidden"
+      >
+        <!-- Top Wave Divider -->
+        <div
+          class="absolute w-full left-0 top-0"
+          style="height: 30px; z-index: 0"
+          aria-hidden="true"
+        >
+          <img
+            src="../assets/images/homepage/top-wave.png"
+            alt="Decorative wave divider"
+            class="block h-[80px] md:h-[140px] absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-[200vw] md:w-full object-cover"
+            style="top: -20px; z-index: 1; min-width: 600px"
+          />
+        </div>
+
+        <!-- Grid background -->
+        <div
+          class="absolute inset-0 bg-[url('../assets/images/homepage/team-bg.png')] bg-center bg-cover opacity-10 pointer-events-none"
+          aria-hidden="true"
+        ></div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Two Column Layout -->
+          <div
+            class="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-20 mt-12"
+          >
+            <!-- Left Side: The Way We Work -->
+            <div class="flex-1">
+              <!-- Header -->
+              <div class="text-center lg:text-left mb-12">
+                <div
+                  class="inline-block bg-[var(--rs-primary-600)] text-white px-4 py-2 rounded-full text-sm font-semibold mb-4"
+                >
+                  Our Culture
+                </div>
+                <h2
+                  class="text-3xl sm:text-4xl lg:text-[36px] text-merriweather font-bold mb-6"
+                >
+                  The Way We Work
+                </h2>
+                <p class="text-lg text-[var(--rs-neutral-300)] leading-relaxed">
+                  We believe great teams start with great culture. At Romega, we
+                  value:
+                </p>
+              </div>
+
+              <!-- Values Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Curiosity -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-primary-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Curiosity
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Ask. Learn. Innovate.
+                  </p>
+                </div>
+
+                <!-- Collaboration -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-primary-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7c-.8 0-1.54.5-1.85 1.26l-1.92 5.76c-.15.45.15.98.64.98H18v6h2z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Collaboration
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    One team. Shared success.
+                  </p>
+                </div>
+
+                <!-- Growth Mindset -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-primary-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Growth Mindset
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Progress that changes lives.
+                  </p>
+                </div>
+
+                <!-- Excellence -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-primary-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Excellence
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    High standards in every placement.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: What's In It For You -->
+            <div class="flex-1">
+              <!-- Header -->
+              <div class="text-center lg:text-left mb-12">
+                <div
+                  class="inline-block bg-[var(--rs-accent-600)] text-white px-4 py-2 rounded-full text-sm font-semibold mb-4"
+                >
+                  Perks and Benefits
+                </div>
+                <h2
+                  class="text-3xl sm:text-4xl lg:text-[36px] text-merriweather font-bold mb-6"
+                >
+                  What's in it for you?
+                </h2>
+                <p class="text-lg text-[var(--rs-neutral-300)] leading-relaxed">
+                  Opportunities and insights to advance your leadership.
+                </p>
+              </div>
+
+              <!-- Benefits Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Remote Work -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-accent-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Remote Work
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Access roles with global flexibility.
+                  </p>
+                </div>
+
+                <!-- Flexible Time -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-accent-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Flexible Time
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Designed to fit your priorities.
+                  </p>
+                </div>
+
+                <!-- Full Privacy -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-accent-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Full Privacy
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Your journey stays protected.
+                  </p>
+                </div>
+
+                <!-- And More -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-accent-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      And More...
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    More perks and growth to know.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="text-center mt-16">
+            <button
+              class="bg-[var(--rs-primary-600)] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[var(--rs-primary-700)] transition flex items-center justify-center gap-2 mx-auto shadow-xl"
+            >
+              <svg
+                width="20"
+                height="20"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                />
+              </svg>
+              Learn More About Romega
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Wave Divider -->
+        <div
+          class="absolute w-full left-0"
+          style="height: 60px; bottom: -40px; z-index: 0"
+          aria-hidden="true"
+        >
+          <img
+            src="../assets/images/homepage/team-bot.png"
+            alt="Decorative wave divider"
+            class="block h-[160px] absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-[200vw] md:w-full object-cover"
+            style="bottom: 0; z-index: 1; min-width: 600px"
+          />
+          <div
+            class="absolute left-0 h-[10%] w-full md:h-full"
+            style="bottom: 0; background: hsla(208, 60%, 18%, 1); z-index: 0"
+          ></div>
+        </div>
+      </section>
+
+  
     </main>
 
     <!-- Footer Container -->
@@ -756,6 +1549,6 @@
       </div>
     </footer>
 
-    <script src="../assets/js/main.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
