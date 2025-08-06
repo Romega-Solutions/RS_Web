@@ -850,3 +850,22 @@ textarea:focus {
 .outline-rs-neutral-400 {
   outline-color: var(--rs-neutral-400);
 }
+
+/* Custom Scrollbar Styles */
+#testimonial-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+#testimonial-track::-webkit-scrollbar-track {
+  background-color: var(--rs-neutral-200);
+  border-radius: 10px;
+}
+
+#testimonial-track::-webkit-scrollbar-thumb {
+  background-color: var(--rs-primary-500);
+  border-radius: 10px;
+}
+
+#testimonial-track::-webkit-scrollbar-thumb:hover {
+  background-color: var(--rs-accent-500);
+}
