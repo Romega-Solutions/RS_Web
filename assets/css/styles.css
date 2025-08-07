@@ -869,3 +869,17 @@ textarea:focus {
 #testimonial-track::-webkit-scrollbar-thumb:hover {
   background-color: var(--rs-accent-500);
 }
+
+textarea:focus ~ label,
+textarea:not(:placeholder-shown) ~ label {
+  transform: translateY(-1.85rem) scale(0.875);
+  color: var(--rs-primary-600);
+  background-color: var(--rs-neutral-50);
+  padding: 0 0.25rem;
+}
+
+@media (min-width: 400px) {
+  .xs\:flex-row {
+    flex-direction: row !important;
+  }
+}
