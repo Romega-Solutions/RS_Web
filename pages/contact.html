@@ -2,30 +2,60 @@
 <html lang="en">
 
 <head>
+  <!-- Meta Tags for SEO and Social Media -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Get in touch with Romega Solutions. Connect with our team for business inquiries, partnerships, or support." />
+  <meta name="robots" content="index, follow" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Contact - Romega Solutions" />
+  <meta property="og:description"
+    content="Get in touch with Romega Solutions. Connect with our team for business inquiries, partnerships, or support." />
+  <meta property="og:image" content="../assets/images/og-image.png" />
+  <meta property="og:url" content="https://www.romegasolutions.com/contact" />
+
+  <!-- Page Title -->
   <title>Contact - Romega Solutions</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
-  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://romegasolutions.com" />
+  <link rel="canonical" href="https://www.romegasolutions.com/contact" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/x-icon" href="../assets/images/fav-icon.ico" />
+  <link rel="shortcut icon" href="../assets/images/fav-icon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
 
-  <!-- Optimized Font Loading -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Main JS -->
+  <script src="../js/main.js" defer></script>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact - Romega Solutions",
+      "url": "https://www.romegasolutions.com/contact"
+    }
+  </script>
 </head>
 
-<body>
+<body class="bg-rs-primary-50 overflow-x-hidden">
   <!-- Navigation Container -->
   <nav id="navbar-container" role="navigation" aria-label="Main navigation" class="
       fixed top-0 z-50 w-full
@@ -82,9 +112,8 @@
                 whitespace-nowrap
                 px-2 py-2
                 text-[0.9rem] font-medium
-                text-rs-accent-500 underline
                 transition duration-300
-                hover:text-rs-accent-500 hover:underline
+                hover:text-rs-primary-500 hover:underline
                 xl:px-4 xl:text-[1rem]
               ">
               Services
@@ -116,8 +145,7 @@
                 whitespace-nowrap
                 px-2 py-2
                 text-[0.9rem] font-medium
-                transition duration-300
-                hover:text-rs-primary-500 hover:underline
+                transition duration-300 text-rs-accent-500 underline
                 xl:px-4 xl:text-[1rem]
               ">
               Contact
@@ -191,7 +219,7 @@
             block
             rounded-lg
             px-4 py-2.5
-            text-[1rem] font-medium text-rs-accent-500 underline
+            text-[1rem] font-medium text-rs-neutral-600
             transition duration-300
             hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
           ">
@@ -221,7 +249,7 @@
             block
             rounded-lg
             px-4 py-2.5
-            text-[1rem] font-medium text-rs-neutral-600
+            text-[1rem] font-medium text-rs-accent-500 underline
             transition duration-300
             hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
           ">
@@ -246,253 +274,290 @@
     </div>
   </nav>
 
-  <main class="relative min-h-screen w-full">
+  <main class="relative min-h-screen w-full max-w-[1440px] mx-auto overflow-hidden lg:overflow-visible">
     <!-- Background Image Container -->
-    <div class="absolute inset-0 w-full opacity-50 h-full bg-no-repeat bg-cover bg-center" style="
-          background-image: url('../assets/images/homepage/bg-contact.jpg');
-          z-index: 0;
-        " aria-hidden="true"></div>
+    <div class="bg-clip-content">
+      <img src="../assets/images/contacts/bg-romega.svg"
+        class="absolute top-0 left-[-64px] w-auto h-auto opacity-10 -z-10" aria-hidden="true" alt="background" />
+      <!-- Ellipse 793 BG Top Right 1 -->
+      <span class="size-80 bg-blue-100 rounded-full absolute top-[-131px] right-[-30px]">
+      </span>
+      <!-- Ellipse 794 BG Top Right 2 -->
+      <span class="size-80 bg-blue-200 rounded-full absolute top-[55px] right-[-128px] opacity-80">
+      </span>
+
+      <!-- Ellipse 795 BG Bottom Left 1 -->
+      <span class="size-80 bg-blue-100 rounded-full absolute bottom-[-160px] left-[-134px]">
+      </span>
+      <!-- Ellipse 796 BG Bottom Left 2 -->
+      <span class="size-80 bg-blue-200 rounded-full absolute bottom-[-258px] left-[52px]">
+      </span>
+    </div>
 
     <!-- Content Overlay -->
-    <div class="relative z-10 min-h-screen">
-      <section class="py-20">
-        <div class="max-w-7xl mx-auto px-4">
-          <!-- Header Section -->
-          <div class="text-center mb-16">
-            <h1 id="contact-heading"
-              class="text-merriweather-h3 md:text-merriweather-h1 text-[40px] text-[var(--rs-primary-600)] font-bold relative z-10 mb-1 mt-[58px]"
-              tabindex="0">
-              Contact Us
-            </h1>
-            <p class="text-xl max-w-2xl mx-auto text-[var(--rs-neutral-500)]">
-              Any question or remarks? Just write us a message!
-            </p>
-          </div>
-          <!-- Contact Container -->
-          <div class="bg-[var(--rs-neutral-50)] rounded-lg shadow-xl overflow-hidden max-w-6xl mx-auto">
-            <div class="grid lg:grid-cols-2 grid-cols-1">
-              <!-- Left Side - Contact Information (Hidden on sm/md) -->
-              <div
-                class="hidden lg:block bg-gray-800 text-white p-8 md:p-12 relative overflow-hidden max-w-[491px] max-h-[527px]">
-                <!-- Background decorative elements -->
-                <div
-                  class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full opacity-20 transform translate-x-16 -translate-y-16">
-                </div>
-                <div
-                  class="absolute bottom-0 right-0 w-24 h-24 bg-yellow-400 rounded-full opacity-30 transform translate-x-12 translate-y-12">
-                </div>
 
-                <div class="relative z-10">
-                  <h2 class="text-rs-neutral-200 text-[28px] font-semibold mb-3">Contact Information</h2>
-                  <p class="text-rs-neutral-grey-400 text-lg font-normal mb-8 max-w-[411px]">
-                    If you're interested in collaborating, please provide your
-                    information, and we will contact you soon. We look forward
-                    to connecting with you.
-                  </p>
-
-                  <!-- Contact Details -->
-                  <div class="space-y-6 mb-12">
-                    <div class="border border-gray-600 rounded-lg p-4">
-                      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
-                        REACH US OUT
-                      </h3>
-
-                      <div class="space-y-4">
-                        <div>
-                          <h4 class="text-xs font-bold text-gray-300 uppercase mb-1">
-                            EMAIL US
-                          </h4>
-                          <div class="flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                              fill="none">
-                              <path
-                                d="M22 7L13.009 12.727C12.7039 12.9042 12.3573 12.9976 12.0045 12.9976C11.6517 12.9976 11.3051 12.9042 11 12.727L2 7M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z"
-                                stroke="#5381AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            <span
-                              class="text-rs-neutral-100 text-lg font-medium leading-8">info@romega-solutions.com</span>
-                          </div>
-                        </div>
-
-                        <div>
-                          <h4 class="text-xs font-bold text-gray-300 uppercase mb-1">
-                            HEADQUARTERS
-                          </h4>
-                          <div class="flex items-start gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                              fill="none">
-                              <path
-                                d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 14.993 7.539 20.193 9.399 21.799C9.57237 21.929 9.78329 21.9992 10 21.999M18 22V19M15 22C14.7348 22 14.4804 21.8946 14.2929 21.7071C14.1054 21.5196 14 21.2652 14 21V17C14 16.8354 14.0406 16.6734 14.1182 16.5282C14.1958 16.3831 14.3081 16.2593 14.445 16.168L17.445 14.168C17.6093 14.0584 17.8025 13.9999 18 13.9999C18.1975 13.9999 18.3907 14.0584 18.555 14.168L21.555 16.168C21.6919 16.2593 21.8042 16.3831 21.8818 16.5282C21.9594 16.6734 22 16.8354 22 17V21C22 21.2652 21.8946 21.5196 21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22H15ZM13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z"
-                                stroke="#5381AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            <span class="text-sm">222 Pacific Coast Hwy, #10 in El Segundo, CA
-                              90245</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Social Media -->
-                  <div class="w-full">
-                    <span class="uppercase text-rs-neutral-400 text-base font-semibold tracking-[3px]">
-                      Follow us on
-                    </span>
-                    <div class="flex flex-row w-full gap-4 mt-2">
-                      <a href="https://www.linkedin.com/company/romega-solutions" target="_blank" rel="noopener"
-                        class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                          <path
-                            d="M13.5834 7.1665C14.9094 7.1665 16.1812 7.69329 17.1189 8.63097C18.0566 9.56865 18.5834 10.8404 18.5834 12.1665V17.9998H15.25V12.1665C15.25 11.7245 15.0744 11.3006 14.7619 10.988C14.4493 10.6754 14.0254 10.4998 13.5834 10.4998C13.1413 10.4998 12.7174 10.6754 12.4048 10.988C12.0923 11.3006 11.9167 11.7245 11.9167 12.1665V17.9998H8.58335V12.1665C8.58335 10.8404 9.11014 9.56865 10.0478 8.63097C10.9855 7.69329 12.2573 7.1665 13.5834 7.1665Z"
-                            stroke="#204160" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                          <path d="M5.25002 7.99984H1.91669V17.9998H5.25002V7.99984Z" stroke="#204160"
-                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                          <path
-                            d="M3.58335 5.49984C4.50383 5.49984 5.25002 4.75365 5.25002 3.83317C5.25002 2.9127 4.50383 2.1665 3.58335 2.1665C2.66288 2.1665 1.91669 2.9127 1.91669 3.83317C1.91669 4.75365 2.66288 5.49984 3.58335 5.49984Z"
-                            stroke="#204160" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span>LINKEDIN</span>
-                      </a>
-                      <a href="https://www.facebook.com/romegasolutions" target="_blank" rel="noopener"
-                        class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                          <path
-                            d="M15.75 2.1665H13.25C12.145 2.1665 11.0852 2.60549 10.3038 3.38689C9.52236 4.16829 9.08337 5.2281 9.08337 6.33317V8.83317H6.58337V12.1665H9.08337V18.8332H12.4167V12.1665H14.9167L15.75 8.83317H12.4167V6.33317C12.4167 6.11216 12.5045 5.9002 12.6608 5.74391C12.8171 5.58763 13.029 5.49984 13.25 5.49984H15.75V2.1665Z"
-                            stroke="#204160" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span>FACEBOOK</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Side - Contact Form (Takes full width on sm/md) -->
-              <div class="p-6 sm:p-8 md:p-10 lg:p-12">
-                <form id="contact-form" class="space-y-6">
-                  <!-- Name Fields Row -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-                    <div>
-                      <label for="firstName" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                        First Name <span class="text-red-500">*</span>
-                      </label>
-                      <input type="text" id="firstName" name="firstName"
-                        class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                        required />
-                    </div>
-                    <div>
-                      <label for="lastName" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                        Last Name <span class="text-red-500">*</span>
-                      </label>
-                      <input type="text" id="lastName" name="lastName" placeholder="Doe"
-                        class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                        required />
-                    </div>
-                  </div>
-
-                  <!-- Email and Subject Row -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-                    <div>
-                      <label for="email" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                        Email <span class="text-red-500">*</span>
-                      </label>
-                      <input type="email" id="email" name="email"
-                        class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                        required />
-                    </div>
-                    <div>
-                      <label for="subject" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                        Select Subject <span class="text-red-500">*</span>
-                      </label>
-                      <div class="relative">
-
-                        <div class="pointer-events-none absolute left-0 top-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14"
-                            fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M0 7.37037C0 5.61454 0.684819 3.93062 1.90381 2.68906C3.12279 1.4475 4.77609 0.75 6.5 0.75C8.22391 0.75 9.87721 1.4475 11.0962 2.68906C12.3152 3.93062 13 5.61454 13 7.37037C13 9.1262 12.3152 10.8101 11.0962 12.0517C9.87721 13.2932 8.22391 13.9907 6.5 13.9907C4.77609 13.9907 3.12279 13.2932 1.90381 12.0517C0.684819 10.8101 0 9.1262 0 7.37037H0ZM6.12907 10.2039L9.87133 5.43899L9.19533 4.88817L6.00427 8.94955L3.744 7.03141L3.18933 7.70933L6.12907 10.2048V10.2039Z"
-                              fill="#8896AA" />
-                          </svg>
-                        </div>
-                        <select id="subject" name="subject"
-                          class="w-full appearance-none border-0 border-b-2 border-[var(--rs-primary-800)] bg-transparent px-0 py-2 pl-8 text-[var(--rs-neutral-500)] focus:border-blue-500 focus:outline-none"
-                          required>
-                          <option value="">General Inquiry</option>
-                          <option value="services">Services</option>
-                          <option value="partnership">Partnership</option>
-                          <option value="careers">Careers</option>
-                          <option value="support">Support</option>
-                        </select>
-                        <div class="absolute right-0 top-2 pointer-events-none">
-                          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Message Field -->
-                  <div>
-                    <label for="message" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                      Message <span class="text-red-500">*</span>
-                    </label>
-                    <textarea id="message" name="message" rows="5" placeholder="Write your message..."
-                      class="w-full px-3 py-3 border-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent resize-none rounded-lg text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                      required></textarea>
-                  </div>
-
-                  <!-- Action Buttons -->
-                  <div class="flex flex-col sm:flex-col md:flex-row gap-4 pt-6">
-                    <!-- Send Message Button -->
-                    <button type="submit"
-                      class="flex items-center justify-center text-[var(--rs-accent-50)] order-2 gap-2 px-6 py-2 bg-[var(--rs-accent-400)] rounded-lg font-semibold hover:bg-[var(--rs-accent-600)] transition duration-300 flex-1">
-                      Send Message
-                      <img src="../assets/images/homepage/send.png" alt="Send Icon" class="w-5 h-5" />
-                    </button>
-
-                    <!-- Schedule Meeting Button -->
-                    <div class="flex flex-col items-center md:order-1 lg:order-1 order-2">
-                      <button type="button"
-                        onclick="window.open('https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333', '_blank')"
-                        class="flex flex-col items-center justify-center gap-1 px-6 py-3 border-2 border-[var(--rs-neutral-500)] text-[var(--rs-neutral-500)] rounded-lg hover:bg-blue-500 hover:text-white hover:border-blue-500 transition duration-300 flex-1 w-full">
-                        <div class="text-center flex items-center justify-center gap-2 w-full">
-                          <span class="font-medium text-center">Schedule a Meeting</span>
-                          <img src="../assets/images/homepage/calendar-days.png" alt="Calendar Icon" class="w-5 h-5" />
-                        </div>
-                      </button>
-                      <span class="text-xs text-center flex justify-center opacity-75">via HubSpot</span>
-                    </div>
-                  </div>
-                </form>
-              </div>
+    <section class="py-20 relative z-10 min-h-screen max-w-7xl mx-auto px-4">
+      <!-- Header Section -->
+      <div class="text-center mb-16">
+        <h1 id="contact-heading"
+          class="text-merriweather-h3 md:text-merriweather-h1 text-[40px] text-[var(--rs-primary-600)] font-bold relative z-10 mb-1 mt-[58px]"
+          tabindex="0">
+          Contact Us
+        </h1>
+        <p class="text-xl max-w-2xl mx-auto text-[var(--rs-neutral-500)]">
+          Any question or remarks? Just write us a message!
+        </p>
+      </div>
+      <!-- Contact Container -->
+      <div class="bg-[var(--rs-neutral-50)] rounded-lg shadow-xl overflow-hidden max-w-fit mx-auto">
+        <div class="grid  grid-cols-1 lg:grid-cols-2 grid-rows-1/2 lg:grid-rows-1 ">
+          <!-- Left Side - Contact Information (Hidden on sm/md) -->
+          <div
+            class="lg:block bg-gray-800 text-white p-8 md:p-12 relative overflow-hidden max-w-[491px] h-fit max-h-[527px] sm:h-[527px] h-full w-full order-2 lg:order-1">
+            <!-- Background decorative elements -->
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full opacity-20 transform translate-x-16 -translate-y-16">
             </div>
-          </div>
-          <!-- Bottom Section -->
-          <div class="hidden lg:block xl:block text-center mt-12">
-            <!-- Horizontal line -->
-            <div class="w-full h-px bg-[var(--rs-neutral-400)] mb-4"></div>
+            <div
+              class="absolute bottom-0 right-0 w-24 h-24 bg-yellow-400 rounded-full opacity-30 transform translate-x-12 translate-y-12">
+            </div>
 
-            <!-- Content in single row -->
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8">
-              <div class="flex-1"></div>
-              <p class="text-[var(--rs-neutral-400)] text-base flex-shrink-0">
-                © 2025 Romega Solutions. All rights reserved
+            <div class="relative z-10">
+              <h2 class="text-rs-neutral-200 text-[28px] font-semibold mb-3">Contact Information</h2>
+              <p class="text-rs-neutral-grey-400 text-lg font-normal mb-8 max-w-[411px]">
+                If you're interested in collaborating, please provide your
+                information, and we will contact you soon. We look forward
+                to connecting with you.
               </p>
-              <div class="flex gap-6 text-base flex-1 justify-end">
-                <a href="#" class="text-[var(--rs-neutral-500)] hover:text-gray-700">
-                  Privacy Policy
-                </a>
-                <a href="#" class="text-[var(--rs-neutral-500)] hover:text-gray-700">
-                  Terms of Service
-                </a>
+
+              <!-- Contact Details -->
+              <div class="space-y-6 mb-12">
+                <div class="border border-gray-600 rounded-lg p-4 relative">
+                  <div
+                    class="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-gray-800 px-4 py-1 mb-2 uppercase font-bold text-rs-neutral-400 tracking-wide">
+                    <h3 class="text-sm block">
+                      REACH US OUT
+                    </h3>
+                  </div>
+
+
+                  <div class="space-y-4">
+                    <div class="text-base">
+                      <h4 class="font-medium text-rs-neutral-400 uppercase mb-1 tracking-widest">
+                        EMAIL US
+                      </h4>
+                      <div class="flex items-center gap-2">
+                        <a href="mailto:info@romega-solutions.com"
+                          class="text-rs-neutral-100 text-lg leading-8 hover:underline flex items-center gap-1"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M22 7L13.009 12.727C12.7039 12.9042 12.3573 12.9976 12.0045 12.9976C11.6517 12.9976 11.3051 12.9042 11 12.727L2 7M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z"
+                              stroke="#5381AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                          <span>info@romega-solutions.com</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 class="text-base font-medium text-rs-neutral-400 uppercase mb-1">
+                        HEADQUARTERS
+                      </h4>
+                      <div class="flex items-start gap-1">
+                        <a href="https://www.google.com/maps?q=222+Pacific+Coast+Hwy,+%2310,+El+Segundo,+CA+90245"
+                          target="_blank" rel="noopener noreferrer"
+                          class="text-rs-neutral-100 tracking-tight hover:underline flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none">
+                            <path
+                              d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 14.993 7.539 20.193 9.399 21.799C9.57237 21.929 9.78329 21.9992 10 21.999M18 22V19M15 22C14.7348 22 14.4804 21.8946 14.2929 21.7071C14.1054 21.5196 14 21.2652 14 21V17C14 16.8354 14.0406 16.6734 14.1182 16.5282C14.1958 16.3831 14.3081 16.2593 14.445 16.168L17.445 14.168C17.6093 14.0584 17.8025 13.9999 18 13.9999C18.1975 13.9999 18.3907 14.0584 18.555 14.168L21.555 16.168C21.6919 16.2593 21.8042 16.3831 21.8818 16.5282C21.9594 16.6734 22 16.8354 22 17V21C22 21.2652 21.8946 21.5196 21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22H15ZM13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z"
+                              stroke="#5381AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+
+                          222 Pacific Coast Hwy, #10 in El Segundo, CA 90245
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Media -->
+              <div class="w-full">
+                <span class="uppercase text-rs-neutral-400 text-base font-semibold tracking-[3px]">
+                  Follow us on
+                </span>
+                <div class="flex flex-col xs:flex-row w-full gap-4 mt-2">
+                  <a href="https://www.linkedin.com/company/romega-solutions" target="_blank" rel="noopener"
+                    class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                      <path
+                        d="M13.5834 7.1665C14.9094 7.1665 16.1812 7.69329 17.1189 8.63097C18.0566 9.56865 18.5834 10.8404 18.5834 12.1665V17.9998H15.25V12.1665C15.25 11.7245 15.0744 11.3006 14.7619 10.988C14.4493 10.6754 14.0254 10.4998 13.5834 10.4998C13.1413 10.4998 12.7174 10.6754 12.4048 10.988C12.0923 11.3006 11.9167 11.7245 11.9167 12.1665V17.9998H8.58335V12.1665C8.58335 10.8404 9.11014 9.56865 10.0478 8.63097C10.9855 7.69329 12.2573 7.1665 13.5834 7.1665Z"
+                        stroke="#204160" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M5.25002 7.99984H1.91669V17.9998H5.25002V7.99984Z" stroke="#204160" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M3.58335 5.49984C4.50383 5.49984 5.25002 4.75365 5.25002 3.83317C5.25002 2.9127 4.50383 2.1665 3.58335 2.1665C2.66288 2.1665 1.91669 2.9127 1.91669 3.83317C1.91669 4.75365 2.66288 5.49984 3.58335 5.49984Z"
+                        stroke="#204160" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>LINKEDIN</span>
+                  </a>
+                  <a href="https://www.facebook.com/romegasolutions" target="_blank" rel="noopener"
+                    class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                      <path
+                        d="M15.75 2.1665H13.25C12.145 2.1665 11.0852 2.60549 10.3038 3.38689C9.52236 4.16829 9.08337 5.2281 9.08337 6.33317V8.83317H6.58337V12.1665H9.08337V18.8332H12.4167V12.1665H14.9167L15.75 8.83317H12.4167V6.33317C12.4167 6.11216 12.5045 5.9002 12.6608 5.74391C12.8171 5.58763 13.029 5.49984 13.25 5.49984H15.75V2.1665Z"
+                        stroke="#204160" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>FACEBOOK</span>
+                  </a>
+                </div>
               </div>
             </div>
+          </div>
+
+          <!-- Right Side - Contact Form (Takes full width on sm/md) -->
+          <div class="min-w-[362px] max-w-[595px] w-full p-4 sm:p-8 md:p-10 lg:p-12 relative order-1 lg:order-2">
+
+            <form id="contact-form" class="space-y-6 z-10 relative">
+              <!-- Name Fields Row -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                <div>
+                  <label for="firstName" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
+                    First Name <span class="text-red-500">*</span>
+                  </label>
+                  <input type="text" id="firstName" name="firstName"
+                    class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                    required />
+                </div>
+                <div>
+                  <label for="lastName" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
+                    Last Name <span class="text-red-500">*</span>
+                  </label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Doe"
+                    class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                    required />
+                </div>
+              </div>
+
+              <!-- Email and Subject Row -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                <div>
+                  <label for="email" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
+                    Email <span class="text-red-500">*</span>
+                  </label>
+                  <input type="email" id="email" name="email"
+                    class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                    required />
+                </div>
+                <div>
+                  <label for="subject" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
+                    Select Subject <span class="text-red-500">*</span>
+                  </label>
+                  <div class="relative">
+
+                    <div class="pointer-events-none absolute left-2 top-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M0 7.37037C0 5.61454 0.684819 3.93062 1.90381 2.68906C3.12279 1.4475 4.77609 0.75 6.5 0.75C8.22391 0.75 9.87721 1.4475 11.0962 2.68906C12.3152 3.93062 13 5.61454 13 7.37037C13 9.1262 12.3152 10.8101 11.0962 12.0517C9.87721 13.2932 8.22391 13.9907 6.5 13.9907C4.77609 13.9907 3.12279 13.2932 1.90381 12.0517C0.684819 10.8101 0 9.1262 0 7.37037H0ZM6.12907 10.2039L9.87133 5.43899L9.19533 4.88817L6.00427 8.94955L3.744 7.03141L3.18933 7.70933L6.12907 10.2048V10.2039Z"
+                          fill="#8896AA" />
+                      </svg>
+                    </div>
+                    <select id="subject" name="subject"
+                      class="w-full appearance-none border-0 border-b-2 border-[var(--rs-primary-800)] bg-transparent px-0 py-2 pl-7 text-[var(--rs-neutral-500)] focus:border-blue-500 focus:outline-none"
+                      required>
+                      <option value="">General Inquiry</option>
+                      <option value="services">Services</option>
+                      <option value="partnership">Partnership</option>
+                      <option value="careers">Careers</option>
+                      <option value="support">Support</option>
+                    </select>
+                    <div class="absolute right-0 top-2 pointer-events-none">
+                      <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Message Field -->
+              <div class="relative">
+                <label for="message"
+                  class="absolute top-[-11px] left-[12px] bg-rs-neutral-50 px-2 text-base focus:text-blue-500 font-medium text-[var(--rs-primary-800)]">
+                  Message <span class="text-red-500">*</span>
+                </label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message..."
+                  class="w-full px-3 py-3 border-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent resize-none rounded-lg text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                  required></textarea>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-col sm:flex-col md:flex-row gap-4 pt-6">
+                <!-- Send Message Button -->
+                <button type="submit"
+                  class="flex min-h-[54px] h-[54px] items-center justify-center text-[var(--rs-accent-50)] order-2 gap-2 px-6 py-2 bg-[var(--rs-accent-400)] rounded-md font-semibold hover:bg-[var(--rs-accent-600)] transition duration-300 flex-1">
+                  Send Message
+                  <img src="../assets/images/icon-send.svg" alt="Send Icon" class="w-5 h-5" />
+                </button>
+
+                <!-- or line -->
+                <div class="flex items-center justify-center w-full gap-2 md:hidden">
+                  <div class="w-full h-[1px] bg-rs-neutral-300"></div>
+                  <span class="text-base text-center text-rs-neutral-600 bg-rs-neutral-50 px-2 font-medium">or</span>
+                  <div class="w-full h-[1px] bg-rs-neutral-300"></div>
+                </div>
+
+                <!-- Schedule Meeting Button -->
+                <div class="flex flex-col items-center md:order-1 lg:order-1 order-2 ">
+                  <button type="button"
+                    onclick="window.open('https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333', '_blank')"
+                    class="inline-flex justify-center items-center gap-1.5 px-3 py-4 rounded-[5px] text-[var(--rs-neutral-500)] border-[0.75px] border-[var(--rs-neutral-500)] hover:bg-blue-500 hover:text-white hover:border-blue-500 transition duration-300 w-full">
+                    <div class="text-center flex items-center justify-center gap-2 w-full">
+                      <span class="font-medium text-center">Schedule a Meeting</span>
+                      <img src="../assets/images/icon-calendar-days-2.svg" alt="Calendar Icon" class="w-5 h-5 " />
+                    </div>
+                  </button>
+                  <span class="text-sm text-center text-rs-neutral-500 mt-[5px]">via HubSpot</span>
+                </div>
+              </div>
+            </form>
+
+            <!-- BG container -->
+            <!-- BG container behind form -->
+            <div class="absolute bottom-0 right-[-5%] pointer-events-none z-0 hidden md:block">
+              <img src="../assets/images/contacts/bg-letter-send.png" alt="bg" class="w-auto">
+            </div>
+
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+
+
+      <!-- Bottom Section -->
+      <div class="hidden lg:block xl:block text-center mt-12">
+        <!-- Horizontal line -->
+        <div class="w-full h-px bg-[var(--rs-neutral-400)] mb-4"></div>
+
+        <!-- Content in single row -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8">
+          <div class="flex-1"></div>
+          <p class="text-[var(--rs-neutral-400)] text-base flex-shrink-0">
+            © 2025 Romega Solutions. All rights reserved
+          </p>
+          <div class="flex gap-6 text-base flex-1 justify-end">
+            <a href="#" class="text-[var(--rs-neutral-500)] hover:text-gray-700">
+              Privacy Policy
+            </a>
+            <a href="#" class="text-[var(--rs-neutral-500)] hover:text-gray-700">
+              Terms of Service
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer Container -->
@@ -525,7 +590,7 @@
               <span class="uppercase tracking-widest text-[12px] lg:text-[13px] text-[#64748b] font-semibold mb-1">
                 Follow us on
               </span>
-              <div class="flex flex-row md:flex-row gap-2">
+              <div class="flex flex-row gap-2">
                 <a href="https://www.linkedin.com/company/romega-solutions" target="_blank" rel="noopener"
                   class="flex items-center px-3 lg:px-4 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] hover:bg-[#e6f0f3] hover:text-[#1e293b] transition gap-2">
                   <img src="../assets/images/homepage/linkedinIcon.png" alt="LinkedIn" class="w-4 lg:w-5 h-4 lg:h-5" />
