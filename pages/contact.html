@@ -166,9 +166,10 @@
             text-rs-primary-100
             shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)]
             transition duration-300
-            hover:bg-rs-primary-700
-            lg:inline-flex lg:min-w-[172px] lg:px-[28px]
-          ">
+            hover:bg-rs-primary-700 hover:shadow-lg hover:scale-105
+            active:bg-rs-primary-800 active:scale-95
+            focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2
+            lg:inline-flex lg:min-w-[172px] lg:px-[28px]">
           <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="mr-1 w-[22px]">
           Book a Call
         </a>
@@ -274,7 +275,7 @@
     </div>
   </nav>
 
-  <main class="relative min-h-screen w-full max-w-[1440px] mx-auto overflow-hidden lg:overflow-visible">
+  <main class="relative min-h-screen w-full max-w-[1440px] mx-auto overflow-hidden xl:overflow-visible">
     <!-- Background Image Container -->
     <div class="bg-clip-content">
       <img src="../assets/images/contacts/bg-romega.svg"
@@ -309,18 +310,18 @@
         </p>
       </div>
       <!-- Contact Container -->
-      <div class="bg-[var(--rs-neutral-50)] rounded-lg shadow-xl overflow-hidden max-w-fit mx-auto">
+      <div class="bg-[var(--rs-neutral-50)] rounded-lg shadow-xl overflow-hidden max-w-fit mx-auto p-3 rounded-lg">
         <div class="grid  grid-cols-1 lg:grid-cols-2 grid-rows-1/2 lg:grid-rows-1 ">
           <!-- Left Side - Contact Information (Hidden on sm/md) -->
           <div
-            class="lg:block bg-gray-800 text-white p-8 md:p-12 relative overflow-hidden max-w-[491px] h-fit sm:h-full max-h-[527px] md:min-h-full sm:h-[527px] w-full order-2 lg:order-1">
+            class="lg:block bg-gray-800 text-white p-8 md:p-12 relative overflow-hidden max-w-[491px] h-fit sm:h-full lg:max-h-[527px] md:min-h-full lg:h-[527px] w-full order-2 lg:order-1 rounded-[4px]">
             <!-- Background decorative elements -->
-            <div
-              class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full opacity-20 transform translate-x-16 -translate-y-16">
+            <div class="relative">
+              <!-- Ellipse 793 BG Bottom Left 2 -->
+              <span class="size-36 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[288px] right-[64px]"></span>
+              <span class="size-64 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[314px] right-[-95px]"></span>
             </div>
-            <div
-              class="absolute bottom-0 right-0 w-24 h-24 bg-yellow-400 rounded-full opacity-30 transform translate-x-12 translate-y-12">
-            </div>
+
 
             <div class="relative z-10">
               <h2 class="text-rs-neutral-200 text-[28px] font-semibold mb-3">Contact Information</h2>
@@ -331,11 +332,11 @@
               </p>
 
               <!-- Contact Details -->
-              <div class="space-y-6 mb-12">
+              <div class="space-y-6 mb-8">
                 <div class="border border-gray-600 rounded-lg p-4 relative">
                   <div
                     class="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-gray-800 px-4 py-1 mb-2 uppercase font-bold text-rs-neutral-400 tracking-wide">
-                    <h3 class="text-sm block">
+                    <h3 class="text-sm block whitespace-nowrap">
                       REACH US OUT
                     </h3>
                   </div>
@@ -360,7 +361,7 @@
                     </div>
 
                     <div>
-                      <h4 class="text-base font-medium text-rs-neutral-400 uppercase mb-1">
+                      <h4 class="text-base font-medium text-rs-neutral-400 uppercase mb-1 tracking-[1px]">
                         HEADQUARTERS
                       </h4>
                       <div class="flex items-start gap-1">
@@ -388,8 +389,10 @@
                   Follow us on
                 </span>
                 <div class="flex flex-col xs:flex-row w-full gap-4 mt-2">
-                  <a href="https://www.linkedin.com/company/romega-solutions" target="_blank" rel="noopener"
-                    class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700">
+                  <a href="https://www.linkedin.com/company/romega-solutions" target="_blank" rel="noopener" class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition
+                      hover:bg-rs-primary-200 hover:text-rs-neutral-700 hover:shadow-lg hover:scale-105 hover:border-rs-primary-400
+                      active:bg-rs-primary-300 active:scale-95
+                      focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                       <path
                         d="M13.5834 7.1665C14.9094 7.1665 16.1812 7.69329 17.1189 8.63097C18.0566 9.56865 18.5834 10.8404 18.5834 12.1665V17.9998H15.25V12.1665C15.25 11.7245 15.0744 11.3006 14.7619 10.988C14.4493 10.6754 14.0254 10.4998 13.5834 10.4998C13.1413 10.4998 12.7174 10.6754 12.4048 10.988C12.0923 11.3006 11.9167 11.7245 11.9167 12.1665V17.9998H8.58335V12.1665C8.58335 10.8404 9.11014 9.56865 10.0478 8.63097C10.9855 7.69329 12.2573 7.1665 13.5834 7.1665Z"
@@ -402,8 +405,10 @@
                     </svg>
                     <span>LINKEDIN</span>
                   </a>
-                  <a href="https://www.facebook.com/romegasolutions" target="_blank" rel="noopener"
-                    class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700">
+                  <a href="https://www.facebook.com/romegasolutions" target="_blank" rel="noopener" class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition
+                      hover:bg-rs-primary-200 hover:text-rs-neutral-700 hover:shadow-lg hover:scale-105 hover:border-rs-primary-400
+                      active:bg-rs-primary-300 active:scale-95
+                      focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                       <path
                         d="M15.75 2.1665H13.25C12.145 2.1665 11.0852 2.60549 10.3038 3.38689C9.52236 4.16829 9.08337 5.2281 9.08337 6.33317V8.83317H6.58337V12.1665H9.08337V18.8332H12.4167V12.1665H14.9167L15.75 8.83317H12.4167V6.33317C12.4167 6.11216 12.5045 5.9002 12.6608 5.74391C12.8171 5.58763 13.029 5.49984 13.25 5.49984H15.75V2.1665Z"
@@ -413,11 +418,35 @@
                   </a>
                 </div>
               </div>
+
+              <!-- Bottom Section -->
+              <div class="block text-center mt-4 lg:hidden">
+                <!-- Horizontal line -->
+                <div class="w-full h-px bg-[var(--rs-neutral-400)] mb-3"></div>
+
+                <!-- Content in single row -->
+                <div class="flex flex-col items-center justify-between gap-3">
+                  <div class="flex-1"></div>
+                  <p class="text-[var(--rs-neutral-400)] text-base flex-shrink-0">
+                    © 2025 Romega Solutions. All rights reserved
+                  </p>
+                  <div class="flex gap-8 text-base flex-1 justify-end">
+                    <a href="#" class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline">
+                      Privacy Policy
+                    </a>
+                    <a href="#" class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline">
+                      Terms of Service
+                    </a>
+                  </div>
+                </div>
+              </div>
+
             </div>
+
           </div>
 
           <!-- Right Side - Contact Form (Takes full width on sm/md) -->
-          <div class="min-w-[362px] max-w-[595px] w-full p-4 sm:p-8 md:p-10 lg:p-12 relative order-1 lg:order-2">
+          <div class="sm:min-w-[362px] max-w-[595px] w-full p-4 sm:p-8 md:p-10 lg:p-12 relative order-1 lg:order-2">
 
             <form id="contact-form" class="space-y-6 z-10 relative">
               <!-- Name Fields Row -->
@@ -496,8 +525,10 @@
               <!-- Action Buttons -->
               <div class="flex flex-col sm:flex-col md:flex-row gap-4 pt-6">
                 <!-- Send Message Button -->
-                <button type="submit"
-                  class="flex min-h-[54px] h-[54px] items-center justify-center text-[var(--rs-accent-50)] order-2 gap-2 px-6 py-2 bg-[var(--rs-accent-400)] rounded-md font-semibold hover:bg-[var(--rs-accent-600)] transition duration-300 flex-1">
+                <button type="submit" class="flex min-h-[54px] h-[54px] items-center justify-center text-[var(--rs-accent-50)] order-2 gap-2 px-6 py-2 bg-[var(--rs-accent-400)] rounded-md font-semibold hover:bg-[var(--rs-accent-600)] transition duration-300 flex-1
+                    hover:shadow-lg hover:scale-105
+                    active:bg-[var(--rs-accent-700)] active:scale-95
+                    focus:outline-none focus:ring-2 focus:ring-[var(--rs-accent-600)] focus:ring-offset-2">
                   Send Message
                   <img src="../assets/images/icon-send.svg" alt="Send Icon" class="w-5 h-5" />
                 </button>
@@ -513,7 +544,11 @@
                 <div class="flex flex-col items-center md:order-1 lg:order-1 order-2 ">
                   <button type="button"
                     onclick="window.open('https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333', '_blank')"
-                    class="inline-flex justify-center items-center gap-1.5 px-3 py-4 rounded-[5px] text-[var(--rs-neutral-500)] border-[0.75px] border-[var(--rs-neutral-500)] hover:bg-blue-500 hover:text-white hover:border-blue-500 transition duration-300 w-full">
+                    class="inline-flex justify-center items-center gap-1.5 px-3 py-4 rounded-[5px] text-[var(--rs-neutral-500)] border-[0.75px] border-[var(--rs-neutral-500)] hover:bg-blue-500 hover:text-white hover:border-blue-500 transition duration-300 w-full
+                      hover:shadow-lg hover:scale-105
+                      active:bg-blue-600 active:scale-95
+                      focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2" role="button"
+                    aria-label="Book a call with Romega Solutions">
                     <div class="text-center flex items-center justify-center gap-2 w-full">
                       <span class="font-medium text-center">Schedule a Meeting</span>
                       <img src="../assets/images/icon-calendar-days-2.svg" alt="Calendar Icon" class="w-5 h-5 " />
@@ -536,9 +571,9 @@
 
 
       <!-- Bottom Section -->
-      <div class="hidden lg:block xl:block text-center mt-12">
+      <div class="hidden lg:block xl:block text-center mt-12 mx-auto max-w-[1284px] w-10/12">
         <!-- Horizontal line -->
-        <div class="w-full h-px bg-[var(--rs-neutral-400)] mb-4"></div>
+        <div class="w-full max-w-[1284px] h-px bg-[var(--rs-neutral-400)] mb-4"></div>
 
         <!-- Content in single row -->
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8">
@@ -546,11 +581,11 @@
           <p class="text-[var(--rs-neutral-400)] text-base flex-shrink-0">
             © 2025 Romega Solutions. All rights reserved
           </p>
-          <div class="flex gap-6 text-base flex-1 justify-end">
-            <a href="#" class="text-[var(--rs-neutral-500)] hover:text-gray-700">
+          <div class="flex gap-6 text-base flex-1 justify-end mr-[95px]">
+            <a href="#" class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:underline">
               Privacy Policy
             </a>
-            <a href="#" class="text-[var(--rs-neutral-500)] hover:text-gray-700">
+            <a href="#" class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:underline">
               Terms of Service
             </a>
           </div>
@@ -591,25 +626,35 @@
                 Follow us on
               </span>
               <div class="flex flex-row gap-2">
-                <a href="https://www.linkedin.com/company/romega-solutions" target="_blank" rel="noopener"
-                  class="flex items-center px-3 lg:px-4 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] hover:bg-[#e6f0f3] hover:text-[#1e293b] transition gap-2">
+                <a href="https://www.linkedin.com/company/romega-solutions" target="_blank" rel="noopener" class="flex items-center px-3 lg:px-4 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] transition gap-2
+                    hover:bg-[#e6f0f3] hover:text-[#1e293b] hover:shadow-lg hover:scale-105 hover:border-[#4880b8]
+                    active:bg-[#dbeafe] active:scale-95
+                    focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2">
                   <img src="../assets/images/homepage/linkedinIcon.png" alt="LinkedIn" class="w-4 lg:w-5 h-4 lg:h-5" />
                   LINKEDIN
                 </a>
-                <a href="https://www.facebook.com/romegasolutions" target="_blank" rel="noopener"
-                  class="flex items-center px-3 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] hover:bg-[#e6f0f3] hover:text-[#1e293b] transition gap-2">
+                <a href="https://www.facebook.com/romegasolutions" target="_blank" rel="noopener" class="flex items-center px-3 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] transition gap-2
+                    hover:bg-[#e6f0f3] hover:text-[#1e293b] hover:shadow-lg hover:scale-105 hover:border-[#4880b8]
+                    active:bg-[#dbeafe] active:scale-95
+                    focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2">
                   <img src="../assets/images/homepage/facebook.png" alt="Facebook" class="w-4 lg:w-5 h-4 lg:h-5" />
                   FACEBOOK
                 </a>
               </div>
+
             </div>
           </div>
           <!-- Schedule Button: Mobile & Medium -->
           <div class="w-full flex lg:hidden justify-center mt-4">
             <a href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
               class="block w-full">
-              <button
-                class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200">
+              <button class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200
+                  hover:shadow-lg hover:scale-105
+                  active:bg-[#005999] active:scale-95
+                  focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2" class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200
+                  hover:shadow-lg hover:scale-105
+                  active:bg-[#005999] active:scale-95
+                  focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2">
                 <img src="../assets/images/homepage/calendar-days.png" alt="Calendar" class="w-5 h-5" />
                 <span>Schedule a Meeting</span>
               </button>
@@ -693,7 +738,7 @@
             <div
               class="relative border-2 border-dashed border-[#cbd5e1] rounded-lg p-4 mb-4 bg-[#e6f0f3] w-full max-w-md lg:max-w-none">
               <h3
-                class="absolute -top-3 left-1/2 lg:left-6 transform -translate-x-1/2 lg:-translate-x-0 bg-[#e6f0f3] px-4 text-[#4880b8] text-sm font-bold uppercase tracking-wide">
+                class="absolute -top-3 left-1/2 lg:left-6 transform -translate-x-1/2 lg:-translate-x-0 bg-[#e6f0f3] px-4 text-[#4880b8] text-[16px] font-bold uppercase tracking-wide  ">
                 REACH US OUT
               </h3>
               <div class="space-y-4 mt-4">
