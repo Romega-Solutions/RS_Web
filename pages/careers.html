@@ -6,255 +6,1549 @@
     <title>Careers - Romega Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/styles.css" />
-    <!-- source sans 3 -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://romegasolutions.com" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+
+    <!-- Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <!-- Sidebar Overlay -->
+    <div id="jobsSidebar" class="fixed inset-0 z-50 hidden">
+      <!-- Background Overlay -->
+      <div
+        class="fixed inset-0 bg-black bg-opacity-50"
+        onclick="closeJobsSidebar()"
+      ></div>
 
-    
-<!-- Navigation -->
-<nav       id="navbar-container"
-      role="navigation"
-      aria-label="Main navigation" class="bg-rs-primary-50 shadow-sm border-b-2 border-blue-400">
-  <div style="padding-left: 30px; padding-right: 30px" >
-    <div
-      class="flex justify-between items-center mx-auto bg-white"
-      style="height: 104px; width: 100%; max-width: 1261px "
-    >
-      <!-- Logo -->
-      <div class="flex items-center flex-shrink-0 ml-2 ">
-        <a href="#" class="flex items-center" id="logo-link">
-          <img
-            src="./assets/images/homepage/logo.png"
-            alt="Romega Solutions"
-            style="height: 83px; width: auto; max-width: 301px"
-            class="md:h-20 h-16"
-            id="logo-img"
-          />
-        </a>
-      </div>
-
-      <!-- Desktop Navigation Links - Centered -->
-      <div class="hidden md:flex items-center justify-center flex-1 mx-8 ">
-        <div class="flex items-center space-x-8">
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-home"
-          >
-            Home
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-about"
-          >
-            About
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-services"
-          >
-            Services
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-careers"
-          >
-            Careers & Talent
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-resources"
-          >
-            Resources
-          </a>
-          <a
-            href="#"
-            class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-3 py-2 text-sm md:text-[1rem] font-medium"
-            id="nav-contact"
-          >
-            Contact
-          </a>
-        </div>
-      </div>
-        <!-- Book a Call Button -->
-        <a
-          href="#"
-          class="hidden md:text-[18px] md:inline-flex items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300"
-          style="width: 172px; height: 46px;"
-          id="nav-cta"
+      <!-- Sidebar Panel -->
+      <div
+        class="fixed right-0 top-0 h-full w-[450px] bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out"
+        id="sidebarPanel"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-center justify-between p-6 border-b border-gray-200 bg-[#e8f4f8]"
         >
-          <img
-            src="/assets/images/homepage/calendar-days.png"
-            alt="Calendar icon"
-            class="w-[22px] mr-2"
-            id="nav-cta-icon"
-          />
-          Book a Call
-        </a>
-        <!-- Mobile menu button -->
-        <div class="md:hidden">
+          <div>
+            <h2
+              class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans"
+            >
+              Current Roles Opened
+            </h2>
+            <p class="text-sm text-[var(--rs-neutral-600)] mt-1">
+              Company review time is typically 1 week
+            </p>
+          </div>
           <button
-            class="mobile-menu-button p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
-            aria-label="Open mobile menu"
-            aria-expanded="false"
+            onclick="closeJobsSidebar()"
+            class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            aria-label="Close sidebar"
           >
             <svg
-              class="w-6 h-6"
+              width="24"
+              height="24"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              class="text-gray-500"
             >
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
+                d="M6 18L18 6M6 6l12 12"
               ></path>
             </svg>
+          </button>
+        </div>
+
+        <!-- Job Listings Content -->
+        <div class="h-[calc(100vh-140px)] overflow-y-auto p-6 space-y-6">
+          <!-- Job 1: Account Executive Intern -->
+          <div
+            class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-[var(--rs-primary-600)] hover:underline cursor-pointer"
+              >
+                Account Executive Intern
+              </h3>
+              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                >July 11, 2025</span
+              >
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Philippines
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+                Remote Work
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                  />
+                </svg>
+                Part-Time
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <button
+                class="bg-[var(--rs-primary-600)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--rs-primary-700)] transition flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                  />
+                </svg>
+                See Details on LinkedIn
+              </button>
+              <button
+                class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h6v6h6v10H6z"
+                  />
+                </svg>
+                View Job Poster
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 2: Senior Packaging Engineer -->
+          <div
+            class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-[var(--rs-primary-600)] hover:underline cursor-pointer"
+              >
+                Senior Packaging Engineer
+              </h3>
+              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                >July 2, 2025</span
+              >
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Santa Clara, CA
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+                On-Site
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                  />
+                </svg>
+                Full-Time
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <button
+                class="bg-[var(--rs-primary-600)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--rs-primary-700)] transition flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                  />
+                </svg>
+                See Details on LinkedIn
+              </button>
+              <button
+                class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h6v6h6v10H6z"
+                  />
+                </svg>
+                View Job Poster
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 3: Senior Optical Engineer -->
+          <div
+            class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-[var(--rs-primary-600)] hover:underline cursor-pointer"
+              >
+                Senior Optical Engineer
+              </h3>
+              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                >July 2, 2025</span
+              >
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Santa, Clara CA
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+                Remote Work
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                  />
+                </svg>
+                Part-Time
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <button
+                class="bg-gray-300 text-gray-500 px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"
+                  />
+                </svg>
+                No longer accepting applications
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 4: Senior Electrical Engineer -->
+          <div
+            class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-[var(--rs-primary-600)] hover:underline cursor-pointer"
+              >
+                Senior Electrical Engineer
+              </h3>
+              <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                >July 2, 2025</span
+              >
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-4">
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                United States
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  />
+                </svg>
+                Remote Work
+              </div>
+              <div class="flex items-center gap-1 text-sm text-gray-600">
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                  />
+                </svg>
+                Full-Time
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <button
+                class="bg-gray-300 text-gray-500 px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed flex items-center gap-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"
+                  />
+                </svg>
+                No longer accepting applications
+              </button>
+            </div>
+          </div>
+
+          <!-- Empty State at Bottom -->
+          <div class="text-center py-8">
+            <div class="w-16 h-16 mx-auto mb-4 opacity-30">
+              <svg
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                class="text-gray-400"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                />
+              </svg>
+            </div>
+            <p class="text-gray-500 text-sm mb-2">We're always growing :)</p>
+            <p class="text-gray-400 text-xs">new opportunities coming soon</p>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div
+          class="absolute bottom-0 left-0 right-0 p-4 bg-[var(--rs-primary-800)] text-white text-center"
+        >
+          <button
+            class="text-sm font-medium hover:underline"
+            onclick="window.open('https://linkedin.com/company/romega-solutions', '_blank')"
+          >
+            View Jobs in our LinkedIn Page
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <div class="hidden mobile-menu md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-accent font-medium bg-rs-primary-50 rounded-md"
-          id="mobile-nav-home"
+    <!-- javascript -->
+    <script>
+      // Add this to your existing JavaScript file or create a new one
+
+      function openJobsSidebar() {
+        const sidebar = document.getElementById("jobsSidebar");
+        const panel = document.getElementById("sidebarPanel");
+
+        sidebar.classList.remove("hidden");
+        setTimeout(() => {
+          panel.classList.remove("translate-x-full");
+        }, 10);
+      }
+
+      function closeJobsSidebar() {
+        const sidebar = document.getElementById("jobsSidebar");
+        const panel = document.getElementById("sidebarPanel");
+
+        panel.classList.add("translate-x-full");
+        setTimeout(() => {
+          sidebar.classList.add("hidden");
+        }, 300);
+      }
+
+      // Update the "View Open Roles" button onclick
+      document.addEventListener("DOMContentLoaded", function () {
+        // Find the View Open Roles button and add the onclick event
+        const viewRolesButton = document.querySelector(
+          'button:contains("View Open Roles")'
+        );
+        if (viewRolesButton) {
+          viewRolesButton.onclick = openJobsSidebar;
+        }
+      });
+    </script>
+
+    <!-- navigation bar -->
+    <nav
+      id="navbar-container"
+      role="navigation"
+      aria-label="Main navigation"
+      class="bg-rs-primary-50 shadow-sm border-b-2 border-[var(--rs-neutral-grey-500)]"
+    >
+      <div style="padding-left: 0px; padding-right: 0px">
+        <div
+          class="flex justify-between items-center bg-white px-8"
+          style="height: 104px; width: 100%"
         >
-          Home
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-about"
-        >
-          About
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-services"
-        >
-          Services
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-careers"
-        >
-          Careers & Talent
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-resources"
-        >
-          Resources
-        </a>
-        <a
-          href="#"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-contact"
-        >
-          Contact
-        </a>
-        <!-- Mobile CTA Button -->
-        <a
-          href="#"
-          class="flex items-center justify-center mx-3 mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300"
-          id="mobile-nav-cta"
-          role="button"
-          aria-label="Book a call with Romega Solutions"
-        >
-          <img
-            src="#"
-            alt="Calendar icon"
-            class="w-4 h-4 mr-2"
-            id="mobile-nav-cta-icon"
-          />
-          Book a Call
-        </a>
+          <!-- Logo: lg (desktop) -->
+          <div class="md:hidden lg:flex items-center flex-shrink-0 xl:ml-14">
+            <a href="index.html" class="flex items-center" id="logo-link-lg">
+              <img
+                src="../assets/images/homepage/logo.png"
+                alt="Romega Solutions"
+                style="height: 83px; width: auto; max-width: 301px"
+                class="h-16"
+                id="logo-img-lg"
+              />
+            </a>
+          </div>
+          <!-- Logo: md/sm (tablet/mobile) -->
+          <div class="flex hidden sm:hidden md:block lg:hidden items-center">
+            <a href="index.html" class="flex" id="logo-link-md">
+              <img
+                src="../assets/images/homepage/smlogo.png"
+                alt="Romega Solutions"
+                style="height: 83px; width: auto; max-width: 220px"
+                class="h-16"
+                id="logo-img-md"
+              />
+            </a>
+          </div>
+          <!-- Combined Navigation Links: lg, md, sm -->
+          <div class="hidden md:flex items-center justify-center flex-1 mx-2">
+            <div
+              class="flex items-center space-x-12 md:space-x-2 lg:space-x-0 xl:space-x-6 2xl:space-x-12"
+            >
+              <a
+                href="index.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-home"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-about"
+                >About</a
+              >
+              <a
+                href="services.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-services"
+                >Services</a
+              >
+              <a
+                href="careers.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-careers"
+                >Careers & Talent</a
+              >
+              <a
+                href="resources.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-resources"
+                >Resources</a
+              >
+              <a
+                href="contact.html"
+                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
+                id="nav-contact"
+                >Contact</a
+              >
+            </div>
+          </div>
+          <!-- Book a Call Button for lg and md -->
+          <a
+            href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+            class="hidden md:inline-flex items-center justify-center xl:text-[18px] lg:text-[14px] font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 ml-2 lg:ml-4 xl:mr-14"
+            style="width: 150px; height: 42px"
+            id="nav-cta"
+          >
+            <img
+              src="../assets/images/homepage/calendar-days.png"
+              alt="Calendar icon"
+              class="w-5 mr-2 md:w-[16px] lg:w-[16px] xl:w-[22px]"
+              id="nav-cta-icon"
+            />
+            Book a Call
+          </a>
+
+          <!-- Mobile menu button: sm only -->
+          <div class="md:hidden flex items-center">
+            <button
+              class="mobile-menu-button p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+              aria-label="Open mobile menu"
+              aria-expanded="false"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</nav>
+
+      <!-- Mobile Menu (sm only) -->
+      <div class="hidden mobile-menu md:hidden w-full">
+        <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+          <a
+            href="index.html"
+            class="block px-3 py-2 font-medium bg-rs-primary-50 rounded-md"
+            id="mobile-nav-home"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-about"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-services"
+            >Services</a
+          >
+          <a
+            href="careers.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-careers"
+            >Careers & Talent</a
+          >
+          <a
+            href="resources.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-resources"
+            >Resources</a
+          >
+          <a
+            href="contact.html"
+            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
+            id="mobile-nav-contact"
+            >Contact</a
+          >
+          <!-- Mobile CTA Button -->
+          <a
+            href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+            class="flex items-center justify-center mx-3 mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300"
+            id="mobile-nav-cta"
+            role="button"
+            aria-label="Book a call with Romega Solutions"
+          >
+            <img
+              src="../assets/images/homepage/calendar-days.png"
+              alt="Calendar icon"
+              class="w-4 h-4 mr-2"
+              id="mobile-nav-cta-icon"
+            />
+            Book a Call
+          </a>
+        </div>
+      </div>
+    </nav>
 
     <!-- Careers Page Content -->
-    <main class="bg-gray-50 min-h-screen">
-      <section class="py-20">
-        <div class="max-w-7xl mx-auto px-4">
-          <h1
-            class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-center"
-          >
-            Join Our Team
-          </h1>
-          <p class="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-            Explore exciting career opportunities and become part of our growing
-            team.
-          </p>
+    <main class="bg-[var(--rs-neutral-50)] min-h-screen ">\
 
-          <!-- Career Opportunities -->
-          <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-2xl font-bold mb-2">Position Title 1</h3>
-                  <p class="text-gray-600 mb-4">
-                    Department • Location • Full-time
-                  </p>
-                  <p class="text-gray-700">
-                    Brief description of the position...
+
+      <!-- Explore Leadership Opportunities Section -->
+      <section
+        class="relative bg-[var(--rs-neutral-50)] py-12 md:py-16 lg:py-20 overflow-hidden"
+      >
+        <!-- Background image - properly positioned -->
+        <img
+          src="../assets/images/careers/bg-top.png"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
+          loading="lazy"
+          aria-hidden="true"
+        />
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <!-- Header -->
+          <div class="text-center mb-12">
+            <h2
+              class="text-3xl sm:text-4xl lg:text-[40px] text-merriweather font-bold text-[var(--rs-primary-600)] mb-4"
+            >
+              Explore Leadership Opportunities
+            </h2>
+            <p
+              class="text-lg sm:text-xl md:text-2xl text-[var(--rs-neutral-600)] max-w-6xl mx-auto"
+            >
+              Find your next impactful role or join our talent network for
+              future opportunities always with discretion.
+            </p>
+            <p class="text-sm text-[var(--rs-neutral-400)] mt-2">
+              Updated: July 1, 2024
+            </p>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 justify-between mb-8">
+            <button
+              onclick="openJobsSidebar()"
+              class="text-[22px] bg-[var(--rs-primary-500)] border border-[var(--rs-primary-600)] w-full lg:w-[400px] text-[var(--rs-neutral-100)] px-8 py-3 rounded-[12.5px] font-semibold text-lg hover:bg-[var(--rs-primary-700)] transition flex items-center justify-center gap-2"
+            >
+              <img src="../assets/images/careers/bag-white.svg"  class="w-[27.5px] h-[27.5px]"  alt="">
+              </svg>
+              View Open Roles
+            </button>
+            <button
+              class="bg-[var(--rs-neutral-100)] text-[var(--rs-neutral-600)] px-8 py-3  lg:w-[590px] rounded-lg font-semibold text-[22px] border-2 border-[var(--rs-neutral-400)] hover:bg-[var(--rs-neutral-200)] transition flex items-center justify-center gap-2"
+            >
+            <img src="../assets/images/careers/human.png" class="w-[27.5px] h-[27.5px]" alt="">
+              Stay Connected for Future Roles
+            </button>
+          </div>
+
+          <!-- Two Column Content -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- What We're Looking For -->
+            <div>
+              <h3
+                class="text-[28px] items-center font-bold text-[var(--rs-primary-600)] mb-6 text-merriweather"
+              >
+                What We're Looking For
+              </h3>
+              <div class="space-y-6 text-[20px] ">
+                <div class="flex items-start gap-2 items-center">
+                  <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                   <img src="/assets/images/careers/search-check.svg" alt="" class="w-[40px] h-[40px]">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed">
+                    We are looking for leaders who think big, move fast, and
+                    deliver results that matter.
                   </p>
                 </div>
-                <a
-                  href="#"
-                  class="bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-600 transition duration-300"
-                >
-                  Apply Now
-                </a>
+                <div class="flex items-start gap-2 items-center">
+                  <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+              <img src="/assets/images/careers/search-check.svg" alt="" class="w-[40px] h-[40px]">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed">
+                    If you thrive in high-growth environments, enjoy solving
+                    complex challenges, and bring bold solutions to the table,
+                    we want to meet you.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2 items-center">
+                  <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                 <img src="/assets/images/careers/search-check.svg" alt="" class="w-[40px] h-[40px]">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900 )] leading-relaxed">
+                    We value innovators who take charge of change and inspire
+                    teams to do their best work.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h3 class="text-2xl font-bold mb-2">Position Title 2</h3>
-                  <p class="text-gray-600 mb-4">
-                    Department • Location • Full-time
-                  </p>
-                  <p class="text-gray-700">
-                    Brief description of the position...
+            <!-- What We Love -->
+            <div class="text-[20px] ">
+              <h3
+                class="text-[28px] font-bold text-[var(--rs-primary-600)] mb-6 text-merriweather"
+              >
+                What We Love
+              </h3>
+              <p class=" text-[var(--rs-neutral-900)] mb-6 leading-relaxed">
+                We love helping exceptional talent build careers that create
+                real impact. <span class="font-bold" >This drives us to:</span>
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2 items-center">
+                  <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                  <img src="../assets/images/careers/heart-handshake.svg" alt="">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed ">
+                    Connect visionary leaders with world-changing companies
                   </p>
                 </div>
-                <a
-                  href="#"
-                  class="bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-600 transition duration-300"
-                >
-                  Apply Now
-                </a>
+                <div class="flex items-start gap-2 items-center">
+                   <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                <img src="../assets/images/careers/heart-handshake.svg" alt="">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed">
+                    Support teams that deliver innovation on a global scale
+                  </p>
+                </div>
+                <div class="flex items-start gap-2 items-center">
+            <div
+                    class="flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center mt-1"
+                  >
+                <img src="../assets/images/careers/heart-handshake.svg" alt="">
+                  </div>
+                  <p class="text-[var(--rs-neutral-900)] leading-relaxed">
+                    Celebrate success stories that inspire others to lead with
+                    purpose
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
+      <hr class="border border-[var(--rs-neutral-400)] sm:mx-12 md:mx-20 lg:mx-32" />
+
+      <!-- Your Privacy, Our Priority Section -->
+      <section
+        class="relative bg-[var(--rs-neutral-50)] pb-12 md:py-20 pt-12 overflow-hidden"
+      >
+
+        <!-- Background image -->
+        <img
+          src="../assets/images/careers/bg-top.png"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none select-none"
+          loading="lazy"
+          aria-hidden="true"
+        />
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <!-- Header -->
+          <div class="text-center mb-12">
+            <h2
+              class="text-[28px]  text-merriweather font-bold text-[var(--rs-primary-600)] mb-4"
+            >
+              Your Privacy, Our Priority
+            </h2>
+            <p
+              class="text-2xl text-[var(--rs-neutral-600)] max-w-3xl mx-auto leading-relaxed"
+            >
+              We treat every career journey with the highest level of
+              confidentiality.
+            </p>
+            <p
+              class="text-2xl text-[var(--rs-neutral-600)] max-w-3xl mx-auto leading-relaxed"
+            >
+              Your information stays secure and your current role is never
+              compromised.
+            </p>
+          </div>
+
+         <!-- Privacy Features Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-4xl mx-auto">
+  <!-- Fully Confidential Process -->
+  <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
+      <img src="../assets/images/careers/shield.svg" alt="" class="w-[50px] h-[50px]">
+    </div>
+    <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
+      Fully confidential process
+    </h3>
+  </div>
+
+  <!-- Your Role Stays Private -->
+  <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
+      <img src="../assets/images/careers/eye.svg" alt="" class="w-[50px] h-[50px]">
+    </div>
+    <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
+      Your role stays private
+    </h3>
+  </div>
+
+  <!-- We Never Share Without Approval -->
+  <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
+      <img src="../assets/images/careers/human-check.svg" alt="" class="w-[50px] h-[50px]">
+    </div>
+    <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
+      We never share without approval
+    </h3>
+  </div>
+
+  <!-- GDPR Compliant by Default -->
+  <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
+    <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
+      <img src="../assets/images/careers/lock.svg" alt="" class="w-[50px] h-[50px]">
+    </div>
+    <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
+      GDPR compliant by default
+    </h3>
+  </div>
+</div>
+
+          <!-- Testimonial Quote -->
+          <div class="mt-16 text-center">
+            <blockquote
+              class="text-[18px] text-[var(--rs-neutral-400)] italic max-w-lg mx-auto leading-relaxed mb-4"
+            >
+              "Romega guided me into a VP role with complete discretion. I
+              trusted their process from start to finish."
+                <cite 
+              >- Anonymous Candidate</cite
+            >
+            </blockquote>
+          
+          </div>
+        </div>
+      </section>
+
+      <!-- The Way We Work & What's In It For You Combined Section -->
+      <section
+        class="relative bg-[var(--rs-neutral-800)] py-16 md:py-20 lg:py-24 text-white overflow-hidden"
+      >
+        <!-- Top Wave Divider -->
+        <div
+          class="absolute w-full left-0 top-0"
+          style="height: 30px; z-index: 0"
+          aria-hidden="true"
+        >
+          <img
+            src="../assets/images/homepage/top-wave.png"
+            alt="Decorative wave divider"
+            class="block h-[80px] md:h-[140px] absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-[200vw] md:w-full object-cover"
+            style="top: -20px; z-index: 1; min-width: 600px"
+          />
+        </div>
+
+        <!-- Grid background -->
+        <div
+          class="absolute inset-0 bg-[url('../assets/images/homepage/team-bg.png')] bg-center bg-cover opacity-10 pointer-events-none"
+          aria-hidden="true"
+        ></div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Two Column Layout -->
+          <div
+            class="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-20 mt-12"
+          >
+            <!-- Left Side: The Way We Work -->
+            <div class="flex-1">
+              <!-- Header -->
+              <div class="text-center lg:text-left mb-12">
+                <div
+                  class="inline-block bg-[var(--rs-primary-600)] text-white px-4 py-2 rounded-full text-sm font-semibold mb-4"
+                >
+                  Our Culture
+                </div>
+                <h2
+                  class="text-3xl sm:text-4xl lg:text-[36px] text-merriweather font-bold mb-6"
+                >
+                  The Way We Work
+                </h2>
+                <p class="text-lg text-[var(--rs-neutral-300)] leading-relaxed">
+                  We believe great teams start with great culture. At Romega, we
+                  value:
+                </p>
+              </div>
+
+              <!-- Values Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Curiosity -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-primary-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Curiosity
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Ask. Learn. Innovate.
+                  </p>
+                </div>
+
+                <!-- Collaboration -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-primary-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7c-.8 0-1.54.5-1.85 1.26l-1.92 5.76c-.15.45.15.98.64.98H18v6h2z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Collaboration
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    One team. Shared success.
+                  </p>
+                </div>
+
+                <!-- Growth Mindset -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-primary-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Growth Mindset
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Progress that changes lives.
+                  </p>
+                </div>
+
+                <!-- Excellence -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-primary-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Excellence
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    High standards in every placement.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: What's In It For You -->
+            <div class="flex-1">
+              <!-- Header -->
+              <div class="text-center lg:text-left mb-12">
+                <div
+                  class="inline-block bg-[var(--rs-accent-600)] text-white px-4 py-2 rounded-full text-sm font-semibold mb-4"
+                >
+                  Perks and Benefits
+                </div>
+                <h2
+                  class="text-3xl sm:text-4xl lg:text-[36px] text-merriweather font-bold mb-6"
+                >
+                  What's in it for you?
+                </h2>
+                <p class="text-lg text-[var(--rs-neutral-300)] leading-relaxed">
+                  Opportunities and insights to advance your leadership.
+                </p>
+              </div>
+
+              <!-- Benefits Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Remote Work -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-accent-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Remote Work
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Access roles with global flexibility.
+                  </p>
+                </div>
+
+                <!-- Flexible Time -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-accent-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Flexible Time
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Designed to fit your priorities.
+                  </p>
+                </div>
+
+                <!-- Full Privacy -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-accent-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"
+                        />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      Full Privacy
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    Your journey stays protected.
+                  </p>
+                </div>
+
+                <!-- And More -->
+                <div
+                  class="bg-white p-6 rounded-lg border border-[var(--rs-neutral-300)]"
+                >
+                  <div class="flex flex-col items-center text-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-[var(--rs-accent-600)] rounded-lg flex items-center justify-center mb-3"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="white"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                      </svg>
+                    </div>
+                    <h3
+                      class="text-xl font-bold text-[var(--rs-primary-600)] text-source-sans mb-2"
+                    >
+                      And More...
+                    </h3>
+                  </div>
+                  <p
+                    class="text-[var(--rs-neutral-700)] text-center leading-relaxed"
+                  >
+                    More perks and growth to know.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="text-center mt-16">
+            <button
+              class="bg-[var(--rs-primary-600)] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[var(--rs-primary-700)] transition flex items-center justify-center gap-2 mx-auto shadow-xl"
+            >
+              <svg
+                width="20"
+                height="20"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                />
+              </svg>
+              Learn More About Romega
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Wave Divider -->
+        <div
+          class="absolute w-full left-0"
+          style="height: 60px; bottom: -40px; z-index: 0"
+          aria-hidden="true"
+        >
+          <img
+            src="../assets/images/homepage/team-bot.png"
+            alt="Decorative wave divider"
+            class="block h-[160px] absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-[200vw] md:w-full object-cover"
+            style="bottom: 0; z-index: 1; min-width: 600px"
+          />
+          <div
+            class="absolute left-0 h-[10%] w-full md:h-full"
+            style="bottom: 0; background: hsla(208, 60%, 18%, 1); z-index: 0"
+          ></div>
+        </div>
+      </section>
+
+  
     </main>
 
     <!-- Footer Container -->
-    <div id="footer-container"></div>
+    <footer
+      class="bg-[#e6f0f3] border-t-2 border-[var(--rs-neutral-grey-500)] text-rs-medium py-10 font-sans relative"
+    >
+      <!-- Scroll to Top Button -->
+      <a href="#">
+        <button
+          class="absolute -top-5 right-4 lg:right-12 hover:opacity-75 transition-opacity duration-300 z-10"
+          aria-label="Scroll to top"
+        >
+          <img
+            src="../assets/images/homepage/Btn_Arrow - Scroll UP.png"
+            alt="Scroll to top"
+            class="w-10 h-10 lg:w-12 lg:h-12"
+          />
+        </button>
+      </a>
+      <div
+        class="max-w-[1600px] mx-auto md:mx-0 lg:mx-auto px-4 md:px-2 lg:px-20"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+          <!-- Romega Info & Socials -->
+          <div class="lg:col-span-4 flex flex-col items-start mb-6">
+            <div class="w-full flex flex-row items-start">
+              <!-- Logo Left -->
+              <div class="flex justify-center lg:block lg:mr-4 flex-shrink-0">
+                <img
+                  src="../assets/images/homepage/footerLogo.png"
+                  alt="Romega Solutions Logo"
+                  class="w-[80px] lg:w-[94px] h-auto lg:h-[115px]"
+                />
+              </div>
+              <!-- Info + Socials Right -->
+              <div class="flex flex-col items-start text-left flex-1 ml-4">
+                <p
+                  class="text-sm lg:text-[15px] leading-snug text-[#334155] mb-2 lg:mb-1"
+                >
+                  <span class="font-bold">Romega Solutions</span>,
+                  <span> a US-based holding company founded by </span>
+                  <span class="font-bold">Robbie Galoso</span>.
+                </p>
+                <span
+                  class="uppercase tracking-widest text-[12px] lg:text-[13px] text-[#64748b] font-semibold mb-1"
+                >
+                  Follow us on
+                </span>
+                <div class="flex flex-row md:flex-row gap-2">
+                  <a
+                    href="https://www.linkedin.com/company/romega-solutions"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center px-3 lg:px-4 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] hover:bg-[#e6f0f3] hover:text-[#1e293b] transition gap-2"
+                  >
+                    <img
+                      src="../assets/images/homepage/linkedinIcon.png"
+                      alt="LinkedIn"
+                      class="w-4 lg:w-5 h-4 lg:h-5"
+                    />
+                    LINKEDIN
+                  </a>
+                  <a
+                    href="https://www.facebook.com/romegasolutions"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex items-center px-3 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] hover:bg-[#e6f0f3] hover:text-[#1e293b] transition gap-2"
+                  >
+                    <img
+                      src="../assets/images/homepage/facebook.png"
+                      alt="Facebook"
+                      class="w-4 lg:w-5 h-4 lg:h-5"
+                    />
+                    FACEBOOK
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Schedule Button: Mobile & Medium -->
+            <div class="w-full flex lg:hidden justify-center mt-4">
+              <a
+                href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+                class="block w-full"
+              >
+                <button
+                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200"
+                >
+                  <img
+                    src="../assets/images/homepage/calendar-days.png"
+                    alt="Calendar"
+                    class="w-5 h-5"
+                  />
+                  <span>Schedule a Meeting</span>
+                </button>
+              </a>
+            </div>
+            <!-- Schedule Button: Desktop Only -->
+            <div class="hidden lg:flex w-full justify-start mt-4">
+              <a href="contact.html" class="block w-full max-w-[380px]">
+                <button
+                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-4 py-2 rounded-lg font-semibold text-[18px] flex items-center justify-center gap-2 shadow transition-all duration-200"
+                >
+                  <img
+                    src="../assets/images/homepage/calendar-days.png"
+                    alt="Calendar"
+                    class="w-6 h-6"
+                  />
+                  <span>Schedule a Meeting</span>
+                </button>
+              </a>
+            </div>
+          </div>
 
-    <script src="../assets/js/main.js"></script>
+          <!-- Right Side Container for Desktop Only -->
+          <div
+            class="lg:col-span-8 flex flex-col lg:flex-row gap-8 lg:gap-8 mt-2 lg:mt-0"
+          >
+            <!-- Company & Help Section -->
+            <div class="flex flex-row lg:flex-row lg:flex-1">
+              <!-- Company -->
+              <div class="flex-1">
+                <h3
+                  class="text-[#38bdf8] text-center lg:text-left text-base mb-4 uppercase tracking-widest"
+                >
+                  COMPANY
+                </h3>
+                <ul class="space-y-3 text-center lg:text-left">
+                  <li>
+                    <a
+                      href="index.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Home</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="about.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >About</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="services.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Services</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="careers.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Careers & Talent</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- Divider -->
+              <div class="flex lg:flex flex-col justify-center">
+                <div class="w-px bg-[#cbd5e1] mx-4 h-full min-h-[180px]"></div>
+              </div>
+              <!-- Help -->
+              <div class="flex-1">
+                <h3
+                  class="text-[#38bdf8] text-base mb-4 uppercase tracking-widest text-center lg:text-left"
+                >
+                  HELP
+                </h3>
+                <ul class="space-y-3 text-center lg:text-left">
+                  <li>
+                    <a
+                      href="resources.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Resources</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="contact.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Contact</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#terms"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Terms of Service</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#privacy"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Reach Us Out -->
+            <div class="flex flex-col items-center lg:items-start lg:flex-1">
+              <div
+                class="relative border-2 border-dashed border-[#cbd5e1] rounded-lg p-4 mb-4 bg-[#e6f0f3] w-full max-w-md lg:max-w-none"
+              >
+                <h3
+                  class="absolute -top-3 left-1/2 lg:left-6 transform -translate-x-1/2 lg:-translate-x-0 bg-[#e6f0f3] px-4 text-[#4880b8] text-sm font-bold uppercase tracking-wide"
+                >
+                  REACH US OUT
+                </h3>
+                <div class="space-y-4 mt-4">
+                  <div class="text-center lg:text-left">
+                    <h4
+                      class="text-[#4880b8] font-bold text-sm mb-3 uppercase tracking-wide"
+                    >
+                      EMAIL US
+                    </h4>
+                    <div
+                      class="flex items-center justify-center lg:justify-start gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4 text-[#4880b8] flex-shrink-0"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"
+                        ></path>
+                      </svg>
+                      <a
+                        href="mailto:info@romega-solutions.com"
+                        class="text-[#4880b8] text-sm font-medium hover:text-rs-yellow transition-colors break-all lg:break-normal"
+                      >
+                        info@romega-solutions.com
+                      </a>
+                    </div>
+                  </div>
+                  <div class="text-center lg:text-left">
+                    <h4
+                      class="text-[#4880b8] font-bold text-sm mb-3 uppercase tracking-wide"
+                    >
+                      HEADQUARTERS
+                    </h4>
+                    <div
+                      class="flex items-start justify-center lg:justify-start gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4 mt-0.5 flex-shrink-0 text-[#4880b8]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
+                        ></path>
+                      </svg>
+                      <span
+                        class="text-[#4880b8] text-sm font-medium leading-relaxed max-w-xs"
+                      >
+                        222 Pacific Coast Hwy, #10 in El Segundo, CA 90245
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="text-center lg:text-left text-xs text-[#4880b8] w-full font-medium"
+              >
+                © 2025 Romega Solutions. All rights reserved
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
   </body>
 </html>
