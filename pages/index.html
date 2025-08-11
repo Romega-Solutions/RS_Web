@@ -69,191 +69,237 @@
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded"
       >Skip to main content</a
     >
-    <nav
-      id="navbar-container"
-      role="navigation"
-      aria-label="Main navigation"
-      class="bg-rs-primary-50 shadow-sm border-b-2 border-[var(--rs-neutral-grey-500)]"
-    >
-      <div style="padding-left: 0px; padding-right: 0px">
-        <div
-          class="flex justify-between items-center bg-white px-8"
-          style="height: 104px; width: 100%"
-        >
-          <!-- Logo: lg (desktop) -->
-          <div class="md:hidden lg:flex items-center flex-shrink-0 xl:ml-14">
-            <a href="index.html" class="flex items-center" id="logo-link-lg">
-              <img
-                src="../assets/images/homepage/logo.png"
-                alt="Romega Solutions"
-                style="height: 83px; width: auto; max-width: 301px"
-                class="h-16"
-                id="logo-img-lg"
-              />
-            </a>
-          </div>
-          <!-- Logo: md/sm (tablet/mobile) -->
-          <div class="flex hidden sm:hidden md:block lg:hidden items-center">
-            <a href="index.html" class="flex" id="logo-link-md">
-              <img
-                src="../assets/images/homepage/smlogo.png"
-                alt="Romega Solutions"
-                style="height: 83px; width: auto; max-width: 220px"
-                class="h-16"
-                id="logo-img-md"
-              />
-            </a>
-          </div>
-          <!-- Combined Navigation Links: lg, md, sm -->
-          <div class="hidden md:flex items-center justify-center flex-1 mx-2">
-            <div
-              class="flex items-center space-x-12 md:space-x-2 lg:space-x-0 xl:space-x-6 2xl:space-x-12"
-            >
-              <a
-                href="index.html"
-                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
-                id="nav-home"
-                >Home</a
-              >
-              <a
-                href="about.html"
-                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
-                id="nav-about"
-                >About</a
-              >
-              <a
-                href="services.html"
-                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
-                id="nav-services"
-                >Services</a
-              >
-              <a
-                href="careers.html"
-                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
-                id="nav-careers"
-                >Careers & Talent</a
-              >
-              <a
-                href="resources.html"
-                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
-                id="nav-resources"
-                >Resources</a
-              >
-              <a
-                href="contact.html"
-                class="navbar-custom hover:text-[var(--rs-accent-600)] hover:underline transition duration-300 px-4 md:px-1 lg:px-4 py-2 text-sm md:text-[1rem] font-medium"
-                id="nav-contact"
-                >Contact</a
-              >
-            </div>
-          </div>
-          <!-- Book a Call Button for lg and md -->
-          <a
-            href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
-            class="hidden md:inline-flex items-center justify-center xl:text-[18px] lg:text-[14px] font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 ml-2 lg:ml-4 xl:mr-14"
-            style="width: 150px; height: 42px"
-            id="nav-cta"
-          >
-            <img
-              src="../assets/images/homepage/calendar-days.png"
-              alt="Calendar icon"
-              class="w-5 mr-2 md:w-[16px] lg:w-[16px] xl:w-[22px]"
-              id="nav-cta-icon"
-            />
-            Book a Call
-          </a>
-
-          <!-- Mobile menu button: sm only -->
-          <div class="md:hidden flex items-center">
-            <button
-              class="mobile-menu-button p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
-              aria-label="Open mobile menu"
-              aria-expanded="false"
-            >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile Menu (sm only) -->
-      <div class="hidden mobile-menu md:hidden w-full">
-        <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-          <a
-            href="index.html"
-            class="block px-3 py-2 font-medium bg-rs-primary-50 rounded-md"
-            id="mobile-nav-home"
-            >Home</a
-          >
-          <a
-            href="about.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-            id="mobile-nav-about"
-            >About</a
-          >
-          <a
-            href="services.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-            id="mobile-nav-services"
-            >Services</a
-          >
-          <a
-            href="careers.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-            id="mobile-nav-careers"
-            >Careers & Talent</a
-          >
-          <a
-            href="resources.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-            id="mobile-nav-resources"
-            >Resources</a
-          >
-          <a
-            href="contact.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-            id="mobile-nav-contact"
-            >Contact</a
-          >
-          <!-- Mobile CTA Button -->
-          <a
-            href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
-            class="flex items-center justify-center mx-3 mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300"
-            id="mobile-nav-cta"
-            role="button"
-            aria-label="Book a call with Romega Solutions"
-          >
-            <img
-              src="../assets/images/homepage/calendar-days.png"
-              alt="Calendar icon"
-              class="w-4 h-4 mr-2"
-              id="mobile-nav-cta-icon"
-            />
-            Book a Call
+    <!-- Navigation Container -->
+  <nav id="navbar-container" role="navigation" aria-label="Main navigation" class="
+      fixed top-0 z-50 w-full
+      bg-rs-primary-50
+      h-[104px]
+      align-middle
+      border-b-[1.25px] border-rs-neutral-400
+      shadow-sm
+    ">
+    <div class="mx-auto max-w-[1920px]">
+      <div class="
+        flex items-center justify-between
+        h-[104px] md:h-[104px]
+        bg-rs-primary-50
+        px-4 md:px-8 lg:px-[89.5px]
+      ">
+        <!-- Logo -->
+        <div class="flex items-center flex-shrink-0">
+          <a href="index.html" class="flex items-center" id="logo-link">
+            <img src="../assets/images/navbar-company-logo.svg" alt="Romega Solutions Logo"
+              class="w-auto max-h-14 sm:max-h-16">
           </a>
         </div>
+
+        <!-- Desktop Navigation Links - Centered -->
+        <div class="
+          hidden mx-4 flex-1
+          lg:flex lg:items-center lg:justify-center
+          xl:mx-8
+        ">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" id="nav-home" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
+              Home
+            </a>
+            <a href="about.html" id="nav-about" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
+              About
+            </a>
+            <a href="services.html" id="nav-services" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+             text-rs-neutral-600
+                transition duration-300
+                hover:text-rs-accent-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
+              Services
+            </a>
+            <a href="careers.html" id="nav-careers" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
+              Careers & Talent
+            </a>
+            <a href="resources.html" id="nav-resources" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
+              Resources
+            </a>
+            <a href="contact.html" id="nav-contact" class="
+                navbar-custom
+                whitespace-nowrap
+                px-2 py-2
+                text-[0.9rem] font-medium
+                transition duration-300
+                hover:text-rs-primary-500 hover:underline
+                xl:px-4 xl:text-[1rem]
+              ">
+              Contact
+            </a>
+          </div>
+        </div>
+
+        <!-- Book a Call Button -->
+        <a href="https://meetings.hubspot.com/robbie-galoso" id="nav-cta" class="
+            hidden
+            h-[46px]
+            items-center justify-center align-middle
+            rounded-xl
+            border-[1.5px] border-rs-primary-600
+            bg-rs-primary-500
+            px-[10px]
+            text-[18px] font-medium
+            text-rs-primary-100
+            shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)]
+            transition duration-300
+            hover:bg-rs-primary-700
+            lg:inline-flex lg:min-w-[172px] lg:px-[28px]
+          ">
+          <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="mr-1 w-[22px]">
+          Book a Call
+        </a>
+
+        <!-- Mobile menu button -->
+        <div class="lg:hidden">
+          <button class="
+              mobile-menu-button
+              rounded-md p-2
+              transition duration-300
+              hover:bg-rs-neutral-200
+            " aria-label="Open mobile menu" aria-expanded="false">
+            <img src="../assets/images/icon-menu.svg" alt="Menu icon" class="w-[22px]">
+          </button>
+        </div>
       </div>
-    </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden lg:hidden">
+      <div class="
+        space-y-2
+        border-t border-gray-200
+        bg-rs-primary-50
+        px-4 py-3
+      ">
+        <a href="index.html" id="mobile-nav-home" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
+          Home
+        </a>
+        <a href="about.html" id="mobile-nav-about" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
+          About
+        </a>
+        <a href="services.html" id="mobile-nav-services" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
+          Services
+        </a>
+        <a href="careers.html" id="mobile-nav-careers" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
+          Careers & Talent
+        </a>
+        <a href="resources.html" id="mobile-nav-resources" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
+          Resources
+        </a>
+        <a href="contact.html" id="mobile-nav-contact" class="
+            block
+            rounded-lg
+            px-4 py-2.5
+            text-[1rem] font-medium text-rs-neutral-600
+            transition duration-300
+            hover:bg-gray-50 hover:text-rs-primary-500 hover:underline
+          ">
+          Contact
+        </a>
+        <!-- Mobile CTA Button -->
+        <a href="contact.html" id="mobile-nav-cta" class="
+            mt-4 mx-0
+            flex items-center justify-center
+            rounded-lg
+            bg-rs-primary-500
+            px-4 py-3
+            text-[1rem] font-medium text-white
+            transition duration-300
+            hover:bg-rs-primary-700
+          " role="button" aria-label="Book a call with Romega Solutions">
+          <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="mr-2 w-[22px]"
+            id="mobile-nav-cta-icon" />
+          Book a Call
+        </a>
+      </div>
+    </div>
+  </nav>
 
     <!-- Hero Section -->
     <main id="main-content" class="bg-[var(--rs-primary-50)]">
       <section
         aria-labelledby="hero-heading"
-        class="relative min-h-screen-[100vh] flex items-stretch"
+        class="relative flex items-stretch mt-[104px] "
       >
-        <div class="flex flex-col xl:flex-row w-full h-full items-stretch">
+        <div
+          class="flex flex-col lg:flex-row w-full md:min-h-[calc(100vh-104px)]  items-stretch"
+        >
           <!-- left side content -->
           <div
             class="basis-1/2 md:basis-[45%] flex flex-col justify-center p-6 md:p-16 md:pl-24 space-y-6 h-full relative"
@@ -324,7 +370,7 @@
               </li>
             </ul>
             <!-- Mobile Button - Below the list -->
-            <div class="md:hidden mt-8 flex justify-center relative z-10 pb-4">
+            <div class="lg:hidden mt-8 flex justify-center relative z-10 pb-4">
               <a
                 href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
                 class="drop-shadow-xl flex items-center justify-center text-[22.5px] font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300"
@@ -352,30 +398,28 @@
               loading="lazy"
             />
           </div>
-          <!-- Desktop Button - Centered between divs -->
-          <a
-            href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
-            class="hidden md:text-[22.5px] md:flex absolute book-call-btn drop-shadow-lg items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300 left-1/2 bottom-12 transform -translate-x-1/2 z-10"
-            style="width: 400px; height: 57px"
-            id="nav-cta"
-            aria-label="Book an appointment with Romega Solutions"
-          >
-            <img
-              src="../assets/images/homepage/calendar-days.png"
-              alt=""
-              class="w-[27.5px] mr-2"
-              role="presentation"
-              loading="lazy"
-            />
-            Book An Appointment
-          </a>
-        </div>
+   <a
+  href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+  class="hidden lg:flex md:text-[22.5px] absolute  drop-shadow-lg items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300 left-1/2 bottom-12 transform -translate-x-1/2 z-10"
+  style="width: 400px; height: 57px"
+  id="nav-cta"
+  aria-label="Book an appointment with Romega Solutions"
+>
+  <img
+    src="../assets/images/homepage/calendar-days.png"
+    alt=""
+    class="w-[27.5px] mr-2"
+    role="presentation"
+    loading="lazy"
+  />
+  Book An Appointment
+</a>
       </section>
 
       <!-- Value Proposition section -->
-      <section class="py-16 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 relative z-10">
-          <div class="flex flex-col space-y-12">
+      <section class="py-16 bg-[var(--rs-neutral-50)] relative overflow-hidden min-h-screen ">
+        <div class="max-w-7xl mx-auto my-auto items-center  px-4 relative z-10">
+          <div class="flex flex-col space-y-12 items-center">
             <!-- Upper Section -->
             <div class="text-center space-y-6">
               <h2
@@ -417,7 +461,7 @@
               class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-8 md:px-0 gap-6 md:gap-8"
             >
               <!-- Faster Hires - Original -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -430,7 +474,7 @@
               </div>
 
               <!-- 15% Lower Fees -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -443,7 +487,7 @@
               </div>
 
               <!-- Time Saved -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -456,7 +500,7 @@
               </div>
 
               <!-- Cost Savings -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -469,7 +513,7 @@
               </div>
 
               <!-- High Retention -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -482,7 +526,7 @@
               </div>
 
               <!-- Global Reach -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -499,7 +543,7 @@
       </section>
 
       <!-- Services Overview Section -->
-      <section class="py-16 bg-services relative overflow-hidden">
+      <section class="py-16 bg-services relative overflow-hidden min-h-screen ">
         <div class="max-w-7xl mx-auto px-8 md:px-4 relative z-10">
           <div class="flex flex-col space-y-12">
             <!-- Header Section -->
@@ -716,7 +760,7 @@
       </section>
 
       <!--Case Study Section  -->
-      <section class="py-16 bg-case relative overflow-hidden">
+      <section class="py-16 bg-case relative overflow-hidden min-h-screen">
         <div class="max-w-7xl mx-auto px-8 md:px-4 relative z-10">
           <div class="flex flex-col space-y-12">
             <!-- Header Section -->
