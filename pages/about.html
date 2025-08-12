@@ -30,169 +30,174 @@
     </style>
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- Skip to main content for accessibility -->
+    <a
+      href="#"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded"
+      >Skip to main content</a
+    >
+    <!-- Navigation Container -->
     <nav
       id="navbar-container"
       role="navigation"
       aria-label="Main navigation"
-      class="text-source-sans bg-rs-primary-50 shadow-sm border-b-2 border-blue-400"
+      class="fixed top-0 z-50 w-full bg-rs-primary-50 h-[104px] align-middle border-b-[1.25px] border-rs-neutral-400 shadow-sm"
     >
-      <div style="padding-left: 0px; padding-right: 0px">
+      <div class="mx-auto max-w-[1920px]">
         <div
-          class="flex justify-between items-center bg-white px-8"
-          style="height: 104px; width: 100%"
+          class="flex items-center justify-between h-[104px] md:h-[104px] bg-rs-primary-50 px-4 md:px-8 lg:px-[89.5px]"
         >
           <!-- Logo -->
-          <div class="flex pl-0 md:pl-16 items-center flex-shrink-0">
-            <a
-              href="index.html"
-              class="flex items-center"
-              id="logo-link"
-              aria-label="Romega Solutions Home"
-            >
+          <div class="flex items-center flex-shrink-0">
+            <a href="index.html" class="flex items-center" id="logo-link">
               <img
-                src="../assets/images/homepage/logo.png"
-                alt="Romega Solutions company logo"
-                style="height: 83px; width: auto; max-width: 301px"
-                class="md:h-20 h-16"
-                id="logo-img"
+                src="../assets/images/navbar-company-logo.svg"
+                alt="Romega Solutions Logo"
+                class="w-auto max-h-14 sm:max-h-16"
               />
             </a>
           </div>
+
           <!-- Desktop Navigation Links - Centered -->
-          <div class="hidden md:flex items-center justify-center flex-1 mx-8">
-            <div class="flex items-center space-x-12">
+          <div
+            class="hidden mx-4 flex-1 lg:flex lg:items-center lg:justify-center xl:mx-8"
+          >
+            <div class="flex items-center space-x-4">
               <a
                 href="index.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-home"
-                >Home</a
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
+                Home
+              </a>
               <a
                 href="about.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-about"
-                aria-current="page"
-                >About</a
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
+                About
+              </a>
               <a
                 href="services.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-services"
-                >Services</a
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium text-rs-neutral-600 transition duration-300 hover:text-rs-accent-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
+                Services
+              </a>
               <a
                 href="careers.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-careers"
-                >Careers & Talent</a
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
+                Careers & Talent
+              </a>
               <a
                 href="resources.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-resources"
-                >Resources</a
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
+                Resources
+              </a>
               <a
                 href="contact.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-contact"
-                >Contact</a
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
+                Contact
+              </a>
             </div>
           </div>
+
           <!-- Book a Call Button -->
           <a
-            href="contact.html"
-            class="hidden md:text-[18px] md:inline-flex items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 mr-14"
-            style="width: 172px; height: 46px"
+            href="https://meetings.hubspot.com/robbie-galoso"
             id="nav-cta"
-            aria-label="Book a call with Romega Solutions"
+            class="hidden h-[46px] items-center justify-center align-middle rounded-xl border-[1.5px] border-rs-primary-600 bg-rs-primary-500 px-[10px] text-[18px] font-medium text-rs-primary-100 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)] transition duration-300 hover:bg-rs-primary-700 lg:inline-flex lg:min-w-[172px] lg:px-[28px]"
           >
             <img
-              src="../assets/images/homepage/calendar-days.png"
+              src="../assets/images/icon-calendar-days.svg"
               alt="Calendar icon"
-              class="w-[22px] mr-2"
-              id="nav-cta-icon"
+              class="mr-1 w-[22px]"
             />
             Book a Call
           </a>
+
           <!-- Mobile menu button -->
-          <div class="md:hidden">
+          <div class="lg:hidden">
             <button
-              class="mobile-menu-button p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+              class="mobile-menu-button rounded-md p-2 transition duration-300 hover:bg-rs-neutral-200"
               aria-label="Open mobile menu"
               aria-expanded="false"
             >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
+              <img
+                src="../assets/images/icon-menu.svg"
+                alt="Menu icon"
+                class="w-[22px]"
+              />
             </button>
           </div>
         </div>
       </div>
+
       <!-- Mobile Menu -->
-      <div class="hidden mobile-menu md:hidden" aria-label="Mobile menu">
-        <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+      <div class="mobile-menu hidden lg:hidden">
+        <div
+          class="space-y-2 border-t border-gray-200 bg-rs-primary-50 px-4 py-3"
+        >
           <a
             href="index.html"
-            class="block px-3 py-2 text-rs-accent font-medium bg-rs-primary-50 rounded-md"
             id="mobile-nav-home"
-            >Home</a
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
           >
+            Home
+          </a>
           <a
             href="about.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
             id="mobile-nav-about"
-            aria-current="page"
-            >About</a
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
           >
+            About
+          </a>
           <a
             href="services.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
             id="mobile-nav-services"
-            >Services</a
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
           >
+            Services
+          </a>
           <a
             href="careers.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
             id="mobile-nav-careers"
-            >Careers & Talent</a
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
           >
+            Careers & Talent
+          </a>
           <a
             href="resources.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
             id="mobile-nav-resources"
-            >Resources</a
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
           >
+            Resources
+          </a>
           <a
             href="contact.html"
-            class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
             id="mobile-nav-contact"
-            >Contact</a
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
           >
+            Contact
+          </a>
           <!-- Mobile CTA Button -->
           <a
             href="contact.html"
-            class="flex items-center justify-center mx-3 mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300"
             id="mobile-nav-cta"
+            class="mt-4 mx-0 flex items-center justify-center rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
             role="button"
             aria-label="Book a call with Romega Solutions"
           >
             <img
-              src="../assets/images/homepage/calendar-days.png"
+              src="../assets/images/icon-calendar-days.svg"
               alt="Calendar icon"
-              class="w-4 h-4 mr-2"
+              class="mr-2 w-[22px]"
               id="mobile-nav-cta-icon"
             />
             Book a Call
@@ -202,12 +207,13 @@
     </nav>
 
     <!-- About Page Content -->
-    <main class="bg-gray-50 min-h-screen" id="main-content">
+    <main class="bg-[var(--rs-primary-50)]" id="main-content">
       <!-- Hero Section -->
-      <section aria-labelledby="hero-heading">
-        <div
-          class="flex flex-col lg:flex-row relative min-h-[600px] md:min-h-[700px] lg:min-h-[540px]"
-        >
+      <section
+        aria-labelledby="hero-heading"
+        class="mt-[104px] min-h-[calc(100vh-104px)]"
+      >
+        <div class="flex flex-col lg:flex-row relative h-[calc(100vh-104px)]">
           <!-- left side content -->
           <div
             class="w-full lg:w-[45%] order-1 relative p-6 md:p-8 lg:p-16 lg:pl-28 space-y-6 flex flex-col justify-center min-h-[500px] md:min-h-[600px] lg:min-h-[540px] order-2 lg:order-1"
@@ -253,7 +259,7 @@
           </div>
           <!-- right side content - the image -->
           <div
-            class="w-full lg:w-[55%] order-2 min-h-[300px] md:min-h-[400px] lg:min-h-[540px] relative order-1 lg:order-2"
+            class="w-full lg:w-[55%] order-2 md:min-h-[400px] lg:min-h-[100vh] relative order-1 lg:order-2"
           >
             <img
               src="../assets/images/homepage/about2.png"
