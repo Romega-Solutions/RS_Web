@@ -389,15 +389,22 @@
             </div>
           </div>
 
-          <!-- right side content the video part -->
-          <div class="flex-1 h-full relative">
-            <img
-              src="../assets/images/homepage/hero-right.png"
-              alt="Professional team working with HR solutions and technology"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+<!-- right side content the video part -->
+<div class="flex-1 h-full relative">
+  <video
+    class="w-full h-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+    aria-label="Romega Solutions promotional video"
+    poster="../assets/images/homepage/hero-right.png"
+  >
+    <source src="../assets/images/homepage/webp/WebsiteAssetVideo.mp4" type="video/mp4" />
+    <source src="../assets/images/homepage/webp/WebsiteAssetVideo.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+</div>
    <a
   href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
   class="hidden lg:flex md:text-[22.5px] absolute  drop-shadow-lg items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300 left-1/2 bottom-12 transform -translate-x-1/2 z-10"
@@ -417,7 +424,7 @@
       </section>
 
       <!-- Value Proposition section -->
-      <section class="py-16 bg-[var(--rs-neutral-50)] relative overflow-hidden min-h-screen ">
+      <section class="py-16 bg-[var(--rs-neutral-50)] relative overflow-hidden min-h-screen  ">
         <div class="max-w-7xl mx-auto my-auto items-center  px-4 relative z-10">
           <div class="flex flex-col space-y-12 items-center">
             <!-- Upper Section -->
@@ -440,12 +447,13 @@
                   >global reach</span
                 >, giving your team the confidence to hire anywhere.
                 <span
-                  class="text-rs-value-secondary-blue font-semibold font-semibold"
+                  class="text-rs-value-secondary-blue font-semibold font-semibold pb-4"
                   >With us excellence isn't optional, it's guaranteed</span
                 >.
               </p>
+              <a href="about.html" class="block pt-4">
               <button
-                class="w-[400px] h-[57px] inline-flex text-[22.5px] items-center justify-center px-8 py-3 bg-white border-2 border-blue-600 text-rs-value-primary-blue font-semibold rounded-[12px] hover:bg-blue-600 hover:text-white transition duration-300"
+                class="w-[400px] h-[57px] inline-flex text-[22.5px] items-center justify-center px-8  bg-white border-2 border-blue-600 text-rs-value-primary-blue font-semibold rounded-[12px] hover:bg-blue-600 hover:text-white transition duration-300"
               >
                 <img
                   src="../assets/images/homepage/bag.png"
@@ -454,6 +462,7 @@
                 />
                 Find Out More
               </button>
+              </a>
             </div>
 
             <!-- Lower Section - Benefits Grid -->
@@ -591,8 +600,8 @@
                 >Teaching</span
               >
               <button
-                class="bg-white text-rs-service-source-sans px-[20px] md:px-4 py-1 rounded-full font-medium hover:bg-blue-100 transition duration-300 cursor-pointer text-sm md:text-base"
-                onclick="window.location.href='#learn-more'"
+                class="bg-[var(--rs-primary-200)] text-rs-service-source-sans px-[20px] md:px-4 py-1 rounded-full font-medium hover:bg-[var(--rs-primary-300)] hover:text-[var(--rs-primary-100)] transition duration-300 cursor-pointer text-sm md:text-base"
+                onclick="window.location.href='services.html'"
               >
                 Learn More
               </button>
@@ -616,7 +625,7 @@
                 </div>
                 <div class="mb-6 flex-shrink-0">
                   <img
-                    src="../assets/images/homepage/service1.png"
+                    src="../assets/images/homepage/webp/Talent Acquisitions.webp"
                     alt="Talent Acquisition Services"
                     class="w-[176px] sm:w-[177px] md:w-[280px] h-[150px] sm:h-[151px] md:h-[180px] object-contain mx-auto"
                   />
@@ -662,7 +671,7 @@
                 </div>
                 <div class="mb-6 flex-shrink-0">
                   <img
-                    src="../assets/images/homepage/service2.png"
+                    src="../assets/images/homepage/webp/HR Services.webp"
                     alt="HR Services"
                     class="w-[176px] sm:w-[177px] md:w-[280px] h-[150px] sm:h-[151px] md:h-[180px] object-contain mx-auto"
                   />
@@ -708,7 +717,7 @@
                 </div>
                 <div class="mb-6 flex-shrink-0">
                   <img
-                    src="../assets/images/homepage/service3.png"
+                    src="../assets/images/homepage/webp/Sales & Marketing.webp"
                     alt="Sales and Marketing Services"
                     class="w-[176px] sm:w-[177px] md:w-[280px] h-[150px] sm:h-[151px] md:h-[180px] object-contain mx-auto"
                   />
@@ -745,7 +754,7 @@
             <div class="flex justify-center mt-8">
               <button
                 class="w-[400px] h-[57px] inline-flex text-[22.5px] items-center justify-center px-8 py-3 bg-white border-2 border-blue-600 text-rs-value-primary-blue font-semibold rounded-[12px] hover:bg-blue-600 hover:text-white transition duration-300"
-                onclick="window.location.href='./pages/services.html'"
+                onclick="window.location.href='services.html'"
               >
                 <img
                   src="../assets/images/homepage/bag.png"
@@ -788,7 +797,7 @@
               <!-- Image - Centered for mobile/sm, positioned for desktop -->
               <div class="w-full flex justify-center xl:hidden">
                 <img
-                  src="../assets/images/homepage/case-study.png"
+                  src="../assets/images/homepage/webp/Case Study Photo.webp"
                   alt="Professional team meeting discussing leadership solutions"
                   class="w-[376px] sm:w-[500px] h-[220px] sm:h-[300px] object-cover rounded-lg"
                   loading="lazy"
@@ -823,13 +832,13 @@
                   <div class="flex items-center space-x-8 pt-4">
                     <button
                       class="text-rs-case-link text-lg font-medium hover:text-blue-200 transition duration-300 underline"
-                      onclick="window.location.href='./pages/case-studies.html'"
+                      onclick="window.location.href='services.html'"
                     >
                       Next Case Study
                     </button>
                     <button
                       class="text-rs-case-link font-medium hover:text-blue-200 transition duration-300 flex items-center"
-                      onclick="window.location.href='./pages/case-studies.html'"
+                      onclick="window.location.href='services.html'"
                     >
                       View Case Study
                       <svg
@@ -852,7 +861,7 @@
                 <!-- Right Image - Desktop only -->
                 <div class="flex-shrink-0">
                   <img
-                    src="../assets/images/homepage/case-study.png"
+                    src="../assets/images/homepage/webp/Case Study Photo.webp"
                     alt="Professional team meeting discussing leadership solutions"
                     class="w-[600px] h-[350px] object-cover rounded-lg"
                     loading="lazy"
