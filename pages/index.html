@@ -24,7 +24,7 @@
     />
     <meta
       property="og:image"
-      content="../assets/images/homepage/hero-right.png"
+      content="../assets/images/homepage/webp/hero-right.webp"
     />
     <meta property="og:url" content="https://romegasolutions.com" />
     <meta property="og:type" content="website" />
@@ -41,7 +41,7 @@
     />
     <meta
       name="twitter:image"
-      content="../assets/images/homepage/hero-right.png"
+      content="../assets/images/homepage/webp/hero-right.webp"
     />
 
     <!-- Favicon -->
@@ -61,83 +61,81 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-
-
   </head>
   <body>
-    <!-- Skip to main content for accessibility -->
+     <!-- Skip to main content for accessibility -->
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded"
       >Skip to main content</a
     >
-    <!-- Navigation -->
+    <header>
+    <!-- Navigation Container -->
     <nav
       id="navbar-container"
       role="navigation"
       aria-label="Main navigation"
-      class="bg-rs-primary-50 shadow-sm border-b-2 border-blue-400"
+      class="fixed top-0 z-50 w-full bg-rs-primary-50 h-[104px] align-middle border-b-[1.25px] border-rs-neutral-400 shadow-sm"
     >
-      <div style="padding-left: 0px; padding-right: 0px">
+      <div class="mx-auto max-w-[1920px]">
         <div
-          class="flex justify-between items-center bg-white px-8"
-          style="height: 104px; width: 100%"
+          class="flex items-center justify-between h-[104px] md:h-[104px] bg-rs-primary-50 px-4 md:px-8 lg:px-[89.5px]"
         >
           <!-- Logo -->
-          <div class="flex pl-0 md:pl-16 items-center flex-shrink-0">
-            <a href="#" class="flex items-center" id="logo-link">
+          <div class="flex items-center flex-shrink-0">
+            <a href="index.html" class="flex items-center" id="logo-link">
               <img
-                src="../assets/images/homepage/logo.png"
-                alt="Romega Solutions"
-                style="height: 83px; width: auto; max-width: 301px"
-                class="md:h-20 h-16"
-                id="logo-img"
+                src="../assets/images/navbar-company-logo.svg"
+                alt="Romega Solutions Logo"
+                class="w-auto max-h-14 sm:max-h-16"
               />
             </a>
           </div>
 
           <!-- Desktop Navigation Links - Centered -->
-          <div class="hidden md:flex items-center justify-center flex-1 mx-8">
-            <div class="flex items-center space-x-12">
+          <div
+            class="hidden mx-4 flex-1 lg:flex lg:items-center lg:justify-center xl:mx-8"
+          >
+            <div class="flex items-center space-x-4">
               <a
                 href="index.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-home"
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
                 Home
               </a>
               <a
                 href="about.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-about"
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
                 About
               </a>
               <a
                 href="services.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-services"
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium text-rs-neutral-600 transition duration-300 hover:text-rs-accent-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
                 Services
               </a>
               <a
                 href="careers.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-careers"
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
                 Careers & Talent
               </a>
-              <a
-                href="resources.html""
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
+              <!-- <a
+                href="404.html"
                 id="nav-resources"
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
                 Resources
-              </a>
+              </a> -->
               <a
                 href="contact.html"
-                class="navbar-custom hover:text-yellow-600 hover:underline transition duration-300 px-4 py-2 text-sm md:text-[1rem] font-medium"
                 id="nav-contact"
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
               >
                 Contact
               </a>
@@ -146,135 +144,130 @@
 
           <!-- Book a Call Button -->
           <a
-            href="#"
-            class="hidden md:text-[18px] md:inline-flex items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 mr-14"
-            style="width: 172px; height: 46px"
+            href="https://meetings.hubspot.com/robbie-galoso"
             id="nav-cta"
+            class="hidden h-[46px] items-center justify-center align-middle rounded-xl border-[1.5px] border-rs-primary-600 bg-rs-primary-500 px-[10px] text-[18px] font-medium text-rs-primary-100 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)] transition duration-300 hover:bg-rs-primary-700 lg:inline-flex lg:min-w-[172px] lg:px-[28px]"
           >
             <img
-              src="../assets/images/homepage/calendar-days.png"
+              src="../assets/images/icon-calendar-days.svg"
               alt="Calendar icon"
-              class="w-[22px] mr-2"
-              id="nav-cta-icon"
+              class="mr-1 w-[22px]"
             />
             Book a Call
           </a>
 
           <!-- Mobile menu button -->
-          <div class="md:hidden ">
+          <div class="lg:hidden">
             <button
-              class="mobile-menu-button p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+              class="mobile-menu-button rounded-md p-2 transition duration-300 hover:bg-rs-neutral-200"
               aria-label="Open mobile menu"
               aria-expanded="false"
             >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
+              <img
+                src="../assets/images/icon-menu.svg"
+                alt="Menu icon"
+                class="w-[22px]"
+              />
             </button>
           </div>
         </div>
       </div>
 
-
-    <!-- Mobile Menu -->
-    <div class="hidden mobile-menu md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-        <a
-          href="index.html"
-          class="block px-3 py-2  font-medium bg-rs-primary-50 rounded-md"
-          id="mobile-nav-home"
+      <!-- Mobile Menu -->
+      <div class="mobile-menu hidden lg:hidden">
+        <div
+          class="space-y-2 border-t border-gray-200 bg-rs-primary-50 px-4 py-3"
         >
-          Home
-        </a>
-        <a
-          href="about.html"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-about"
-        >
-          About
-        </a>
-        <a
-          href="services.html"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-services"
-        >
-          Services
-        </a>
-        <a
-          href="careers.html"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-careers"
-        >
-          Careers & Talent
-        </a>
-        <a
-          href="resources.html"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-resources"
-        >
-          Resources
-        </a>
-        <a
-          href="contact.html"
-          class="block px-3 py-2 text-rs-neutral-600 font-medium hover:text-yellow-600 hover:bg-gray-50 rounded-md transition duration-300"
-          id="mobile-nav-contact"
-        >
-          Contact
-        </a>
-        <!-- Mobile CTA Button -->
-        <a
-          href="contact.html"
-          class="flex items-center justify-center mx-3 mt-4 px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition duration-300"
-          id="mobile-nav-cta"
-          role="button"
-          aria-label="Book a call with Romega Solutions"
-        >
-          <img
-            src="../assets/images/homepage/calendar-days.png"
-            alt="Calendar icon"
-            class="w-4 h-4 mr-2"
-            id="mobile-nav-cta-icon"
-          />
-          Book a Call
-        </a>
+          <a
+            href="index.html"
+            id="mobile-nav-home"
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+          >
+            Home
+          </a>
+          <a
+            href="about.html"
+            id="mobile-nav-about"
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+          >
+            About
+          </a>
+          <a
+            href="services.html"
+            id="mobile-nav-services"
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+          >
+            Services
+          </a>
+          <a
+            href="careers.html"
+            id="mobile-nav-careers"
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+          >
+            Careers & Talent
+          </a>
+          <!-- <a
+            href="404.html"
+            id="mobile-nav-resources"
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+          >
+            Resources
+          </a> -->
+          <a
+            href="contact.html"
+            id="mobile-nav-contact"
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+          >
+            Contact
+          </a>
+          <!-- Mobile CTA Button -->
+          <a
+            href="contact.html"
+            id="mobile-nav-cta"
+            class="mt-4 mx-0 flex items-center justify-center rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
+            role="button"
+            aria-label="Book a call with Romega Solutions"
+          >
+            <img
+              src="../assets/images/icon-calendar-days.svg"
+              alt="Calendar icon"
+              class="mr-2 w-[22px]"
+              id="mobile-nav-cta-icon"
+            />
+            Book a Call
+          </a>
+        </div>
       </div>
     </nav>
+    </header>
 
-
-    
     <!-- Hero Section -->
-    <main id="main-content" class="bg-gray-50">
-      <section aria-labelledby="hero-heading">
+    <main id="main-content" class="bg-[var(--rs-primary-50)]">
+      <section
+        aria-labelledby="hero-heading"
+        class="relative flex items-stretch mt-[104px] "
+      >
         <div
-          class="flex flex-col md:flex-row sm:flex-col md:max-h-[540px] relative"
+          class="flex flex-col lg:flex-row w-full md:min-h-[calc(100vh-104px)]  items-stretch"
         >
           <!-- left side content -->
           <div
-            class="basis-1/2 md:basis-[45%] relative p-6 md:p-16 md:pl-24 space-y-6 md:space-y-6"
+            class="basis-1/2 md:basis-[45%] flex flex-col justify-center p-6 md:p-16 md:pl-24 space-y-6 h-full relative"
           >
             <img
               src="../assets/images/homepage/hero-bg-romega.png"
               alt="Romega Solutions background pattern"
-              class="absolute -left-4 top-4 w-full h-full object-cover overflow-hidden"
+              class="absolute -left-4 top-4 w-full h-full sm:h-[80%] object-cover overflow-hidden"
               loading="lazy"
             />
+
             <h1
               id="hero-heading"
-              class="text-merriweather-h3 md:text-merriweather-h2 text-rs-primary-dark font-bold relative z-10 text-center md:text-left"
+              class="text-center xl:text-left text-merriweather-h3 md:text-merriweather-h2 text-rs-primary-dark font-bold relative z-10"
             >
               Empower Your Team with
               <span
-                class="block text-merriweather-h2 text-5xl md:text-merriweather-h1"
+                class="text-center xl:text-left block text-merriweather-h2 text-5xl md:text-merriweather-h1"
               >
                 Smarter H
                 <img
@@ -286,19 +279,19 @@
               </span>
             </h1>
             <p
-              class="text-rs-neutral text-[1rem] md:text-[1.25rem] leading-relaxed relative z-10 max-w-md text-center md:text-left mx-auto md:mx-0"
+              class="text-rs-neutral text-[1rem] md:text-[1.25rem] text-center xl:text-left relative z-10 max-w-md mx-auto xl:mx-0"
             >
               Transform your HR operations to boost productivity, engagement,
               and growth for your business:
             </p>
             <ul
-              class="text-neutral-700 space-y-1 md:text-[1.25rem] z-10 flex flex-col items-start ml-24 md:ml-0"
+              class="text-neutral-700 space-y-1 md:text-[1.25rem] z-10 flex flex-col items-center xl:items-start mx-auto xl:mx-0"
               role="list"
             >
               <li class="flex items-center space-x-3" role="listitem">
                 <img
                   src="../assets/images/homepage/search-check.png"
-                  alt=""
+                  alt="checkmark icon"
                   class="w-5 h-5 flex-shrink-0"
                   role="presentation"
                   loading="lazy"
@@ -308,7 +301,7 @@
               <li class="flex items-center space-x-3" role="listitem">
                 <img
                   src="../assets/images/homepage/search-check.png"
-                  alt=""
+                  alt="checkmark icon"
                   class="w-5 h-5 flex-shrink-0"
                   role="presentation"
                   loading="lazy"
@@ -318,7 +311,7 @@
               <li class="flex items-center space-x-3" role="listitem">
                 <img
                   src="../assets/images/homepage/search-check.png"
-                  alt=""
+                  alt="checkmark icon"
                   class="w-5 h-5 flex-shrink-0"
                   role="presentation"
                   loading="lazy"
@@ -326,18 +319,17 @@
                 <span>Tailored strategies for growth</span>
               </li>
             </ul>
-
             <!-- Mobile Button - Below the list -->
-            <div class="md:hidden mt-8 flex justify-center relative z-10 pb-4">
+            <div class="lg:hidden mt-8 flex justify-center relative z-10 pb-4">
               <a
-                href="#contact"
+                href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
                 class="drop-shadow-xl flex items-center justify-center text-[22.5px] font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300"
                 style="width: 360px; height: 50px"
                 aria-label="Book an appointment with Romega Solutions"
               >
                 <img
                   src="../assets/images/homepage/calendar-days.png"
-                  alt=""
+                  alt="calendar icon"
                   class="w-8 h-8 mr-2"
                   role="presentation"
                   loading="lazy"
@@ -347,59 +339,44 @@
             </div>
           </div>
 
-          <!-- right side content the video part -->
-          <div class="basis-1/2 md:basis-[55%] flex">
-            <!-- Video version (commented out for now) -->
-            <!--
-            <video
-              class="w-full h-auto object-cover rounded-lg"
-              controls
-              muted
-              loop
-              poster="./assets/images/homepage/hero-right.png"
-              aria-label="Romega Solutions promotional video"
-            >
-              <source src="./assets/videos/hero-video.mp4" type="video/mp4">
-              <source src="./assets/videos/hero-video.webm" type="video/webm">
-              <p>Your browser does not support the video tag. <a href="./assets/videos/hero-video.mp4">Download the video</a> to view it.</p>
-            </video>
-            -->
-
-            <!-- Current image placeholder -->
-            <img
-              src="../assets/images/homepage/hero-right.png"
-              alt="Professional team working with HR solutions and technology"
-              class="w-full h-auto"
-              loading="lazy"
-              width="800"
-              height="600"
-            />
-          </div>
-
-          <!-- Desktop Button - Centered between divs -->
-          <a
-            href="#contact"
-            class="hidden md:text-[22.5px] md:flex absolute book-call-btn drop-shadow-lg items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300 left-[49.4%] top-[80%] transform -translate-x-1/2 -translate-y-1/2 z-10"
-            style="width: 400px; height: 57px"
-            id="nav-cta"
-            aria-label="Book an appointment with Romega Solutions"
-          >
-            <img
-              src="../assets/images/homepage/calendar-days.png"
-              alt=""
-              class="w-[27.5px] mr-2"
-              role="presentation"
-              loading="lazy"
-            />
-            Book An Appointment
-          </a>
-        </div>
+<!-- right side content the video part -->
+<div class="flex-1 h-full relative">
+  <video
+    class="w-full h-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+    aria-label="Romega Solutions promotional video"
+    poster="../assets/images/homepage/hero-right.png"
+  >
+    <source src="../assets/images/homepage/webp/WebsiteAssetVideo.mp4" type="video/mp4" />
+    <source src="../assets/images/homepage/webp/WebsiteAssetVideo.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+   <a
+  href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+  class="hidden lg:flex md:text-[22.5px] absolute  drop-shadow-lg items-center justify-center text-sm font-medium rounded-xl text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300 left-1/2 bottom-12 transform -translate-x-1/2 z-10"
+  style="width: 400px; height: 57px"
+  id="nav-cta"
+  aria-label="Book an appointment with Romega Solutions"
+>
+  <img
+    src="../assets/images/homepage/calendar-days.png"
+    alt="calendar icon"
+    class="w-[27.5px] mr-2"
+    role="presentation"
+    loading="lazy"
+  />
+  Book An Appointment
+</a>
       </section>
 
       <!-- Value Proposition section -->
-      <section class="py-16 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 relative z-10">
-          <div class="flex flex-col space-y-12">
+      <section class="py-16 bg-[var(--rs-neutral-50)] relative overflow-hidden min-h-screen  ">
+        <div class="max-w-7xl mx-auto my-auto items-center  px-4 relative z-10">
+          <div class="flex flex-col space-y-12 items-center">
             <!-- Upper Section -->
             <div class="text-center space-y-6">
               <h2
@@ -420,20 +397,22 @@
                   >global reach</span
                 >, giving your team the confidence to hire anywhere.
                 <span
-                  class="text-rs-value-secondary-blue font-semibold font-semibold"
+                  class="text-rs-value-secondary-blue font-semibold font-semibold pb-4"
                   >With us excellence isn't optional, it's guaranteed</span
                 >.
               </p>
+              <a href="about.html" class="block pt-4">
               <button
-                class="w-[400px] h-[57px] inline-flex text-[22.5px] items-center justify-center px-8 py-3 bg-white border-2 border-blue-600 text-rs-value-primary-blue font-semibold rounded-[12px] hover:bg-blue-600 hover:text-white transition duration-300"
+                class="w-[400px] h-[57px] inline-flex text-[22.5px] items-center justify-center px-8  bg-white border-2 border-blue-600 text-rs-value-primary-blue font-semibold rounded-[12px] hover:bg-blue-600 hover:text-white transition duration-300"
               >
                 <img
                   src="../assets/images/homepage/bag.png"
-                  alt=""
+                  alt="Bag Icon"
                   class="w-[27.5px] mr-2"
                 />
                 Find Out More
               </button>
+              </a>
             </div>
 
             <!-- Lower Section - Benefits Grid -->
@@ -441,7 +420,7 @@
               class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-8 md:px-0 gap-6 md:gap-8"
             >
               <!-- Faster Hires - Original -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -454,7 +433,7 @@
               </div>
 
               <!-- 15% Lower Fees -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -467,7 +446,7 @@
               </div>
 
               <!-- Time Saved -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -480,7 +459,7 @@
               </div>
 
               <!-- Cost Savings -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -493,7 +472,7 @@
               </div>
 
               <!-- High Retention -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -506,7 +485,7 @@
               </div>
 
               <!-- Global Reach -->
-              <div class="bg-white rounded-xl p-6 text-center">
+              <div class=" rounded-xl p-6 text-center">
                 <h3
                   class="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3"
                 >
@@ -523,7 +502,7 @@
       </section>
 
       <!-- Services Overview Section -->
-      <section class="py-16 bg-services relative overflow-hidden">
+      <section class="py-16 bg-services relative overflow-hidden min-h-screen ">
         <div class="max-w-7xl mx-auto px-8 md:px-4 relative z-10">
           <div class="flex flex-col space-y-12">
             <!-- Header Section -->
@@ -571,8 +550,8 @@
                 >Teaching</span
               >
               <button
-                class="bg-white text-rs-service-source-sans px-[20px] md:px-4 py-1 rounded-full font-medium hover:bg-blue-100 transition duration-300 cursor-pointer text-sm md:text-base"
-                onclick="window.location.href='#learn-more'"
+                class="bg-[var(--rs-primary-200)] text-rs-service-source-sans px-[20px] md:px-4 py-1 rounded-full font-medium hover:bg-[var(--rs-primary-300)] hover:text-[var(--rs-primary-100)] transition duration-300 cursor-pointer text-sm md:text-base"
+                onclick="window.location.href='services.html'"
               >
                 Learn More
               </button>
@@ -584,7 +563,7 @@
             >
               <!-- Talent Acquisition -->
               <a
-                href="./pages/services.html"
+                href="./services.html"
                 class="bg-services-card border-[#fde68a] border-2 rounded-[12px] p-6 text-center md:text-start text-white relative flex flex-col transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl cursor-pointer"
               >
                 <div class="mb-4 flex justify-center md:justify-start">
@@ -596,7 +575,7 @@
                 </div>
                 <div class="mb-6 flex-shrink-0">
                   <img
-                    src="../assets/images/homepage/service1.png"
+                    src="../assets/images/homepage/webp/Talent Acquisitions.webp"
                     alt="Talent Acquisition Services"
                     class="w-[176px] sm:w-[177px] md:w-[280px] h-[150px] sm:h-[151px] md:h-[180px] object-contain mx-auto"
                   />
@@ -630,7 +609,7 @@
 
               <!-- HR Services -->
               <a
-                href="./pages/services.html"
+                href="./services.html"
                 class="bg-services-card border-[#fde68a] border-2 rounded-[12px] p-6 text-center md:text-start text-white relative flex flex-col transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl cursor-pointer"
               >
                 <div class="mb-4 flex justify-center md:justify-start">
@@ -642,7 +621,7 @@
                 </div>
                 <div class="mb-6 flex-shrink-0">
                   <img
-                    src="../assets/images/homepage/service2.png"
+                    src="../assets/images/homepage/webp/HR Services.webp"
                     alt="HR Services"
                     class="w-[176px] sm:w-[177px] md:w-[280px] h-[150px] sm:h-[151px] md:h-[180px] object-contain mx-auto"
                   />
@@ -676,7 +655,7 @@
 
               <!-- Sales and Marketing -->
               <a
-                href="./pages/services.html"
+                href="./services.html"
                 class="bg-services-card border-[#fde68a] border-2 rounded-[12px] p-6 text-center md:text-start text-white relative flex flex-col transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl cursor-pointer"
               >
                 <div class="mb-4 flex justify-center md:justify-start">
@@ -688,7 +667,7 @@
                 </div>
                 <div class="mb-6 flex-shrink-0">
                   <img
-                    src="../assets/images/homepage/service3.png"
+                    src="../assets/images/homepage/webp/Sales & Marketing.webp"
                     alt="Sales and Marketing Services"
                     class="w-[176px] sm:w-[177px] md:w-[280px] h-[150px] sm:h-[151px] md:h-[180px] object-contain mx-auto"
                   />
@@ -725,11 +704,11 @@
             <div class="flex justify-center mt-8">
               <button
                 class="w-[400px] h-[57px] inline-flex text-[22.5px] items-center justify-center px-8 py-3 bg-white border-2 border-blue-600 text-rs-value-primary-blue font-semibold rounded-[12px] hover:bg-blue-600 hover:text-white transition duration-300"
-                onclick="window.location.href='./pages/services.html'"
+                onclick="window.location.href='services.html'"
               >
                 <img
                   src="../assets/images/homepage/bag.png"
-                  alt=""
+                  alt="Bag Icon"
                   class="w-[27.5px] mr-2"
                 />
                 View All Services
@@ -740,7 +719,7 @@
       </section>
 
       <!--Case Study Section  -->
-      <section class="py-16 bg-case relative overflow-hidden">
+      <section class="py-16 bg-case relative overflow-hidden min-h-screen">
         <div class="max-w-7xl mx-auto px-8 md:px-4 relative z-10">
           <div class="flex flex-col space-y-12">
             <!-- Header Section -->
@@ -766,9 +745,9 @@
             <!-- Case Study Card -->
             <div class="flex flex-col items-center space-y-8 md:space-y-12">
               <!-- Image - Centered for mobile/sm, positioned for desktop -->
-              <div class="w-full flex justify-center md:hidden">
+              <div class="w-full flex justify-center xl:hidden">
                 <img
-                  src="../assets/images/homepage/case-study.png"
+                  src="../assets/images/homepage/webp/Case Study Photo.webp"
                   alt="Professional team meeting discussing leadership solutions"
                   class="w-[376px] sm:w-[500px] h-[220px] sm:h-[300px] object-cover rounded-lg"
                   loading="lazy"
@@ -777,7 +756,7 @@
 
               <!-- Desktop Layout -->
               <div
-                class="hidden md:flex md:flex-row items-center gap-8 md:gap-12 w-full"
+                class="hidden xl:flex xl:flex-row items-center gap-8 md:gap-12 w-full"
               >
                 <!-- Left Content -->
                 <div class="flex-1 space-y-6">
@@ -801,15 +780,15 @@
 
                   <!-- Navigation Buttons -->
                   <div class="flex items-center space-x-8 pt-4">
-                    <button
+                    <!-- <button
                       class="text-rs-case-link text-lg font-medium hover:text-blue-200 transition duration-300 underline"
-                      onclick="window.location.href='./pages/case-studies.html'"
+                      onclick="window.location.href='services.html'"
                     >
                       Next Case Study
-                    </button>
-                    <button
+                    </button> -->
+                    <!-- <button
                       class="text-rs-case-link font-medium hover:text-blue-200 transition duration-300 flex items-center"
-                      onclick="window.location.href='./pages/case-studies.html'"
+                      onclick="window.location.href='services.html'"
                     >
                       View Case Study
                       <svg
@@ -825,14 +804,14 @@
                           d="M9 5l7 7-7 7"
                         ></path>
                       </svg>
-                    </button>
+                    </button> -->
                   </div>
                 </div>
 
                 <!-- Right Image - Desktop only -->
                 <div class="flex-shrink-0">
                   <img
-                    src="../assets/images/homepage/case-study.png"
+                    src="../assets/images/homepage/webp/Case Study Photo.webp"
                     alt="Professional team meeting discussing leadership solutions"
                     class="w-[600px] h-[350px] object-cover rounded-lg"
                     loading="lazy"
@@ -841,7 +820,7 @@
               </div>
 
               <!-- Mobile/Tablet Content - Below image -->
-              <div class="md:hidden text-center space-y-6 px-4">
+              <div class="xl:hidden text-center space-y-6 px-4">
                 <h3
                   class="text-[24px] sm:text-[30px] text-rs-case-primary-color text-merriweather-value-h1 font-bold leading-tight"
                 >
@@ -864,7 +843,7 @@
                 <div
                   class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 pt-4"
                 >
-                  <button
+                  <!-- <button
                     class="text-rs-case-link text-base sm:text-lg font-medium hover:text-blue-200 transition duration-300 underline"
                     onclick="window.location.href='./pages/case-studies.html'"
                   >
@@ -888,7 +867,7 @@
                         d="M9 5l7 7-7 7"
                       ></path>
                     </svg>
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
@@ -923,22 +902,72 @@
                 <div class="flex justify-center items-start gap-4 mb-4">
                   <!-- Left Column -->
                   <div class="flex flex-col">
-                    <img
-                      src="../assets/images/homepage/linkedin1.png"
-                      alt="Romega LinkedIn post about leadership insights"
-                      class="w-[140px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                      loading="lazy"
-                    />
+                    <a
+                      href="https://www.linkedin.com/posts/romega-solutions_visiondriven-rebrandingwithpurpose-remoteleadership-activity-7348718391022481408-jpoo?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                      target="_blank"
+                      rel="noopener"
+                      class="group relative block"
+                    >
+                      <img
+                        src="../assets/images/homepage/webp/linkedin1.webp"
+                        alt="Romega LinkedIn post about leadership insights"
+                        class="w-[140px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                        loading="lazy"
+                      />
+                      <!-- Popup overlay -->
+                      <div
+                        class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                      >
+                        <div
+                          class="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                        >
+                          <svg
+                            class="w-6 h-6 text-blue-600"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
                   </div>
 
                   <!-- Right Column - Offset down -->
                   <div class="flex flex-col mt-8">
-                    <img
-                      src="../assets/images/homepage/linkedin2.png"
-                      alt="Romega LinkedIn post about hiring strategies"
-                      class="w-[140px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                      loading="lazy"
-                    />
+                    <a
+                      href="https://www.linkedin.com/posts/romega-solutions_romegasolutions-rebrandreveal-futureofwork-activity-7346111145188986880-b_0c?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                      target="_blank"
+                      rel="noopener"
+                      class="group relative block"
+                    >
+                      <img
+                        src="../assets/images/homepage/webp/linkedin2.webp"
+                        alt="Romega LinkedIn post about hiring strategies"
+                        class="w-[140px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                        loading="lazy"
+                      />
+                      <!-- Popup overlay -->
+                      <div
+                        class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                      >
+                        <div
+                          class="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                        >
+                          <svg
+                            class="w-6 h-6 text-blue-600"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 </div>
 
@@ -946,22 +975,72 @@
                 <div class="flex justify-center items-start gap-4">
                   <!-- Left Column - Offset up -->
                   <div class="flex flex-col -mt-8">
-                    <img
-                      src="../assets/images/homepage/linkedin3.png"
-                      alt="Romega LinkedIn post about success stories"
-                      class="w-[140px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                      loading="lazy"
-                    />
+                    <a
+                      href="https://www.linkedin.com/posts/romega-solutions_romegasolutions-logoreveal-leadershipsearch-ugcPost-7347144834798800897-Kfip?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                      target="_blank"
+                      rel="noopener"
+                      class="group relative block"
+                    >
+                      <img
+                        src="../assets/images/homepage/webp/linkedin3.webp"
+                        alt="Romega LinkedIn post about success stories"
+                        class="w-[140px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                        loading="lazy"
+                      />
+                      <!-- Popup overlay -->
+                      <div
+                        class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                      >
+                        <div
+                          class="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                        >
+                          <svg
+                            class="w-6 h-6 text-blue-600"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
                   </div>
 
                   <!-- Right Column -->
                   <div class="flex flex-col">
-                    <img
-                      src="../assets/images/homepage/linkedin4.png"
-                      alt="Romega LinkedIn post about industry trends"
-                      class="w-[140px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                      loading="lazy"
-                    />
+                    <a
+                      href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Aorganization%3A105941209&keywords=romega%20solutions&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=596659b9-3037-485f-a053-060199974998&sid=Qiu&spellCorrectionEnabled=true"
+                      target="_blank"
+                      rel="noopener"
+                      class="group relative block"
+                    >
+                      <img
+                        src="../assets/images/homepage/linkedin4.png"
+                        alt="Romega LinkedIn post about industry trends"
+                        class="w-[140px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                        loading="lazy"
+                      />
+                      <!-- Popup overlay -->
+                      <div
+                        class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                      >
+                        <div
+                          class="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                        >
+                          <svg
+                            class="w-6 h-6 text-blue-600"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -972,42 +1051,138 @@
               >
                 <!-- Column 1 -->
                 <div class="flex flex-col">
-                  <img
-                    src="../assets/images/homepage/linkedin1.png"
-                    alt="Romega LinkedIn post about leadership insights"
-                    class="w-[180px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                    loading="lazy"
-                  />
+                  <a
+                    href="https://www.linkedin.com/posts/romega-solutions_visiondriven-rebrandingwithpurpose-remoteleadership-activity-7348718391022481408-jpoo?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                    target="_blank"
+                    rel="noopener"
+                    class="group relative block"
+                  >
+                    <img
+                      src="../assets/images/homepage/webp/linkedin1.webp"
+                      alt="Romega LinkedIn post about leadership insights"
+                      class="w-[180px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      loading="lazy"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    >
+                      <div
+                        class="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                      >
+                        <svg
+                          class="w-6 h-6 text-blue-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 <!-- Column 2 - Offset down -->
                 <div class="flex flex-col mt-12">
-                  <img
-                    src="../assets/images/homepage/linkedin2.png"
-                    alt="Romega LinkedIn post about hiring strategies"
-                    class="w-[180px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                    loading="lazy"
-                  />
+                  <a
+                    href="https://www.linkedin.com/posts/romega-solutions_romegasolutions-rebrandreveal-futureofwork-activity-7346111145188986880-b_0c?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                    target="_blank"
+                    rel="noopener"
+                    class="group relative block"
+                  >
+                    <img
+                      src="../assets/images/homepage/webp/linkedin2.webp"
+                      alt="Romega LinkedIn post about hiring strategies"
+                      class="w-[180px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      loading="lazy"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    >
+                      <div
+                        class="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                      >
+                        <svg
+                          class="w-6 h-6 text-blue-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 <!-- Column 3 -->
                 <div class="flex flex-col">
-                  <img
-                    src="../assets/images/homepage/linkedin3.png"
-                    alt="Romega LinkedIn post about success stories"
-                    class="w-[180px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                    loading="lazy"
-                  />
+                  <a
+                    href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Aorganization%3A105941209&keywords=romega%20solutions&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=596659b9-3037-485f-a053-060199974998&sid=Qiu&spellCorrectionEnabled=true"
+                    target="_blank"
+                    rel="noopener"
+                    class="group relative block"
+                  >
+                    <img
+                      src="../assets/images/homepage/webp/linkedin3.webp"
+                      alt="Romega LinkedIn post about success stories"
+                      class="w-[180px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      loading="lazy"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    >
+                      <div
+                        class="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                      >
+                        <svg
+                          class="w-6 h-6 text-blue-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 <!-- Column 4 - Offset down -->
                 <div class="flex flex-col mt-12">
-                  <img
-                    src="../assets/images/homepage/linkedin4.png"
-                    alt="Romega LinkedIn post about industry trends"
-                    class="w-[180px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                    loading="lazy"
-                  />
+                  <a
+                    href="https://www.linkedin.com/posts/romega-solutions_fourthofjuly-independenceday-leadership-activity-7346785026761494528-RhNQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                    target="_blank"
+                    rel="noopener"
+                    class="group relative block"
+                  >
+                    <img
+                      src="../assets/images/homepage/webp/linkedin4.webp"
+                      alt="Romega LinkedIn post about industry trends"
+                      class="w-[180px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      loading="lazy"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    >
+                      <div
+                        class="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                      >
+                        <svg
+                          class="w-6 h-6 text-blue-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
               </div>
 
@@ -1015,42 +1190,138 @@
               <div class="hidden lg:flex justify-center items-start gap-6">
                 <!-- Column 1 -->
                 <div class="flex flex-col">
-                  <img
-                    src="../assets/images/homepage/linkedin1.png"
-                    alt="Romega LinkedIn post about leadership insights"
-                    class="w-[280px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                    loading="lazy"
-                  />
+                  <a
+                    href="https://www.linkedin.com/posts/romega-solutions_visiondriven-rebrandingwithpurpose-remoteleadership-activity-7348718391022481408-jpoo?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                    target="_blank"
+                    rel="noopener"
+                    class="group relative block"
+                  >
+                    <img
+                      src="../assets/images/homepage/webp/linkedin1.webp"
+                      alt="Romega LinkedIn post about leadership insights"
+                      class="w-[280px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      loading="lazy"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    >
+                      <div
+                        class="bg-white p-4 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                      >
+                        <svg
+                          class="w-8 h-8 text-blue-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 <!-- Column 2 - Offset down -->
                 <div class="flex flex-col mt-16">
-                  <img
-                    src="../assets/images/homepage/linkedin2.png"
-                    alt="Romega LinkedIn post about hiring strategies"
-                    class="w-[280px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                    loading="lazy"
-                  />
+                  <a
+                    href="https://www.linkedin.com/posts/romega-solutions_romegasolutions-rebrandreveal-futureofwork-activity-7346111145188986880-b_0c?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                    target="_blank"
+                    rel="noopener"
+                    class="group relative block"
+                  >
+                    <img
+                      src="../assets/images/homepage/webp/linkedin2.webp"
+                      alt="Romega LinkedIn post about hiring strategies"
+                      class="w-[280px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      loading="lazy"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    >
+                      <div
+                        class="bg-white p-4 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                      >
+                        <svg
+                          class="w-8 h-8 text-blue-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 <!-- Column 3 -->
                 <div class="flex flex-col">
-                  <img
-                    src="../assets/images/homepage/linkedin3.png"
-                    alt="Romega LinkedIn post about success stories"
-                    class="w-[280px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                    loading="lazy"
-                  />
+                  <a
+                    href="https://www.linkedin.com/posts/romega-solutions_romegasolutions-logoreveal-leadershipsearch-ugcPost-7347144834798800897-Kfip?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                    target="_blank"
+                    rel="noopener"
+                    class="group relative block"
+                  >
+                    <img
+                      src="../assets/images/homepage/webp/linkedin3.webp"
+                      alt="Romega LinkedIn post about success stories"
+                      class="w-[280px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      loading="lazy"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    >
+                      <div
+                        class="bg-white p-4 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                      >
+                        <svg
+                          class="w-8 h-8 text-blue-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 <!-- Column 4 - Offset down -->
                 <div class="flex flex-col mt-16">
-                  <img
-                    src="../assets/images/homepage/linkedin4.png"
-                    alt="Romega LinkedIn post about industry trends"
-                    class="w-[280px] h-auto rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                    loading="lazy"
-                  />
+                  <a
+                    href="https://www.linkedin.com/posts/romega-solutions_fourthofjuly-independenceday-leadership-activity-7346785026761494528-RhNQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEVL-a0BX1gvL1GP-dbTNMYBwp3GQb9-opM"
+                    target="_blank"
+                    rel="noopener"
+                    class="group relative block"
+                  >
+                    <img
+                      src="../assets/images/homepage/webp/linkedin4.webp"
+                      alt="Romega LinkedIn post about industry trends"
+                      class="w-[280px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      loading="lazy"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    >
+                      <div
+                        class="bg-white p-4 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300"
+                      >
+                        <svg
+                          class="w-8 h-8 text-blue-600"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -1063,7 +1334,7 @@
               >
                 <img
                   src="../assets/images/homepage/linkedinIcon.png"
-                  alt=""
+                  alt="LinkedIn Icon"
                   class="w-[22px] sm:w-[27.5px] mr-2"
                 />
                 Visit Romega on LinkedIn
@@ -1074,50 +1345,64 @@
       </section>
     </main>
 
-
-    <!-- footer section -->
- <footer class="bg-[#e6f0f3] text-rs-medium py-10 font-sans">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-          <!-- Romega Info & Socials: Large column -->
-          <div
-            class="md:col-span-4 flex flex-col items-start mb-6 px-10 md:px-0"
-          >
+   
+     <!-- Footer Container -->
+    <footer
+      class="bg-[var(--rs-neutral-100)] border-t-2 border-[var(--rs-neutral-grey-500)] text-rs-medium py-10 font-sans relative"
+    >
+      <!-- Scroll to Top Button -->
+      <a href="#">
+        <button
+          class="absolute -top-5 right-4 lg:right-12 hover:opacity-75 transition-opacity duration-300 z-10"
+          aria-label="Scroll to top"
+        >
+          <img
+            src="../assets/images/homepage/Btn_Arrow - Scroll UP.png"
+            alt="Scroll to top"
+            class="w-10 h-10 lg:w-12 lg:h-12"
+          />
+        </button>
+      </a>
+      <div
+        class="max-w-[1600px] mx-auto md:mx-0 lg:mx-auto px-4 md:px-2 lg:px-20"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+          <!-- Romega Info & Socials -->
+          <div class="lg:col-span-4 flex flex-col items-start mb-6">
             <div class="w-full flex flex-row items-start">
               <!-- Logo Left -->
-              <div class="flex justify-center md:block md:mr-4 flex-shrink-0">
+              <div class="flex justify-center lg:block lg:mr-4 flex-shrink-0">
                 <img
                   src="../assets/images/homepage/footerLogo.png"
                   alt="Romega Solutions Logo"
-                  class="w-[94px] md:h-[115px]"
+                  class="w-[80px] lg:w-[94px] h-auto lg:h-[115px]"
                 />
               </div>
               <!-- Info + Socials Right -->
               <div class="flex flex-col items-start text-left flex-1 ml-4">
                 <p
-                  class="text-sm md:text-[15px] leading-snug text-[#334155] mb-2 md:mb-1"
+                  class="text-sm lg:text-[15px] leading-snug text-[#334155] mb-2 lg:mb-1"
                 >
-                  <span class="font-bold">Romega Solutions</span class="font-medium">, <span>
-                    a US-based
-                  holding company founded by
-                  </span> 
+                  <span class="font-bold">Romega Solutions</span>,
+                  <span> a US-based holding company founded by </span>
                   <span class="font-bold">Robbie Galoso</span>.
                 </p>
                 <span
-                  class="uppercase tracking-widest text-[13px] text-[#64748b] font-semibold mb-1"
-                  >Follow us on</span
+                  class="uppercase tracking-widest text-[12px] lg:text-[13px] text-[#64748b] font-semibold mb-1"
                 >
-                <div class="flex flex-row gap-2 mb-2">
+                  Follow us on
+                </span>
+                <div class="flex flex-row gap-2">
                   <a
                     href="https://www.linkedin.com/company/romega-solutions"
                     target="_blank"
                     rel="noopener"
-                    class="flex items-center px-4 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[15px] hover:bg-[#e6f0f3] hover:text-[#1e293b] transition gap-2"
+                    class="flex items-center px-3 lg:px-4 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] transition gap-2 hover:bg-[#e6f0f3] hover:text-[#1e293b] hover:shadow-lg hover:scale-105 hover:border-[#4880b8] active:bg-[#dbeafe] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2"
                   >
                     <img
                       src="../assets/images/homepage/linkedinIcon.png"
                       alt="LinkedIn"
-                      class="w-5 h-5"
+                      class="w-4 lg:w-5 h-4 lg:h-5"
                     />
                     LINKEDIN
                   </a>
@@ -1125,63 +1410,45 @@
                     href="https://www.facebook.com/romegasolutions"
                     target="_blank"
                     rel="noopener"
-                    class="flex items-center px-4 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[15px] hover:bg-[#e6f0f3] hover:text-[#1e293b] transition gap-2"
+                    class="flex items-center px-3 py-2 border border-[#b6c3d1] rounded-md bg-white text-[#334155] font-medium text-[14px] lg:text-[12px] transition gap-2 hover:bg-[#e6f0f3] hover:text-[#1e293b] hover:shadow-lg hover:scale-105 hover:border-[#4880b8] active:bg-[#dbeafe] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2"
                   >
                     <img
                       src="../assets/images/homepage/facebook.png"
                       alt="Facebook"
-                      class="w-5 h-5"
+                      class="w-4 lg:w-5 h-4 lg:h-5"
                     />
                     FACEBOOK
                   </a>
                 </div>
               </div>
             </div>
-            <!-- Schedule Button: Mobile Only -->
-            <div class="w-full flex md:hidden justify-center mt-4">
-              <a href="#contact" class="block w-full">
+            <!-- Schedule Button: Mobile & Medium -->
+            <div class="w-full flex lg:hidden justify-center mt-4">
+              <a
+                href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+                class="block w-full"
+              >
                 <button
-                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200"
+                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200 hover:shadow-lg hover:scale-105 active:bg-[#005999] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2"
+                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200 hover:shadow-lg hover:scale-105 active:bg-[#005999] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2"
                 >
-                  <svg
-                    class="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect
-                      x="3"
-                      y="4"
-                      width="18"
-                      height="18"
-                      rx="4"
-                      fill="#0078d7"
-                    />
-                    <path
-                      d="M8 2v4M16 2v4M3 10h18"
-                      stroke="#fff"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                    <rect
-                      x="8"
-                      y="14"
-                      width="4"
-                      height="4"
-                      rx="1"
-                      fill="#fff"
-                    />
-                  </svg>
+                  <img
+                    src="../assets/images/homepage/calendar-days.png"
+                    alt="Calendar"
+                    class="w-5 h-5"
+                  />
                   <span>Schedule a Meeting</span>
                 </button>
               </a>
             </div>
             <!-- Schedule Button: Desktop Only -->
-            <div class="hidden md:flex w-full justify-start mt-4">
-              <a href="#contact" class="block w-full">
+            <div class="hidden lg:flex w-full justify-start mt-4">
+              <a
+                href="https://meetings.hubspot.com/robbie-galoso"
+                class="block w-full max-w-[380px]"
+              >
                 <button
-                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 shadow transition-all duration-200"
+                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-4 py-2 rounded-lg font-semibold text-[18px] flex items-center justify-center gap-2 shadow transition-all duration-200"
                 >
                   <img
                     src="../assets/images/homepage/calendar-days.png"
@@ -1193,168 +1460,191 @@
               </a>
             </div>
           </div>
-      <div
-        class="w-full md:col-span-4 flex flex-row md:flex-row md:mt-8 md:mt-0"
-      >
-        <!-- Company -->
-        <div class="flex-1 md:space-x-12">
-          <h3
-            class="md:ml-12 text-[#38bdf8] text-center md:text-left text-base mb-4 uppercase tracking-widest text-center"
-          >
-            COMPANY
-          </h3>
-          <ul class="space-y-3 text-center md:text-left">
-            <li>
-              <a
-                href="index.html"
-                class="text-rs-medium text-[#0284c7] text-base font-medium hover:text-[#fcd34d] hover:translate-x-1 transition-all duration-300 ease-in-out"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a
-                href="about.html"
-                class="text-rs-medium text-base text-[#0284c7] font-medium hover:text-[#fcd34d] hover:translate-x-1 transition-all duration-300 ease-in-out"
-                >About</a
-              >
-            </li>
-            <li>
-              <a
-                href="services.html"
-                class="text-rs-medium text-base text-[#0284c7] font-medium hover:text-[#fcd34d] hover:translate-x-1 transition-all duration-300 ease-in-out"
-                >Services</a
-              >
-            </li>
-            <li>
-              <a
-                href="careers.html"
-                class="text-rs-medium text-base text-[#0284c7] font-medium hover:text-[#fcd34d]hover:translate-x-1 transition-all duration-300 ease-in-out"
-                >Careers & Talent</a
-              >
-            </li>
-          </ul>
-        </div>
-        <!-- Divider: vertical always, centered -->
-        <div class="flex flex-col justify-center">
-          <div class="w-px bg-[#cbd5e1] mx-6 h-full min-h-[180px]"></div>
-        </div>
-        <!-- Help -->
-        <div class="flex-1 md:space-x-12">
-          <h3
-            class="text-[#38bdf8] text-base md:mr-20 mb-4 uppercase tracking-widest text-center"
-          >
-            HELP
-          </h3>
-          <ul class="space-y-3 text-center md:text-left">
-            <li>
-              <a
-                href="resources.html"
-                class="text-rs-medium text-base text-[#0284c7] font-medium hover:text-[#fcd34d] hover:translate-x-1 transition-all duration-300 ease-in-out"
-                >Resources</a
-              >
-            </li>
-            <li>
-              <a
-                href="contact.html"
-                class="text-rs-medium text-base text-[#0284c7] font-medium hover:text-[#fcd34d] hover:translate-x-1 transition-all duration-300 ease-in-out"
-                >Contact</a
-              >
-            </li>
-            <li>
-              <a
-                href="#terms"
-                class="text-rs-medium text-base text-[#0284c7] font-medium hover:text-[#fcd34d] hover:translate-x-1 transition-all duration-300 ease-in-out"
-                >Terms of Service</a
-              >
-            </li>
-            <li>
-              <a
-                href="#privacy"
-                class="text-rs-medium text-base text-[#0284c7] font-medium hover:text-[#fcd34d] hover:translate-x-1 transition-all duration-300 ease-in-out"
-                >Privacy Policy</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
 
-          <!-- Reach Us Out: Large column -->
+          <!-- Right Side Container for Desktop Only -->
           <div
-            class="md:col-span-3 mt-8 md:mt-0 flex flex-col items-center md:items-start"
+            class="lg:col-span-8 flex flex-col lg:flex-row gap-8 lg:gap-8 mt-2 lg:mt-0"
           >
-            <div
-              class="relative border-2 border-dashed border-[#cbd5e1] rounded-lg p-6 mb-4 bg-[#e6f0f3] w-full max-w-md md:max-w-none"
-            >
-              <h3
-                class="absolute -top-3 left-1/2 md:left-6 transform -translate-x-1/2 md:-translate-x-0 bg-[#e6f0f3] px-4 text-[#4880b8] text-sm font-bold uppercase tracking-wide"
-              >
-                REACH US OUT
-              </h3>
-              <div class="space-y-6 mt-4">
-                <div class="text-center md:text-left">
-                  <h4
-                    class="text-[#4880b8] font-bold text-sm mb-3 uppercase tracking-wide"
-                  >
-                    EMAIL US
-                  </h4>
-                  <div
-                    class="flex items-center justify-center md:justify-start gap-2"
-                  >
-                    <svg
-                      class="w-5 h-5 text-[#4880b8]"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"
-                      ></path>
-                    </svg>
+            <!-- Company & Help Section -->
+            <div class="flex flex-row lg:flex-row lg:flex-1">
+              <!-- Company -->
+              <div class="flex-1">
+                <h3
+                  class="text-[#38bdf8] text-center lg:text-left text-base mb-4 uppercase tracking-widest"
+                >
+                  COMPANY
+                </h3>
+                <ul class="space-y-3 text-center lg:text-left">
+                  <li>
                     <a
-                      href="mailto:info@romega-solutions.com"
-                      class="text-[#4880b8] text-sm font-medium hover:text-rs-yellow transition-colors"
+                      href="index.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Home</a
                     >
-                      info@romega-solutions.com
-                    </a>
-                  </div>
-                </div>
-                <div class="text-center md:text-left">
-                  <h4
-                    class="text-[#4880b8] font-bold text-sm mb-3 uppercase tracking-wide"
-                  >
-                    HEADQUARTERS
-                  </h4>
+                  </li>
+                  <li>
+                    <a
+                      href="about.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >About</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="services.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Services</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="careers.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Careers & Talent</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- Divider -->
+              <div class="flex lg:flex flex-col justify-center">
+                <div
+                  class="w-px bg-[var(--rs-neutral-300)] mx-4 h-full min-h-[180px]"
+                ></div>
+              </div>
+              <!-- Help -->
+              <div class="flex-1">
+                <h3
+                  class="text-[#38bdf8] text-base mb-4 uppercase tracking-widest text-center lg:text-left"
+                >
+                  HELP
+                </h3>
+                <ul class="space-y-3 text-center lg:text-left">
+                  <!-- <li>
+                    <a
+                      href="404.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Resources</a
+                    >
+                  </li> -->
+                  <li>
+                    <a
+                      href="contact.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Contact</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="404.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Terms of Service</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="404.html"
+                      class="text-[var(--rs-neutral-grey-500)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Reach Us Out -->
+            <div class="flex flex-col items-center lg:items-start lg:flex-1">
+              <!-- Contact Details -->
+              <div class="space-y-6 mb-8">
+                <div
+                  class="border border-[var(--rs-neutral-300)] rounded-lg p-4 relative"
+                >
                   <div
-                    class="flex items-start justify-center md:justify-start gap-2"
+                    class="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-[var(--rs-neutral-100)] px-4 py-1 mb-2 uppercase font-bold text-rs-neutral-400 tracking-wide"
                   >
-                    <svg
-                      class="w-5 h-5 mt-0.5 flex-shrink-0 text-[#4880b8]"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
-                      ></path>
-                    </svg>
-                    <span
-                      class="text-[#4880b8] text-sm font-medium leading-relaxed max-w-xs"
-                    >
-                      222 Pacific Coast Hwy, #10 in El Segundo, CA 90245
-                    </span>
+                    <h3 class="text-sm block whitespace-nowrap">
+                      REACH US OUT
+                    </h3>
+                  </div>
+
+                  <div class="space-y-4">
+                    <div class="text-base">
+                      <h4
+                        class="font-medium text-rs-neutral-400 uppercase mb-1 tracking-widest"
+                      >
+                        EMAIL US
+                      </h4>
+                      <div class="flex items-center gap-2">
+                        <a
+                          href="mailto:info@romega-solutions.com"
+                          class="text-[var(--rs-neutral-600)] text-lg leading-8 hover:underline flex items-center gap-1"
+                          ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M22 7L13.009 12.727C12.7039 12.9042 12.3573 12.9976 12.0045 12.9976C11.6517 12.9976 11.3051 12.9042 11 12.727L2 7M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z"
+                              stroke="#5381AC"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                          <span>info@romega-solutions.com</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4
+                        class="text-base font-medium text-rs-neutral-400 uppercase mb-1 tracking-[1px]"
+                      >
+                        HEADQUARTERS
+                      </h4>
+                      <div class="flex items-start gap-1">
+                        <a
+                          href="https://www.google.com/maps?q=222+Pacific+Coast+Hwy,+%2310,+El+Segundo,+CA+90245"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-[var(--rs-neutral-600)] tracking-tight hover:underline flex items-center gap-2"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 14.993 7.539 20.193 9.399 21.799C9.57237 21.929 9.78329 21.9992 10 21.999M18 22V19M15 22C14.7348 22 14.4804 21.8946 14.2929 21.7071C14.1054 21.5196 14 21.2652 14 21V17C14 16.8354 14.0406 16.6734 14.1182 16.5282C14.1958 16.3831 14.3081 16.2593 14.445 16.168L17.445 14.168C17.6093 14.0584 17.8025 13.9999 18 13.9999C18.1975 13.9999 18.3907 14.0584 18.555 14.168L21.555 16.168C21.6919 16.2593 21.8042 16.3831 21.8818 16.5282C21.9594 16.6734 22 16.8354 22 17V21C22 21.2652 21.8946 21.5196 21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22H15ZM13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z"
+                              stroke="#5381AC"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+
+                          222 Pacific Coast Hwy, #10 in El Segundo, CA 90245
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="text-center md:text-left text-xs text-[#4880b8] w-full font-medium"
-            >
-              © 2025 Romega Solutions. All rights reserved
+
+              <div
+                class="text-center lg:text-left text-xs text-[#4880b8] w-full font-medium"
+              >
+                © 2025 Romega Solutions. All rights reserved
+              </div>
             </div>
           </div>
         </div>
       </div>
     </footer>
- <script src="../js/main.js"></script>
+
+    <script src="../js/main.js"></script>
   </body>
 </html>
