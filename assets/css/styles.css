@@ -278,7 +278,7 @@ textarea:focus {
   font-family: "Source Sans 3", sans-serif;
 
   /* Fill */
-  color: hsla(216, 17%, 50%, 1);
+  color: var(--rs-neutral-500);
 }
 
 /* Book a Call Button Styles */

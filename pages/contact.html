@@ -46,11 +46,20 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../assets/css/styles.css" />
 
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Main JS -->
     <script src="../js/main.js" defer></script>
+
+    <!-- Contact Form EmailJS -->
+    <script src="../js/contact-form.js" defer></script>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -101,42 +110,42 @@
                 <a
                   href="index.html"
                   id="nav-home"
-                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
+                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
                 >
                   Home
                 </a>
                 <a
                   href="about.html"
                   id="nav-about"
-                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
+                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
                 >
                   About
                 </a>
                 <a
                   href="services.html"
                   id="nav-services"
-                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium text-rs-neutral-600 transition duration-300 hover:text-rs-accent-500 hover:underline xl:px-4 xl:text-[1rem]"
+                  class="navbar-custom px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
                 >
                   Services
                 </a>
                 <a
                   href="careers.html"
                   id="nav-careers"
-                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
+                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
                 >
                   Careers & Talent
                 </a>
                 <!-- <a
                 href="404.html"
                 id="nav-resources"
-                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
+                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
               >
                 Resources
               </a> -->
                 <a
                   href="contact.html"
                   id="nav-contact"
-                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-rs-primary-500 hover:underline xl:px-4 xl:text-[1rem]"
+                  class="text-[var(--rs-accent-600)] whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
                 >
                   Contact
                 </a>
@@ -182,42 +191,42 @@
             <a
               href="index.html"
               id="mobile-nav-home"
-              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
             >
               Home
             </a>
             <a
               href="about.html"
               id="mobile-nav-about"
-              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
             >
               About
             </a>
             <a
               href="services.html"
               id="mobile-nav-services"
-              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
             >
               Services
             </a>
             <a
               href="careers.html"
               id="mobile-nav-careers"
-              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
             >
               Careers & Talent
             </a>
             <!-- <a
             href="404.html"
             id="mobile-nav-resources"
-            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-600)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
           >
             Resources
           </a> -->
             <a
               href="contact.html"
               id="mobile-nav-contact"
-              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-600 transition duration-300 hover:bg-gray-50 hover:text-rs-primary-500 hover:underline"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-accent-600)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
             >
               Contact
             </a>
