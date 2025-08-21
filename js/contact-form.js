@@ -1,8 +1,8 @@
 // EmailJS Configuration
 const EMAILJS_CONFIG = {
-  publicKey: "U9EUeH6CDqh2eHTqj", // Replace with your EmailJS public key
-  serviceId: "service_r653bgp", // Replace with your EmailJS service ID
-  templateId: "template_7kwm8ne", // Replace with your EmailJS template ID
+  publicKey: "JD0EOnTsEC1LeFyhe", // Replace with your EmailJS public key
+  serviceId: "service_8r6ul7n", // Replace with your EmailJS service ID
+  templateId: "template_5i4etfg", // Replace with your EmailJS template ID
 };
 
 // Initialize EmailJS
