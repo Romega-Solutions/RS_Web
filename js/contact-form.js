@@ -1,23 +1,71 @@
-// EmailJS Configuration
+// EmailJS Configuration - VERIFY THESE VALUES IN YOUR EMAILJS DASHBOARD
 const EMAILJS_CONFIG = {
-  publicKey: "JD0EOnTsEC1LeFyhe", // Replace with your EmailJS public key
-  serviceId: "service_8r6ul7n", // Replace with your EmailJS service ID
-  templateId: "template_5i4etfg", // Replace with your EmailJS template ID
+  publicKey: "JD0EOnTsEC1LeFyhe", // Verify this in EmailJS Account > General
+  serviceId: "service_8r6ul7n",     // Verify this in EmailJS Email Services
+  templateId: "template_5i4etfg",   // Verify this in EmailJS Email Templates
 };
 
 // Initialize EmailJS
 (function () {
-  emailjs.init(EMAILJS_CONFIG.publicKey);
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init(EMAILJS_CONFIG.publicKey);
+    console.log('EmailJS initialized successfully');
+  } else {
+    console.error('EmailJS not loaded!');
+  }
 })();
 
 // Form submission handler
 document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contact-form");
+
+  if (!contactForm) {
+    console.error("Contact form with ID 'contact-form' not found!");
+    return;
+  }
+
   const submitButton = contactForm.querySelector('button[type="submit"]');
+
+  if (!submitButton) {
+    console.error("Submit button not found!");
+    return;
+  }
+
   const originalButtonText = submitButton.innerHTML;
 
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    console.log("Form submission started..."); // Debug log
+
+    // Check EmailJS availability
+    if (typeof emailjs === 'undefined') {
+      console.error('EmailJS is not available');
+      showErrorMessage("Email service is not available. Please try again later.");
+      return;
+    }
+
+    // Get form data
+    const formData = new FormData(contactForm);
+
+    // Debug: Log all form fields
+    console.log("Form data:", {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      company: formData.get("company"),
+      subject: formData.get("subject"),
+      message: formData.get("message")
+    });
+
+    // Validate form before sending
+    const errors = validateFormData(formData);
+    if (errors.length > 0) {
+      console.error("Validation errors:", errors);
+      showErrorMessage("Please fill in all required fields correctly: " + errors.join(", "));
+      return;
+    }
 
     // Show loading state
     submitButton.disabled = true;
@@ -28,16 +76,34 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
-    // Get form data
-    const formData = new FormData(contactForm);
+    // Get current timestamp
+    const currentTime = new Date().toLocaleString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'short'
+    });
+
     const templateParams = {
       from_name: `${formData.get("firstName")} ${formData.get("lastName")}`,
       from_email: formData.get("email"),
-      subject: formData.get("subject"),
+      subject: formData.get("subject") || "General Inquiry",
       message: formData.get("message"),
+      company: formData.get("company") || "Not specified",
+      phone: formData.get("phone"),
       to_name: "Romega Solutions Team",
-      reply_to: formData.get("email"),
+      reply_to: currentTime, // Using for timestamp as per your template
     };
+
+    console.log("EmailJS Config:", {
+      serviceId: EMAILJS_CONFIG.serviceId,
+      templateId: EMAILJS_CONFIG.templateId,
+      publicKey: EMAILJS_CONFIG.publicKey
+    });
+    console.log("Template params:", templateParams);
 
     // Send email using EmailJS
     emailjs
@@ -48,8 +114,29 @@ document.addEventListener("DOMContentLoaded", function () {
         contactForm.reset();
       })
       .catch(function (error) {
-        console.log("FAILED...", error);
-        showErrorMessage();
+        console.error("FAILED...", error);
+        console.error("Error details:", {
+          status: error.status,
+          text: error.text,
+          serviceId: EMAILJS_CONFIG.serviceId,
+          templateId: EMAILJS_CONFIG.templateId
+        });
+
+        let errorMessage = "Failed to send message. Please try again.";
+
+        // Provide specific error messages
+        if (error.status === 400) {
+          errorMessage = "Bad request. Please check your information and try again.";
+        } else if (error.status === 401) {
+          errorMessage = "Authentication failed. Please contact support.";
+        } else if (error.status === 404) {
+          errorMessage = "Email service configuration error. Please contact support.";
+          console.error("404 Error - Check your Service ID and Template ID in EmailJS dashboard");
+        } else if (error.status === 422) {
+          errorMessage = "Invalid email data. Please check all fields.";
+        }
+
+        showErrorMessage(errorMessage);
       })
       .finally(function () {
         // Reset button state
@@ -59,10 +146,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function showSuccessMessage() {
-    // Create success notification
+    removeExistingNotifications();
+
     const notification = document.createElement("div");
     notification.className =
-      "fixed top-4 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 flex items-center gap-2";
+      "fixed top-4 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 flex items-center gap-2 notification";
     notification.innerHTML = `
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -72,35 +160,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.appendChild(notification);
 
-    // Remove notification after 5 seconds
     setTimeout(() => {
-      notification.remove();
+      if (notification && notification.parentNode) {
+        notification.remove();
+      }
     }, 5000);
   }
 
-  function showErrorMessage() {
-    // Create error notification
+  function showErrorMessage(message = "Failed to send message. Please try again or contact us directly.") {
+    removeExistingNotifications();
+
     const notification = document.createElement("div");
     notification.className =
-      "fixed top-4 right-4 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 flex items-center gap-2";
+      "fixed top-4 right-4 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 flex items-center gap-2 notification";
     notification.innerHTML = `
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
-            Failed to send message. Please try again or contact us directly.
+            ${message}
         `;
 
     document.body.appendChild(notification);
 
-    // Remove notification after 5 seconds
     setTimeout(() => {
-      notification.remove();
-    }, 5000);
+      if (notification && notification.parentNode) {
+        notification.remove();
+      }
+    }, 7000);
+  }
+
+  function removeExistingNotifications() {
+    const existingNotifications = document.querySelectorAll(".notification");
+    existingNotifications.forEach((notification) => {
+      if (notification && notification.parentNode) {
+        notification.remove();
+      }
+    });
   }
 });
 
-// Add this to contact-form.js after the existing code
-function validateForm(formData) {
+// Form validation function (renamed to avoid conflicts)
+function validateFormData(formData) {
   const errors = [];
 
   if (!formData.get("firstName")?.trim()) {
@@ -116,6 +216,13 @@ function validateForm(formData) {
     errors.push("Email is required");
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     errors.push("Please enter a valid email address");
+  }
+
+  const phone = formData.get("phone")?.trim();
+  if (!phone) {
+    errors.push("Phone number is required");
+  } else if (!/[\+]?[0-9\s\-\(\)]{10,}/.test(phone)) {
+    errors.push("Please enter a valid phone number (minimum 10 digits)");
   }
 
   if (!formData.get("subject")) {

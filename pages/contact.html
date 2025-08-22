@@ -523,7 +523,7 @@
             <div
               class="sm:min-w-[362px] max-w-[595px] w-full p-4 sm:p-8 md:p-10 lg:p-12 relative order-1 lg:order-2"
             >
-              <form id="contact-form" class="space-y-6 z-10 relative">
+              <form id="contact-form" class="space-y-8 z-10 relative">
                 <!-- Name Fields Row -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                   <div>
@@ -631,6 +631,56 @@
                   </div>
                 </div>
 
+                <!-- Company Details and Contact Number -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-">
+                  <div>
+                    <label
+                      for="company"
+                      class="block text-base font-medium text-[var(--rs-primary-800)] mb-1"
+                    >
+                      Company Name
+                      <span class="text-[var(--rs-neutral-400)] text-xs">
+                        (Optional)
+                      </span>
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      placeholder="Your company name"
+                      autocomplete="organization"
+                      class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                      aria-describedby="company-hint"
+                    />
+                    <div id="company-hint" class="sr-only">
+                      Optional field for your company or organization name
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      for="phone"
+                      class="block text-base font-medium text-[var(--rs-primary-800)] mb-1"
+                    >
+                      Phone Number <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="+1 (555) 123-4567"
+                      autocomplete="tel"
+                      class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                      required
+                      aria-describedby="phone-hint"
+                      pattern="[\+]?[0-9\s\-\(\)]{10,}"
+                    />
+                    <div id="phone-hint" class="sr-only">
+                      Enter your phone number including country code if
+                      international
+                    </div>
+                  </div>
+                </div>
+
                 <!-- Message Field -->
                 <div class="relative">
                   <label
@@ -642,7 +692,7 @@
                   <textarea
                     id="message"
                     name="message"
-                    rows="5"
+                    rows="3"
                     placeholder="Write your message..."
                     class="w-full px-3 py-3 border-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent resize-none rounded-lg text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                     required
@@ -650,7 +700,7 @@
                 </div>
 
                 <!-- Action Buttons -->
-                <div class="flex flex-col sm:flex-col md:flex-row gap-4 pt-6">
+                <div class="flex flex-col sm:flex-col md:flex-row gap-4 pt-4">
                   <!-- Send Message Button -->
                   <button
                     type="submit"
