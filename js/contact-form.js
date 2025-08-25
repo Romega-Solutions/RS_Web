@@ -1,8 +1,8 @@
-// EmailJS Configuration - VERIFY THESE VALUES IN YOUR EMAILJS DASHBOARD
+// EmailJS Configuration
 const EMAILJS_CONFIG = {
-  publicKey: "JD0EOnTsEC1LeFyhe", // Verify this in EmailJS Account > General
-  serviceId: "service_8r6ul7n",     // Verify this in EmailJS Email Services
-  templateId: "template_5i4etfg",   // Verify this in EmailJS Email Templates
+  publicKey: "JD0EOnTsEC1LeFyhe",
+  serviceId: "service_8r6ul7n",    
+  templateId: "template_5i4etfg",   
 };
 
 // Initialize EmailJS
