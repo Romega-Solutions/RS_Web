@@ -443,105 +443,113 @@
           <!-- Carousel + controls wrapper -->
           <div class="mt-8 w-full">
             <!-- Cards -->
-            <div
-              id="team-carousel"
-              class="h-[450px] flex justify-start md:justify-center items-center overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory w-full"
-              style="
-                width: 100vw;
-                max-width: 100vw;
-                margin-left: calc(50% - 50vw);
-              "
-              onscroll="handleScrollEffect(); updateTeamDots();"
-              aria-label="Team members carousel"
-            >
-              <!-- Each card: wrap img in <a> -->
-              <!-- Repeat for each team member, update alt text for each -->
-              <a
-                href="https://www.linkedin.com/in/jennilyn-maalindog-484a1a213/"
-                target="_blank"
-                class="team-card snap-center shrink-0 first:ml-0 -ml-16 w-[150px] h-[150px] transform transition-transform duration-300 scale-90 z-10 hover:scale-110 hover:z-[999] hover:shadow-2xl"
-                aria-label="View Jennilyn Lapena's LinkedIn profile"
+            <div class="w-full">
+              <div
+                id="team-carousel"
+                class="flex h-[450px] items-center gap-6 px-4 transition-transform duration-500 ease-in-out"
+                style="width: max-content"
+                aria-label="Team members carousel"
               >
-                <img
-                  src="../assets/images/homepage/jennilyn.png"
-                  alt="Jennilyn Lapena, HR Specialist"
-                  class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/christinevalenciaj/"
-                target="_blank"
-                class="team-card hover:scale-110 hover:z-[999] hover:shadow-2xl snap-center shrink-0 -ml-16 w-[215px] h-[230px] transform transition-transform duration-300 scale-90 z-20"
-                aria-label="View Christine Valerio's LinkedIn profile"
-              >
-                <img
-                  src="../assets/images/homepage/christine.png"
-                  alt="Christine Valerio, Talent Acquisition"
-                  class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jyarc/"
-                target="_blank"
-                class="team-card hover:scale-110 hover:z-[999] hover:shadow-2xl snap-center shrink-0 -ml-16 w-[290px] h-[308px] transform transition-transform duration-300 scale-95 z-30"
-                aria-label="View Jyrra Arcales's LinkedIn profile"
-              >
-                <img
-                  src="../assets/images/homepage/jyrra.png"
-                  alt="Jyrra Arcales, Operations Manager"
-                  class="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105 shadow-lg"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/robbie-galoso-9913389/"
-                target="_blank"
-                id="center-card"
-                class="team-card hover:scale-110 hover:z-[999] hover:shadow-2xl snap-center shrink-0 w-[360px] h-[390px] transform transition-transform duration-300 scale-110 z-50 border-2 rounded-xl border-yellow-500"
-                aria-label="View Robbie Galoso's LinkedIn profile"
-              >
-                <img
-                  src="../assets/images/homepage/robbie.png"
-                  alt="Robbie Galoso, Founder and CEO"
-                  class="w-full h-full object-cover rounded-xl shadow-xl transition-transform duration-300 hover:scale-105"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/cherry-ann-reyes-chrp-9b978061/"
-                target="_blank"
-                class="team-card hover:scale-110 hover:z-[999] hover:shadow-2xl snap-center shrink-0 w-[290px] h-[308px] transform transition-transform duration-300 scale-95 z-30"
-                aria-label="View Cherry Ann Reyes's LinkedIn profile"
-              >
-                <img
-                  src="../assets/images/homepage/cherry.png"
-                  alt="Cherry Ann Reyes, HR Consultant"
-                  class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/duanevargas/"
-                target="_blank"
-                class="team-card team-card hover:scale-110 hover:z-[999] hover:shadow-2xl snap-center shrink-0 -ml-16 w-[215px] h-[230px] transform transition-transform duration-300 scale-90 z-20"
-                aria-label="View Duane Vargas's LinkedIn profile"
-              >
-                <img
-                  src="../assets/images/homepage/duane.png"
-                  alt="Duane Vargas, Digital Marketing"
-                  class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jerelylaguda/"
-                target="_blank"
-                class="team-card team-card hover:scale-110 hover:z-[999] hover:shadow-2xl snap-center shrink-0 -ml-16 w-[150px] h-[150px] transform transition-transform duration-300 scale-90 z-10"
-                aria-label="View Jem Laguada's LinkedIn profile"
-              >
-                <img
-                  src="../assets/images/homepage/jem.png"
-                  alt="Jem Laguada, Recruitment Specialist"
-                  class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                />
-              </a>
+                <!-- Team Member 1 -->
+                <a
+                  href="https://www.linkedin.com/in/jennilyn-maalindog-484a1a213/"
+                  target="_blank"
+                  class="team-member flex-shrink-0 transition-all duration-300"
+                  aria-label="View Jennilyn Lapena's LinkedIn profile"
+                >
+                  <img
+                    src="../assets/images/homepage/jennilyn.png"
+                    alt="Jennilyn Lapena, HR Specialist"
+                    class="w-[150px] h-[150px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
+                  />
+                </a>
+
+                <!-- Team Member 2 -->
+                <a
+                  href="https://www.linkedin.com/in/christinevalenciaj/"
+                  target="_blank"
+                  class="team-member flex-shrink-0 transition-all duration-300"
+                  aria-label="View Christine Valerio's LinkedIn profile"
+                >
+                  <img
+                    src="../assets/images/homepage/christine.png"
+                    alt="Christine Valerio, Talent Acquisition"
+                    class="w-[215px] h-[230px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
+                  />
+                </a>
+
+                <!-- Team Member 3 -->
+                <a
+                  href="https://www.linkedin.com/in/jyarc/"
+                  target="_blank"
+                  class="team-member flex-shrink-0 transition-all duration-300"
+                  aria-label="View Jyrra Arcales's LinkedIn profile"
+                >
+                  <img
+                    src="../assets/images/homepage/jyrra.png"
+                    alt="Jyrra Arcales, Operations Manager"
+                    class="w-[290px] h-[308px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
+                  />
+                </a>
+
+                <!-- Team Member 4 - Center/CEO -->
+                <a
+                  href="https://www.linkedin.com/in/robbie-galoso-9913389/"
+                  target="_blank"
+                  class="team-member flex-shrink-0 transition-all duration-300"
+                  aria-label="View Robbie Galoso's LinkedIn profile"
+                >
+                  <img
+                    src="../assets/images/homepage/robbie.png"
+                    alt="Robbie Galoso, Founder and CEO"
+                    class="w-[360px] h-[390px] object-cover rounded-xl shadow-xl transition-transform duration-300 hover:scale-105 border-2 border-yellow-500"
+                  />
+                </a>
+
+                <!-- Team Member 5 -->
+                <a
+                  href="https://www.linkedin.com/in/cherry-ann-reyes-chrp-9b978061/"
+                  target="_blank"
+                  class="team-member flex-shrink-0 transition-all duration-300"
+                  aria-label="View Cherry Ann Reyes's LinkedIn profile"
+                >
+                  <img
+                    src="../assets/images/homepage/cherry.png"
+                    alt="Cherry Ann Reyes, HR Consultant"
+                    class="w-[290px] h-[308px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
+                  />
+                </a>
+
+                <!-- Team Member 6 -->
+                <a
+                  href="https://www.linkedin.com/in/duanevargas/"
+                  target="_blank"
+                  class="team-member flex-shrink-0 transition-all duration-300"
+                  aria-label="View Duane Vargas's LinkedIn profile"
+                >
+                  <img
+                    src="../assets/images/homepage/duane.png"
+                    alt="Duane Vargas, Digital Marketing"
+                    class="w-[215px] h-[230px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
+                  />
+                </a>
+
+                <!-- Team Member 7 -->
+                <a
+                  href="https://www.linkedin.com/in/jerelylaguda/"
+                  target="_blank"
+                  class="team-member flex-shrink-0 transition-all duration-300"
+                  aria-label="View Jem Laguada's LinkedIn profile"
+                >
+                  <img
+                    src="../assets/images/homepage/jem.png"
+                    alt="Jem Laguada, Recruitment Specialist"
+                    class="w-[150px] h-[150px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
+                  />
+                </a>
+              </div>
             </div>
+
             <!-- Arrows + Dots -->
             <div
               class="mt-6 flex items-center justify-center space-x-6"
@@ -549,7 +557,7 @@
             >
               <!-- Left -->
               <button
-                onclick="scrollTeam(-1)"
+                onclick="scrollTeamInfinite(-1)"
                 class="bg-white p-3 rounded-full shadow hover:bg-blue-100"
                 aria-label="Scroll left"
               >
@@ -570,22 +578,15 @@
               </button>
               <!-- Dots -->
               <div
+                id="team-dots"
                 class="flex space-x-2"
                 aria-label="Team carousel position indicators"
               >
-                <span
-                  class="w-3 h-3 rounded-full transition-colors duration-200 bg-gray-400"
-                ></span>
-                <span
-                  class="w-3 h-3 rounded-full transition-colors duration-200 bg-gray-400"
-                ></span>
-                <span
-                  class="w-3 h-3 rounded-full transition-colors duration-200 bg-gray-400"
-                ></span>
+                <!-- Dots will be generated dynamically by JavaScript -->
               </div>
               <!-- Right -->
               <button
-                onclick="scrollTeam(1)"
+                onclick="scrollTeamInfinite(1)"
                 class="bg-white p-3 rounded-full shadow hover:bg-blue-100"
                 aria-label="Scroll right"
               >
@@ -608,16 +609,6 @@
           </div>
         </div>
       </section>
-      <style>
-        /* hide scrollbar */
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      </style>
 
       <!-- Testimonials Section -->
       <section
@@ -2213,19 +2204,128 @@
         });
       }
 
-      // Initialize carousel when page loads
+      // Team Carousel Variables
+      let currentTeamIndex = 3; // Start with CEO (Robbie) in center
+      const teamCardWidths = [150, 215, 290, 360, 290, 215, 150]; // Widths of each team member card
+      const teamCardGap = 24; // Gap between cards
+
+      function initTeamCarousel() {
+        const carousel = document.getElementById("team-carousel");
+        const members = carousel.querySelectorAll(".team-member");
+        const dotsContainer = document.getElementById("team-dots");
+
+        // Create dots based on number of team members
+        dotsContainer.innerHTML = "";
+        for (let i = 0; i < members.length; i++) {
+          const dot = document.createElement("span");
+          dot.className = `w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer ${
+            i === currentTeamIndex ? "bg-yellow-400" : "bg-gray-400"
+          }`;
+          dot.onclick = () => goToTeamSlide(i);
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function scrollTeamInfinite(direction) {
+        const carousel = document.getElementById("team-carousel");
+        const members = carousel.querySelectorAll(".team-member");
+        const totalMembers = members.length;
+
+        currentTeamIndex += direction;
+
+        // Handle infinite loop
+        if (currentTeamIndex >= totalMembers) {
+          currentTeamIndex = 0;
+        } else if (currentTeamIndex < 0) {
+          currentTeamIndex = totalMembers - 1;
+        }
+
+        updateTeamPosition();
+      }
+
+      function goToTeamSlide(index) {
+        currentTeamIndex = index;
+        updateTeamPosition();
+      }
+
+      function updateTeamPosition() {
+        const carousel = document.getElementById("team-carousel");
+        const members = carousel.querySelectorAll(".team-member");
+        const dots = document.querySelectorAll("#team-dots span");
+
+        // Calculate the offset to center the current member
+        let offsetToCenter = 0;
+        for (let i = 0; i < currentTeamIndex; i++) {
+          offsetToCenter += teamCardWidths[i] + teamCardGap;
+        }
+
+        // Add half of current card width to center it
+        offsetToCenter += teamCardWidths[currentTeamIndex] / 2;
+
+        // Center based on viewport
+        const viewportCenter = window.innerWidth / 2;
+        const translateX = viewportCenter - offsetToCenter;
+
+        carousel.style.transform = `translateX(${translateX}px)`;
+
+        // Update member scaling - make center member as big as Robbie
+        members.forEach((member, index) => {
+          const img = member.querySelector("img");
+
+          if (index === currentTeamIndex) {
+            // Center member - scale to Robbie's size (360x390)
+            const originalWidth = teamCardWidths[index];
+            const targetWidth = 360; // Robbie's width
+            const scale = targetWidth / originalWidth;
+
+            member.style.transform = `scale(${scale})`;
+            member.style.zIndex = "50";
+            img.style.borderColor = "#eab308"; // yellow border for center
+            img.style.borderWidth = "3px";
+            img.style.boxShadow = "0 25px 50px -12px rgba(0, 0, 0, 0.25)";
+          } else if (Math.abs(index - currentTeamIndex) === 1) {
+            // Adjacent members - normal size
+            member.style.transform = "scale(1.0)";
+            member.style.zIndex = "30";
+            img.style.borderColor = "transparent";
+            img.style.borderWidth = "0px";
+            img.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1)";
+          } else {
+            // Other members - smaller scale
+            member.style.transform = "scale(0.85)";
+            member.style.zIndex = "10";
+            img.style.borderColor = "transparent";
+            img.style.borderWidth = "0px";
+            img.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.1)";
+          }
+        });
+
+        // Update dots
+        dots.forEach((dot, index) => {
+          dot.className = `w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer ${
+            index === currentTeamIndex ? "bg-yellow-400" : "bg-gray-400"
+          }`;
+        });
+      }
+
+      // Initialize both carousels when page loads
       document.addEventListener("DOMContentLoaded", function () {
         initTestimonialsCarousel();
         updateTestimonialsPosition();
+        initTeamCarousel();
+        updateTeamPosition();
       });
 
-      // Update position on window resize
-      window.addEventListener("resize", updateTestimonialsPosition);
+      // Update positions on window resize
+      window.addEventListener("resize", function () {
+        updateTestimonialsPosition();
+        updateTeamPosition();
+      });
 
-      // Auto-scroll functionality (optional)
+      // Auto-scroll for team carousel (optional - slower than testimonials)
       setInterval(() => {
-        scrollTestimonialsInfinite(1);
-      }, 5000); // Auto-scroll every 5 seconds
+        scrollTeamInfinite(1);
+      }, 7000); // Auto-scroll every 7 seconds
     </script>
   </body>
 </html>
