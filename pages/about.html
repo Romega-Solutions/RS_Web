@@ -49,6 +49,91 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+      
+      /* Team Carousel Animation Styles */
+      .team-position {
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .team-member img {
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      /* Center Position Animation */
+      .team-center-animation {
+        animation: popInCenter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      
+      @keyframes popInCenter {
+        0% {
+          transform: scale(1.0);
+          opacity: 0.8;
+          filter: brightness(0.9);
+          box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+        }
+        50% {
+          transform: scale(1.25);
+          opacity: 0.95;
+          filter: brightness(1.05);
+          box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.35);
+        }
+        100% {
+          transform: scale(1.2);
+          opacity: 1;
+          filter: brightness(1.1);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+      }
+      
+      /* Glow effect for center position */
+      .team-center-glow {
+        position: relative;
+      }
+      
+      .team-center-glow::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: radial-gradient(circle, rgba(234, 179, 8, 0.3) 0%, transparent 70%);
+        border-radius: 50%;
+        opacity: 0;
+        animation: glowPulse 0.8s ease-in-out;
+        z-index: -1;
+      }
+      
+      @keyframes glowPulse {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.3);
+        }
+      }
+      
+      /* Smooth entrance animation for new images */
+      .team-image-enter {
+        animation: imageEnter 0.6s ease-out;
+      }
+      
+      @keyframes imageEnter {
+        0% {
+          opacity: 0;
+          transform: scale(0.9) translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
     </style>
   </head>
   <body>
@@ -446,109 +531,136 @@
             <div class="w-full">
               <div
                 id="team-carousel"
-                class="flex h-[450px] items-center gap-6 px-4 transition-transform duration-500 ease-in-out"
-                style="width: max-content"
+                class="flex h-[450px] items-center justify-center gap-0 px-4 transition-all duration-500 ease-in-out"
+                style="width: 100%; position: relative;"
                 aria-label="Team members carousel"
               >
-                <!-- Team Member 1 -->
-                <a
-                  href="https://www.linkedin.com/in/jennilyn-maalindog-484a1a213/"
-                  target="_blank"
-                  class="team-member flex-shrink-0 transition-all duration-300"
-                  aria-label="View Jennilyn Lapena's LinkedIn profile"
-                >
-                  <img
-                    src="../assets/images/homepage/jennilyn.png"
-                    alt="Jennilyn Lapena, HR Specialist"
-                    class="w-[150px] h-[150px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                  />
-                </a>
+                <!-- Team Member Position 0 (Far Left) -->
+                <div class="team-position flex-shrink-0 transition-all duration-500" style="margin-right: -30px;">
+                  <a
+                    id="position-0-link"
+                    href="https://www.linkedin.com/in/jerelylaguda/"
+                    target="_blank"
+                    class="team-member transition-all duration-300"
+                    aria-label="View team member's LinkedIn profile"
+                  >
+                    <img
+                      id="position-0-img"
+                      src="../assets/images/homepage/jem.png"
+                      alt="Team Member"
+                      class="w-[150px] h-[150px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                    />
+                  </a>
+                </div>
 
-                <!-- Team Member 2 -->
-                <a
-                  href="https://www.linkedin.com/in/christinevalenciaj/"
-                  target="_blank"
-                  class="team-member flex-shrink-0 transition-all duration-300"
-                  aria-label="View Christine Valerio's LinkedIn profile"
-                >
-                  <img
-                    src="../assets/images/homepage/christine.png"
-                    alt="Christine Valerio, Talent Acquisition"
-                    class="w-[215px] h-[230px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                  />
-                </a>
+                <!-- Team Member Position 1 (Left) -->
+                <div class="team-position flex-shrink-0 transition-all duration-500" style="margin-right: -40px;">
+                  <a
+                    id="position-1-link"
+                    href="https://www.linkedin.com/in/duanevargas/"
+                    target="_blank"
+                    class="team-member transition-all duration-300"
+                    aria-label="View team member's LinkedIn profile"
+                  >
+                    <img
+                      id="position-1-img"
+                      src="../assets/images/homepage/duane.png"
+                      alt="Team Member"
+                      class="w-[215px] h-[230px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                    />
+                  </a>
+                </div>
 
-                <!-- Team Member 3 -->
-                <a
-                  href="https://www.linkedin.com/in/jyarc/"
-                  target="_blank"
-                  class="team-member flex-shrink-0 transition-all duration-300"
-                  aria-label="View Jyrra Arcales's LinkedIn profile"
-                >
-                  <img
-                    src="../assets/images/homepage/jyrra.png"
-                    alt="Jyrra Arcales, Operations Manager"
-                    class="w-[290px] h-[308px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                  />
-                </a>
+                <!-- Team Member Position 2 (Left-Center) -->
+                <div class="team-position flex-shrink-0 transition-all duration-500" style="margin-right: -50px;">
+                  <a
+                    id="position-2-link"
+                    href="https://www.linkedin.com/in/cherry-ann-reyes-chrp-9b978061/"
+                    target="_blank"
+                    class="team-member transition-all duration-300"
+                    aria-label="View team member's LinkedIn profile"
+                  >
+                    <img
+                      id="position-2-img"
+                      src="../assets/images/homepage/cherry.png"
+                      alt="Team Member"
+                      class="w-[290px] h-[308px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                    />
+                  </a>
+                </div>
 
-                <!-- Team Member 4 - Center/CEO -->
-                <a
-                  href="https://www.linkedin.com/in/robbie-galoso-9913389/"
-                  target="_blank"
-                  class="team-member flex-shrink-0 transition-all duration-300"
-                  aria-label="View Robbie Galoso's LinkedIn profile"
-                >
-                  <img
-                    src="../assets/images/homepage/robbie.png"
-                    alt="Robbie Galoso, Founder and CEO"
-                    class="w-[360px] h-[390px] object-cover rounded-xl shadow-xl transition-transform duration-300 hover:scale-105 border-2 border-yellow-500"
-                  />
-                </a>
+                <!-- Team Member Position 3 (CENTER) -->
+                <div class="team-position flex-shrink-0 transition-all duration-500" style="margin-right: -50px; z-index: 50;" id="center-position">
+                  <a
+                    id="position-3-link"
+                    href="https://www.linkedin.com/in/robbie-galoso-9913389/"
+                    target="_blank"
+                    class="team-member transition-all duration-300"
+                    aria-label="View team member's LinkedIn profile"
+                  >
+                    <img
+                      id="position-3-img"
+                      src="../assets/images/homepage/robbie.png"
+                      alt="Team Member"
+                      class="w-[360px] h-[390px] object-cover rounded-xl shadow-xl transition-all duration-500 hover:scale-105 border-4 border-yellow-500"
+                    />
+                  </a>
+                </div>
 
-                <!-- Team Member 5 -->
-                <a
-                  href="https://www.linkedin.com/in/cherry-ann-reyes-chrp-9b978061/"
-                  target="_blank"
-                  class="team-member flex-shrink-0 transition-all duration-300"
-                  aria-label="View Cherry Ann Reyes's LinkedIn profile"
-                >
-                  <img
-                    src="../assets/images/homepage/cherry.png"
-                    alt="Cherry Ann Reyes, HR Consultant"
-                    class="w-[290px] h-[308px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                  />
-                </a>
+                <!-- Team Member Position 4 (Right-Center) -->
+                <div class="team-position flex-shrink-0 transition-all duration-500" style="margin-right: -40px;">
+                  <a
+                    id="position-4-link"
+                    href="https://www.linkedin.com/in/jyarc/"
+                    target="_blank"
+                    class="team-member transition-all duration-300"
+                    aria-label="View team member's LinkedIn profile"
+                  >
+                    <img
+                      id="position-4-img"
+                      src="../assets/images/homepage/jyrra.png"
+                      alt="Team Member"
+                      class="w-[290px] h-[308px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                    />
+                  </a>
+                </div>
 
-                <!-- Team Member 6 -->
-                <a
-                  href="https://www.linkedin.com/in/duanevargas/"
-                  target="_blank"
-                  class="team-member flex-shrink-0 transition-all duration-300"
-                  aria-label="View Duane Vargas's LinkedIn profile"
-                >
-                  <img
-                    src="../assets/images/homepage/duane.png"
-                    alt="Duane Vargas, Digital Marketing"
-                    class="w-[215px] h-[230px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                  />
-                </a>
+                <!-- Team Member Position 5 (Right) -->
+                <div class="team-position flex-shrink-0 transition-all duration-500" style="margin-right: -30px;">
+                  <a
+                    id="position-5-link"
+                    href="https://www.linkedin.com/in/christinevalenciaj/"
+                    target="_blank"
+                    class="team-member transition-all duration-300"
+                    aria-label="View team member's LinkedIn profile"
+                  >
+                    <img
+                      id="position-5-img"
+                      src="../assets/images/homepage/christine.png"
+                      alt="Team Member"
+                      class="w-[215px] h-[230px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                    />
+                  </a>
+                </div>
 
-                <!-- Team Member 7 -->
-                <a
-                  href="https://www.linkedin.com/in/jerelylaguda/"
-                  target="_blank"
-                  class="team-member flex-shrink-0 transition-all duration-300"
-                  aria-label="View Jem Laguada's LinkedIn profile"
-                >
-                  <img
-                    src="../assets/images/homepage/jem.png"
-                    alt="Jem Laguada, Recruitment Specialist"
-                    class="w-[150px] h-[150px] object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
-                  />
-                </a>
+                <!-- Team Member Position 6 (Far Right) -->
+                <div class="team-position flex-shrink-0 transition-all duration-500">
+                  <a
+                    id="position-6-link"
+                    href="https://www.linkedin.com/in/jennilyn-maalindog-484a1a213/"
+                    target="_blank"
+                    class="team-member transition-all duration-300"
+                    aria-label="View team member's LinkedIn profile"
+                  >
+                    <img
+                      id="position-6-img"
+                      src="../assets/images/homepage/jennilyn.png"
+                      alt="Team Member"
+                      class="w-[150px] h-[150px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
 
             <!-- Arrows + Dots -->
             <div
@@ -848,7 +960,7 @@
                         Ricardo Salvador
                       </div>
                       <div class="text-[#475569] text-source-sans text-[14px]">
-                        Former Intern
+                        Former Account Executive Intern
                       </div>
                     </div>
                     <div
@@ -975,7 +1087,11 @@
 
               <!-- Example of 3 new cards - you can add more by copying this structure -->
               <!-- Card 5 -->
-              <a href="#" target="_blank" class="flex-shrink-0">
+              <a
+                href="https://www.linkedin.com/in/mark-siazon/"
+                target="_blank"
+                class="flex-shrink-0"
+              >
                 <article
                   class="group block w-[313px] h-[380px] bg-[#f1f5f9] rounded-[32px] pt-6 px-6 text-center relative flex flex-col justify-between transition-transform duration-300 hover:scale-105 border-2 border-[#94a3b8] shadow-md"
                   aria-label="Testimonial from New Intern"
@@ -988,7 +1104,7 @@
                       class="bg-white rounded-full border-4 border-[#94a3b8] w-[120px] h-[120px] overflow-hidden flex items-center justify-center"
                     >
                       <img
-                        src="../assets/images/about/Audrey.png"
+                        src="../assets/images/about/mark.png"
                         alt="Portrait of new intern"
                         class="w-full h-full object-cover"
                       />
@@ -999,10 +1115,10 @@
                       <div
                         class="text-[20px] font-bold text-[#0284c7] text-source-sans mb-1"
                       >
-                        New Intern 1
+                        Mark Siazon
                       </div>
                       <div class="text-[#475569] text-source-sans text-[14px]">
-                        Position Title
+                        UI/UX Designer Intern
                       </div>
                     </div>
                     <div
@@ -1040,15 +1156,18 @@
                     <p
                       class="text-[#1e293b] text-[16px] text-source-sans leading-snug font-medium mt-2"
                     >
-                      "Your testimonial text goes here. Replace this with the
-                      actual testimonial from the intern."
+                      "During my internship, I was able to apply my creativity
+                      in designing user-friendly interfaces while learning to
+                      refine my attention to detail. This experience helped me
+                      grow as a UI/UX designer and allowed me to contribute
+                      meaningfully to the projects I worked on."
                     </p>
                   </div>
                 </article>
               </a>
 
               <!-- Card 6 -->
-              <a href="#" target="_blank" class="flex-shrink-0">
+              <a href="https://www.linkedin.com/in/gerard-francis-palma-32639a212/" target="_blank" class="flex-shrink-0">
                 <article
                   class="group block w-[313px] h-[380px] bg-[#f1f5f9] rounded-[32px] pt-6 px-6 text-center relative flex flex-col justify-between transition-transform duration-300 hover:scale-105 border-2 border-[#94a3b8] shadow-md"
                   aria-label="Testimonial from New Intern"
@@ -1061,7 +1180,7 @@
                       class="bg-white rounded-full border-4 border-[#94a3b8] w-[120px] h-[120px] overflow-hidden flex items-center justify-center"
                     >
                       <img
-                        src="../assets/images/about/Rob.png"
+                        src="../assets/images/about/PALMA.jpg"
                         alt="Portrait of new intern"
                         class="w-full h-full object-cover"
                       />
@@ -1072,10 +1191,10 @@
                       <div
                         class="text-[20px] font-bold text-[#0284c7] text-source-sans mb-1"
                       >
-                        New Intern 2
+                        Gerard Palma
                       </div>
                       <div class="text-[#475569] text-source-sans text-[14px]">
-                        Position Title
+                        Account Executive Intern
                       </div>
                     </div>
                     <div
@@ -1113,15 +1232,15 @@
                     <p
                       class="text-[#1e293b] text-[16px] text-source-sans leading-snug font-medium mt-2"
                     >
-                      "Your testimonial text goes here. Replace this with the
-                      actual testimonial from the intern."
+                         "As an Account Executive Intern, I learned how to build client relationships and strengthen my communication skills."
                     </p>
                   </div>
                 </article>
               </a>
 
               <!-- Card 7 -->
-              <a href="#" target="_blank" class="flex-shrink-0">
+              <a href="https://www.linkedin.com/in/eiran-john-pe%C3%B1aflor-aa48332bb/
+" target="_blank" class="flex-shrink-0">
                 <article
                   class="group block w-[313px] h-[380px] bg-[#f1f5f9] rounded-[32px] pt-6 px-6 text-center relative flex flex-col justify-between transition-transform duration-300 hover:scale-105 border-2 border-[#94a3b8] shadow-md"
                   aria-label="Testimonial from New Intern"
@@ -1134,7 +1253,7 @@
                       class="bg-white rounded-full border-4 border-[#94a3b8] w-[120px] h-[120px] overflow-hidden flex items-center justify-center"
                     >
                       <img
-                        src="../assets/images/about/Ricardo.png"
+                        src="../assets/images/about/Peñaflor.png"
                         alt="Portrait of new intern"
                         class="w-full h-full object-cover"
                       />
@@ -1145,10 +1264,10 @@
                       <div
                         class="text-[20px] font-bold text-[#0284c7] text-source-sans mb-1"
                       >
-                        New Intern 3
+                        Eiran John Peñaflor
                       </div>
                       <div class="text-[#475569] text-source-sans text-[14px]">
-                        Position Title
+                        Account Executive Intern
                       </div>
                     </div>
                     <div
@@ -1186,8 +1305,7 @@
                     <p
                       class="text-[#1e293b] text-[16px] text-source-sans leading-snug font-medium mt-2"
                     >
-                      "Your testimonial text goes here. Replace this with the
-                      actual testimonial from the intern."
+                     "My internship as an Account Executive helped me grow in client engagement, adaptability, and teamwork."
                     </p>
                   </div>
                 </article>
@@ -1211,12 +1329,12 @@
                 class="w-5 h-5 text-blue-800"
                 fill="none"
                 viewBox="0 0 24 24"
+                stroke-width="1.5"
                 stroke="currentColor"
               >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
                   d="M15 19l-7-7 7-7"
                 />
               </svg>
@@ -1240,12 +1358,12 @@
                 class="w-5 h-5 text-blue-800"
                 fill="none"
                 viewBox="0 0 24 24"
+                stroke-width="1.5"
                 stroke="currentColor"
               >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  stroke-width="2"
                   d="M9 5l7 7-7 7"
                 />
               </svg>
@@ -1582,7 +1700,7 @@
                             fill="none"
                           >
                             <path
-                              d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 14.993 7.539 20.193 9.399 21.799C9.57237 21.929 9.78329 21.9992 10 21.999M18 22V19M15 22C14.7348 22 14.4804 21.8946 14.2929 21.7071C14.1054 21.5196 14 21.2652 14 21V17C14 16.8354 14.0406 16.6734 14.1182 16.5282C14.1958 16.3831 14.3081 16.2593 14.445 16.168L17.445 14.168C17.6093 14.0584 17.8025 13.9999 18 13.9999C18.1975 13.9999 18.3907 14.0584 18.555 14.168L21.555 16.168C21.6919 16.2593 21.8042 16.3831 21.8818 16.5282C21.9594 16.6734 22 16.8354 22 17V21C22 21.2652 21.8946 21.5196 21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22H15ZM13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z"
+                              d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 14.993 7.539 20.193 9.399 21.799C9.57237 21.929 9.78329 21.9992 10 21.999M18 22V19M15 22C14.7348 22 14.4804 21.8946 14.2929 21.7071C14.1054 21.5196 14 21.2652 14 21V17C14 16.8354 14.0406 16.6734 14.1182 16.5282C14.1958 16.3831 14.3081 16.2593 14.445 16.168L17.445 14.168C17.6093 14.0584 17.8025 13.9999 18 13.9999C18.1975 13.9999 18.3907 14.0584 18.555 16.168L21.555 16.168C21.6919 16.2593 21.8042 16.3831 21.8818 16.5282C21.9594 16.6734 22 16.8354 22 17V21C22 21.2652 21.8946 21.5196 21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22H15ZM13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z"
                               stroke="#5381AC"
                               stroke-width="2"
                               stroke-linecap="round"
@@ -1667,145 +1785,7 @@
           <div class="max-h-[70vh] overflow-y-auto px-4 pb-4 sm:px-6">
             <div class="prose prose-sm max-w-none">
               <p class="text-sm text-gray-500 mb-6">
-                Last Updated: August 27, 2025
-              </p>
-
-              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-                AGREEMENT TO TERMS
-              </h4>
-              <p class="text-gray-700 mb-4">
-                These Terms & Conditions ("Terms") are a legally binding
-                agreement between you ("you" or "user"), whether personally or
-                on behalf of an organization, and Romega Solutions ("Company,"
-                "we," "our," or "us"), governing your access to and use of
-                www.romega-solutions.com and any related platforms, services, or
-                tools (collectively, the "Site").
-              </p>
-              <p class="text-gray-700 mb-4">
-                By accessing or using our Site, submitting your information, or
-                engaging our services, you agree to be bound by these Terms. If
-                you do not agree, you must immediately stop using the Site.
-              </p>
-              <p class="text-gray-700 mb-6">
-                We may update these Terms at any time, and the updated version
-                will be indicated by a "Last Updated" date. Your continued use
-                of the Site after changes are posted constitutes acceptance of
-                those changes.
-              </p>
-
-              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-                USE OF THE SITE
-              </h4>
-              <ul class="list-disc pl-6 text-gray-700 mb-6">
-                <li class="mb-2">
-                  You must be at least 18 years old to use this Site.
-                </li>
-                <li class="mb-2">
-                  You agree to use the Site only for lawful purposes and in
-                  compliance with all applicable laws.
-                </li>
-                <li class="mb-2">
-                  You agree not to use the Site in a way that may damage,
-                  disable, overburden, or impair our systems or interfere with
-                  others' use.
-                </li>
-              </ul>
-
-              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-                INFORMATION YOU PROVIDE
-              </h4>
-              <p class="text-gray-700 mb-3">
-                By submitting information (such as a resume, job application, or
-                business inquiry) you represent and warrant that:
-              </p>
-              <ul class="list-disc pl-6 text-gray-700 mb-4">
-                <li class="mb-2">
-                  The information is accurate, current, and complete.
-                </li>
-                <li class="mb-2">
-                  You have the right to share such information with us.
-                </li>
-                <li class="mb-2">
-                  You understand your information will be handled according to
-                  our Privacy Policy.
-                </li>
-              </ul>
-              <p class="text-gray-700 mb-6">
-                We are not responsible for verifying the accuracy of any
-                information submitted by users.
-              </p>
-
-              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-                CLIENT SERVICES
-              </h4>
-              <p class="text-gray-700 mb-6">
-                Clients engaging Romega Solutions for staffing, recruiting, or
-                consulting services may be required to enter into separate
-                agreements outlining scope, fees, and terms. Those agreements
-                shall take precedence over these Terms in the event of conflict.
-              </p>
-
-              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-                INTELLECTUAL PROPERTY
-              </h4>
-              <p class="text-gray-700 mb-6">
-                All content on the Site, including text, graphics, logos, and
-                software, is the property of Romega Solutions or its licensors
-                and is protected by copyright and trademark laws. You may not
-                copy, reproduce, or distribute any content without prior written
-                permission.
-              </p>
-
-              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-                THIRD-PARTY LINKS & SERVICES
-              </h4>
-              <p class="text-gray-700 mb-6">
-                The Site may contain links to third-party websites. We are not
-                responsible for the content, policies, or practices of any third
-                parties. Accessing these sites is at your own risk.
-              </p>
-
-              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-                DISCLAIMERS
-              </h4>
-              <ul class="list-disc pl-6 text-gray-700 mb-6">
-                <li class="mb-2">
-                  The Site is provided "as is" and "as available." We make no
-                  warranties, express or implied, about the accuracy,
-                  reliability, or availability of the Site or its content.
-                </li>
-                <li class="mb-2">
-                  Romega Solutions does not guarantee job placement for
-                  candidates or specific results for clients.
-                </li>
-                <li class="mb-2">
-                  We are not liable for any damages resulting from your use of
-                  the Site or services, including lost profits, data, or
-                  business opportunities.
-                </li>
-              </ul>
-
-              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-                INDEMNIFICATION
-              </h4>
-              <p class="text-gray-700 mb-6">
-                You agree to defend, indemnify, and hold harmless Romega
-                Solutions, its affiliates, employees, and partners from any
-                claims, damages, or expenses arising out of your use of the
-                Site, your submissions, or your violation of these Terms.
-              </p>
-
-              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-                GOVERNING LAW & DISPUTE RESOLUTION
-              </h4>
-              <p class="text-gray-700 mb-4">
-                These Terms are governed by the laws of the State of California,
-                without regard to conflict of laws principles.
-              </p>
-              <p class="text-gray-700 mb-6">
-                Disputes shall first be attempted to be resolved informally. If
-                unresolved, disputes will be subject to binding arbitration in
-                Los Angeles County, California, except where prohibited by law.
+                               Last Updated: August 27, 2025
               </p>
 
               <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
@@ -2113,7 +2093,7 @@
         }
         
         .prose h4 {
-          color: #1f2937;
+          color: #1f293b;
           font-weight: 600;
           font-size: 1.125rem;
           line-height: 1.75rem;
@@ -2204,19 +2184,61 @@
         });
       }
 
-      // Team Carousel Variables
+      // Team Carousel Variables - Enhanced with Professional Animation
       let currentTeamIndex = 3; // Start with CEO (Robbie) in center
-      const teamCardWidths = [150, 215, 290, 360, 290, 215, 150]; // Widths of each team member card
-      const teamCardGap = 24; // Gap between cards
+      let isAnimating = false; // Prevent rapid clicking during animations
+      
+      const teamMembers = [
+        {
+          name: "Jennilyn Lapena",
+          image: "../assets/images/homepage/jennilyn.png",
+          alt: "Jennilyn Lapena, HR Specialist",
+          link: "https://www.linkedin.com/in/jennilyn-maalindog-484a1a213/"
+        },
+        {
+          name: "Christine Valerio", 
+          image: "../assets/images/homepage/christine.png",
+          alt: "Christine Valerio, Talent Acquisition",
+          link: "https://www.linkedin.com/in/christinevalenciaj/"
+        },
+        {
+          name: "Jyrra Arcales",
+          image: "../assets/images/homepage/jyrra.png", 
+          alt: "Jyrra Arcales, Operations Manager",
+          link: "https://www.linkedin.com/in/jyarc/"
+        },
+        {
+          name: "Robbie Galoso",
+          image: "../assets/images/homepage/robbie.png",
+          alt: "Robbie Galoso, Founder and CEO", 
+          link: "https://www.linkedin.com/in/robbie-galoso-9913389/"
+        },
+        {
+          name: "Cherry Ann Reyes",
+          image: "../assets/images/homepage/cherry.png",
+          alt: "Cherry Ann Reyes, HR Consultant",
+          link: "https://www.linkedin.com/in/cherry-ann-reyes-chrp-9b978061/"
+        },
+        {
+          name: "Duane Vargas",
+          image: "../assets/images/homepage/duane.png",
+          alt: "Duane Vargas, Digital Marketing", 
+          link: "https://www.linkedin.com/in/duanevargas/"
+        },
+        {
+          name: "Jem Laguada",
+          image: "../assets/images/homepage/jem.png",
+          alt: "Jem Laguada, Recruitment Specialist",
+          link: "https://www.linkedin.com/in/jerelylaguda/"
+        }
+      ];
 
       function initTeamCarousel() {
-        const carousel = document.getElementById("team-carousel");
-        const members = carousel.querySelectorAll(".team-member");
         const dotsContainer = document.getElementById("team-dots");
 
         // Create dots based on number of team members
         dotsContainer.innerHTML = "";
-        for (let i = 0; i < members.length; i++) {
+        for (let i = 0; i < teamMembers.length; i++) {
           const dot = document.createElement("span");
           dot.className = `w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer ${
             i === currentTeamIndex ? "bg-yellow-400" : "bg-gray-400"
@@ -2224,12 +2246,15 @@
           dot.onclick = () => goToTeamSlide(i);
           dotsContainer.appendChild(dot);
         }
+
+        updateTeamPosition();
       }
 
       function scrollTeamInfinite(direction) {
-        const carousel = document.getElementById("team-carousel");
-        const members = carousel.querySelectorAll(".team-member");
-        const totalMembers = members.length;
+        // Prevent rapid clicking during animations
+        if (isAnimating) return;
+        
+        const totalMembers = teamMembers.length;
 
         currentTeamIndex += direction;
 
@@ -2244,61 +2269,105 @@
       }
 
       function goToTeamSlide(index) {
+        // Prevent rapid clicking during animations
+        if (isAnimating) return;
+        
         currentTeamIndex = index;
         updateTeamPosition();
       }
 
       function updateTeamPosition() {
-        const carousel = document.getElementById("team-carousel");
-        const members = carousel.querySelectorAll(".team-member");
+        // Set animation flag
+        isAnimating = true;
+        
         const dots = document.querySelectorAll("#team-dots span");
+        const totalMembers = teamMembers.length;
+        const centerPosition = document.getElementById("center-position");
 
-        // Calculate the offset to center the current member
-        let offsetToCenter = 0;
-        for (let i = 0; i < currentTeamIndex; i++) {
-          offsetToCenter += teamCardWidths[i] + teamCardGap;
+        // Calculate which team member should be in each position
+        const positions = [];
+        for (let i = 0; i < 7; i++) {
+          const memberIndex = (currentTeamIndex - 3 + i + totalMembers) % totalMembers;
+          positions.push(memberIndex);
         }
 
-        // Add half of current card width to center it
-        offsetToCenter += teamCardWidths[currentTeamIndex] / 2;
-
-        // Center based on viewport
-        const viewportCenter = window.innerWidth / 2;
-        const translateX = viewportCenter - offsetToCenter;
-
-        carousel.style.transform = `translateX(${translateX}px)`;
-
-        // Update member scaling - make center member as big as Robbie
-        members.forEach((member, index) => {
-          const img = member.querySelector("img");
-
-          if (index === currentTeamIndex) {
-            // Center member - scale to Robbie's size (360x390)
-            const originalWidth = teamCardWidths[index];
-            const targetWidth = 360; // Robbie's width
-            const scale = targetWidth / originalWidth;
-
-            member.style.transform = `scale(${scale})`;
-            member.style.zIndex = "50";
-            img.style.borderColor = "#eab308"; // yellow border for center
-            img.style.borderWidth = "3px";
-            img.style.boxShadow = "0 25px 50px -12px rgba(0, 0, 0, 0.25)";
-          } else if (Math.abs(index - currentTeamIndex) === 1) {
-            // Adjacent members - normal size
-            member.style.transform = "scale(1.0)";
-            member.style.zIndex = "30";
-            img.style.borderColor = "transparent";
-            img.style.borderWidth = "0px";
-            img.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1)";
-          } else {
-            // Other members - smaller scale
-            member.style.transform = "scale(0.85)";
-            member.style.zIndex = "10";
-            img.style.borderColor = "transparent";
-            img.style.borderWidth = "0px";
-            img.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.1)";
-          }
+        // Update each position with the correct team member
+        positions.forEach((memberIndex, positionIndex) => {
+          const img = document.getElementById(`position-${positionIndex}-img`);
+          const link = document.getElementById(`position-${positionIndex}-link`);
+          const member = teamMembers[memberIndex];
+          
+          // Add entrance animation to new images
+          img.classList.add("team-image-enter");
+          
+          img.src = member.image;
+          img.alt = member.alt;
+          link.href = member.link;
+          link.setAttribute('aria-label', `View ${member.name}'s LinkedIn profile`);
+          
+          // Remove entrance animation after it completes
+          setTimeout(() => {
+            img.classList.remove("team-image-enter");
+          }, 600);
         });
+
+        // Apply scaling and styling based on distance from center (position 3)
+        for (let i = 0; i < 7; i++) {
+          const position = document.querySelector(`#position-${i}-img`).parentElement;
+          const img = document.querySelector(`#position-${i}-img`);
+          const distanceFromCenter = Math.abs(i - 3);
+
+          // Reset all styles first
+          position.style.transform = "";
+          position.style.zIndex = "";
+          img.style.borderColor = "";
+          img.style.borderWidth = "";
+          img.style.boxShadow = "";
+          img.style.filter = "";
+          
+          // Remove any existing animation classes
+          img.classList.remove("team-center-animation");
+          position.classList.remove("team-center-glow");
+
+          if (i === 3) {
+            // Center position - highlighted with largest scale and special animation
+            position.style.transform = "scale(1.2)";
+            position.style.zIndex = "50";
+            img.style.borderColor = "#eab308"; // yellow border for center
+            img.style.borderWidth = "4px";
+            img.style.boxShadow = "0 25px 50px -12px rgba(0, 0, 0, 0.4)";
+            img.style.filter = "brightness(1.1)";
+            
+            // Add professional center animation
+            img.classList.add("team-center-animation");
+            position.classList.add("team-center-glow");
+            
+          } else if (distanceFromCenter === 1) {
+            // Adjacent positions - normal size, higher z-index
+            position.style.transform = "scale(1.0)";
+            position.style.zIndex = "40";
+            img.style.borderColor = "rgba(255, 255, 255, 0.4)";
+            img.style.borderWidth = "2px";
+            img.style.boxShadow = "0 15px 30px -8px rgba(0, 0, 0, 0.3)";
+            img.style.filter = "brightness(1.0)";
+          } else if (distanceFromCenter === 2) {
+            // Second ring - medium scale
+            position.style.transform = "scale(0.85)";
+            position.style.zIndex = "30";
+            img.style.borderColor = "rgba(255, 255, 255, 0.2)";
+            img.style.borderWidth = "1px";
+            img.style.boxShadow = "0 10px 20px -5px rgba(0, 0, 0, 0.2)";
+            img.style.filter = "brightness(0.9)";
+          } else {
+            // Outer positions - smallest scale and dimmed, lowest z-index
+            position.style.transform = "scale(0.7)";
+            position.style.zIndex = "20";
+            img.style.borderColor = "transparent";
+            img.style.borderWidth = "0px";
+            img.style.boxShadow = "0 5px 15px -3px rgba(0, 0, 0, 0.15)";
+            img.style.filter = "brightness(0.7)";
+          }
+        }
 
         // Update dots
         dots.forEach((dot, index) => {
@@ -2306,6 +2375,11 @@
             index === currentTeamIndex ? "bg-yellow-400" : "bg-gray-400"
           }`;
         });
+        
+        // Reset animation flag after animations complete
+        setTimeout(() => {
+          isAnimating = false;
+        }, 800); // Match the longest animation duration
       }
 
       // Initialize both carousels when page loads
@@ -2313,7 +2387,6 @@
         initTestimonialsCarousel();
         updateTestimonialsPosition();
         initTeamCarousel();
-        updateTeamPosition();
       });
 
       // Update positions on window resize
@@ -2328,4 +2401,5 @@
       }, 7000); // Auto-scroll every 7 seconds
     </script>
   </body>
-</html>
+</html>">
+                
