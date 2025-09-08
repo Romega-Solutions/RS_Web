@@ -269,6 +269,7 @@
 
     <main
       class="relative min-h-screen w-full max-w-[1440px] mx-auto overflow-hidden xl:overflow-visible"
+      id="main-content"
     >
       <!-- Background Image Container -->
       <div class="bg-clip-content">
@@ -276,27 +277,31 @@
           src="../assets/images/contacts/bg-romega.svg"
           class="absolute top-0 left-[-64px] w-auto h-auto opacity-10 -z-10"
           aria-hidden="true"
-          alt="background"
+          alt=""
         />
         <!-- Ellipse 793 BG Top Right 1 -->
         <span
           class="size-80 bg-blue-100 rounded-full absolute top-[-131px] right-[-30px]"
+          aria-hidden="true"
         >
         </span>
         <!-- Ellipse 794 BG Top Right 2 -->
         <span
           class="size-80 bg-blue-200 rounded-full absolute top-[55px] right-[-128px] opacity-80"
+          aria-hidden="true"
         >
         </span>
 
         <!-- Ellipse 795 BG Bottom Left 1 -->
         <span
           class="size-80 bg-blue-100 rounded-full absolute bottom-[-160px] left-[-134px]"
+          aria-hidden="true"
         >
         </span>
         <!-- Ellipse 796 BG Bottom Left 2 -->
         <span
           class="size-80 bg-blue-200 rounded-full absolute bottom-[-258px] left-[52px]"
+          aria-hidden="true"
         >
         </span>
       </div>
@@ -309,7 +314,6 @@
           <h1
             id="contact-heading"
             class="text-merriweather-h3 md:text-merriweather-h1 text-[40px] text-[var(--rs-primary-600)] font-bold relative z-10 mb-1 mt-[58px]"
-            tabindex="0"
           >
             Contact Us
           </h1>
@@ -327,20 +331,24 @@
             <!-- Left Side - Contact Information (Hidden on sm/md) -->
             <div
               class="lg:block bg-gray-800 text-white p-8 md:p-12 relative overflow-hidden max-w-[491px] h-fit sm:h-full lg:max-h-[527px] md:min-h-full lg:h-[527px] w-full order-2 lg:order-1 rounded-[4px]"
+              role="complementary"
+              aria-labelledby="contact-info-heading"
             >
               <!-- Background decorative elements -->
               <div class="relative">
                 <!-- Ellipse 793 BG Bottom Left 2 -->
                 <span
                   class="size-36 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[288px] right-[64px]"
+                  aria-hidden="true"
                 ></span>
                 <span
                   class="size-64 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[314px] right-[-95px]"
+                  aria-hidden="true"
                 ></span>
               </div>
 
               <div class="relative z-10">
-                <h2 class="text-rs-neutral-200 text-[28px] font-semibold mb-3">
+                <h2 id="contact-info-heading" class="text-rs-neutral-200 text-[28px] font-semibold mb-3">
                   Contact Information
                 </h2>
                 <p
@@ -517,18 +525,22 @@
                       © 2025 Romega Solutions. All rights reserved
                     </p>
                     <div class="flex gap-8 text-base flex-1 justify-end">
-                      <a
+                      <button
                         onclick="openPrivacyModal()"
-                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline"
+                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline bg-transparent border-none cursor-pointer p-0"
+                        type="button"
+                        aria-label="Open Privacy Policy"
                       >
                         Privacy Policy
-                      </a>
-                      <a
-                        href="404.html"
-                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline"
+                      </button>
+                      <button
+                        onclick="openTermsModal()"
+                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline bg-transparent border-none cursor-pointer p-0"
+                        type="button"
+                        aria-label="Open Terms of Service"
                       >
                         Terms of Service
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -539,7 +551,7 @@
             <div
               class="sm:min-w-[362px] max-w-[595px] w-full p-4 sm:p-8 md:p-10 lg:p-12 relative order-1 lg:order-2"
             >
-              <form id="contact-form" class="space-y-8 z-10 relative">
+              <form id="contact-form" class="space-y-8 z-10 relative" novalidate>
                 <!-- Name Fields Row -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                   <div>
@@ -555,7 +567,9 @@
                       name="firstName"
                       class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                       required
+                      aria-describedby="firstName-error"
                     />
+                    <div id="firstName-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
                   </div>
                   <div>
                     <label
@@ -571,7 +585,9 @@
                       placeholder="Doe"
                       class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                       required
+                      aria-describedby="lastName-error"
                     />
+                    <div id="lastName-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
                   </div>
                 </div>
 
@@ -590,7 +606,9 @@
                       name="email"
                       class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                       required
+                      aria-describedby="email-error"
                     />
+                    <div id="email-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
                   </div>
                   <div>
                     <label
@@ -600,7 +618,7 @@
                       Select Subject <span class="text-red-500">*</span>
                     </label>
                     <div class="relative">
-                      <div class="pointer-events-none absolute left-2 top-3">
+                      <div class="pointer-events-none absolute left-2 top-3" aria-hidden="true">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="13"
@@ -621,6 +639,7 @@
                         name="subject"
                         class="w-full appearance-none border-0 border-b-2 border-[var(--rs-primary-800)] bg-transparent px-0 py-2 pl-7 text-[var(--rs-neutral-500)] focus:border-blue-500 focus:outline-none"
                         required
+                        aria-describedby="subject-error"
                       >
                         <option value="">General Inquiry</option>
                         <option value="services">Services</option>
@@ -628,7 +647,8 @@
                         <option value="careers">Careers</option>
                         <option value="support">Support</option>
                       </select>
-                      <div class="absolute right-0 top-2 pointer-events-none">
+                      <div id="subject-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
+                      <div class="absolute right-0 top-2 pointer-events-none" aria-hidden="true">
                         <svg
                           class="w-5 h-5 text-gray-400"
                           fill="none"
@@ -687,9 +707,10 @@
                       autocomplete="tel"
                       class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                       required
-                      aria-describedby="phone-hint"
+                      aria-describedby="phone-error phone-hint"
                       pattern="[\+]?[0-9\s\-\(\)]{10,}"
                     />
+                    <div id="phone-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
                     <div id="phone-hint" class="sr-only">
                       Enter your phone number including country code if
                       international
@@ -712,7 +733,9 @@
                     placeholder="Write your message..."
                     class="w-full px-3 py-3 border-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent resize-none rounded-lg text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                     required
+                    aria-describedby="message-error"
                   ></textarea>
+                  <div id="message-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
                 </div>
 
                 <!-- Action Buttons -->
@@ -725,8 +748,9 @@
                     Send Message
                     <img
                       src="../assets/images/icon-send.svg"
-                      alt="Send Icon"
+                      alt=""
                       class="w-5 h-5"
+                      aria-hidden="true"
                     />
                   </button>
 
@@ -761,8 +785,9 @@
                         >
                         <img
                           src="../assets/images/icon-calendar-days-2.svg"
-                          alt="Calendar Icon"
+                          alt=""
                           class="w-5 h-5"
+                          aria-hidden="true"
                         />
                       </div>
                     </button>
@@ -778,10 +803,11 @@
               <!-- BG container behind form -->
               <div
                 class="absolute bottom-0 right-[-5%] pointer-events-none z-0 hidden md:block"
+                aria-hidden="true"
               >
                 <img
                   src="../assets/images/contacts/bg-letter-send.png"
-                  alt="Background Illustration of letter being sent"
+                  alt=""
                   class="w-auto"
                 />
               </div>
@@ -806,19 +832,23 @@
             <p class="text-[var(--rs-neutral-400)] text-base flex-shrink-0">
               © 2025 Romega Solutions. All rights reserved
             </p>
-            <div class="flex gap-6 text-base flex-1 justify-end mr-[95px]">
-              <a
+                  <div class="flex gap-6 text-base flex-1 justify-end mr-[95px]">
+              <button
                 onclick="openPrivacyModal()"
-                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline"
+                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                type="button"
+                aria-label="Open Privacy Policy"
               >
                 Privacy Policy
-              </a>
-              <a
+              </button>
+              <button
                 onclick="openTermsModal()"
-                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline"
+                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                type="button"
+                aria-label="Open Terms of Service"
               >
                 Terms of Service
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -828,9 +858,10 @@
     <!-- Footer Container -->
     <footer
       class="bg-[var(--rs-neutral-100)] border-t-2 border-[var(--rs-neutral-grey-400)] py-10 font-sans relative"
+      role="contentinfo"
     >
       <!-- Scroll to Top Button -->
-      <a href="#">
+      <a href="#main-content" aria-label="Scroll to top of page">
         <button
           class="absolute -top-5 right-4 lg:right-12 hover:opacity-75 transition-opacity duration-300 z-10"
           aria-label="Scroll to top"

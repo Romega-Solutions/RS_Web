@@ -244,16 +244,17 @@
     </header>
 
   <!-- Services Page Content -->
-  <main class="min-h-screen bg-pattern pt-[104px]">
+  <main class="min-h-screen bg-pattern pt-[104px]" id="main-content">
     <!-- Hero Section -->
-    <section class="pt-16 sm:pt-20 lg:pt-24 relative">
+    <section class="pt-16 sm:pt-20 lg:pt-24 relative" aria-labelledby="hero-heading">
       <div class="max-w-6xl mx-auto">
         <!-- Background Logo Pattern -->
         <div class="relative">
-          <img src="../assets/images/bg-romega-logo.png" alt="Romega Logo Background"
-            class="absolute -top-40 w-96 -z-20 left-1/2 -translate-x-1/2 lg:-left-20 lg:translate-x-0">
+          <img src="../assets/images/bg-romega-logo.png" alt=""
+            class="absolute -top-40 w-96 -z-20 left-1/2 -translate-x-1/2 lg:-left-20 lg:translate-x-0" aria-hidden="true">
           <div class="relative z-10 text-center mx-auto max-w-[90%] md:max-w-[80%] xl:max-w-full mx-auto">
             <h1
+              id="hero-heading"
               class="self-stretch justify-start text-rs-primary-700 text-3xl sm:text-[40px] font-bold text-merriweather  leading-tight">
               Recruitment re-engineered for speed and fit
             </h1>
@@ -271,7 +272,8 @@
         </div>
 
         <!-- Service Grid - Mobile First -->
-        <section class="flex flex-col gap-8 mx-auto w-full items-center sm:w-fit sm:flex-col lg:flex-row">
+        <section class="flex flex-col gap-8 mx-auto w-full items-center sm:w-fit sm:flex-col lg:flex-row" aria-labelledby="services-grid-heading">
+          <h2 id="services-grid-heading" class="sr-only">Our Service Categories</h2>
           <!-- First Row -->
           <div class="flex flex-col sm:flex-row gap-8">
             <!-- RPO Card -->
@@ -390,7 +392,8 @@
       </div>
 
       <!-- Other Services Section -->
-      <section class="my-8 sm:my-12 max-w-[816px] rounded-[6px] mx-auto border-rs-neutral-300 border-[1.25px]">
+      <section class="my-8 sm:my-12 max-w-[816px] rounded-[6px] mx-auto border-rs-neutral-300 border-[1.25px]" aria-labelledby="other-services-heading">
+        <h2 id="other-services-heading" class="sr-only">Detailed Service Information</h2>
         <!-- Displays a grid of services with expandable details -->
         <!-- RPO Program Detail Section -->
         <div class="
@@ -404,7 +407,7 @@
               border-b border-rs-neutral-400
               rounded-t-xl
               p-4 sm:p-6
-            " onclick="toggleExpandable('rpo-detail')">
+            " onclick="toggleExpandable('rpo-detail')" role="button" tabindex="0" aria-expanded="false" aria-controls="rpo-detail" onkeydown="if(event.key==='Enter'||event.key===' '){toggleExpandable('rpo-detail')}"">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/feature-1/accordion-icon-1.svg" alt="RPO Icon" class="w-5 h-5">
@@ -566,7 +569,7 @@
               border-b border-rs-neutral-400
               p-4
               sm:p-6
-            " onclick="toggleExpandable('bpo-detail')">
+            " onclick="toggleExpandable('bpo-detail')" role="button" tabindex="0" aria-expanded="false" aria-controls="bpo-detail" onkeydown="if(event.key==='Enter'||event.key===' '){toggleExpandable('bpo-detail')}"">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/feature-1/accordion-icon-2.svg" alt="BPO Icon" class="w-5 h-5">
@@ -692,7 +695,7 @@
 
         <!-- Strategic HR Service -->
         <div class="bg-rs-primary-50 shadow-lg overflow-hidden">
-          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer" onclick="toggleExpandable('hr-detail')">
+          <div class="p-4 sm:p-6 border-b border-rs-neutral-400 cursor-pointer" onclick="toggleExpandable('hr-detail')" role="button" tabindex="0" aria-expanded="false" aria-controls="hr-detail" onkeydown="if(event.key==='Enter'||event.key===' '){toggleExpandable('hr-detail')}"">>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/feature-1/accordion-icon-3.svg" alt="Strategic HR Icon"
@@ -772,7 +775,7 @@
               border-b border-rs-neutral-400
               p-4
               sm:p-6
-            " onclick="toggleExpandable('quality-detail')">
+            " onclick="toggleExpandable('quality-detail')" role="button" tabindex="0" aria-expanded="false" aria-controls="quality-detail" onkeydown="if(event.key==='Enter'||event.key===' '){toggleExpandable('quality-detail')}"">>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/feature-1/accordion-icon-4.svg" alt="Quality Hire Icon"
@@ -928,7 +931,7 @@
               border-b border-rs-neutral-400
               p-4
               sm:p-6
-            " onclick="toggleExpandable('mentoring-detail')">
+            " onclick="toggleExpandable('mentoring-detail')" role="button" tabindex="0" aria-expanded="false" aria-controls="mentoring-detail" onkeydown="if(event.key==='Enter'||event.key===' '){toggleExpandable('mentoring-detail')}"">>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/feature-1/accordion-icon-5.svg" alt="Mentoring Icon" class="w-5 h-5">
@@ -1082,7 +1085,7 @@
               border-b border-rs-neutral-400
               p-4
               sm:p-6
-            " onclick="toggleExpandable('teaching-detail')">
+            " onclick="toggleExpandable('teaching-detail')" role="button" tabindex="0" aria-expanded="false" aria-controls="teaching-detail" onkeydown="if(event.key==='Enter'||event.key===' '){toggleExpandable('teaching-detail')}"">>
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-[6px]">
                 <img src="/assets/images/services/feature-1/accordion-icon-6.svg" alt="Teaching Icon" class="w-5 h-5">
@@ -1481,7 +1484,7 @@
                   bg-rs-primary-50
                   outline outline-1 outline-offset-[-1px] outline-slate-400
                   cursor-pointer
-                " onclick="toggleFAQ('faq-1')">
+                " onclick="toggleFAQ('faq-1')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-1" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFAQ('faq-1')}"">>
                 <div class="
                   flex items-start justify-start
                   flex-1
@@ -1587,7 +1590,7 @@
                   bg-rs-primary-50
                   outline outline-1 outline-offset-[-1px] outline-slate-400
                   cursor-pointer
-                " onclick="toggleFAQ('faq-2')">
+                " onclick="toggleFAQ('faq-2')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-2" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFAQ('faq-2')}"">>
                 <div class="
                   flex items-start justify-start
                   flex-1
@@ -1694,7 +1697,7 @@
                   bg-rs-primary-50
                   outline outline-1 outline-offset-[-1px] outline-slate-400
                   cursor-pointer
-                " onclick="toggleFAQ('faq-3')">
+                " onclick="toggleFAQ('faq-3')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-3" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFAQ('faq-3')}">>
                 <div class="
                   flex items-start justify-start
                   flex-1
@@ -1800,7 +1803,7 @@
                   bg-rs-primary-50
                   outline outline-1 outline-offset-[-1px] outline-slate-400
                   cursor-pointer
-                " onclick="toggleFAQ('faq-4')">
+                " onclick="toggleFAQ('faq-4')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-4" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFAQ('faq-4')}">>
                 <div class="
                   flex items-start justify-start
                   flex-1
@@ -1906,7 +1909,7 @@
                   bg-rs-primary-50
                   outline outline-1 outline-offset-[-1px] outline-slate-400
                   cursor-pointer
-                " onclick="toggleFAQ('faq-5')">
+                " onclick="toggleFAQ('faq-5')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-5" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFAQ('faq-5')}">>
                 <div class="
                   flex items-start justify-start
                   flex-1
@@ -1935,7 +1938,8 @@
                   </span>
                 </div>
               </div>
-              <div id="faq-5" class="hidden faq-content" <div class="
+              <div id="faq-5" class="hidden faq-content">
+                <div class="
                   flex flex-col items-center justify-center
                   w-full
                   gap-6
@@ -2010,7 +2014,7 @@
                     bg-rs-primary-50
                     outline outline-1 outline-offset-[-1px] outline-slate-400
                     cursor-pointer
-                  " onclick="toggleFAQ('faq-6')">
+                  " onclick="toggleFAQ('faq-6')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-6" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFAQ('faq-6')}">>
                 <div class="
                     flex items-start justify-start
                     flex-1
@@ -2116,7 +2120,7 @@
                     bg-rs-primary-50
                     outline outline-1 outline-offset-[-1px] outline-slate-400
                     cursor-pointer
-                  " onclick="toggleFAQ('faq-7')">
+                  " onclick="toggleFAQ('faq-7')" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-7" onkeydown="if(event.key==='Enter'||event.key===' '){toggleFAQ('faq-7')}"">>
                 <div class="
                     flex items-start justify-start
                     flex-1
@@ -2469,9 +2473,10 @@
  <!-- Footer Container -->
     <footer
       class="bg-[var(--rs-neutral-100)] border-t-2 border-[var(--rs-neutral-grey-400)] py-10 font-sans relative"
+      role="contentinfo"
     >
       <!-- Scroll to Top Button -->
-      <a href="#">
+      <a href="#main-content" aria-label="Scroll to top of page">
         <button
           class="absolute -top-5 right-4 lg:right-12 hover:opacity-75 transition-opacity duration-300 z-10"
           aria-label="Scroll to top"
