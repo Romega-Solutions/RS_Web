@@ -176,7 +176,7 @@
                 <a
                   href="index.html"
                   id="nav-home"
-                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                  class="navbar-custom text-[var(--rs-neutral-500)] whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
                 >
                   Home
                 </a>
@@ -190,14 +190,14 @@
                 <a
                   href="services.html"
                   id="nav-services"
-                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                  class="navbar-custom text-[var(--rs-neutral-500)] whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
                 >
                   Services
                 </a>
                 <a
                   href="careers.html"
                   id="nav-careers"
-                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                  class="navbar-custom text-[var(--rs-neutral-500)] whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
                 >
                   Careers & Talent
                 </a>
@@ -211,7 +211,7 @@
                 <a
                   href="contact.html"
                   id="nav-contact"
-                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                  class="navbar-custom text-[var(--rs-neutral-500)] whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
                 >
                   Contact
                 </a>
@@ -220,7 +220,7 @@
 
             <!-- Book a Call Button -->
             <a
-              href="https://meetings.hubspot.com/robbie-galoso"
+              href="https://calendly.com/romega-solutions/discoverycall"
               id="nav-cta"
               class="hidden h-[46px] items-center justify-center align-middle rounded-xl border-[1.5px] border-rs-primary-600 bg-rs-primary-500 px-[10px] text-[18px] font-medium text-rs-primary-100 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)] transition duration-300 hover:bg-rs-primary-700 lg:inline-flex lg:min-w-[172px] lg:px-[28px]"
             >
@@ -278,7 +278,7 @@
             <a
               href="careers.html"
               id="mobile-nav-careers"
-              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-600)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
             >
               Careers & Talent
             </a>
@@ -292,7 +292,7 @@
             <a
               href="contact.html"
               id="mobile-nav-contact"
-              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-600)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
+              class=" block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
             >
               Contact
             </a>
@@ -300,7 +300,7 @@
             <a
               href="contact.html"
               id="mobile-nav-cta"
-              class="mt-4 mx-0 flex items-center justify-center rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
+              class="mt-4 mx-0 flex items-center justify-center text-[var(--rs-neutral-500)] rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
               role="button"
               aria-label="Book a call with Romega Solutions"
             >
@@ -1594,7 +1594,7 @@
             <!-- Schedule Button: Mobile & Medium -->
             <div class="w-full flex lg:hidden justify-center mt-4">
               <a
-                href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+                href="https://calendly.com/romega-solutions/discoverycall"
                 class="block w-full"
               >
                 <button
@@ -1613,7 +1613,7 @@
             <!-- Schedule Button: Desktop Only -->
             <div class="hidden lg:flex w-full justify-center mt-4">
               <a
-                href="https://meetings.hubspot.com/robbie-galoso"
+                href="https://calendly.com/romega-solutions/discoverycall"
                 class="block w-full"
               >
                 <button
@@ -2323,6 +2323,70 @@
       ];
 
       function initTeamCarousel() {
+        const carousel = document.getElementById("testimonials-carousel");
+        const cards = carousel.querySelectorAll(".flex-shrink-0");
+        const dotsContainer = document.getElementById("testimonials-dots");
+
+        // Create dots based on number of cards
+        dotsContainer.innerHTML = "";
+        for (let i = 0; i < cards.length; i++) {
+          const dot = document.createElement("span");
+          dot.className = `w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer ${
+            i === 0 ? "bg-yellow-400" : "bg-gray-400"
+          }`;
+          dot.onclick = () => goToTestimonialSlide(i);
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function scrollTestimonialsInfinite(direction) {
+        const carousel = document.getElementById("testimonials-carousel");
+        const cards = carousel.querySelectorAll(".flex-shrink-0");
+        const totalCards = cards.length;
+
+        currentTestimonialIndex += direction;
+
+        // Handle infinite loop
+        if (currentTestimonialIndex >= totalCards) {
+          currentTestimonialIndex = 0;
+        } else if (currentTestimonialIndex < 0) {
+          currentTestimonialIndex = totalCards - 1;
+        }
+
+        updateTestimonialsPosition();
+      }
+
+      function goToTestimonialSlide(index) {
+        currentTestimonialIndex = index;
+        updateTestimonialsPosition();
+      }
+
+      function updateTestimonialsPosition() {
+        const carousel = document.getElementById("testimonials-carousel");
+        const dots = document.querySelectorAll("#testimonials-dots span");
+
+        // Calculate transform based on viewport width
+        const viewportWidth = window.innerWidth;
+        let cardsVisible = Math.floor(viewportWidth / testimonialCardWidth);
+        cardsVisible = Math.max(1, cardsVisible); // At least 1 card visible
+
+        // Center the cards
+        const offset =
+          (viewportWidth - cardsVisible * testimonialCardWidth) / 2;
+        const translateX =
+          -currentTestimonialIndex * testimonialCardWidth + offset;
+
+        carousel.style.transform = `translateX(${translateX}px)`;
+
+        // Update dots
+        dots.forEach((dot, index) => {
+          dot.className = `w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer ${
+            index === currentTestimonialIndex ? "bg-yellow-400" : "bg-gray-400"
+          }`;
+        });
+      }
+
+      function initTeamCarousel() {
         const dotsContainer = document.getElementById("team-dots");
 
         // Create dots based on number of team members
@@ -2490,5 +2554,4 @@
       }, 7000); // Auto-scroll every 7 seconds
     </script>
   </body>
-</html>">
-                
+</html>
