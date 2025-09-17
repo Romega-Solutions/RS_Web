@@ -298,7 +298,7 @@
             </a>
             <!-- Mobile CTA Button -->
             <a
-              href="contact.html"
+              href="https://calendly.com/romega-solutions/discoverycall"
               id="mobile-nav-cta"
               class="mt-4 mx-0 flex items-center justify-center text-[var(--rs-neutral-500)] rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
               role="button"
@@ -517,18 +517,18 @@
             Highly professional and capable of running your business across all
             digital channels.
           </p>
-          <a
-            href="careers.html"
-            class="drop-shadow-xl w-[400px] h-[57px] mx-auto flex items-center justify-center text-[22.5px] font-semibold rounded-xl text-white border-2 border-[hsla(209,80%,35%,1);] bg-[hsla(209,100%,45%,1)] hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300 mb-12"
-            aria-label="View careers and talents at Romega Solutions"
-          >
-            <img
-              src="../assets/images/about/career.svg"
-              class="w-8 h-8 mr-2"
-              alt="Career icon"
-            />
-            Career &amp; Talents
-          </a>
+<a
+  href="careers.html"
+  class="drop-shadow-xl w-full max-w-[400px] h-[50px] sm:h-[57px] mx-auto flex items-center justify-center text-[18px] sm:text-[22.5px] font-semibold rounded-xl text-white border-2 border-[hsla(209,80%,35%,1)] bg-[hsla(209,100%,45%,1)] hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300 mb-12 px-4 sm:px-8"
+  aria-label="View careers and talents at Romega Solutions"
+>
+  <img
+    src="../assets/images/about/career.svg"
+    class="w-6 h-6 sm:w-8 sm:h-8 mr-2"
+    alt="Career icon"
+  />
+  Career &amp; Talents
+</a>
           <!-- Carousel + controls wrapper -->
           <div class="mt-8 w-full">
             <!-- Cards -->
@@ -2552,6 +2552,36 @@
       setInterval(() => {
         scrollTeamInfinite(1);
       }, 7000); // Auto-scroll every 7 seconds
+
+      // ...existing carousel JS...
+
+// Swipe support for testimonials carousel (mobile)
+(function() {
+  const carousel = document.getElementById("testimonials-carousel");
+  let startX = 0;
+  let endX = 0;
+
+  carousel.addEventListener("touchstart", function(e) {
+    startX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchmove", function(e) {
+    endX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchend", function() {
+    const deltaX = endX - startX;
+    if (Math.abs(deltaX) > 50) { // swipe threshold
+      if (deltaX < 0) {
+        scrollTestimonialsInfinite(1); // swipe left
+      } else {
+        scrollTestimonialsInfinite(-1); // swipe right
+      }
+    }
+    startX = 0;
+    endX = 0;
+  });
+})();
     </script>
   </body>
 </html>
