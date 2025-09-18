@@ -2,14 +2,19 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B58C5MNZTZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-B58C5MNZTZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-B58C5MNZTZ');
-</script>
+      gtag("config", "G-B58C5MNZTZ");
+    </script>
     <!-- Meta Tags for SEO and Social Media -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -165,7 +170,7 @@
 
             <!-- Book a Call Button -->
             <a
-              href="https://meetings.hubspot.com/robbie-galoso"
+              href="https://calendly.com/romega-solutions/discoverycall"
               id="nav-cta"
               class="hidden h-[46px] items-center justify-center align-middle rounded-xl border-[1.5px] border-rs-primary-600 bg-rs-primary-500 px-[10px] text-[18px] font-medium text-rs-primary-100 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)] transition duration-300 hover:bg-rs-primary-700 lg:inline-flex lg:min-w-[172px] lg:px-[28px]"
             >
@@ -237,13 +242,13 @@
             <a
               href="contact.html"
               id="mobile-nav-contact"
-              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-accent-600)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-accent-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
             >
               Contact
             </a>
             <!-- Mobile CTA Button -->
             <a
-              href="contact.html"
+              href="https://calendly.com/romega-solutions/discoverycall"
               id="mobile-nav-cta"
               class="mt-4 mx-0 flex items-center justify-center rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
               role="button"
@@ -264,6 +269,7 @@
 
     <main
       class="relative min-h-screen w-full max-w-[1440px] mx-auto overflow-hidden xl:overflow-visible"
+      id="main-content"
     >
       <!-- Background Image Container -->
       <div class="bg-clip-content">
@@ -271,27 +277,31 @@
           src="../assets/images/contacts/bg-romega.svg"
           class="absolute top-0 left-[-64px] w-auto h-auto opacity-10 -z-10"
           aria-hidden="true"
-          alt="background"
+          alt=""
         />
         <!-- Ellipse 793 BG Top Right 1 -->
         <span
           class="size-80 bg-blue-100 rounded-full absolute top-[-131px] right-[-30px]"
+          aria-hidden="true"
         >
         </span>
         <!-- Ellipse 794 BG Top Right 2 -->
         <span
           class="size-80 bg-blue-200 rounded-full absolute top-[55px] right-[-128px] opacity-80"
+          aria-hidden="true"
         >
         </span>
 
         <!-- Ellipse 795 BG Bottom Left 1 -->
         <span
           class="size-80 bg-blue-100 rounded-full absolute bottom-[-160px] left-[-134px]"
+          aria-hidden="true"
         >
         </span>
         <!-- Ellipse 796 BG Bottom Left 2 -->
         <span
           class="size-80 bg-blue-200 rounded-full absolute bottom-[-258px] left-[52px]"
+          aria-hidden="true"
         >
         </span>
       </div>
@@ -304,7 +314,6 @@
           <h1
             id="contact-heading"
             class="text-merriweather-h3 md:text-merriweather-h1 text-[40px] text-[var(--rs-primary-600)] font-bold relative z-10 mb-1 mt-[58px]"
-            tabindex="0"
           >
             Contact Us
           </h1>
@@ -322,20 +331,27 @@
             <!-- Left Side - Contact Information (Hidden on sm/md) -->
             <div
               class="lg:block bg-gray-800 text-white p-8 md:p-12 relative overflow-hidden max-w-[491px] h-fit sm:h-full lg:max-h-[527px] md:min-h-full lg:h-[527px] w-full order-2 lg:order-1 rounded-[4px]"
+              role="complementary"
+              aria-labelledby="contact-info-heading"
             >
               <!-- Background decorative elements -->
               <div class="relative">
                 <!-- Ellipse 793 BG Bottom Left 2 -->
                 <span
                   class="size-36 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[288px] right-[64px]"
+                  aria-hidden="true"
                 ></span>
                 <span
                   class="size-64 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[314px] right-[-95px]"
+                  aria-hidden="true"
                 ></span>
               </div>
 
               <div class="relative z-10">
-                <h2 class="text-rs-neutral-200 text-[28px] font-semibold mb-3">
+                <h2
+                  id="contact-info-heading"
+                  class="text-rs-neutral-200 text-[28px] font-semibold mb-3"
+                >
                   Contact Information
                 </h2>
                 <p
@@ -512,18 +528,22 @@
                       © 2025 Romega Solutions. All rights reserved
                     </p>
                     <div class="flex gap-8 text-base flex-1 justify-end">
-                      <a
-                        href="404.html"
-                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline"
+                      <button
+                        onclick="openPrivacyModal()"
+                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline bg-transparent border-none cursor-pointer p-0"
+                        type="button"
+                        aria-label="Open Privacy Policy"
                       >
                         Privacy Policy
-                      </a>
-                      <a
-                        href="404.html"
-                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline"
+                      </button>
+                      <button
+                        onclick="openTermsModal()"
+                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline bg-transparent border-none cursor-pointer p-0"
+                        type="button"
+                        aria-label="Open Terms of Service"
                       >
                         Terms of Service
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -534,7 +554,11 @@
             <div
               class="sm:min-w-[362px] max-w-[595px] w-full p-4 sm:p-8 md:p-10 lg:p-12 relative order-1 lg:order-2"
             >
-              <form id="contact-form" class="space-y-8 z-10 relative">
+              <form
+                id="contact-form"
+                class="space-y-8 z-10 relative"
+                novalidate
+              >
                 <!-- Name Fields Row -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                   <div>
@@ -550,7 +574,13 @@
                       name="firstName"
                       class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                       required
+                      aria-describedby="firstName-error"
                     />
+                    <div
+                      id="firstName-error"
+                      class="text-red-500 text-sm mt-1 hidden"
+                      role="alert"
+                    ></div>
                   </div>
                   <div>
                     <label
@@ -566,7 +596,13 @@
                       placeholder="Doe"
                       class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                       required
+                      aria-describedby="lastName-error"
                     />
+                    <div
+                      id="lastName-error"
+                      class="text-red-500 text-sm mt-1 hidden"
+                      role="alert"
+                    ></div>
                   </div>
                 </div>
 
@@ -585,7 +621,13 @@
                       name="email"
                       class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                       required
+                      aria-describedby="email-error"
                     />
+                    <div
+                      id="email-error"
+                      class="text-red-500 text-sm mt-1 hidden"
+                      role="alert"
+                    ></div>
                   </div>
                   <div>
                     <label
@@ -595,7 +637,10 @@
                       Select Subject <span class="text-red-500">*</span>
                     </label>
                     <div class="relative">
-                      <div class="pointer-events-none absolute left-2 top-3">
+                      <div
+                        class="pointer-events-none absolute left-2 top-3"
+                        aria-hidden="true"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="13"
@@ -616,6 +661,7 @@
                         name="subject"
                         class="w-full appearance-none border-0 border-b-2 border-[var(--rs-primary-800)] bg-transparent px-0 py-2 pl-7 text-[var(--rs-neutral-500)] focus:border-blue-500 focus:outline-none"
                         required
+                        aria-describedby="subject-error"
                       >
                         <option value="">General Inquiry</option>
                         <option value="services">Services</option>
@@ -623,7 +669,15 @@
                         <option value="careers">Careers</option>
                         <option value="support">Support</option>
                       </select>
-                      <div class="absolute right-0 top-2 pointer-events-none">
+                      <div
+                        id="subject-error"
+                        class="text-red-500 text-sm mt-1 hidden"
+                        role="alert"
+                      ></div>
+                      <div
+                        class="absolute right-0 top-2 pointer-events-none"
+                        aria-hidden="true"
+                      >
                         <svg
                           class="w-5 h-5 text-gray-400"
                           fill="none"
@@ -682,9 +736,14 @@
                       autocomplete="tel"
                       class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                       required
-                      aria-describedby="phone-hint"
+                      aria-describedby="phone-error phone-hint"
                       pattern="[\+]?[0-9\s\-\(\)]{10,}"
                     />
+                    <div
+                      id="phone-error"
+                      class="text-red-500 text-sm mt-1 hidden"
+                      role="alert"
+                    ></div>
                     <div id="phone-hint" class="sr-only">
                       Enter your phone number including country code if
                       international
@@ -707,7 +766,13 @@
                     placeholder="Write your message..."
                     class="w-full px-3 py-3 border-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent resize-none rounded-lg text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
                     required
+                    aria-describedby="message-error"
                   ></textarea>
+                  <div
+                    id="message-error"
+                    class="text-red-500 text-sm mt-1 hidden"
+                    role="alert"
+                  ></div>
                 </div>
 
                 <!-- Action Buttons -->
@@ -720,8 +785,9 @@
                     Send Message
                     <img
                       src="../assets/images/icon-send.svg"
-                      alt="Send Icon"
+                      alt=""
                       class="w-5 h-5"
+                      aria-hidden="true"
                     />
                   </button>
 
@@ -743,7 +809,7 @@
                   >
                     <button
                       type="button"
-                      onclick="window.open('https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333', '_blank')"
+                      onclick="window.open('https://calendly.com/romega-solutions/discoverycall', '_blank')"
                       class="inline-flex justify-center items-center gap-1.5 px-3 py-4 rounded-[5px] text-[var(--rs-neutral-500)] border-[0.75px] border-[var(--rs-neutral-500)] hover:bg-blue-500/25 hover:border-blue-500 transition duration-300 w-full hover:shadow-lg hover:scale-105 active:bg-rs-primary-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2"
                       role="button"
                       aria-label="Book a call with Romega Solutions"
@@ -756,14 +822,15 @@
                         >
                         <img
                           src="../assets/images/icon-calendar-days-2.svg"
-                          alt="Calendar Icon"
+                          alt=""
                           class="w-5 h-5"
+                          aria-hidden="true"
                         />
                       </div>
                     </button>
                     <span
                       class="text-sm text-center text-rs-neutral-500 mt-[5px]"
-                      >via HubSpot</span
+                      >via Calendly</span
                     >
                   </div>
                 </div>
@@ -773,10 +840,11 @@
               <!-- BG container behind form -->
               <div
                 class="absolute bottom-0 right-[-5%] pointer-events-none z-0 hidden md:block"
+                aria-hidden="true"
               >
                 <img
                   src="../assets/images/contacts/bg-letter-send.png"
-                  alt="Background Illustration of letter being sent"
+                  alt=""
                   class="w-auto"
                 />
               </div>
@@ -802,29 +870,35 @@
               © 2025 Romega Solutions. All rights reserved
             </p>
             <div class="flex gap-6 text-base flex-1 justify-end mr-[95px]">
-              <a
-                href="404.html"
-                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:underline"
+              <button
+                onclick="openPrivacyModal()"
+                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                type="button"
+                aria-label="Open Privacy Policy"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="404.html"
-                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:underline"
+              </button>
+              <button
+                onclick="openTermsModal()"
+                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                type="button"
+                aria-label="Open Terms of Service"
               >
                 Terms of Service
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </section>
     </main>
+
     <!-- Footer Container -->
     <footer
       class="bg-[var(--rs-neutral-100)] border-t-2 border-[var(--rs-neutral-grey-400)] py-10 font-sans relative"
+      role="contentinfo"
     >
       <!-- Scroll to Top Button -->
-      <a href="#">
+      <a href="#main-content" aria-label="Scroll to top of page">
         <button
           class="absolute -top-5 right-4 lg:right-12 hover:opacity-75 transition-opacity duration-300 z-10"
           aria-label="Scroll to top"
@@ -898,7 +972,7 @@
             <!-- Schedule Button: Mobile & Medium -->
             <div class="w-full flex lg:hidden justify-center mt-4">
               <a
-                href="https://meetings.hubspot.com/robbie-galoso?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+                href="https://calendly.com/romega-solutions/discoverycall?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
                 class="block w-full"
               >
                 <button
@@ -917,7 +991,7 @@
             <!-- Schedule Button: Desktop Only -->
             <div class="hidden lg:flex w-full justify-center mt-4">
               <a
-                href="https://meetings.hubspot.com/robbie-galoso"
+                href="https://calendly.com/romega-solutions/discoverycall"
                 class="block w-full"
               >
                 <button
@@ -1008,15 +1082,17 @@
                   </li>
                   <li>
                     <a
-                      href="404.html"
-                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      href="#"
+                      onclick="openTermsModal()"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline cursor-pointer"
                       >Terms of Service</a
                     >
                   </li>
                   <li>
                     <a
-                      href="404.html"
-                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      href="#"
+                      onclick="openPrivacyModal()"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline cursor-pointer"
                       >Privacy Policy</a
                     >
                   </li>
@@ -1105,18 +1181,651 @@
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div
-                class="text-center lg:text-left text-[var(--rs-neutral-400)] text-[1rem] w-full font-medium"
-              >
-                © 2025 Romega Solutions. All rights reserved
+                <div
+                  class="text-center lg:text-left text-[var(--rs-neutral-400)] text-[1rem] w-full font-medium"
+                >
+                  © 2025 Romega Solutions. All rights reserved
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </footer>
-    <script src="../js/main.js"></script>
+
+    <!-- Terms and Conditions Modal -->
+    <div
+      id="termsModal"
+      class="fixed inset-0 z-[9999] hidden overflow-y-auto"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <!-- Background overlay -->
+      <div
+        class="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0"
+      >
+        <div
+          class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+          aria-hidden="true"
+          onclick="closeTermsModal()"
+        ></div>
+
+        <!-- Modal panel -->
+        <div
+          class="inline-block w-full max-w-4xl transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:align-middle"
+        >
+          <!-- Header -->
+          <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+            <div class="flex items-center justify-between border-b pb-4">
+              <h3
+                class="text-2xl font-bold leading-6 text-gray-900"
+                id="modal-title"
+              >
+                Terms & Conditions
+              </h3>
+              <button
+                type="button"
+                class="rounded-md bg-white text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                onclick="closeTermsModal()"
+              >
+                <span class="sr-only">Close</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="max-h-[70vh] overflow-y-auto px-4 pb-4 sm:px-6">
+            <div class="prose prose-sm max-w-none">
+              <p class="text-sm text-gray-500 mb-6">
+                Last Updated: August 27, 2025
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                AGREEMENT TO TERMS
+              </h4>
+              <p class="text-gray-700 mb-4">
+                These Terms & Conditions ("Terms") are a legally binding
+                agreement between you ("you" or "user"), whether personally or
+                on behalf of an organization, and Romega Solutions ("Company,"
+                "we," "our," or "us"), governing your access to and use of
+                www.romega-solutions.com and any related platforms, services, or
+                tools (collectively, the "Site").
+              </p>
+              <p class="text-gray-700 mb-4">
+                By accessing or using our Site, submitting your information, or
+                engaging our services, you agree to be bound by these Terms. If
+                you do not agree, you must immediately stop using the Site.
+              </p>
+              <p class="text-gray-700 mb-6">
+                We may update these Terms at any time, and the updated version
+                will be indicated by a "Last Updated" date. Your continued use
+                of the Site after changes are posted constitutes acceptance of
+                those changes.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                USE OF THE SITE
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  You must be at least 18 years old to use this Site.
+                </li>
+                <li class="mb-2">
+                  You agree to use the Site only for lawful purposes and in
+                  compliance with all applicable laws.
+                </li>
+                <li class="mb-2">
+                  You agree not to use the Site in a way that may damage,
+                  disable, overburden, or impair our systems or interfere with
+                  others' use.
+                </li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                INFORMATION YOU PROVIDE
+              </h4>
+              <p class="text-gray-700 mb-3">
+                By submitting information (such as a resume, job application, or
+                business inquiry) you represent and warrant that:
+              </p>
+              <ul class="list-disc pl-6 text-gray-700 mb-4">
+                <li class="mb-2">
+                  The information is accurate, current, and complete.
+                </li>
+                <li class="mb-2">
+                  You have the right to share such information with us.
+                </li>
+                <li class="mb-2">
+                  You understand your information will be handled according to
+                  our Privacy Policy.
+                </li>
+              </ul>
+              <p class="text-gray-700 mb-6">
+                We are not responsible for verifying the accuracy of any
+                information submitted by users.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                CLIENT SERVICES
+              </h4>
+              <p class="text-gray-700 mb-6">
+                Clients engaging Romega Solutions for staffing, recruiting, or
+                consulting services may be required to enter into separate
+                agreements outlining scope, fees, and terms. Those agreements
+                shall take precedence over these Terms in the event of conflict.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                INTELLECTUAL PROPERTY
+              </h4>
+              <p class="text-gray-700 mb-6">
+                All content on the Site, including text, graphics, logos, and
+                software, is the property of Romega Solutions or its licensors
+                and is protected by copyright and trademark laws. You may not
+                copy, reproduce, or distribute any content without prior written
+                permission.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                THIRD-PARTY LINKS & SERVICES
+              </h4>
+              <p class="text-gray-700 mb-6">
+                The Site may contain links to third-party websites. We are not
+                responsible for the content, policies, or practices of any third
+                parties. Accessing these sites is at your own risk.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                DISCLAIMERS
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  The Site is provided "as is" and "as available." We make no
+                  warranties, express or implied, about the accuracy,
+                  reliability, or availability of the Site or its content.
+                </li>
+                <li class="mb-2">
+                  Romega Solutions does not guarantee job placement for
+                  candidates or specific results for clients.
+                </li>
+                <li class="mb-2">
+                  We are not liable for any damages resulting from your use of
+                  the Site or services, including lost profits, data, or
+                  business opportunities.
+                </li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                INDEMNIFICATION
+              </h4>
+              <p class="text-gray-700 mb-6">
+                You agree to defend, indemnify, and hold harmless Romega
+                Solutions, its affiliates, employees, and partners from any
+                claims, damages, or expenses arising out of your use of the
+                Site, your submissions, or your violation of these Terms.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                GOVERNING LAW & DISPUTE RESOLUTION
+              </h4>
+              <p class="text-gray-700 mb-4">
+                These Terms are governed by the laws of the State of California,
+                without regard to conflict of laws principles.
+              </p>
+              <p class="text-gray-700 mb-6">
+                Disputes shall first be attempted to be resolved informally. If
+                unresolved, disputes will be subject to binding arbitration in
+                Los Angeles County, California, except where prohibited by law.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                TERMINATION
+              </h4>
+              <p class="text-gray-700 mb-6">
+                We reserve the right to suspend or terminate your access to the
+                Site at any time, without notice, for conduct that violates
+                these Terms or is otherwise harmful to our business interests.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                CONTACT US
+              </h4>
+              <p class="text-gray-700 mb-2">
+                For questions or concerns regarding these Terms, please contact
+                us:
+              </p>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-gray-700 mb-2">📧 info@romega-solutions.com</p>
+                <p class="text-gray-700 mb-2">🌐 www.romega-solutions.com</p>
+                <p class="text-gray-700">
+                  🏢 222 Pacific Coast Hwy, #10, El Segundo, CA 90245
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+            <button
+              type="button"
+              class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
+              onclick="closeTermsModal()"
+            >
+              I Understand
+            </button>
+            <button
+              type="button"
+              class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+              onclick="closeTermsModal()"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div
+      id="privacyModal"
+      class="fixed inset-0 z-[9999] hidden overflow-y-auto"
+      aria-labelledby="privacy-modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <!-- Background overlay -->
+      <div
+        class="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0"
+      >
+        <div
+          class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+          aria-hidden="true"
+          onclick="closePrivacyModal()"
+        ></div>
+
+        <!-- Modal panel -->
+        <div
+          class="inline-block w-full max-w-4xl transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:align-middle"
+        >
+          <!-- Header -->
+          <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+            <div class="flex items-center justify-between border-b pb-4">
+              <h3
+                class="text-2xl font-bold leading-6 text-gray-900"
+                id="privacy-modal-title"
+              >
+                Privacy Policy
+              </h3>
+              <button
+                type="button"
+                class="rounded-md bg-white text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                onclick="closePrivacyModal()"
+              >
+                <span class="sr-only">Close</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="max-h-[70vh] overflow-y-auto px-4 pb-4 sm:px-6">
+            <div class="prose prose-sm max-w-none">
+              <p class="text-lg text-gray-800 font-medium mb-6">
+                At Romega Solutions, your privacy matters to us. Whether you're
+                a client or a job seeker, we only collect and use your
+                information to connect talent with opportunities and deliver the
+                services you expect.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                What we collect
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  Basic contact details (name, email, phone, etc.) when you fill
+                  out a form, subscribe, or apply for a role.
+                </li>
+                <li class="mb-2">
+                  Professional information such as your resume or work history
+                  (for applicants).
+                </li>
+                <li class="mb-2">
+                  Website usage data (via tools like Google Analytics) to
+                  improve your browsing experience.
+                </li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                How we use your information
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  To connect candidates with career opportunities and support
+                  our clients' hiring needs.
+                </li>
+                <li class="mb-2">
+                  To communicate updates, respond to inquiries, and share
+                  relevant opportunities.
+                </li>
+                <li class="mb-2">To improve our website and services.</li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                How we protect your information
+              </h4>
+              <p class="text-gray-700 mb-6">
+                We use security measures and trusted third-party providers to
+                keep your data safe. We never sell your personal information.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                Sharing information
+              </h4>
+              <p class="text-gray-700 mb-3">
+                We may share your details only with:
+              </p>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  Our trusted service providers (e.g., analytics or applicant
+                  systems).
+                </li>
+                <li class="mb-2">
+                  Clients, but only if you apply or agree to be considered for a
+                  role.
+                </li>
+                <li class="mb-2">When required by law.</li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                Your choice
+              </h4>
+              <p class="text-gray-700 mb-6">
+                You can visit our website without sharing personal data. You may
+                also unsubscribe from communications at any time.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                Updates
+              </h4>
+              <p class="text-gray-700 mb-6">
+                This Privacy Policy was last updated on August 27, 2025. Any
+                changes will be posted on our website.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                Contact us
+              </h4>
+              <p class="text-gray-700 mb-2">
+                Have questions about how we handle your data? Reach out at:
+              </p>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-gray-700 mb-2">📧 info@romega-solutions.com</p>
+                <p class="text-gray-700 mb-2">🌐 www.romega-solutions.com</p>
+                <p class="text-gray-700">
+                  🏢 222 Pacific Coast Hwy, #10, El Segundo, CA 90245
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+            <button
+              type="button"
+              class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
+              onclick="closePrivacyModal()"
+            >
+              I Understand
+            </button>
+            <button
+              type="button"
+              class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+              onclick="closePrivacyModal()"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+      // Modal functionality
+      function openTermsModal() {
+        const modal = document.getElementById("termsModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("animate-fadeIn");
+        document.body.style.overflow = "hidden";
+
+        // Focus management for accessibility
+        setTimeout(() => {
+          const closeButton = modal.querySelector(
+            'button[onclick="closeTermsModal()"]'
+          );
+          closeButton.focus();
+        }, 100);
+      }
+
+      function closeTermsModal() {
+        const modal = document.getElementById("termsModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("animate-fadeIn");
+        document.body.style.overflow = "auto";
+      }
+
+      function openPrivacyModal() {
+        const modal = document.getElementById("privacyModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("animate-fadeIn");
+        document.body.style.overflow = "hidden";
+
+        // Focus management for accessibility
+        setTimeout(() => {
+          const closeButton = modal.querySelector(
+            'button[onclick="closePrivacyModal()"]'
+          );
+          closeButton.focus();
+        }, 100);
+      }
+
+      function closePrivacyModal() {
+        const modal = document.getElementById("privacyModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("animate-fadeIn");
+        document.body.style.overflow = "auto";
+      }
+
+      // Keyboard event listeners
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          const termsModal = document.getElementById("termsModal");
+          const privacyModal = document.getElementById("privacyModal");
+
+          if (!termsModal.classList.contains("hidden")) {
+            closeTermsModal();
+          }
+          if (!privacyModal.classList.contains("hidden")) {
+            closePrivacyModal();
+          }
+        }
+      });
+
+      // Add custom animation classes
+      const style = document.createElement("style");
+      style.textContent = `
+      .animate-fadeIn {
+        animation: fadeIn 0.3s ease-out;
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+      .prose h4 {
+        color: #1f2937;
+        font-weight: 600;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .prose p {
+        margin-bottom: 1rem;
+        line-height: 1.625;
+      }
+      
+      .prose ul {
+        margin-bottom: 1.5rem;
+      }
+      
+      .prose li {
+        line-height: 1.625;
+      }
+    `;
+      document.head.appendChild(style);
+
+      function toggleExpandable(id) {
+        const content = document.getElementById(id);
+        const arrow = document.getElementById(
+          id.replace("-detail", "-arrow").replace("-service", "-arrow")
+        );
+
+        content.classList.toggle("expanded");
+
+        if (content.classList.contains("expanded")) {
+          arrow.style.transform = "rotate(270deg)";
+        } else {
+          arrow.style.transform = "rotate(0deg)";
+        }
+      }
+
+      // FAQ Functions
+      function toggleFAQ(id) {
+        const content = document.getElementById(id);
+        const arrow = document.getElementById(id + "-arrow");
+
+        if (content.classList.contains("hidden")) {
+          content.classList.remove("hidden");
+          arrow.style.transform = "rotate(90deg)";
+        } else {
+          content.classList.add("hidden");
+          arrow.style.transform = "rotate(0deg)";
+        }
+      }
+
+      function toggleAllFAQs() {
+        const faqContents = document.querySelectorAll(".faq-content");
+        const faqArrows = document.querySelectorAll('[id$="-arrow"]');
+        const toggleBtn = document.getElementById("toggle-all-btn");
+        const allHidden = Array.from(faqContents).every((content) =>
+          content.classList.contains("hidden")
+        );
+
+        if (allHidden) {
+          // Show all
+          faqContents.forEach((content) => {
+            content.classList.remove("hidden");
+          });
+          faqArrows.forEach((arrow) => {
+            arrow.style.transform = "rotate(90deg)";
+          });
+          toggleBtn.textContent = "Collapse All";
+        } else {
+          // Collapse all
+          faqContents.forEach((content) => {
+            content.classList.add("hidden");
+          });
+          faqArrows.forEach((arrow) => {
+            arrow.style.transform = "rotate(0deg)";
+          });
+          toggleBtn.textContent = "Show All";
+        }
+      }
+
+      // FAQ Search Functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("faq-search");
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        if (!searchInput || !faqItems.length) return;
+
+        searchInput.addEventListener("input", function (event) {
+          const searchTerm = event.target.value.toLowerCase().trim();
+
+          faqItems.forEach((item) => {
+            // Use semantic selectors for better maintainability
+            const questionElement = item.querySelector(".faq-question");
+            const answerElement = item.querySelector(".faq-answer-text");
+
+            const question = questionElement
+              ? questionElement.textContent.toLowerCase()
+              : "";
+            const answer = answerElement
+              ? answerElement.textContent.toLowerCase()
+              : "";
+
+            const isMatch =
+              !searchTerm ||
+              question.includes(searchTerm) ||
+              answer.includes(searchTerm);
+
+            // Use modern display methods
+            item.style.display = isMatch ? "block" : "none";
+
+            // Update aria attributes for accessibility
+            item.setAttribute("aria-hidden", !isMatch);
+          });
+
+          // Update search results count for screen readers
+          const visibleItems = Array.from(faqItems).filter(
+            (item) => item.style.display !== "none"
+          );
+          const resultsText = searchTerm
+            ? `${visibleItems.length} FAQ${
+                visibleItems.length !== 1 ? "s" : ""
+              } found`
+            : "All FAQs visible";
+
+          // Announce results to screen readers
+          searchInput.setAttribute("aria-description", resultsText);
+        });
+      });
+    </script>
   </body>
 </html>
