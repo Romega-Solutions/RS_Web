@@ -153,13 +153,11 @@
         id="navbar-container"
         role="navigation"
         aria-label="Main navigation"
-        class="fixed top-0 z-50 w-full bg-rs-primary-50 h-[104px] align-middle border-b-[1.25px] border-rs-neutral-400 shadow-sm"
+        class="fixed top-0 z-50 w-full bg-white h-[104px] align-middle shadow-sm"
       >
-        <div
-          class="mx-auto max-w-[1920px] border border-b-2 border-[var(--rs-neutral-grey-400)]"
-        >
+        <div class="mx-auto">
           <div
-            class="flex items-center justify-between h-[104px] md:h-[104px] bg-rs-primary-50 px-4 md:px-8 lg:px-[89.5px]"
+            class="flex items-center justify-between h-[104px] md:h-[104px] bg-[var(--rs-primary-50)] px-4 md:px-8 lg:px-[89.5px] border-b-2 border-[var(--rs-neutral-grey-400)]"
           >
             <!-- Logo -->
             <div class="flex items-center flex-shrink-0">
@@ -324,15 +322,13 @@
     <!-- About Page Content -->
     <main class="bg-[var(--rs-primary-50)]" id="main-content">
       <!-- Hero Section -->
-      <section
-        aria-labelledby="hero-heading"
-        class="mt-[104px] min-h-[calc(100vh-104px)]"
-        role="banner"
-      >
-        <div class="flex flex-col lg:flex-row relative h-[calc(100vh-104px)]">
+      <section aria-labelledby="hero-heading" class="mt-[104px]" role="banner">
+        <div
+          class="flex flex-col lg:flex-row relative min-h-[calc(100vh-104px)]"
+        >
           <!-- left side content -->
           <div
-            class="w-full lg:w-[45%] order-1 relative p-6 md:p-8 lg:p-16 lg:pl-28 space-y-6 flex flex-col justify-center min-h-[500px] md:min-h-[600px] lg:min-h-[540px] order-2 lg:order-1"
+            class="w-full lg:w-[45%] relative p-6 md:p-8 lg:p-16 lg:pl-28 space-y-6 flex flex-col justify-center min-h-[500px] md:min-h-[600px] lg:min-h-[540px] order-2 lg:order-1"
           >
             <img
               src="../assets/images/homepage/hero-bg-romega.png"
@@ -374,8 +370,9 @@
             </div>
           </div>
           <!-- right side content - the image -->
+          <!-- right side content - the image -->
           <div
-            class="w-full lg:w-[55%] order-2 md:min-h-[400px] lg:min-h-[100vh] relative order-1 lg:order-2"
+            class="w-full lg:w-[55%] md:min-h-[400px] lg:min-h-[100vh] relative order-1 lg:order-2"
           >
             <img
               src="../assets/images/about/about.webp"
@@ -388,9 +385,10 @@
           </div>
         </div>
       </section>
+
       <!-- Mission & Vision Section -->
       <section
-        class="relative bg-[#f7fbff] py-20 px-4 overflow-hidden w-full"
+        class="relative bg-[#f7fbff] items-center justify-center py-20 px-4 overflow-hidden w-full min-h-[800px] max-h-[1000px]"
         aria-labelledby="mission-heading"
       >
         <!-- Grid background image -->
@@ -474,11 +472,10 @@
             </div>
           </div>
         </div>
-
         <!-- Bottom Wave Divider -->
         <div
           class="absolute w-full left-0"
-          style="height: 60px; bottom: -40px; z-index: 0"
+          style="height: 60px; bottom: 0; z-index: 0"
           aria-hidden="true"
         >
           <img
@@ -496,7 +493,7 @@
 
       <!-- Team Section -->
       <section
-        class="relative bg-[#232f3e] pt-24 pb-20 w-full overflow-hidden"
+        class="relative bg-[#232f3e] pt-4 pb-20 w-full overflow-hidden"
         aria-labelledby="team-heading"
       >
         <!-- Grid background -->
