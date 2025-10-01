@@ -518,7 +518,7 @@
 
       <!-- Explore Leadership Opportunities Section -->
       <section
-        class="relative bg-[var(--rs-neutral-50)] py-12 md:py-16 lg:py-20 overflow-hidden mt-[104px] min-h-[calc(100vh-104px)] max-h-[1000px]"
+        class="relative bg-[var(--rs-neutral-50)] py-12 md:py-16 lg:py-20 overflow-hidden mt-[104px] min-h-[calc(100vh-104px)]"
         aria-labelledby="leadership-opportunities-heading"
       >
         <!-- Background image - properly positioned -->
@@ -545,9 +545,14 @@
               Find your next impactful role or join our talent network for
               future opportunities always with discretion.
             </p>
-            <p class="text-sm text-[var(--rs-neutral-400)] mt-2">
-              Updated: July 1, 2024
-            </p>
+        <p class="text-sm text-[var(--rs-neutral-400)] mt-2">
+  Updated: <span id="updated-date"></span>
+</p>
+<script>
+  document.getElementById('updated-date').textContent = new Date().toLocaleDateString('en-US', {
+    year: 'numeric', month: 'long', day: 'numeric'
+  });
+</script>
           </div>
 
           <!-- Action Buttons -->
@@ -663,7 +668,7 @@
 
       <!-- Your Privacy, Our Priority Section -->
       <section
-        class="relative bg-[var(--rs-neutral-50)] pb-12 md:py-20 pt-12 overflow-hidden min-h-[800px] max-h-[1000px]"
+        class="relative bg-[var(--rs-neutral-50)] pb-12 md:py-20 pt-12 overflow-hidden lg:max-h-[1000px]"
         aria-labelledby="privacy-section-heading"
       >
 
@@ -699,12 +704,13 @@
             </p>
           </div>
 
-    <!-- Privacy Features Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto px-4 sm:px-2 lg:px-0">
+
+         <!-- Privacy Features Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-4xl mx-auto">
   <!-- Fully Confidential Process -->
   <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
     <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
-      <img src="../assets/images/careers/shield.svg" alt="" class="w-[50px] h-[50px]" aria-hidden="true">
+      <img src="../assets/images/careers/shield.svg" alt="" class="w-[50px] h-[50px]">
     </div>
     <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
       Fully confidential process
@@ -714,7 +720,7 @@
   <!-- Your Role Stays Private -->
   <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
     <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
-      <img src="../assets/images/careers/eye.svg" alt="" class="w-[50px] h-[50px]" aria-hidden="true">
+      <img src="../assets/images/careers/eye.svg" alt="" class="w-[50px] h-[50px]">
     </div>
     <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
       Your role stays private
@@ -724,7 +730,7 @@
   <!-- We Never Share Without Approval -->
   <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
     <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
-      <img src="../assets/images/careers/human-check.svg" alt="" class="w-[50px] h-[50px]" aria-hidden="true">
+      <img src="../assets/images/careers/human-check.svg" alt="" class="w-[50px] h-[50px]">
     </div>
     <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
       We never share without approval
@@ -734,13 +740,15 @@
   <!-- GDPR Compliant by Default -->
   <div class="flex flex-col items-center text-center bg-[var(--rs-neutral-50)] min-w-[180px] h-[160px] p-6 rounded-lg border border-[var(--rs-neutral-300)] shadow-sm hover:shadow-md transition-shadow">
     <div class="w-[50px] h-[50px] rounded-full flex items-center justify-center mb-4">
-      <img src="../assets/images/careers/lock.svg" alt="" class="w-[50px] h-[50px]" aria-hidden="true">
+      <img src="../assets/images/careers/lock.svg" alt="" class="w-[50px] h-[50px]">
     </div>
     <h3 class="text-[18px] text-[var(--rs-neutral-700)] mb-2 text-source-sans">
       GDPR compliant by default
     </h3>
   </div>
 </div>
+
+
 
                    <!-- Testimonial Quote -->
           <!-- <div class="mt-16 text-center">
@@ -771,7 +779,7 @@
 
       <!-- The Way We Work & What's In It For You Combined Section -->
       <section
-        class="relative bg-[var(--rs-neutral-800)] py-16 md:py-20 lg:py-24 text-white overflow-hidden min-h-[800px] max-h-[1200px]"
+        class="relative bg-[var(--rs-neutral-800)] py-16 md:py-20 lg:py-24 text-white overflow-hidden lg:max-h-[1200px]"
         aria-labelledby="culture-benefits-heading"
       >
  
@@ -798,7 +806,7 @@
     <h2 class="text-[40px] text-[var(--rs-neutral-50)] text-merriweather font-bold ">
       The Way We Work
     </h2>
-    <p class="text-[18px] text-[var(--rs-neutral-400)] text-center max-w-xl leading-relaxed">
+    <p class="text-[18px] text-[var(--rs-neutral-400)] leading-relaxed max-w-xl mx-auto">
       We believe great teams start with great culture. At Romega, we value:
     </p>
   </div>
@@ -887,9 +895,9 @@
       <div class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4">
         <img src="../assets/images/careers/world.svg" alt="" class="w-full h-full">
       </div>
-      <h3 class="text-[16px] sm:text-[22px] font-bold text-[var(--rs-primary-600)] text-source-sans mb-1 sm:mb-2">
-        Remote Work
-      </h3>
+      <h3 class="text-[16px] sm:text-[22px] font-bold text-[var(--rs-primary-600)] text-source-sans mb-1 sm:mb-2 whitespace-nowrap">
+  Remote Work
+</h3>
       <p class="text-[13px] sm:text-[18px] text-[var(--rs-neutral-700)] leading-relaxed">
         Access roles with global flexibility.
       </p>
@@ -900,7 +908,7 @@
       <div class="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4">
         <img src="../assets/images/careers/location.svg" alt="" class="w-full h-full">
       </div>
-      <h3 class="text-[16px] sm:text-[22px] font-bold text-[var(--rs-primary-600)] text-source-sans mb-1 sm:mb-2">
+      <h3 class="whitespace-nowrap text-[16px] sm:text-[22px] font-bold text-[var(--rs-primary-600)] text-source-sans mb-1 sm:mb-2">
         Flexible Time
       </h3>
       <p class="text-[13px] sm:text-[18px] text-[var(--rs-neutral-700)] leading-relaxed">
