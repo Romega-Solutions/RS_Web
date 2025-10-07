@@ -63,8 +63,8 @@
   </script>
 </head>
   <body>
-      <!-- Sidebar Overlay -->
- <div id="jobsSidebar" class="fixed inset-0 z-[60] hidden">
+<!-- Sidebar Overlay -->
+<div id="jobsSidebar" class="fixed inset-0 z-[60] hidden">
   <!-- Background Overlay -->
   <div
     class="fixed inset-0 bg-black bg-opacity-50"
@@ -76,265 +76,64 @@
     class="fixed right-0 top-0 h-full w-[400px] bg-[var(--rs-neutral-100)] shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-[70]"
     id="sidebarPanel"
   >
-        <!-- Header -->
-        <div class="flex items-center justify-between p-4 bg-[var(--rs-neutral-100)]  bg-[#e1f0f5]">
-          <div>
-            <h2 class="text-lg md:text-[28px] font-bold text-[var(--rs-primary-600)] text-merriweather">
-              Current Roles Opened
-            </h2>
-            <p class="text-sm md:text-[18px] text-[var(--rs-neutral-700)] mt-1">
-              Company review time is typically 1 week
-            </p>
-          </div>
-          <button
-            onclick="closeJobsSidebar()"
-            class="p-1 hover:bg-gray-100 rounded-lg transition-colors"
-            aria-label="Close job listings sidebar"
-          >
-          <img src="/assets/images/careers/close.svg" alt="" class="h-[15px] w-[15px]" aria-hidden="true">
-          </button>
-        </div>
-
-        <!-- Job Listings Content -->
-        <div class="h-[calc(100vh-200px)] overflow-y-auto p-4 space-y-4">
-
-<!-- Job 1: Account Executive Intern -->
-<div class="rounded-lg bg-[var(--rs-neutral-100)] hover:shadow-sm transition-shadow">
-  <!-- Job Header -->
-  <div class="flex items-start justify-between mb-3">
-    <a href="https://www.linkedin.com/jobs/view/4265096178/" target="_blank" rel="noopener" aria-label="View Account Executive Intern position on LinkedIn">
-      <h3 class="text-base font-semibold text-[18px] text-merriweather text-[var(--rs-primary-700)] hover:underline cursor-pointer flex items-center gap-2">
-        Account Executive Intern
-        <img src="/assets/images/careers/link.svg" alt="" class="h-[18px] w-[18px]" aria-hidden="true">
-      </h3>
-    </a>
-    <span class="text-[10px] text-gray-500 bg-gray-50 px-2 py-1 rounded whitespace-nowrap">
-      <img src="/assets/images/careers/envelope.svg" alt="" class="h-[12px] w-[12px] inline-block mr-1" aria-hidden="true">July 11, 2025
-    </span>
-  </div>
-
-  <!-- Job Details -->
-  <div class="flex flex-wrap gap-x-2 gap-y-2 mb-4 text-[14px] text-[var(--rs-neutral-600)]">
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/location.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Philippines</span>
-    </div>
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/world.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Remote Work</span>
-    </div>
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/part.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Part-Time</span>
-    </div>
-  </div>
-
-  <!-- Action Buttons -->
-  <div class="flex gap-2">
-    <a href="https://www.linkedin.com/jobs/view/4265096178/" target="_blank" rel="noopener" class="flex-1">
-      <button class="bg-[var(--rs-primary-500)] justify-center w-full h-[40px] text-[var(--rs-primary-100)] px-2 py-2 rounded-[6px] text-[15px] font-medium hover:bg-[#005885] transition flex items-center gap-2 border border-[var(--rs-primary-600)]">
-        <img src="/assets/images/careers/linkedin.svg" class="w-[18px] h-[18px]" alt="">
-        See Details in LinkedIn
+    <!-- Header -->
+    <div class="flex items-center justify-between p-4 bg-[var(--rs-neutral-100)] bg-[#e1f0f5]">
+      <div>
+        <h2 class="text-lg md:text-[28px] font-bold text-[var(--rs-primary-600)] text-merriweather">
+          Current Roles Opened
+        </h2>
+        <p class="text-sm md:text-[18px] text-[var(--rs-neutral-700)] mt-1">
+          Company review time is typically 1 week
+        </p>
+      </div>
+      <button
+        onclick="closeJobsSidebar()"
+        class="p-1 hover:bg-gray-100 rounded-lg transition-colors"
+        aria-label="Close job listings sidebar"
+      >
+        <img src="/assets/images/careers/close.svg" alt="" class="h-[15px] w-[15px]" aria-hidden="true">
       </button>
-    </a>
-  </div>
-
-  <hr class="border-1 border-b border-[var(--rs-neutral-400)] my-4">
-
-</div>
-
-<!-- Job 2: Senior Packaging Engineer -->
-<div class="rounded-lg bg-[var(--rs-neutral-100)] hover:shadow-sm transition-shadow">
-  <!-- Job Header -->
-  <div class="flex items-start justify-between mb-3">
-    <a href="https://www.linkedin.com/jobs/view/4264333115/" target="_blank" rel="noopener" aria-label="View Senior Packaging Engineer position on LinkedIn">
-      <h3 class="text-base font-semibold text-[18px] text-merriweather text-[var(--rs-primary-700)] hover:underline cursor-pointer flex items-center gap-2">
-        Senior Packaging Engineer
-        <img src="/assets/images/careers/link.svg" alt="" class="h-[18px] w-[18px]" aria-hidden="true">
-      </h3>
-    </a>
-    <span class="text-[10px] text-gray-500 bg-gray-50 px-2 py-1 rounded whitespace-nowrap">
-      <img src="/assets/images/careers/envelope.svg" alt="" class="h-[12px] w-[12px] inline-block mr-1" aria-hidden="true">July 2, 2025
-    </span>
-  </div>
-
-  <!-- Job Details -->
-  <div class="flex flex-wrap gap-x-2 gap-y-2 mb-4 text-[14px] text-[var(--rs-neutral-600)]">
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/location.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Santa Clara, CA</span>
     </div>
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-50)] px-2 py-1">
-      <img src="/assets/images/careers/office.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>On-Site</span>
-    </div>
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-50)] px-2 py-1">
-      <img src="/assets/images/careers/people.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Full-Time</span>
-    </div>
-  </div>
-  <!-- Action Buttons -->
-  <div class="flex gap-2">
-    <a href="https://www.linkedin.com/jobs/view/4264333115/" target="_blank" rel="noopener" class="flex-1">
-      <button class="bg-[var(--rs-primary-500)] justify-center w-full h-[40px] text-[var(--rs-primary-100)] px-2 py-2 rounded-[6px] text-[15px] font-medium hover:bg-[#005885] transition flex items-center gap-2 border border-[var(--rs-primary-600)]">
-        <img src="/assets/images/careers/linkedin.svg" class="w-[18px] h-[18px]" alt="">
-        See Details in LinkedIn
-      </button>
-    </a>
-    <!-- <a href="/assets/images/careers/senior-packaging-poster.jpg" target="_blank" rel="noopener">
-      <button class="border bg-none border-[var(--rs-primary-600)] text-[var(--rs-primary-600)] px-3 py-2 rounded text-[15px] font-medium hover:bg-gray-50 transition flex items-center gap-1">
-        <img src="/assets/images/careers/image.svg" class="w-[18px] h-[18px]" alt="Poster Icon">
-        View Job Poster
-      </button>
-    </a> -->
-  </div>
 
-  <hr class="border-1 border-b border-[var(--rs-neutral-400)] my-4">
-</div>
-
-          <!-- Job 3: Senior Optical Engineer -->
-<div class="rounded-lg bg-[var(--rs-neutral-100)] hover:shadow-sm transition-shadow opacity-70">
-  <!-- Job Header -->
-  <div class="flex items-start justify-between mb-3">
-    <h3 class="text-base font-semibold text-[18px] text-merriweather text-[var(--rs-primary-700)] hover:underline cursor-pointer flex items-center gap-2">
-      Senior Optical Engineer
-      <img src="/assets/images/careers/link.svg" alt="" class="h-[18px] w-[18px]" aria-hidden="true">
-    </h3>
-    <span class="text-[10px] text-gray-500 bg-gray-50 px-2 py-1 rounded whitespace-nowrap">
-      <img src="/assets/images/careers/envelope.svg" alt="" class="h-[12px] w-[12px] inline-block mr-1" aria-hidden="true">July 2, 2025
-    </span>
-  </div>
-
-  <!-- Job Details -->
-  <div class="flex flex-wrap gap-x-2 gap-y-2 mb-4 text-[14px] text-[var(--rs-neutral-600)]">
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/location.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Santa Clara CA</span>
-    </div>
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/world.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Remote Work</span>
-    </div>
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/part.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Part-Time</span>
-    </div>
-  </div>
-
-  <!-- Disabled State Button -->
-  <div class="flex gap-2">
-    <button class="border border-[var(--rs-primary-400)] bg-white text-[var(--rs-primary-600)] px-3 py-2 rounded text-[15px] font-medium flex items-center gap-2 w-full justify-center opacity-80 cursor-not-allowed" disabled>
-      <img src="/assets/images/careers/lock.svg" class="w-[18px] h-[18px]" alt="Lock Icon">
-      No longer accepting applications
-    </button>
-  </div>
-  <hr class="border-1 border-b border-[var(--rs-neutral-400)] my-4">
-</div>
-
-          
-<!-- Job 4: Senior Electrical Engineer -->
-<div class="rounded-lg bg-[var(--rs-neutral-100)] hover:shadow-sm transition-shadow opacity-70">
-  <!-- Job Header -->
-  <div class="flex items-start justify-between mb-3">
-          <h3 class="text-base font-semibold text-[18px] text-merriweather text-[var(--rs-primary-700)] hover:underline cursor-pointer flex items-center gap-2">
-      Senior Electrical Engineer
-      <img src="/assets/images/careers/link.svg" alt="" class="h-[18px] w-[18px]" aria-hidden="true">
-    </h3>
-    <span class="text-[10px] text-gray-500 bg-gray-50 px-2 py-1 rounded whitespace-nowrap">
-      <img src="/assets/images/careers/envelope.svg" alt="" class="h-[12px] w-[12px] inline-block mr-1" aria-hidden="true">July 2, 2025
-    </span>
-  </div>
-
-  <!-- Job Details -->
-  <div class="flex flex-wrap gap-x-2 gap-y-2 mb-4 text-[14px] text-[var(--rs-neutral-600)]">
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/location.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>United States</span>
-    </div>
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/world.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Remote Work</span>
-    </div>
-    <div class="flex items-center gap-1 rounded-[36px] bg-[var(--rs-primary-100)] px-2 py-1">
-      <img src="/assets/images/careers/full.svg" class="w-[12px] h-[12px]" alt="" aria-hidden="true">
-      <span>Full-Time</span>
-    </div>
-  </div>
-
-  <!-- Disabled State Button -->
-  <div class="flex gap-2">
-    <button class="border border-[var(--rs-primary-400)] bg-white text-[var(--rs-primary-600)] px-3 py-2 rounded text-[15px] font-medium flex items-center gap-2 w-full justify-center opacity-80 cursor-not-allowed" disabled>
-      <img src="/assets/images/careers/lock.svg" class="w-[18px] h-[18px]" alt="Lock Icon">
-      No longer accepting applications
-    </button>
-  </div>
-  <hr class="border-1 border-b border-[var(--rs-neutral-400)] my-4">
-</div>
-
-                 <!-- Empty State at Bottom -->
-          <div class="text-center py-12 mt-6">
-            <div class="w-16 h-16 mx-auto mb-4 opacity-60 flex items-center justify-center">
-              <img src="/assets/images/careers/notification.svg" alt="Bell icon" class="w-12 h-12" />
-            </div>
-            <p class="text-[var(--rs-primary-600)] text-lg font-medium mb-1" style="font-family: 'Source Sans 3', sans-serif;">
-              We’re always growing :)
-            </p>
-            <p class="text-[var(--rs-primary-400)] text-base" style="font-family: 'Source Sans 3', sans-serif;">
-              new opportunities coming soon
-            </p>
-          </div>
-
-        </div>
-
-        <!-- Footer -->
-        <div class="flex items-center justify-center w-full p-0 pb-6 pt-2 bg-transparent">
-          <button
-            class="w-[95%] max-w-[370px] h-[56px] bg-[#13395c] text-white text-lg font-semibold rounded-xl shadow hover:bg-[#0d2740] transition-all duration-200"
-            onclick="window.open('https://www.linkedin.com/company/romega-solutions/jobs/', '_blank')"
-            aria-label="View job listings on our LinkedIn company page"
-          >
-            View Jobs in our LinkedIn Page
-          </button>
+    <!-- Job Listings Content - UPDATED FOR DYNAMIC LOADING -->
+    <div class="h-[calc(100vh-200px)] overflow-y-auto p-4 space-y-4">
+      <div id="jobsContainer">
+        <!-- Loading state -->
+        <div class="text-center py-12">
+          <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--rs-primary-600)] mx-auto mb-4"></div>
+          <p class="text-[var(--rs-neutral-600)]">Loading current opportunities...</p>
         </div>
       </div>
+
+      <!-- Empty State (shown by JavaScript if no jobs) -->
+      <div id="emptyState" class="text-center py-12 mt-6" style="display: none;">
+        <div class="w-16 h-16 mx-auto mb-4 opacity-60 flex items-center justify-center">
+          <img src="../assets/images/careers/notification.svg" alt="Bell icon" class="w-12 h-12" />
+        </div>
+        <p class="text-[var(--rs-primary-600)] text-lg font-medium mb-1" style="font-family: 'Source Sans 3', sans-serif;">
+          We're always growing :)
+        </p>
+        <p class="text-[var(--rs-primary-400)] text-base" style="font-family: 'Source Sans 3', sans-serif;">
+          new opportunities coming soon
+        </p>
+      </div>
     </div>
-    <!-- End of Sidebar Overlay -->
 
-    <!-- javascript -->
-    <script>
-      // Add this to your existing JavaScript file or create a new one
+    <!-- Footer -->
+<div class="flex items-center justify-center w-full p-0 pb-6 pt-2 bg-transparent">
+  <button
+    class="w-[95%] max-w-[370px] h-[56px] bg-[var(--rs-primary-500)] text-[var(--rs-primary-100)] text-lg font-semibold rounded-xl shadow hover:bg-[var(--rs-primary-600)] transition-all duration-200 border-2 border-[var(--rs-primary-600)]"
+    onclick="window.open('https://www.linkedin.com/company/romega-solutions/jobs/', '_blank')"
+    aria-label="View job listings on our LinkedIn company page"
+  >
+    View Jobs in our LinkedIn Page
+  </button>
+</div>
+  </div>
+</div>
+<!-- End of Sidebar Overlay -->
 
-      function openJobsSidebar() {
-        const sidebar = document.getElementById("jobsSidebar");
-        const panel = document.getElementById("sidebarPanel");
 
-        sidebar.classList.remove("hidden");
-        setTimeout(() => {
-          panel.classList.remove("translate-x-full");
-        }, 10);
-      }
-
-      function closeJobsSidebar() {
-        const sidebar = document.getElementById("jobsSidebar");
-        const panel = document.getElementById("sidebarPanel");
-
-        panel.classList.add("translate-x-full");
-        setTimeout(() => {
-          sidebar.classList.add("hidden");
-        }, 300);
-      }
-
-      // Update the "View Open Roles" button onclick
-      document.addEventListener("DOMContentLoaded", function () {
-        // Find the View Open Roles button and add the onclick event
-        const viewRolesButton = document.querySelector(
-          'button:contains("View Open Roles")'
-        );
-        if (viewRolesButton) {
-          viewRolesButton.onclick = openJobsSidebar;
-        }
-      });
-    </script>
  <!-- Skip to main content for accessibility -->
     <a
       href="#main-content"
@@ -555,17 +354,29 @@
 </script>
           </div>
 
-          <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 justify-center mb-8">
-            <a href="https://www.linkedin.com/company/romega-solutions/jobs/" target="_blank" rel="noopener">
-            <button
-              class="bg-[var(--rs-neutral-100)] text-[var(--rs-neutral-600)] px-8 py-3  lg:w-[590px] rounded-lg font-semibold text-[22px] border-2 border-[var(--rs-neutral-400)] mx-auto hover:bg-[var(--rs-neutral-200)] transition flex items-center justify-center gap-2"
-            >
-            <img src="../assets/images/careers/human.png" class="w-[27.5px] h-[27.5px]" alt="">
-              Stay Connected for Future Roles
-            </button>
-            </a>
-          </div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 justify-center mb-8 px-4">
+  <!-- Stay Connected Button -->
+  <a href="https://www.linkedin.com/company/romega-solutions/jobs/" target="_blank" rel="noopener" class="w-full max-w-[590px] mx-auto lg:mx-0">
+    <button
+      class="w-full bg-[var(--rs-neutral-100)] text-[var(--rs-neutral-600)] px-6 sm:px-8 py-3 rounded-lg font-semibold text-[18px] sm:text-[20px] lg:text-[22px] border-2 border-[var(--rs-neutral-400)] hover:bg-[var(--rs-neutral-200)] transition flex items-center justify-center gap-2"
+    >
+      <img src="../assets/images/careers/human.png" class="w-[24px] h-[24px] sm:w-[27.5px] sm:h-[27.5px]" alt="">
+      <span class="whitespace-nowrap">Stay Connected for Future Roles</span>
+    </button>
+  </a>
+
+  <!-- View Open Roles Button -->
+  <div class="w-full max-w-[590px] mx-auto lg:mx-0">
+    <button
+      onclick="openJobsSidebar()"
+      class="w-full bg-[var(--rs-primary-500)] text-[var(--rs-primary-100)] px-6 sm:px-8 py-3 rounded-lg font-semibold text-[18px] sm:text-[20px] lg:text-[22px] border-2 border-[var(--rs-primary-600)] hover:bg-[var(--rs-primary-600)] transition flex items-center justify-center gap-2"
+    >
+      <img src="../assets/images/careers/bag-white.svg" class="w-[24px] h-[24px] sm:w-[27.5px] sm:h-[27.5px]" alt="">
+      <span class="whitespace-nowrap">View Open Roles</span>
+    </button>
+  </div>
+</div>
 
           <!-- Two Column Content -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -1646,6 +1457,7 @@
         }
       });
     </script>
+    <script src="../js/career-jobs.js"></script>
   </body>
   
 </html>
