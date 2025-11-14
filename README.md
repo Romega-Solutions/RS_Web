@@ -765,6 +765,6 @@ For technical issues, feature requests, or development questions:
 
 ---
 
-*Last Updated: October 2025*
+*Last Updated: November 2025*
 
 </div>
