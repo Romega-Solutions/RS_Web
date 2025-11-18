@@ -761,7 +761,7 @@ For technical issues, feature requests, or development questions:
 
 **Found this project helpful? Give it a ⭐️!**
 
-**Made with ❤️ and ☕ by the Romega Solutions Development Team**
+
 
 ---
 
