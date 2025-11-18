@@ -1,46 +1,11 @@
 {
-  "version": 2,
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/js/(.*)",
-      "dest": "/js/$1"
-    },
-    {
-      "src": "/",
-      "dest": "/pages/index.html"
-    },
-    {
-      "src": "/about",
-      "dest": "/pages/about.html"
-    },
-    {
-      "src": "/services",
-      "dest": "/pages/services.html"
-    },
-    {
-      "src": "/careers",
-      "dest": "/pages/careers.html"
-    },
-    {
-      "src": "/contact",
-      "dest": "/pages/contact.html"
-    },
-    {
-      "src": "/resources",
-      "dest": "/pages/resources.html"
-    },
-    {
-      "src": "/(.*)\\.html$",
-      "dest": "/pages/$1.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/pages/$1.html"
-    }
+  "rewrites": [
+    { "source": "/", "destination": "/pages/index.html" },
+    { "source": "/about", "destination": "/pages/about.html" },
+    { "source": "/services", "destination": "/pages/services.html" },
+    { "source": "/careers", "destination": "/pages/careers.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/resources", "destination": "/pages/resources.html" }
   ],
   "headers": [
     {
