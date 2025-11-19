@@ -1157,7 +1157,7 @@
                       class="bg-white rounded-full border-4 border-[#94a3b8] w-[120px] h-[120px] overflow-hidden flex items-center justify-center"
                     >
                       <img
-                        src="/assets/images/about/ken.jpg"
+                        src="/assets/images/about/Ken.jpg"
                         alt="Portrait of Marketing intern"
                         class="w-full h-full object-cover"
                       />
@@ -2581,15 +2581,28 @@
       // Infinite Testimonials Carousel
       let currentTestimonialIndex = 0;
       const testimonialCardWidth = 313 + 24; // card width + gap
+      let isTestimonialAnimating = false;
+      let originalCardsCount = 0;
 
       function initTestimonialsCarousel() {
         const carousel = document.getElementById("testimonials-carousel");
-        const cards = carousel.querySelectorAll(".flex-shrink-0");
+        const cards = Array.from(carousel.querySelectorAll(".flex-shrink-0"));
         const dotsContainer = document.getElementById("testimonials-dots");
 
-        // Create dots based on number of cards
+        originalCardsCount = cards.length;
+
+        // Clone cards only 2 times (3 sets total) for performance
+        const originalCards = [...cards];
+        for (let i = 0; i < 2; i++) {
+          originalCards.forEach((card) => {
+            const clone = card.cloneNode(true);
+            carousel.appendChild(clone);
+          });
+        }
+
+        // Create dots based on original number of cards
         dotsContainer.innerHTML = "";
-        for (let i = 0; i < cards.length; i++) {
+        for (let i = 0; i < originalCardsCount; i++) {
           const dot = document.createElement("span");
           dot.className = `w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer ${
             i === 0 ? "bg-yellow-400" : "bg-gray-400"
@@ -2597,51 +2610,94 @@
           dot.onclick = () => goToTestimonialSlide(i);
           dotsContainer.appendChild(dot);
         }
+
+        // Start at the middle set
+        currentTestimonialIndex = originalCardsCount;
+        updateTestimonialsPosition(false);
       }
 
       function scrollTestimonialsInfinite(direction) {
-        const carousel = document.getElementById("testimonials-carousel");
-        const cards = carousel.querySelectorAll(".flex-shrink-0");
-        const totalCards = cards.length;
+        if (isTestimonialAnimating) return;
 
+        isTestimonialAnimating = true;
         currentTestimonialIndex += direction;
 
-        // Handle infinite loop
-        if (currentTestimonialIndex >= totalCards) {
-          currentTestimonialIndex = 0;
-        } else if (currentTestimonialIndex < 0) {
-          currentTestimonialIndex = totalCards - 1;
-        }
+        updateTestimonialsPosition(true);
 
-        updateTestimonialsPosition();
+        // After animation, check if we need to seamlessly jump back to middle set
+        setTimeout(() => {
+          let needsReset = false;
+          let newIndex = currentTestimonialIndex;
+
+          // If we reach the first card of the 3rd set (originalCardsCount * 2), reset to first card of 2nd set
+          if (currentTestimonialIndex >= originalCardsCount * 2) {
+            // Calculate which card in the cycle we're at
+            const positionInCycle =
+              currentTestimonialIndex % originalCardsCount;
+            // Jump back to the same position in the middle set (set 1)
+            newIndex = originalCardsCount + positionInCycle;
+            needsReset = true;
+          }
+          // If we go before the first set (index < 0), reset to the same position in middle set
+          else if (currentTestimonialIndex < 0) {
+            // Calculate position (handle negative modulo properly)
+            const positionInCycle =
+              ((currentTestimonialIndex % originalCardsCount) +
+                originalCardsCount) %
+              originalCardsCount;
+            // Jump to the same position in the middle set
+            newIndex = originalCardsCount + positionInCycle;
+            needsReset = true;
+          }
+
+          if (needsReset) {
+            currentTestimonialIndex = newIndex;
+            // Use requestAnimationFrame to ensure smooth reset
+            requestAnimationFrame(() => {
+              updateTestimonialsPosition(false);
+            });
+          }
+
+          isTestimonialAnimating = false;
+        }, 500);
       }
 
       function goToTestimonialSlide(index) {
-        currentTestimonialIndex = index;
-        updateTestimonialsPosition();
+        if (isTestimonialAnimating) return;
+
+        // Jump to the middle set of clones
+        currentTestimonialIndex = originalCardsCount + index;
+        updateTestimonialsPosition(true);
       }
 
-      function updateTestimonialsPosition() {
+      function updateTestimonialsPosition(animate = true) {
         const carousel = document.getElementById("testimonials-carousel");
         const dots = document.querySelectorAll("#testimonials-dots span");
 
-        // Calculate transform based on viewport width
+        // Calculate transform to center the current card
         const viewportWidth = window.innerWidth;
-        let cardsVisible = Math.floor(viewportWidth / testimonialCardWidth);
-        cardsVisible = Math.max(1, cardsVisible); // At least 1 card visible
+        const cardCenterOffset = testimonialCardWidth / 2;
+        const viewportCenter = viewportWidth / 2;
 
-        // Center the cards
-        const offset =
-          (viewportWidth - cardsVisible * testimonialCardWidth) / 2;
         const translateX =
-          -currentTestimonialIndex * testimonialCardWidth + offset;
+          viewportCenter -
+          currentTestimonialIndex * testimonialCardWidth -
+          cardCenterOffset;
+
+        if (animate) {
+          carousel.style.transition = "transform 0.5s ease-in-out";
+        } else {
+          carousel.style.transition = "none";
+        }
 
         carousel.style.transform = `translateX(${translateX}px)`;
 
-        // Update dots
+        // Update dots based on the logical position (modulo to get actual card index)
+        const logicalIndex = currentTestimonialIndex % originalCardsCount;
+
         dots.forEach((dot, index) => {
           dot.className = `w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer ${
-            index === currentTestimonialIndex ? "bg-yellow-400" : "bg-gray-400"
+            index === logicalIndex ? "bg-yellow-400" : "bg-gray-400"
           }`;
         });
       }
@@ -2651,12 +2707,6 @@
       let isAnimating = false; // Prevent rapid clicking during animations
 
       const teamMembers = [
-        {
-          name: "Jennilyn Lapena",
-          image: "/assets/images/homepage/jennilyn.png",
-          alt: "Jennilyn Lapena, HR Specialist",
-          link: "https://www.linkedin.com/in/jennilyn-maalindog-484a1a213/",
-        },
         {
           name: "Christine Valerio",
           image: "/assets/images/homepage/christine.png",
@@ -2688,10 +2738,10 @@
           link: "https://www.linkedin.com/in/duanevargas/",
         },
         {
-          name: "Jem Laguada",
-          image: "/assets/images/homepage/jem.png",
-          alt: "Jem Laguada, Recruitment Specialist",
-          link: "https://www.linkedin.com/in/jerelylaguda/",
+          name: "Mark Siazon",
+          image: "/assets/images/about/mark.webp",
+          alt: "Mark Siazon, Product Designer",
+          link: "https://www.linkedin.com/in/mark-siazon/",
         },
         {
           name: "Audrey Molina",
