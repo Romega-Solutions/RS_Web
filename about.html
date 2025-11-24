@@ -73,13 +73,13 @@
           box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.15);
         }
         40% {
-          transform: scale(1.1);
+          transform: scale(1);
           opacity: 0.94;
           filter: brightness(1.03) saturate(1.02);
           box-shadow: 0 18px 36px -9px rgba(0, 0, 0, 0.28);
         }
         100% {
-          transform: scale(1.2);
+          transform: scale(1);
           opacity: 1;
           filter: brightness(1.1) saturate(1.1);
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
@@ -139,9 +139,503 @@
           transform: scale(1) translateY(0);
         }
       }
+
+      /* Team Member Hover Effects */
+      .team-member {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        border-radius: 6px;
+      }
+
+      .team-member-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 24px 16px;
+        background: linear-gradient(0deg, #1C232D 0%, rgba(28, 35, 45, 0.98) 25%, rgba(28, 35, 45, 0.90) 40%, rgba(28, 35, 45, 0.70) 55%, rgba(28, 35, 45, 0.00) 100%);
+        border-radius: 0 0 6px 6px;
+        z-index: 1;
+        pointer-events: none;
+        text-align: left;
+      }
+
+      .team-member-name {
+        color: #F1F8FE;
+        font-family: Merriweather, serif;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 100%;
+        letter-spacing: -0.72px;
+        margin-bottom: 4px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .team-member-title {
+        color: #F9B310;
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Responsive text sizes for smaller cards */
+      #position-0-img ~ .team-member-overlay .team-member-name,
+      #position-6-img ~ .team-member-overlay .team-member-name {
+        font-size: 14px;
+        letter-spacing: -0.28px;
+        margin-bottom: 2px;
+      }
+
+      #position-0-img ~ .team-member-overlay .team-member-title,
+      #position-6-img ~ .team-member-overlay .team-member-title {
+        font-size: 10px;
+      }
+
+      #position-0-img ~ .team-member-overlay,
+      #position-6-img ~ .team-member-overlay {
+        padding: 12px 8px;
+      }
+
+      #position-1-img ~ .team-member-overlay .team-member-name,
+      #position-5-img ~ .team-member-overlay .team-member-name {
+        font-size: 20px;
+        letter-spacing: -0.4px;
+        margin-bottom: 3px;
+      }
+
+      #position-1-img ~ .team-member-overlay .team-member-title,
+      #position-5-img ~ .team-member-overlay .team-member-title {
+        font-size: 14px;
+      }
+
+      #position-1-img ~ .team-member-overlay,
+      #position-5-img ~ .team-member-overlay {
+        padding: 16px 10px;
+      }
+
+      #position-2-img ~ .team-member-overlay .team-member-name,
+      #position-4-img ~ .team-member-overlay .team-member-name {
+        font-size: 28px;
+        letter-spacing: -0.56px;
+      }
+
+      #position-2-img ~ .team-member-overlay .team-member-title,
+      #position-4-img ~ .team-member-overlay .team-member-title {
+        font-size: 18px;
+      }
+
+      #position-2-img ~ .team-member-overlay,
+      #position-4-img ~ .team-member-overlay {
+        padding: 20px 14px;
+      }
+
+      .team-member::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 102, 153, 0.85);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+        border-radius: 6px;
+        pointer-events: none;
+      }
+
+      /* Remove blue overlay hover effect */
+      /* .team-member:hover::after {
+        opacity: 1;
+      } */
+
+      .team-member img {
+        transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .team-member:hover img {
+        transform: scale(1);
+      }
+
+      .team-member-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        z-index: 3;
+        pointer-events: auto;
+        display: flex;
+        min-width: 300px;
+        max-width: 400px;
+        padding: 8px 24px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+        border: 1.25px solid #125BA1;
+        background: #0076E5;
+        box-shadow: 0 2.5px 18.75px 5.5px rgba(18, 91, 161, 0.30);
+        color: #F1F8FE;
+        font-weight: 600;
+        font-size: 16px;
+        gap: 8px;
+        cursor: pointer;
+      }
+
+      .team-member:hover .team-member-button {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
     </style>
   </head>
   <body>
+    <!-- Team Member Sidebar Overlay -->
+    <div id="teamMemberSidebar" class="fixed inset-0 z-[60] hidden">
+      <!-- Background Overlay -->
+      <div
+        class="fixed inset-0 bg-black bg-opacity-50"
+        onclick="closeTeamSidebar()"
+      ></div>
+
+      <!-- Sidebar Panel -->
+      <div
+        class="fixed right-0 top-0 h-full w-full sm:w-[380px] bg-gradient-to-r from-[#d4e9f7] to-[#e8f4f9] shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-[70] overflow-y-auto"
+        id="teamSidebarPanel"
+      >
+        <!-- Close Button -->
+        <button
+          onclick="closeTeamSidebar()"
+          class="absolute top-4 right-4 p-2 hover:bg-gray-200 rounded-full transition-colors z-20 bg-white shadow-md"
+          aria-label="Close team member details sidebar"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#333"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Content -->
+        <div class="space-y-5">
+          <!-- Header Section with Profile Image and Details -->
+          <div
+            class="flex items-center gap-4 pt-6 pb-4 px-6 bg-gradient-to-r from-[#d4e9f7] to-[#e8f4f9]"
+          >
+            <!-- Profile Image on Left -->
+            <img
+              id="sidebarImage"
+              src=""
+              alt="Team Member"
+              class="flex-shrink-0"
+              style="
+                width: 120px;
+                height: 120px;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                border-radius: 126px;
+                border-right: 1px solid #0076e5;
+                border-bottom: 1.5px solid #0076e5;
+                border-left: 1px solid #0076e5;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+              "
+            />
+
+            <!-- Details on Right -->
+            <div class="flex-1">
+              <h2
+                id="sidebarLastName"
+                style="
+                  color: #125ba1;
+                  font-family: Merriweather, serif;
+                  font-size: 30px;
+                  font-weight: 700;
+                  line-height: 120%;
+                  letter-spacing: 1.5px;
+                  margin-bottom: 4px;
+                "
+              >
+                San Luis
+              </h2>
+              <h3
+                id="sidebarName"
+                style="
+                  color: #125ba1;
+                  font-family: Merriweather, serif;
+                  font-size: 22px;
+                  font-weight: 700;
+                  line-height: 120%;
+                  letter-spacing: 1.1px;
+                  margin-bottom: 4px;
+                "
+              >
+                Jillian Joy, C.
+              </h3>
+              <p
+                id="sidebarRole"
+                style="
+                  color: #df9e07;
+                  font-family: 'Source Sans 3', sans-serif;
+                  font-size: 20px;
+                  font-weight: 500;
+                  line-height: 18px;
+                  text-transform: uppercase;
+                  margin: 0;
+                "
+              >
+                MARKET RESEARCH ANALYST
+              </p>
+            </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="px-6 space-y-5 pb-6">
+            <!-- About Me Section -->
+            <div
+              style="
+                display: flex;
+                padding: 0 0 20px 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                align-self: stretch;
+                background: linear-gradient(135deg, #e6f2ff 0%, #f0f7ff 100%);
+                border-radius: 8px;
+                border-left: 4px solid #0076e5;
+              "
+            >
+              <h3
+                style="
+                  color: #00488d;
+                  font-family: Merriweather, serif;
+                  font-size: 20px;
+                  font-weight: 700;
+                  line-height: normal;
+                  margin: 16px 0 0 0;
+                "
+              >
+                About Me
+              </h3>
+              <p
+                id="sidebarBio"
+                style="
+                  color: #546278;
+                  font-family: 'Source Sans 3', sans-serif;
+                  font-size: 16px;
+                  font-weight: 500;
+                  line-height: 125%;
+                  margin: 0;
+                  padding-right: 16px;
+                "
+              >
+                Loading...
+              </p>
+            </div>
+
+            <!-- Top Qualifications Section -->
+            <div
+              style="
+                display: flex;
+                padding: 0 0 20px 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                align-self: stretch;
+                border-bottom: 0.5px solid #125BA1;
+                background: #D4E6F7;
+                border-radius: 8px;
+              "
+            >
+              <h3
+                style="
+                  color: #00488D;
+                  font-family: Merriweather, serif;
+                  font-size: 20px;
+                  font-weight: 700;
+                  line-height: normal;
+                  margin: 16px 0 0 0;
+                "
+              >
+                Top Qualifications
+              </h3>
+              <ul 
+                id="sidebarQualifications" 
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin: 0 16px 0 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  width: 100%;
+                "
+              >
+                <!-- Qualifications will be loaded here -->
+              </ul>
+            </div>
+
+            <!-- Personal Interests Section -->
+            <div
+              style="
+                display: flex;
+                padding: 0 0 20px 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                align-self: stretch;
+                border-bottom: 0.5px solid #125BA1;
+                background: #D4E6F7;
+                border-radius: 8px;
+              "
+            >
+              <h3
+                style="
+                  color: #00488D;
+                  font-family: Merriweather, serif;
+                  font-size: 20px;
+                  font-weight: 700;
+                  line-height: normal;
+                  margin: 16px 0 0 0;
+                "
+              >
+                Personal Interests
+              </h3>
+              <ul 
+                id="sidebarInterests" 
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin: 0 16px 0 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  width: 100%;
+                "
+              >
+                <!-- Interests will be loaded here -->
+              </ul>
+            </div>
+
+            <!-- Contact Me Section -->
+            <div
+              style="
+                display: flex;
+                padding: 0 0 20px 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                align-self: stretch;
+                border-bottom: 0.5px solid #125BA1;
+                background: #D4E6F7;
+                border-radius: 8px;
+              "
+            >
+              <h3
+                style="
+                  color: #00488D;
+                  font-family: Merriweather, serif;
+                  font-size: 20px;
+                  font-weight: 700;
+                  line-height: normal;
+                  margin: 16px 0 0 0;
+                "
+              >
+                Contact Me
+              </h3>
+              <div class="flex gap-3 pr-4 pb-2" style="width: 100%;">
+                <a
+                  id="sidebarLinkedIn"
+                  href="#"
+                  target="_blank"
+                  class="flex-1 inline-flex items-center justify-center gap-2 bg-[#0066cc] text-white px-4 py-3 rounded-lg font-semibold hover:bg-[#0052a3] transition shadow-md"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    />
+                  </svg>
+                  <span class="text-sm">Connect With Me</span>
+                </a>
+                <button
+                  class="p-3 bg-blue-200 hover:bg-blue-300 rounded-lg transition shadow-md"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#0066cc"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </button>
+                <button
+                  class="p-3 bg-blue-200 hover:bg-blue-300 rounded-lg transition shadow-md"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#0066cc"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Explore More Romega Talents Section -->
+            <div class="mt-6 pb-4">
+              <h3 class="text-base font-semibold text-[#6b9cc4] italic mb-4">
+                Explore More Romega Talents
+              </h3>
+              <div
+                class="flex gap-3 overflow-x-auto no-scrollbar pb-2"
+                id="sidebarTeamCarousel"
+              >
+                <!-- Team member cards will be loaded here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Team Member Sidebar Overlay -->
+
     <!-- Skip to main content for accessibility -->
     <a
       href="#main-content"
@@ -546,20 +1040,36 @@
                   class="team-position flex-shrink-0 transition-all duration-500"
                   style="margin-right: -30px"
                 >
-                  <a
-                    id="position-0-link"
-                    href="https://www.linkedin.com/in/jerelylaguda/"
-                    target="_blank"
-                    class="team-member transition-all duration-300"
-                    aria-label="View team member's LinkedIn profile"
-                  >
+                  <div class="team-member transition-all duration-300">
                     <img
                       id="position-0-img"
                       src="../assets/images/homepage/jem.png"
                       alt="Team Member"
-                      class="w-[150px] h-[150px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                      class="w-[140px] h-[140px] object-cover rounded-[6px] shadow-lg transition-all duration-500"
                     />
-                  </a>
+                    <div class="team-member-overlay">
+                      <div class="team-member-name" id="position-0-name"></div>
+                      <div class="team-member-title" id="position-0-title"></div>
+                    </div>
+                    <div class="team-member-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                      </svg>
+                      Learn More
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Team Member Position 1 (Left) -->
@@ -567,20 +1077,36 @@
                   class="team-position flex-shrink-0 transition-all duration-500"
                   style="margin-right: -40px"
                 >
-                  <a
-                    id="position-1-link"
-                    href="https://www.linkedin.com/in/duanevargas/"
-                    target="_blank"
-                    class="team-member transition-all duration-300"
-                    aria-label="View team member's LinkedIn profile"
-                  >
+                  <div class="team-member transition-all duration-300">
                     <img
                       id="position-1-img"
                       src="../assets/images/homepage/duane.png"
                       alt="Team Member"
-                      class="w-[215px] h-[230px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                      class="w-[200px] h-[215px] object-cover rounded-[6px] shadow-lg transition-all duration-500"
                     />
-                  </a>
+                    <div class="team-member-overlay">
+                      <div class="team-member-name" id="position-1-name"></div>
+                      <div class="team-member-title" id="position-1-title"></div>
+                    </div>
+                    <div class="team-member-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                      </svg>
+                      Learn More
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Team Member Position 2 (Left-Center) -->
@@ -588,20 +1114,36 @@
                   class="team-position flex-shrink-0 transition-all duration-500"
                   style="margin-right: -50px"
                 >
-                  <a
-                    id="position-2-link"
-                    href="https://www.linkedin.com/in/cherry-ann-reyes-chrp-9b978061/"
-                    target="_blank"
-                    class="team-member transition-all duration-300"
-                    aria-label="View team member's LinkedIn profile"
-                  >
+                  <div class="team-member transition-all duration-300">
                     <img
                       id="position-2-img"
                       src="../assets/images/homepage/cherry.png"
                       alt="Team Member"
-                      class="w-[290px] h-[308px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                      class="w-[270px] h-[288px] object-cover rounded-[6px] shadow-lg transition-all duration-500"
                     />
-                  </a>
+                    <div class="team-member-overlay">
+                      <div class="team-member-name" id="position-2-name"></div>
+                      <div class="team-member-title" id="position-2-title"></div>
+                    </div>
+                    <div class="team-member-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                      </svg>
+                      Learn More
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Team Member Position 3 (CENTER) -->
@@ -610,20 +1152,36 @@
                   style="margin-right: -50px; z-index: 50"
                   id="center-position"
                 >
-                  <a
-                    id="position-3-link"
-                    href="https://www.linkedin.com/in/robbie-galoso-9913389/"
-                    target="_blank"
-                    class="team-member transition-all duration-300"
-                    aria-label="View team member's LinkedIn profile"
-                  >
+                  <div class="team-member transition-all duration-300">
                     <img
                       id="position-3-img"
                       src="../assets/images/homepage/robbie.png"
                       alt="Team Member"
-                      class="w-[360px] h-[390px] object-cover rounded-xl shadow-xl transition-all duration-500 hover:scale-105 border-4 border-yellow-500"
+                      class="w-[340px] h-[365px] object-cover rounded-[6px] shadow-xl transition-all duration-500 border-4 border-yellow-500"
                     />
-                  </a>
+                    <div class="team-member-overlay">
+                      <div class="team-member-name" id="position-3-name"></div>
+                      <div class="team-member-title" id="position-3-title"></div>
+                    </div>
+                    <div class="team-member-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                      </svg>
+                      Learn More
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Team Member Position 4 (Right-Center) -->
@@ -631,20 +1189,36 @@
                   class="team-position flex-shrink-0 transition-all duration-500"
                   style="margin-right: -40px"
                 >
-                  <a
-                    id="position-4-link"
-                    href="https://www.linkedin.com/in/jyarc/"
-                    target="_blank"
-                    class="team-member transition-all duration-300"
-                    aria-label="View team member's LinkedIn profile"
-                  >
+                  <div class="team-member transition-all duration-300">
                     <img
                       id="position-4-img"
                       src="../assets/images/homepage/jyrra.png"
                       alt="Team Member"
-                      class="w-[290px] h-[308px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                      class="w-[270px] h-[288px] object-cover rounded-[6px] shadow-lg transition-all duration-500"
                     />
-                  </a>
+                    <div class="team-member-overlay">
+                      <div class="team-member-name" id="position-4-name"></div>
+                      <div class="team-member-title" id="position-4-title"></div>
+                    </div>
+                    <div class="team-member-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                      </svg>
+                      Learn More
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Team Member Position 5 (Right) -->
@@ -652,39 +1226,71 @@
                   class="team-position flex-shrink-0 transition-all duration-500"
                   style="margin-right: -30px"
                 >
-                  <a
-                    id="position-5-link"
-                    href="https://www.linkedin.com/in/christinevalenciaj/"
-                    target="_blank"
-                    class="team-member transition-all duration-300"
-                    aria-label="View team member's LinkedIn profile"
-                  >
+                  <div class="team-member transition-all duration-300">
                     <img
                       id="position-5-img"
                       src="../assets/images/homepage/christine.png"
                       alt="Team Member"
-                      class="w-[215px] h-[230px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                      class="w-[200px] h-[215px] object-cover rounded-[6px] shadow-lg transition-all duration-500"
                     />
-                  </a>
+                    <div class="team-member-overlay">
+                      <div class="team-member-name" id="position-5-name"></div>
+                      <div class="team-member-title" id="position-5-title"></div>
+                    </div>
+                    <div class="team-member-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                      </svg>
+                      Learn More
+                    </div>
+                  </div>
                 </div>
                 <!-- Team Member Position 6 (Far Right) -->
                 <div
                   class="team-position flex-shrink-0 transition-all duration-500"
                 >
-                  <a
-                    id="position-6-link"
-                    href="https://www.linkedin.com/in/jennilyn-maalindog-484a1a213/"
-                    target="_blank"
-                    class="team-member transition-all duration-300"
-                    aria-label="View team member's LinkedIn profile"
-                  >
+                  <div class="team-member transition-all duration-300">
                     <img
                       id="position-6-img"
                       src="../assets/images/homepage/jennilyn.png"
                       alt="Team Member"
-                      class="w-[150px] h-[150px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                      class="w-[140px] h-[140px] object-cover rounded-[6px] shadow-lg transition-all duration-500"
                     />
-                  </a>
+                    <div class="team-member-overlay">
+                      <div class="team-member-name" id="position-6-name"></div>
+                      <div class="team-member-title" id="position-6-title"></div>
+                    </div>
+                    <div class="team-member-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                      </svg>
+                      Learn More
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Team Member Position 7 (Audrey, hidden by default) -->
@@ -692,20 +1298,32 @@
                   class="team-position flex-shrink-0 transition-all duration-500 hidden"
                   id="position-7"
                 >
-                  <a
-                    id="position-7-link"
-                    href="https://www.linkedin.com/in/audreympm/"
-                    target="_blank"
-                    class="team-member transition-all duration-300"
-                    aria-label="View Audrey Molina's LinkedIn profile"
-                  >
+                  <div class="team-member transition-all duration-300">
                     <img
                       id="position-7-img"
                       src="../assets/images/about/Audrey.webp"
                       alt="Audrey Molina, Sales Intern"
-                      class="w-[150px] h-[150px] object-cover rounded-xl shadow-lg transition-all duration-500 hover:scale-105"
+                      class="w-[140px] h-[140px] object-cover rounded-xl shadow-lg transition-all duration-500"
                     />
-                  </a>
+                    <div class="team-member-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                      </svg>
+                      Learn More
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2652,52 +3270,73 @@
 
       const teamMembers = [
         {
-          name: "Jennilyn Lapena",
-          image: "../assets/images/homepage/jennilyn.png",
-          alt: "Jennilyn Lapena, HR Specialist",
-          link: "https://www.linkedin.com/in/jennilyn-maalindog-484a1a213/",
+          name: "Mich Dayday",
+          image: "../assets/images/about/IC/IC_Graphics_Designer_Mich.png",
+          alt: "Mich Dayday, Graphics Designer",
+          link: "https://www.linkedin.com/",
         },
         {
-          name: "Christine Valerio",
-          image: "../assets/images/homepage/christine.png",
-          alt: "Christine Valerio, Talent Acquisition",
-          link: "https://www.linkedin.com/in/christinevalenciaj/",
+          name: "Eliza Mae Perez",
+          image: "../assets/images/about/IC/IC_Bookkeeper_Eliza.png",
+          alt: "Eliza Mae Perez, Bookkeeper",
+          link: "https://www.linkedin.com/",
         },
         {
-          name: "Jyrra Arcales",
-          image: "../assets/images/homepage/jyrra.png",
-          alt: "Jyrra Arcales, Operations Manager",
-          link: "https://www.linkedin.com/in/jyarc/",
+          name: "Audrey Maureen Molina",
+          image: "../assets/images/about/IC/IC_Marketing_Audrey.png",
+          alt: "Audrey Maureen Molina, Marketing Lead/Recruiter",
+          link: "https://www.linkedin.com/",
         },
         {
           name: "Robbie Galoso",
-          image: "../assets/images/homepage/robbie.png",
+          image: "../assets/images/about/IC/IC_CEO_Robbie.png",
           alt: "Robbie Galoso, Founder and CEO",
           link: "https://www.linkedin.com/in/robbie-galoso-9913389/",
         },
         {
           name: "Cherry Ann Reyes",
-          image: "../assets/images/homepage/cherry.png",
-          alt: "Cherry Ann Reyes, HR Consultant",
+          image: "../assets/images/about/IC/IC_HR_Cherry.png",
+          alt: "Cherry Ann Reyes, Chief of Staff",
           link: "https://www.linkedin.com/in/cherry-ann-reyes-chrp-9b978061/",
+          disableHover: true,
+        },
+        {
+          name: "Christine Valencia",
+          image: "../assets/images/about/IC/IC_Recruitment_Christine.jpg",
+          alt: "Christine Valencia, HR Business Partner/Recruiter",
+          link: "https://www.linkedin.com/",
+        },
+        {
+          name: "Ken Patrick Garcia",
+          image: "../assets/images/about/IC/IC_Web_Developer_Ken.jpg",
+          alt: "Ken Patrick Garcia, Full-Stack Developer",
+          link: "https://www.linkedin.com/",
         },
         {
           name: "Duane Vargas",
-          image: "../assets/images/homepage/duane.png",
-          alt: "Duane Vargas, Digital Marketing",
-          link: "https://www.linkedin.com/in/duanevargas/",
+          image: "../assets/images/about/IC/IC_Recruiter_Duane.jpg",
+          alt: "Duane Vargas, HR Business Partner/Recruiter",
+          link: "https://www.linkedin.com/",
+          disableHover: true,
         },
         {
-          name: "Jem Laguada",
-          image: "../assets/images/homepage/jem.png",
-          alt: "Jem Laguada, Recruitment Specialist",
-          link: "https://www.linkedin.com/in/jerelylaguda/",
+          name: "Mark Siazon",
+          image: "../assets/images/about/IC/IC_UI_UX_Designer_Mark.png",
+          alt: "Mark Siazon, Product Designer",
+          link: "https://www.linkedin.com/",
         },
         {
-          name: "Audrey Molina",
-          image: "../assets/images/about/Auudrey.webp",
-          alt: "Audrey Molina, Sales Intern",
-          link: "https://www.linkedin.com/in/audreympm/",
+          name: "Jyrra Arcales",
+          image: "../assets/images/about/IC/IC_Recruitment_Jyrra.png",
+          alt: "Jyrra Arcales, Recruitment Specialist",
+          link: "https://www.linkedin.com/",
+        },
+        {
+          name: "Rich Salvador",
+          image:
+            "../assets/images/about/IC/IC_Account_Executive_Associate_Rich.png",
+          alt: "Rich Salvador, Account Executive/Associate",
+          link: "https://www.linkedin.com/",
         },
       ];
 
@@ -2827,9 +3466,9 @@
         // Update each position with the correct team member
         positions.forEach((memberIndex, positionIndex) => {
           const img = document.getElementById(`position-${positionIndex}-img`);
-          const link = document.getElementById(
-            `position-${positionIndex}-link`
-          );
+          const button = img.parentElement.querySelector(".team-member-button");
+          const nameElement = document.getElementById(`position-${positionIndex}-name`);
+          const titleElement = document.getElementById(`position-${positionIndex}-title`);
           const member = teamMembers[memberIndex];
 
           // Add entrance animation to new images
@@ -2837,11 +3476,36 @@
 
           img.src = member.image;
           img.alt = member.alt;
-          link.href = member.link;
-          link.setAttribute(
-            "aria-label",
-            `View ${member.name}'s LinkedIn profile`
-          );
+
+          // Update name and title text overlay
+          if (nameElement && titleElement) {
+            nameElement.textContent = member.name;
+            // Extract title from alt text (format: "Name, Title")
+            const titleMatch = member.alt.match(/,\s*(.+)/);
+            titleElement.textContent = titleMatch ? titleMatch[1] : "";
+          }
+
+          // Add white background for Rich Salvador (transparent background)
+          if (member.name === "Rich Salvador") {
+            img.style.backgroundColor = "#ffffff";
+          } else {
+            img.style.backgroundColor = "";
+          }
+
+          // Update button onclick with member name
+          if (button) {
+            // Check if hover should be disabled for this member
+            if (member.disableHover) {
+              button.style.display = "none";
+              button.onclick = null;
+            } else {
+              button.style.display = "";
+              button.onclick = (e) => {
+                e.stopPropagation();
+                openTeamSidebar(member.name);
+              };
+            }
+          }
 
           // Remove entrance animation after it completes
           setTimeout(() => {
@@ -2871,8 +3535,8 @@
 
           if (i === 3) {
             // Center position - highlighted with largest scale and special animation
-            position.style.transform = "scale(1.2)";
-            position.style.zIndex = "50";
+            position.style.transform = "scale(1.0)";
+            position.style.zIndex = "100";
             img.style.borderColor = "#eab308"; // yellow border for center
             img.style.borderWidth = "4px";
             img.style.boxShadow = "0 25px 50px -12px rgba(0, 0, 0, 0.4)";
@@ -2891,7 +3555,7 @@
             img.style.filter = "brightness(1.0)";
           } else if (distanceFromCenter === 2) {
             // Second ring - medium scale
-            position.style.transform = "scale(0.85)";
+            position.style.transform = "scale(1.0)";
             position.style.zIndex = "30";
             img.style.borderColor = "rgba(255, 255, 255, 0.2)";
             img.style.borderWidth = "1px";
@@ -2899,7 +3563,7 @@
             img.style.filter = "brightness(0.9)";
           } else {
             // Outer positions - smallest scale and dimmed, lowest z-index
-            position.style.transform = "scale(0.7)";
+            position.style.transform = "scale(1.0)";
             position.style.zIndex = "20";
             img.style.borderColor = "transparent";
             img.style.borderWidth = "0px";
@@ -2938,6 +3602,298 @@
       setInterval(() => {
         scrollTeamInfinite(1);
       }, 7000); // Auto-scroll every 7 seconds
+
+      // Team Member Sidebar Functions
+      const teamMemberDetails = {
+        "Eliza Mae Perez": {
+          role: "Bookkeeper",
+          location: "San Luis",
+          bio: "Detail-oriented bookkeeper focused on maintaining accurate financial records and ensuring compliance with accounting standards.",
+          qualifications: [
+            "Financial Record Keeping",
+            "Accounts Reconciliation",
+            "Compliance Management",
+          ],
+          interests: [
+            "Financial Analysis",
+            "Process Improvement",
+            "Accounting Software",
+          ],
+          linkedin: "https://www.linkedin.com/",
+        },
+        "Robbie Galoso": {
+          role: "Founder and CEO",
+          location: "San Luis",
+          bio: "Visionary leader driving company growth and innovation. Focused on building sustainable business practices and fostering a culture of excellence.",
+          qualifications: [
+            "Strategic Leadership",
+            "Business Development",
+            "Organizational Growth",
+          ],
+          interests: ["Innovation", "Entrepreneurship", "Team Building"],
+          linkedin: "https://www.linkedin.com/in/robbie-galoso-9913389/",
+        },
+        "Mich Dayday": {
+          role: "Graphics Designer",
+          location: "San Luis",
+          bio: "Creative graphics designer specializing in visual communication and brand identity. Passionate about creating compelling designs that tell stories.",
+          qualifications: [
+            "Visual Design",
+            "Brand Identity",
+            "Creative Direction",
+          ],
+          interests: ["Digital Art", "Typography", "User Interface Design"],
+          linkedin: "https://www.linkedin.com/",
+        },
+        "Cherry Ann Reyes": {
+          role: "Chief of Staff",
+          location: "San Luis",
+          bio: "Experienced HR consultant specializing in strategic human resource management. Focused on building effective HR systems and developing talent acquisition strategies.",
+          qualifications: [
+            "Certified HR Professional (CHRP)",
+            "Strategic HR Management",
+            "Talent Development",
+          ],
+          interests: [
+            "HR Best Practices",
+            "Leadership Development",
+            "Organizational Culture",
+          ],
+          linkedin:
+            "https://www.linkedin.com/in/cherry-ann-reyes-chrp-9b978061/",
+        },
+        "Audrey Maureen Molina": {
+          role: "Marketing Lead/Recruiter",
+          location: "San Luis",
+          bio: "Dynamic marketing lead with dual expertise in digital marketing and recruitment. Dedicated to driving brand awareness while attracting top talent.",
+          qualifications: [
+            "Marketing Leadership",
+            "Digital Marketing Strategy",
+            "Recruitment Marketing",
+          ],
+          interests: [
+            "Brand Strategy",
+            "Content Marketing",
+            "Employer Branding",
+          ],
+          linkedin: "https://www.linkedin.com/",
+        },
+        "Christine Valencia": {
+          role: "HR Business Partner/Recruiter",
+          location: "San Luis",
+          bio: "Skilled HR business partner and recruiter focused on strategic talent acquisition and building strong partnerships with business leaders.",
+          qualifications: [
+            "HR Business Partnering",
+            "Strategic Recruitment",
+            "Stakeholder Management",
+          ],
+          interests: [
+            "Talent Strategy",
+            "Employer Branding",
+            "Workforce Planning",
+          ],
+          linkedin: "https://www.linkedin.com/",
+        },
+        "Jyrra Arcales": {
+          role: "Recruitment Specialist",
+          location: "San Luis",
+          bio: "Dedicated recruitment specialist with a passion for connecting great talent with exceptional opportunities. Focused on creating positive candidate experiences.",
+          qualifications: [
+            "Recruitment Strategy",
+            "Candidate Assessment",
+            "Stakeholder Management",
+          ],
+          interests: [
+            "Talent Pipeline Development",
+            "Recruitment Marketing",
+            "Diversity Hiring",
+          ],
+          linkedin: "https://www.linkedin.com/",
+        },
+        "Duane Vargas": {
+          role: "HR Business Partner/Recruiter",
+          location: "San Luis",
+          bio: "Experienced HR business partner and recruiter specializing in identifying top talent and aligning HR strategies with business objectives.",
+          qualifications: [
+            "Talent Acquisition",
+            "HR Business Partnering",
+            "Recruitment Strategy",
+          ],
+          interests: [
+            "Strategic HR",
+            "Talent Development",
+            "Organizational Development",
+          ],
+          linkedin: "https://www.linkedin.com/",
+        },
+        "Mark Siazon": {
+          role: "Product Designer",
+          location: "San Luis",
+          bio: "Innovative product designer committed to creating intuitive and engaging user experiences. Specializes in user-centered design and interface optimization.",
+          qualifications: [
+            "Product Design",
+            "User Experience Design",
+            "Prototyping & Wireframing",
+          ],
+          interests: ["User Research", "Interaction Design", "Design Systems"],
+          linkedin: "https://www.linkedin.com/",
+        },
+        "Ken Patrick Garcia": {
+          role: "Full-Stack Developer",
+          location: "San Luis",
+          bio: "Full-Stack Developer specializing in modern web and mobile applications with AI/ML integration. Award-winning developer focused on building scalable, intelligent solutions.",
+          qualifications: [
+            "Full-Stack Development (React, Next.js, Node.js)",
+            "Mobile Development (React Native, Flutter)",
+            "AI/ML Integration & Cloud Computing",
+            "DataCamp Data Engineering Scholar",
+          ],
+          interests: [
+            "AI-Powered Solutions",
+            "IoT Systems",
+            "Scalable Architecture",
+          ],
+          linkedin: "https://www.linkedin.com/",
+        },
+        "Rich Salvador": {
+          role: "Account Executive/Associate Sales Trainer",
+          location: "San Luis",
+          bio: "Experienced account executive and sales trainer specializing in client relationship management and team development.",
+          qualifications: [
+            "Account Management",
+            "Sales Training",
+            "Client Relationship Building",
+          ],
+          interests: ["Sales Strategy", "Team Development", "Customer Success"],
+          linkedin: "https://www.linkedin.com/",
+        },
+      };
+
+      function openTeamSidebar(memberName) {
+        const sidebar = document.getElementById("teamMemberSidebar");
+        const panel = document.getElementById("teamSidebarPanel");
+        const details = teamMemberDetails[memberName];
+
+        if (!details) return;
+
+        // Extract last name from full name
+        const nameParts = memberName.split(" ");
+        const lastName = nameParts[nameParts.length - 1].toUpperCase();
+
+        // Update sidebar content
+        document.getElementById("sidebarLastName").textContent = lastName;
+        document.getElementById("sidebarName").textContent = memberName;
+        document.getElementById("sidebarRole").textContent = details.role;
+        document.getElementById("sidebarLinkedIn").href = details.linkedin;
+
+        // Find and set the member's image
+        const member = teamMembers.find((m) => m.alt.includes(memberName));
+        if (member) {
+          document.getElementById("sidebarImage").src = member.image;
+          document.getElementById("sidebarImage").alt = memberName;
+        }
+
+        // Update bio (display as bullet points)
+        const bioElement = document.getElementById("sidebarBio");
+        if (Array.isArray(details.bio)) {
+          bioElement.innerHTML =
+            '<ul style="margin: 0; padding-left: 20px; list-style-type: disc;">' +
+            details.bio
+              .map((line) => `<li style="margin-bottom: 8px;">${line}</li>`)
+              .join("") +
+            "</ul>";
+        } else {
+          bioElement.innerHTML =
+            '<ul style="margin: 0; padding-left: 20px; list-style-type: disc;"><li>' +
+            details.bio +
+            "</li></ul>";
+        }
+
+        // Update qualifications
+        const qualsList = document.getElementById("sidebarQualifications");
+        qualsList.innerHTML = details.qualifications
+          .map(
+            (q) =>
+              `<li style="
+                color: #365A7D;
+                font-family: 'Source Sans 3', sans-serif;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 115%;
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+              ">
+            <span style="color: #00488D; font-weight: 700; margin-top: 2px;">•</span>
+            <span>${q}</span>
+          </li>`
+          )
+          .join("");
+
+        // Update interests
+        const interestsList = document.getElementById("sidebarInterests");
+        interestsList.innerHTML = details.interests
+          .map(
+            (i) =>
+              `<li style="
+                color: #365A7D;
+                font-family: 'Source Sans 3', sans-serif;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 115%;
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+              ">
+            <span style="color: #00488D; font-weight: 700; margin-top: 2px;">•</span>
+            <span>${i}</span>
+          </li>`
+          )
+          .join("");
+
+        // Populate the "Explore More Romega Talents" carousel
+        const carouselElement = document.getElementById("sidebarTeamCarousel");
+        const otherMembers = teamMembers
+          .filter((m) => !m.alt.includes(memberName))
+          .slice(0, 4);
+
+        carouselElement.innerHTML = otherMembers
+          .map((m) => {
+            const name = m.alt.split(",")[0];
+            const memberDetails = teamMemberDetails[name];
+            const role = memberDetails
+              ? memberDetails.role
+              : m.alt.split(",")[1] || "Team Member";
+
+            return `<div class="flex-shrink-0 w-20 cursor-pointer hover:opacity-80 transition" onclick="openTeamSidebar('${name}')">
+            <div class="relative">
+              <img src="${
+                m.image
+              }" alt="${name}" class="w-20 h-24 object-cover rounded-lg shadow-md" />
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2 rounded-b-lg">
+                <p class="text-white text-[9px] font-semibold leading-tight">${role.toUpperCase()}</p>
+              </div>
+            </div>
+          </div>`;
+          })
+          .join("");
+
+        // Show sidebar
+        sidebar.classList.remove("hidden");
+        setTimeout(() => {
+          panel.classList.remove("translate-x-full");
+        }, 10);
+      }
+
+      function closeTeamSidebar() {
+        const sidebar = document.getElementById("teamMemberSidebar");
+        const panel = document.getElementById("teamSidebarPanel");
+
+        panel.classList.add("translate-x-full");
+        setTimeout(() => {
+          sidebar.classList.add("hidden");
+        }, 300);
+      }
 
       // ...existing carousel JS...
 
