@@ -45,6 +45,25 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // 1. CHECK HONEYPOT (spam bot detection)
+    const honeypot = this.honeypot.value;
+    if (honeypot) {
+      console.log('Bot detected via honeypot!');
+      return; // Silently reject if honeypot is filled (bot)
+    }
+
+    // 2. VALIDATE RECAPTCHA
+    if (typeof grecaptcha === 'undefined') {
+      showErrorMessage("reCAPTCHA is not loaded. Please refresh the page.");
+      return;
+    }
+
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      showErrorMessage("Please complete the reCAPTCHA verification.");
+      return;
+    }
+
     // Get form data
     const formData = new FormData(contactForm);
 
@@ -96,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
       phone: formData.get("phone"),
       to_name: "Romega Solutions Team",
       reply_to: currentTime, // Using for timestamp as per your template
+      'g-recaptcha-response': recaptchaResponse // Include reCAPTCHA token
     };
 
     console.log("EmailJS Config:", {
@@ -112,6 +132,11 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("SUCCESS!", response.status, response.text);
         showSuccessMessage();
         contactForm.reset();
+        
+        // Reset reCAPTCHA
+        if (typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset();
+        }
       })
       .catch(function (error) {
         console.error("FAILED...", error);
@@ -137,6 +162,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         showErrorMessage(errorMessage);
+        
+        // Reset reCAPTCHA on error
+        if (typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset();
+        }
       })
       .finally(function () {
         // Reset button state
