@@ -48,23 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // 1. CHECK HONEYPOT (spam bot detection)
     const honeypot = this.honeypot.value;
     if (honeypot) {
-      console.log('Bot detected via honeypot!');
+      console.log('🤖 Bot detected via honeypot!');
       return; // Silently reject if honeypot is filled (bot)
     }
+    console.log('✅ Honeypot check passed');
 
-    // 2. VALIDATE RECAPTCHA
-    if (typeof grecaptcha === 'undefined') {
-      showErrorMessage("reCAPTCHA is not loaded. Please refresh the page.");
-      return;
-    }
-
-    const recaptchaResponse = grecaptcha.getResponse();
-    if (!recaptchaResponse) {
-      showErrorMessage("Please complete the reCAPTCHA verification.");
-      return;
-    }
-
-    // Get form data
+    // Get form data first
     const formData = new FormData(contactForm);
 
     // Debug: Log all form fields
@@ -85,6 +74,20 @@ document.addEventListener("DOMContentLoaded", function () {
       showErrorMessage("Please fill in all required fields correctly: " + errors.join(", "));
       return;
     }
+
+    // 2. VALIDATE RECAPTCHA (after form validation)
+    if (typeof grecaptcha === 'undefined') {
+      showErrorMessage("reCAPTCHA is not loaded. Please refresh the page.");
+      return;
+    }
+
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      showErrorMessage("⚠️ Please complete the reCAPTCHA verification.");
+      return;
+    }
+
+    console.log("✅ reCAPTCHA validation passed");
 
     // Show loading state
     submitButton.disabled = true;
@@ -109,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const templateParams = {
       from_name: `${formData.get("firstName")} ${formData.get("lastName")}`,
       from_email: formData.get("email"),
-      subject: formData.get("subject") || "General Inquiry",
+      subject: formData.get("subject") || "general",
       message: formData.get("message"),
       company: formData.get("company") || "Not specified",
       phone: formData.get("phone"),
@@ -255,7 +258,8 @@ function validateFormData(formData) {
     errors.push("Please enter a valid phone number (minimum 10 digits)");
   }
 
-  if (!formData.get("subject")) {
+  const subject = formData.get("subject")?.trim();
+  if (!subject) {
     errors.push("Please select a subject");
   }
 
