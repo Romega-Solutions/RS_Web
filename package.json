@@ -1,0 +1,20 @@
+{
+  "name": "romega-solutions-website",
+  "version": "1.0.0",
+  "description": "Romega Solutions website with honeypot anti-spam protection",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "fast-check": "^3.15.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/js/test-setup.js"
+    ]
+  }
+}
