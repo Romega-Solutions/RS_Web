@@ -45,7 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Get form data
+    // 1. CHECK HONEYPOT (spam bot detection)
+    const honeypot = this.honeypot.value;
+    if (honeypot) {
+      console.log('🤖 Bot detected via honeypot!');
+      return; // Silently reject if honeypot is filled (bot)
+    }
+    console.log('✅ Honeypot check passed');
+
+    // Get form data first
     const formData = new FormData(contactForm);
 
     // Honeypot validation - silent rejection for bot submissions
@@ -73,6 +81,20 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // 2. VALIDATE RECAPTCHA (after form validation)
+    if (typeof grecaptcha === 'undefined') {
+      showErrorMessage("reCAPTCHA is not loaded. Please refresh the page.");
+      return;
+    }
+
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      showErrorMessage("⚠️ Please complete the reCAPTCHA verification.");
+      return;
+    }
+
+    console.log("✅ reCAPTCHA validation passed");
+
     // Show loading state
     submitButton.disabled = true;
     submitButton.innerHTML = `
@@ -96,12 +118,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const templateParams = {
       from_name: `${formData.get("firstName")} ${formData.get("lastName")}`,
       from_email: formData.get("email"),
-      subject: formData.get("subject") || "General Inquiry",
+      subject: formData.get("subject") || "general",
       message: formData.get("message"),
       company: formData.get("company") || "Not specified",
       phone: formData.get("phone"),
       to_name: "Romega Solutions Team",
       reply_to: currentTime, // Using for timestamp as per your template
+      'g-recaptcha-response': recaptchaResponse // Include reCAPTCHA token
     };
 
     console.log("EmailJS Config:", {
@@ -118,6 +141,11 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("SUCCESS!", response.status, response.text);
         showSuccessMessage();
         contactForm.reset();
+        
+        // Reset reCAPTCHA
+        if (typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset();
+        }
       })
       .catch(function (error) {
         console.error("FAILED...", error);
@@ -143,6 +171,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         showErrorMessage(errorMessage);
+        
+        // Reset reCAPTCHA on error
+        if (typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset();
+        }
       })
       .finally(function () {
         // Reset button state
@@ -231,7 +264,8 @@ function validateFormData(formData) {
     errors.push("Please enter a valid phone number (minimum 10 digits)");
   }
 
-  if (!formData.get("subject")) {
+  const subject = formData.get("subject")?.trim();
+  if (!subject) {
     errors.push("Please select a subject");
   }
 

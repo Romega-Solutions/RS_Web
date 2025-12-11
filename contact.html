@@ -52,6 +52,9 @@
   <!-- EmailJS SDK -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+  <!-- Google reCAPTCHA (Added from feature branch) -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -469,6 +472,15 @@
                   required aria-describedby="message-error"></textarea>
                 <div id="message-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
               </div>
+
+              <!-- reCAPTCHA Widget (from feature branch) -->
+              <div class="flex justify-center md:justify-start">
+                <div class="g-recaptcha" data-sitekey="6LccMycsAAAAAOlomBWW5VFR2dY11iXspYdMpvMi"></div>
+              </div>
+
+              <!-- Honeypot (hidden spam bot trap from feature branch) -->
+              <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
 
               <!-- Action Buttons -->
               <div class="flex flex-col sm:flex-col md:flex-row gap-4 pt-4">
