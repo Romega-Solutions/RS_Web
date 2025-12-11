@@ -1,8 +1,8 @@
 // EmailJS Configuration
 const EMAILJS_CONFIG = {
   publicKey: "JD0EOnTsEC1LeFyhe",
-  serviceId: "service_8r6ul7n",    
-  templateId: "template_5i4etfg",   
+  serviceId: "service_8r6ul7n",
+  templateId: "template_5i4etfg",
 };
 
 // Initialize EmailJS
@@ -47,6 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Get form data
     const formData = new FormData(contactForm);
+
+    // Honeypot validation - silent rejection for bot submissions
+    if (formData.get("botfield") && formData.get("botfield").trim() !== "") {
+      console.log("Bot submission detected via honeypot field - silently rejecting");
+      return; // Silent rejection - no error message or processing
+    }
 
     // Debug: Log all form fields
     console.log("Form data:", {
@@ -234,4 +240,9 @@ function validateFormData(formData) {
   }
 
   return errors;
+}
+
+// Export for testing
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { validateFormData };
 }
