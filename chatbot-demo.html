@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romega Solutions - Chatbot Demo</title>
+
+    <!-- TailwindCSS for quick styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chatbot Styles -->
+    <link rel="stylesheet" href="assets/css/chatbot.css" />
+
+    <style>
+      /* Demo page specific styles */
+      .demo-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .demo-card {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .feature-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="demo-container">
+    <!-- Demo Content -->
+    <div class="container mx-auto px-4 py-12">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+          Romega Solutions
+        </h1>
+        <p class="text-xl text-white/80 mb-8">Recruitment & HR Services</p>
+        <div class="demo-card rounded-lg p-6 max-w-2xl mx-auto">
+          <h2 class="text-2xl font-semibold text-white mb-4">
+            🤖 AI Chatbot Demo
+          </h2>
+          <p class="text-white/90 mb-4">
+            Try our intelligent chatbot! It can answer questions about:
+          </p>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+            <span class="bg-white/20 rounded-full px-3 py-1 text-white"
+              >RPO Services</span
+            >
+            <span class="bg-white/20 rounded-full px-3 py-1 text-white"
+              >Executive Search</span
+            >
+            <span class="bg-white/20 rounded-full px-3 py-1 text-white"
+              >Pricing</span
+            >
+            <span class="bg-white/20 rounded-full px-3 py-1 text-white"
+              >HR Consulting</span
+            >
+            <span class="bg-white/20 rounded-full px-3 py-1 text-white"
+              >Consultations</span
+            >
+            <span class="bg-white/20 rounded-full px-3 py-1 text-white"
+              >Global Talent</span
+            >
+          </div>
+          <div
+            class="mt-6 p-4 bg-blue-600/20 rounded-lg border border-blue-400/30"
+          >
+            <p class="text-white/90 text-sm">
+              💡 <strong>Click the blue chat button</strong> in the bottom-right
+              corner to start chatting!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="feature-card bg-white rounded-lg p-6 shadow-lg">
+          <div class="text-3xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">
+            Executive Recruitment
+          </h3>
+          <p class="text-gray-600">
+            Professional RPO services for executive-level positions with 95%+
+            retention rates and 60-70% faster placement than traditional
+            methods.
+          </p>
+        </div>
+
+        <div class="feature-card bg-white rounded-lg p-6 shadow-lg">
+          <div class="text-3xl mb-4">🏢</div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">
+            HR Consulting
+          </h3>
+          <p class="text-gray-600">
+            Strategic HR consulting and BPO solutions to streamline operations
+            and improve organizational efficiency with our expert team.
+          </p>
+        </div>
+
+        <div class="feature-card bg-white rounded-lg p-6 shadow-lg">
+          <div class="text-3xl mb-4">🌍</div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">Global Reach</h3>
+          <p class="text-gray-600">
+            Connect with executive talent worldwide, specializing in
+            Philippine-based professionals leading global innovation and remote
+            collaboration.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sample Questions -->
+      <div class="demo-card rounded-lg p-8 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-semibold text-white mb-6 text-center">
+          Try These Sample Questions
+        </h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="space-y-3">
+            <button
+              onclick="askChatbot('What services do you offer?')"
+              class="w-full text-left bg-white/10 hover:bg-white/20 rounded-lg p-3 text-white transition-colors"
+            >
+              "What services do you offer?"
+            </button>
+            <button
+              onclick="askChatbot('How much do your services cost?')"
+              class="w-full text-left bg-white/10 hover:bg-white/20 rounded-lg p-3 text-white transition-colors"
+            >
+              "How much do your services cost?"
+            </button>
+            <button
+              onclick="askChatbot('How fast can you fill positions?')"
+              class="w-full text-left bg-white/10 hover:bg-white/20 rounded-lg p-3 text-white transition-colors"
+            >
+              "How fast can you fill positions?"
+            </button>
+          </div>
+          <div class="space-y-3">
+            <button
+              onclick="askChatbot('What is RPO and how does it work?')"
+              class="w-full text-left bg-white/10 hover:bg-white/20 rounded-lg p-3 text-white transition-colors"
+            >
+              "What is RPO and how does it work?"
+            </button>
+            <button
+              onclick="askChatbot('Can I schedule a consultation?')"
+              class="w-full text-left bg-white/10 hover:bg-white/20 rounded-lg p-3 text-white transition-colors"
+            >
+              "Can I schedule a consultation?"
+            </button>
+            <button
+              onclick="askChatbot('Do you work internationally?')"
+              class="w-full text-left bg-white/10 hover:bg-white/20 rounded-lg p-3 text-white transition-colors"
+            >
+              "Do you work internationally?"
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="text-center mt-12">
+        <div class="demo-card rounded-lg p-6 max-w-md mx-auto">
+          <h3 class="text-xl font-semibold text-white mb-4">
+            Contact Information
+          </h3>
+          <div class="space-y-2 text-white/90">
+            <p>
+              �
+              <span class="hover:text-white"
+                >222 Pacific Coast Hwy, #10, El Segundo, CA 90245</span
+              >
+            </p>
+            <p>
+              ✉️
+              <a
+                href="mailto:info@romega-solutions.com"
+                class="hover:text-white"
+                >info@romega-solutions.com</a
+              >
+            </p>
+            <p>
+              🌐
+              <a href="#" class="hover:text-white">www.romega-solutions.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Script -->
+    <script src="js/chatbot.js"></script>
+
+    <script>
+      // Demo helper function
+      function askChatbot(question) {
+        // Open chatbot if not already open
+        if (window.romegaChatbot && !window.romegaChatbot.isOpen) {
+          window.romegaChatbot.toggleChat();
+        }
+
+        // Wait a moment for the chat to open, then send the message
+        setTimeout(() => {
+          if (window.romegaChatbot) {
+            window.romegaChatbot.sendUserMessage(question);
+          }
+        }, 300);
+      }
+
+      // Add some demo interactions
+      document.addEventListener("DOMContentLoaded", function () {
+        // Show a welcome notification after 3 seconds
+        setTimeout(() => {
+          if (window.romegaChatbot && !window.romegaChatbot.isOpen) {
+            window.romegaChatbot.showNotification();
+          }
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>

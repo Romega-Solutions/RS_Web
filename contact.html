@@ -1,71 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-B58C5MNZTZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B58C5MNZTZ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+      gtag("config", "G-B58C5MNZTZ");
+    </script>
+    <!-- Meta Tags for SEO and Social Media -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Get in touch with Romega Solutions. Connect with our team for business inquiries, partnerships, or support."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    gtag("config", "G-B58C5MNZTZ");
-  </script>
-  <!-- Meta Tags for SEO and Social Media -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Get in touch with Romega Solutions. Connect with our team for business inquiries, partnerships, or support." />
-  <meta name="robots" content="index, follow" />
-  <meta name="twitter:card" content="summary_large_image" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Contact - Romega Solutions" />
+    <meta
+      property="og:description"
+      content="Get in touch with Romega Solutions. Connect with our team for business inquiries, partnerships, or support."
+    />
+    <meta property="og:image" content="../assets/images/og-image.png" />
+    <meta property="og:url" content="https://www.romegasolutions.com/contact" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Contact - Romega Solutions" />
-  <meta property="og:description"
-    content="Get in touch with Romega Solutions. Connect with our team for business inquiries, partnerships, or support." />
-  <meta property="og:image" content="../assets/images/og-image.png" />
-  <meta property="og:url" content="https://www.romegasolutions.com/contact" />
+    <!-- Page Title -->
+    <title>Contact | Romega Solutions</title>
 
-  <!-- Page Title -->
-  <title>Contact | Romega Solutions</title>
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.romegasolutions.com/contact" />
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.romegasolutions.com/contact" />
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/fav-icon.ico" />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/fav-icon.ico"
+      type="image/x-icon"
+    />
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
 
-  <!-- Favicon & Icons -->
-  <link rel="icon" type="image/x-icon" href="../assets/images/fav-icon.ico" />
-  <link rel="shortcut icon" href="../assets/images/fav-icon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="../assets/css/styles.css" />
+    <!-- Chatbot Styles (Demo Integration) -->
+    <link rel="stylesheet" href="../assets/css/chatbot.css" />
 
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
 
-  <!-- Google reCAPTCHA (Added from feature branch) -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Google reCAPTCHA (Added from feature branch) -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-  <!-- TailwindCSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Main JS -->
-  <script src="../js/main.js" defer></script>
+    <!-- Main JS -->
+    <script src="../js/main.js" defer></script>
 
-  <!-- Contact Form EmailJS -->
-  <script src="../js/contact-form.js" defer></script>
+    <!-- Contact Form EmailJS -->
+    <script src="../js/contact-form.js" defer></script>
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ContactPage",
@@ -73,186 +90,1059 @@
         "url": "https://www.romegasolutions.com/contact"
       }
     </script>
-</head>
+  </head>
 
-<body class="bg-rs-primary-50 overflow-x-hidden">
-  <!-- Skip to main content for accessibility -->
-  <a href="#main-content"
-    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded">Skip
-    to main content</a>
-  <header>
-    <!-- Navigation Container -->
-    <nav id="navbar-container" role="navigation" aria-label="Main navigation"
-      class="fixed top-0 z-50 w-full bg-white h-[104px] align-middle shadow-sm">
-      <div class="mx-auto">
-        <div
-          class="flex items-center justify-between h-[104px] md:h-[104px] bg-[var(--rs-primary-50)] px-4 md:px-8 lg:px-[89.5px] border-b-2 border-[var(--rs-neutral-grey-400)]">
-          <!-- Logo -->
-          <div class="flex items-center flex-shrink-0">
-            <a href="index.html" class="flex items-center" id="logo-link">
-              <img src="../assets/images/navbar-company-logo.svg" alt="Romega Solutions Logo"
-                class="w-auto max-h-14 sm:max-h-16" />
-            </a>
-          </div>
+  <body class="bg-rs-primary-50 overflow-x-hidden">
+    <!-- Skip to main content for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded"
+      >Skip to main content</a
+    >
+    <header>
+      <!-- Navigation Container -->
+      <nav
+        id="navbar-container"
+        role="navigation"
+        aria-label="Main navigation"
+        class="fixed top-0 z-50 w-full bg-white h-[104px] align-middle shadow-sm"
+      >
+        <div class="mx-auto">
+          <div
+            class="flex items-center justify-between h-[104px] md:h-[104px] bg-[var(--rs-primary-50)] px-4 md:px-8 lg:px-[89.5px] border-b-2 border-[var(--rs-neutral-grey-400)]"
+          >
+            <!-- Logo -->
+            <div class="flex items-center flex-shrink-0">
+              <a href="index.html" class="flex items-center" id="logo-link">
+                <img
+                  src="../assets/images/navbar-company-logo.svg"
+                  alt="Romega Solutions Logo"
+                  class="w-auto max-h-14 sm:max-h-16"
+                />
+              </a>
+            </div>
 
-          <!-- Desktop Navigation Links - Centered -->
-          <div class="hidden mx-4 flex-1 lg:flex lg:items-center lg:justify-center xl:mx-8">
-            <div class="flex items-center space-x-4">
-              <a href="index.html" id="nav-home"
-                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]">
-                Home
-              </a>
-              <a href="about.html" id="nav-about"
-                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]">
-                About
-              </a>
-              <a href="services.html" id="nav-services"
-                class="navbar-custom px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]">
-                Services
-              </a>
-              <a href="careers.html" id="nav-careers"
-                class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]">
-                Careers & Talent
-              </a>
-              <!-- <a
+            <!-- Desktop Navigation Links - Centered -->
+            <div
+              class="hidden mx-4 flex-1 lg:flex lg:items-center lg:justify-center xl:mx-8"
+            >
+              <div class="flex items-center space-x-4">
+                <a
+                  href="index.html"
+                  id="nav-home"
+                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                >
+                  Home
+                </a>
+                <a
+                  href="about.html"
+                  id="nav-about"
+                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                >
+                  About
+                </a>
+                <a
+                  href="services.html"
+                  id="nav-services"
+                  class="navbar-custom px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                >
+                  Services
+                </a>
+                <a
+                  href="careers.html"
+                  id="nav-careers"
+                  class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                >
+                  Careers & Talent
+                </a>
+                <!-- <a
                 href="404.html"
                 id="nav-resources"
                 class="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
               >
                 Resources
               </a> -->
-              <a href="contact.html" id="nav-contact"
-                class="text-[var(--rs-accent-600)] whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]">
-                Contact
-              </a>
+                <a
+                  href="contact.html"
+                  id="nav-contact"
+                  class="text-[var(--rs-accent-600)] whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+
+            <!-- Book a Call Button -->
+            <a
+              href="https://calendly.com/romega-solutions/discoverycall"
+              id="nav-cta"
+              class="hidden h-[46px] items-center justify-center align-middle rounded-xl border-[1.5px] border-rs-primary-600 bg-rs-primary-500 px-[10px] text-[18px] font-medium text-rs-primary-100 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)] transition duration-300 hover:bg-rs-primary-700 lg:inline-flex lg:min-w-[172px] lg:px-[28px]"
+            >
+              <img
+                src="../assets/images/icon-calendar-days.svg"
+                alt="Calendar icon"
+                class="mr-1 w-[22px]"
+              />
+              Book a Call
+            </a>
+
+            <!-- Mobile menu button -->
+            <div class="lg:hidden">
+              <button
+                class="mobile-menu-button rounded-md p-2 transition duration-300 hover:bg-rs-neutral-200"
+                aria-label="Open mobile menu"
+                aria-expanded="false"
+              >
+                <img
+                  src="../assets/images/icon-menu.svg"
+                  alt="Menu icon"
+                  class="w-[22px]"
+                />
+              </button>
             </div>
           </div>
-
-          <!-- Book a Call Button -->
-          <a href="https://calendly.com/romega-solutions/discoverycall" id="nav-cta"
-            class="hidden h-[46px] items-center justify-center align-middle rounded-xl border-[1.5px] border-rs-primary-600 bg-rs-primary-500 px-[10px] text-[18px] font-medium text-rs-primary-100 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)] transition duration-300 hover:bg-rs-primary-700 lg:inline-flex lg:min-w-[172px] lg:px-[28px]">
-            <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="mr-1 w-[22px]" />
-            Book a Call
-          </a>
-
-          <!-- Mobile menu button -->
-          <div class="lg:hidden">
-            <button class="mobile-menu-button rounded-md p-2 transition duration-300 hover:bg-rs-neutral-200"
-              aria-label="Open mobile menu" aria-expanded="false">
-              <img src="../assets/images/icon-menu.svg" alt="Menu icon" class="w-[22px]" />
-            </button>
-          </div>
         </div>
-      </div>
 
-      <!-- Mobile Menu -->
-      <div class="mobile-menu hidden lg:hidden">
-        <div class="space-y-2 border-t border-gray-200 bg-rs-primary-50 px-4 py-3">
-          <a href="index.html" id="mobile-nav-home"
-            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline">
-            Home
-          </a>
-          <a href="about.html" id="mobile-nav-about"
-            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline">
-            About
-          </a>
-          <a href="services.html" id="mobile-nav-services"
-            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline">
-            Services
-          </a>
-          <a href="careers.html" id="mobile-nav-careers"
-            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline">
-            Careers & Talent
-          </a>
-          <!-- <a
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden lg:hidden">
+          <div
+            class="space-y-2 border-t border-gray-200 bg-rs-primary-50 px-4 py-3"
+          >
+            <a
+              href="index.html"
+              id="mobile-nav-home"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+            >
+              Home
+            </a>
+            <a
+              href="about.html"
+              id="mobile-nav-about"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+            >
+              About
+            </a>
+            <a
+              href="services.html"
+              id="mobile-nav-services"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
+            >
+              Services
+            </a>
+            <a
+              href="careers.html"
+              id="mobile-nav-careers"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
+            >
+              Careers & Talent
+            </a>
+            <!-- <a
             href="404.html"
             id="mobile-nav-resources"
             class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-600)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
           >
             Resources
           </a> -->
-          <a href="contact.html" id="mobile-nav-contact"
-            class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-accent-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline">
-            Contact
-          </a>
-          <!-- Mobile CTA Button -->
-          <a href="https://calendly.com/romega-solutions/discoverycall" id="mobile-nav-cta"
-            class="mt-4 mx-0 flex items-center justify-center rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
-            role="button" aria-label="Book a call with Romega Solutions">
-            <img src="../assets/images/icon-calendar-days.svg" alt="Calendar icon" class="mr-2 w-[22px]"
-              id="mobile-nav-cta-icon" />
-            Book a Call
-          </a>
+            <a
+              href="contact.html"
+              id="mobile-nav-contact"
+              class="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-accent-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
+            >
+              Contact
+            </a>
+            <!-- Mobile CTA Button -->
+            <a
+              href="https://calendly.com/romega-solutions/discoverycall"
+              id="mobile-nav-cta"
+              class="mt-4 mx-0 flex items-center justify-center rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
+              role="button"
+              aria-label="Book a call with Romega Solutions"
+            >
+              <img
+                src="../assets/images/icon-calendar-days.svg"
+                alt="Calendar icon"
+                class="mr-2 w-[22px]"
+                id="mobile-nav-cta-icon"
+              />
+              Book a Call
+            </a>
+          </div>
         </div>
+      </nav>
+    </header>
+
+    <main
+      class="relative min-h-screen w-full max-w-[1440px] mx-auto overflow-hidden xl:overflow-visible"
+      id="main-content"
+    >
+      <!-- Background Image Container -->
+      <div class="bg-clip-content">
+        <img
+          src="../assets/images/contacts/bg-romega.svg"
+          class="absolute top-0 left-[-64px] w-auto h-auto opacity-10 -z-10"
+          aria-hidden="true"
+          alt=""
+        />
+        <!-- Ellipse 793 BG Top Right 1 -->
+        <span
+          class="size-80 bg-blue-100 rounded-full absolute top-[-131px] right-[-30px]"
+          aria-hidden="true"
+        >
+        </span>
+        <!-- Ellipse 794 BG Top Right 2 -->
+        <span
+          class="size-80 bg-blue-200 rounded-full absolute top-[55px] right-[-128px] opacity-80"
+          aria-hidden="true"
+        >
+        </span>
+
+        <!-- Ellipse 795 BG Bottom Left 1 -->
+        <span
+          class="size-80 bg-blue-100 rounded-full absolute bottom-[-160px] left-[-134px]"
+          aria-hidden="true"
+        >
+        </span>
+        <!-- Ellipse 796 BG Bottom Left 2 -->
+        <span
+          class="size-80 bg-blue-200 rounded-full absolute bottom-[-258px] left-[52px]"
+          aria-hidden="true"
+        >
+        </span>
       </div>
-    </nav>
-  </header>
 
-  <main class="relative min-h-screen w-full max-w-[1440px] mx-auto overflow-hidden xl:overflow-visible"
-    id="main-content">
-    <!-- Background Image Container -->
-    <div class="bg-clip-content">
-      <img src="../assets/images/contacts/bg-romega.svg"
-        class="absolute top-0 left-[-64px] w-auto h-auto opacity-10 -z-10" aria-hidden="true" alt="" />
-      <!-- Ellipse 793 BG Top Right 1 -->
-      <span class="size-80 bg-blue-100 rounded-full absolute top-[-131px] right-[-30px]" aria-hidden="true">
-      </span>
-      <!-- Ellipse 794 BG Top Right 2 -->
-      <span class="size-80 bg-blue-200 rounded-full absolute top-[55px] right-[-128px] opacity-80" aria-hidden="true">
-      </span>
+      <!-- Content Overlay -->
 
-      <!-- Ellipse 795 BG Bottom Left 1 -->
-      <span class="size-80 bg-blue-100 rounded-full absolute bottom-[-160px] left-[-134px]" aria-hidden="true">
-      </span>
-      <!-- Ellipse 796 BG Bottom Left 2 -->
-      <span class="size-80 bg-blue-200 rounded-full absolute bottom-[-258px] left-[52px]" aria-hidden="true">
-      </span>
-    </div>
-
-    <!-- Content Overlay -->
-
-    <section class="py-20 relative z-10 min-h-screen max-w-7xl mx-auto px-4">
-      <!-- Header Section -->
-      <div class="text-center mb-16">
-        <h1 id="contact-heading"
-          class="text-merriweather-h3 md:text-merriweather-h1 text-[40px] text-[var(--rs-primary-600)] font-bold relative z-10 mb-1 mt-[58px]">
-          Contact Us
-        </h1>
-        <p class="text-xl max-w-2xl mx-auto text-[var(--rs-neutral-500)]">
-          Any question or remarks? Just write us a message!
-        </p>
-      </div>
-      <!-- Contact Container -->
-      <div class="bg-[var(--rs-neutral-50)] rounded-lg shadow-xl overflow-hidden max-w-fit mx-auto p-3 rounded-lg">
-        <div class="grid grid-cols-1 lg:grid-cols-2 grid-rows-1/2 lg:grid-rows-1">
-          <!-- Left Side - Contact Information (Hidden on sm/md) -->
+      <section class="py-20 relative z-10 min-h-screen max-w-7xl mx-auto px-4">
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+          <h1
+            id="contact-heading"
+            class="text-merriweather-h3 md:text-merriweather-h1 text-[40px] text-[var(--rs-primary-600)] font-bold relative z-10 mb-1 mt-[58px]"
+          >
+            Contact Us
+          </h1>
+          <p class="text-xl max-w-2xl mx-auto text-[var(--rs-neutral-500)]">
+            Any question or remarks? Just write us a message!
+          </p>
+        </div>
+        <!-- Contact Container -->
+        <div
+          class="bg-[var(--rs-neutral-50)] rounded-lg shadow-xl overflow-hidden max-w-fit mx-auto p-3 rounded-lg"
+        >
           <div
-            class="lg:block bg-gray-800 text-white p-8 md:p-12 relative overflow-hidden max-w-[491px] h-fit sm:h-full lg:max-h-[527px] md:min-h-full lg:h-[527px] w-full order-2 lg:order-1 rounded-[4px]"
-            role="complementary" aria-labelledby="contact-info-heading">
-            <!-- Background decorative elements -->
-            <div class="relative">
-              <!-- Ellipse 793 BG Bottom Left 2 -->
-              <span class="size-36 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[288px] right-[64px]"
-                aria-hidden="true"></span>
-              <span class="size-64 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[314px] right-[-95px]"
-                aria-hidden="true"></span>
+            class="grid grid-cols-1 lg:grid-cols-2 grid-rows-1/2 lg:grid-rows-1"
+          >
+            <!-- Left Side - Contact Information (Hidden on sm/md) -->
+            <div
+              class="lg:block bg-gray-800 text-white p-8 md:p-12 relative overflow-hidden max-w-[491px] h-fit sm:h-full lg:max-h-[527px] md:min-h-full lg:h-[527px] w-full order-2 lg:order-1 rounded-[4px]"
+              role="complementary"
+              aria-labelledby="contact-info-heading"
+            >
+              <!-- Background decorative elements -->
+              <div class="relative">
+                <!-- Ellipse 793 BG Bottom Left 2 -->
+                <span
+                  class="size-36 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[288px] right-[64px]"
+                  aria-hidden="true"
+                ></span>
+                <span
+                  class="size-64 bg-[#E8F3FC] opacity-[0.05] rounded-full absolute top-[314px] right-[-95px]"
+                  aria-hidden="true"
+                ></span>
+              </div>
+
+              <div class="relative z-10">
+                <h2
+                  id="contact-info-heading"
+                  class="text-rs-neutral-200 text-[28px] font-semibold mb-3"
+                >
+                  Contact Information
+                </h2>
+                <p
+                  class="text-rs-neutral-grey-400 text-lg font-normal mb-8 max-w-[411px]"
+                >
+                  If you're interested in collaborating, please provide your
+                  information, and we will contact you soon. We look forward to
+                  connecting with you.
+                </p>
+
+                <!-- Contact Details -->
+                <div class="space-y-6 mb-8">
+                  <div class="border border-gray-600 rounded-lg p-4 relative">
+                    <div
+                      class="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-gray-800 px-4 py-1 mb-2 uppercase font-bold text-rs-neutral-400 tracking-wide"
+                    >
+                      <h3 class="text-sm block whitespace-nowrap">
+                        REACH US OUT
+                      </h3>
+                    </div>
+
+                    <div class="space-y-4">
+                      <div class="text-base">
+                        <h4
+                          class="font-medium text-rs-neutral-400 uppercase mb-1 tracking-widest"
+                        >
+                          EMAIL US
+                        </h4>
+                        <div class="flex items-center gap-2">
+                          <a
+                            href="mailto:info@romega-solutions.com"
+                            class="text-rs-neutral-100 text-lg leading-8 hover:underline flex items-center gap-1"
+                            ><svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path
+                                d="M22 7L13.009 12.727C12.7039 12.9042 12.3573 12.9976 12.0045 12.9976C11.6517 12.9976 11.3051 12.9042 11 12.727L2 7M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z"
+                                stroke="#5381AC"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                            <span>info@romega-solutions.com</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4
+                          class="text-base font-medium text-rs-neutral-400 uppercase mb-1 tracking-[1px]"
+                        >
+                          HEADQUARTERS
+                        </h4>
+                        <div class="flex items-start gap-1">
+                          <a
+                            href="https://www.google.com/maps?q=222+Pacific+Coast+Hwy,+%2310,+El+Segundo,+CA+90245"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-rs-neutral-100 tracking-tight hover:underline flex items-center gap-2"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path
+                                d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 14.993 7.539 20.193 9.399 21.799C9.57237 21.929 9.78329 21.9992 10 21.999M18 22V19M15 22C14.7348 22 14.4804 21.8946 14.2929 21.7071C14.1054 21.5196 14 21.2652 14 21V17C14 16.8354 14.0406 16.6734 14.1182 16.5282C14.1958 16.3831 14.3081 16.2593 14.445 16.168L17.445 14.168C17.6093 14.0584 17.8025 13.9999 18 13.9999C18.1975 13.9999 18.3907 14.0584 18.555 14.168L21.555 16.168C21.6919 16.2593 21.8042 16.3831 21.8818 16.5282C21.9594 16.6734 22 16.8354 22 17V21C22 21.2652 21.8946 21.5196 21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22H15ZM13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z"
+                                stroke="#5381AC"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            222 Pacific Coast Hwy, #10 in El Segundo, CA 90245
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="w-full">
+                  <span
+                    class="uppercase text-rs-neutral-400 text-base font-semibold tracking-[3px]"
+                  >
+                    Follow us on
+                  </span>
+                  <div class="flex flex-col xs:flex-row w-full gap-4 mt-2">
+                    <a
+                      href="https://www.linkedin.com/company/romega-solutions"
+                      target="_blank"
+                      rel="noopener"
+                      class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700 hover:shadow-lg hover:scale-105 hover:border-rs-primary-400 active:bg-rs-primary-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="21"
+                        height="21"
+                        viewBox="0 0 21 21"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.5834 7.1665C14.9094 7.1665 16.1812 7.69329 17.1189 8.63097C18.0566 9.56865 18.5834 10.8404 18.5834 12.1665V17.9998H15.25V12.1665C15.25 11.7245 15.0744 11.3006 14.7619 10.988C14.4493 10.6754 14.0254 10.4998 13.5834 10.4998C13.1413 10.4998 12.7174 10.6754 12.4048 10.988C12.0923 11.3006 11.9167 11.7245 11.9167 12.1665V17.9998H8.58335V12.1665C8.58335 10.8404 9.11014 9.56865 10.0478 8.63097C10.9855 7.69329 12.2573 7.1665 13.5834 7.1665Z"
+                          stroke="#204160"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M5.25002 7.99984H1.91669V17.9998H5.25002V7.99984Z"
+                          stroke="#204160"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M3.58335 5.49984C4.50383 5.49984 5.25002 4.75365 5.25002 3.83317C5.25002 2.9127 4.50383 2.1665 3.58335 2.1665C2.66288 2.1665 1.91669 2.9127 1.91669 3.83317C1.91669 4.75365 2.66288 5.49984 3.58335 5.49984Z"
+                          stroke="#204160"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span>LINKEDIN</span>
+                    </a>
+                    <a
+                      href="https://www.facebook.com/romegasolutions"
+                      target="_blank"
+                      rel="noopener"
+                      class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700 hover:shadow-lg hover:scale-105 hover:border-rs-primary-400 active:bg-rs-primary-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="21"
+                        height="21"
+                        viewBox="0 0 21 21"
+                        fill="none"
+                      >
+                        <path
+                          d="M15.75 2.1665H13.25C12.145 2.1665 11.0852 2.60549 10.3038 3.38689C9.52236 4.16829 9.08337 5.2281 9.08337 6.33317V8.83317H6.58337V12.1665H9.08337V18.8332H12.4167V12.1665H14.9167L15.75 8.83317H12.4167V6.33317C12.4167 6.11216 12.5045 5.9002 12.6608 5.74391C12.8171 5.58763 13.029 5.49984 13.25 5.49984H15.75V2.1665Z"
+                          stroke="#204160"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span>FACEBOOK</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="block text-center mt-4 lg:hidden">
+                  <!-- Horizontal line -->
+                  <div
+                    class="w-full h-px bg-[var(--rs-neutral-400)] mb-3"
+                  ></div>
+
+                  <!-- Content in single row -->
+                  <div class="flex flex-col items-center justify-between gap-3">
+                    <div class="flex-1"></div>
+                    <p
+                      class="text-[var(--rs-neutral-400)] text-base flex-shrink-0"
+                    >
+                      © 2025 Romega Solutions. All rights reserved
+                    </p>
+                    <div class="flex gap-8 text-base flex-1 justify-end">
+                      <button
+                        onclick="openPrivacyModal()"
+                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline bg-transparent border-none cursor-pointer p-0"
+                        type="button"
+                        aria-label="Open Privacy Policy"
+                      >
+                        Privacy Policy
+                      </button>
+                      <button
+                        onclick="openTermsModal()"
+                        class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline bg-transparent border-none cursor-pointer p-0"
+                        type="button"
+                        aria-label="Open Terms of Service"
+                      >
+                        Terms of Service
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="relative z-10">
-              <h2 id="contact-info-heading" class="text-rs-neutral-200 text-[28px] font-semibold mb-3">
-                Contact Information
-              </h2>
-              <p class="text-rs-neutral-grey-400 text-lg font-normal mb-8 max-w-[411px]">
-                If you're interested in collaborating, please provide your
-                information, and we will contact you soon. We look forward to
-                connecting with you.
-              </p>
+            <!-- Right Side - Contact Form (Takes full width on sm/md) -->
+            <div
+              class="sm:min-w-[362px] max-w-[595px] w-full p-4 sm:p-8 md:p-10 lg:p-12 relative order-1 lg:order-2"
+            >
+              <form
+                id="contact-form"
+                class="space-y-8 z-10 relative"
+                novalidate
+              >
+                <!-- Honeypot field for bot detection -->
+                <input
+                  type="text"
+                  name="botfield"
+                  tabindex="-1"
+                  autocomplete="off"
+                  style="display: none"
+                />
 
+                <!-- Name Fields Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                  <div>
+                    <label
+                      for="firstName"
+                      class="block text-base font-medium text-[var(--rs-primary-800)] mb-1"
+                    >
+                      First Name <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="John"
+                      id="firstName"
+                      name="firstName"
+                      class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                      required
+                      aria-describedby="firstName-error"
+                    />
+                    <div
+                      id="firstName-error"
+                      class="text-red-500 text-sm mt-1 hidden"
+                      role="alert"
+                    ></div>
+                  </div>
+                  <div>
+                    <label
+                      for="lastName"
+                      class="block text-base font-medium text-[var(--rs-primary-800)] mb-1"
+                    >
+                      Last Name <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Doe"
+                      class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                      required
+                      aria-describedby="lastName-error"
+                    />
+                    <div
+                      id="lastName-error"
+                      class="text-red-500 text-sm mt-1 hidden"
+                      role="alert"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- Email and Subject Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                  <div>
+                    <label
+                      for="email"
+                      class="block text-base font-medium text-[var(--rs-primary-800)] mb-1"
+                    >
+                      Email <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="johndoe@example.com"
+                      id="email"
+                      name="email"
+                      class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                      required
+                      aria-describedby="email-error"
+                    />
+                    <div
+                      id="email-error"
+                      class="text-red-500 text-sm mt-1 hidden"
+                      role="alert"
+                    ></div>
+                  </div>
+                  <div>
+                    <label
+                      for="subject"
+                      class="block text-base font-medium text-[var(--rs-primary-800)] mb-1"
+                    >
+                      Select Subject <span class="text-red-500">*</span>
+                    </label>
+                    <div class="relative">
+                      <div
+                        class="pointer-events-none absolute left-2 top-3"
+                        aria-hidden="true"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="13"
+                          height="14"
+                          viewBox="0 0 13 14"
+                          fill="none"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M0 7.37037C0 5.61454 0.684819 3.93062 1.90381 2.68906C3.12279 1.4475 4.77609 0.75 6.5 0.75C8.22391 0.75 9.87721 1.4475 11.0962 2.68906C12.3152 3.93062 13 5.61454 13 7.37037C13 9.1262 12.3152 10.8101 11.0962 12.0517C9.87721 13.2932 8.22391 13.9907 6.5 13.9907C4.77609 13.9907 3.12279 13.2932 1.90381 12.0517C0.684819 10.8101 0 9.1262 0 7.37037H0ZM6.12907 10.2039L9.87133 5.43899L9.19533 4.88817L6.00427 8.94955L3.744 7.03141L3.18933 7.70933L6.12907 10.2048V10.2039Z"
+                            fill="#8896AA"
+                          />
+                        </svg>
+                      </div>
+                      <select
+                        id="subject"
+                        name="subject"
+                        class="w-full appearance-none border-0 border-b-2 border-[var(--rs-primary-800)] bg-transparent px-0 py-2 pl-7 text-[var(--rs-neutral-500)] focus:border-blue-500 focus:outline-none"
+                        required
+                        aria-describedby="subject-error"
+                      >
+                        <option value="">General Inquiry</option>
+                        <option value="services">Services</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="careers">Careers</option>
+                        <option value="support">Support</option>
+                      </select>
+                      <div
+                        id="subject-error"
+                        class="text-red-500 text-sm mt-1 hidden"
+                        role="alert"
+                      ></div>
+                      <div
+                        class="absolute right-0 top-2 pointer-events-none"
+                        aria-hidden="true"
+                      >
+                        <svg
+                          class="w-5 h-5 text-gray-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Company Details and Contact Number -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-">
+                  <div>
+                    <label
+                      for="company"
+                      class="block text-base font-medium text-[var(--rs-primary-800)] mb-1"
+                    >
+                      Company Name
+                      <span class="text-[var(--rs-neutral-400)] text-xs">
+                        (Optional)
+                      </span>
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      placeholder="Your company name"
+                      autocomplete="organization"
+                      class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                      aria-describedby="company-hint"
+                    />
+                    <div id="company-hint" class="sr-only">
+                      Optional field for your company or organization name
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      for="phone"
+                      class="block text-base font-medium text-[var(--rs-primary-800)] mb-1"
+                    >
+                      Phone Number <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="+1 (555) 123-4567"
+                      autocomplete="tel"
+                      class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                      required
+                      aria-describedby="phone-error phone-hint"
+                      pattern="[\+]?[0-9\s\-\(\)]{10,}"
+                    />
+                    <div
+                      id="phone-error"
+                      class="text-red-500 text-sm mt-1 hidden"
+                      role="alert"
+                    ></div>
+                    <div id="phone-hint" class="sr-only">
+                      Enter your phone number including country code if
+                      international
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Message Field -->
+                <div class="relative">
+                  <label
+                    for="message"
+                    class="absolute top-[-11px] left-[12px] bg-rs-neutral-50 px-2 text-base focus:text-blue-500 font-medium text-[var(--rs-primary-800)]"
+                  >
+                    Message <span class="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="3"
+                    placeholder="Write your message..."
+                    class="w-full px-3 py-3 border-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent resize-none rounded-lg text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
+                    required
+                    aria-describedby="message-error"
+                  ></textarea>
+                  <div
+                    id="message-error"
+                    class="text-red-500 text-sm mt-1 hidden"
+                    role="alert"
+                  ></div>
+                </div>
+
+                <!-- reCAPTCHA Widget (from feature branch) -->
+                <div class="flex justify-center md:justify-start">
+                  <div
+                    class="g-recaptcha"
+                    data-sitekey="6LccMycsAAAAAOlomBWW5VFR2dY11iXspYdMpvMi"
+                  ></div>
+                </div>
+
+                <!-- Honeypot (hidden spam bot trap from feature branch) -->
+                <input
+                  type="text"
+                  name="honeypot"
+                  style="display: none"
+                  tabindex="-1"
+                  autocomplete="off"
+                  aria-hidden="true"
+                />
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-col md:flex-row gap-4 pt-4">
+                  <!-- Send Message Button -->
+                  <button
+                    type="submit"
+                    class="flex min-h-[54px] h-[54px] items-center justify-center text-[var(--rs-accent-50)] order-2 gap-2 px-6 py-2 bg-[var(--rs-accent-400)] rounded-md font-semibold hover:bg-[var(--rs-accent-600)] transition duration-300 flex-1 hover:shadow-lg hover:scale-105 active:bg-[var(--rs-accent-700)] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[var(--rs-accent-600)] focus:ring-offset-2"
+                  >
+                    Send Message
+                    <img
+                      src="../assets/images/icon-send.svg"
+                      alt=""
+                      class="w-5 h-5"
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                  <!-- or line -->
+                  <div
+                    class="flex items-center justify-center w-full gap-2 md:hidden"
+                  >
+                    <div class="w-full h-[1px] bg-rs-neutral-300"></div>
+                    <span
+                      class="text-base text-center text-rs-neutral-600 bg-rs-neutral-50 px-2 font-medium"
+                      >or</span
+                    >
+                    <div class="w-full h-[1px] bg-rs-neutral-300"></div>
+                  </div>
+
+                  <!-- Schedule Meeting Button -->
+                  <div
+                    class="flex flex-col items-center md:order-1 lg:order-1 order-2"
+                  >
+                    <button
+                      type="button"
+                      onclick="window.open('https://calendly.com/romega-solutions/discoverycall', '_blank')"
+                      class="inline-flex justify-center items-center gap-1.5 px-3 py-4 rounded-[5px] text-[var(--rs-neutral-500)] border-[0.75px] border-[var(--rs-neutral-500)] hover:bg-blue-500/25 hover:border-blue-500 transition duration-300 w-full hover:shadow-lg hover:scale-105 active:bg-rs-primary-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2"
+                      role="button"
+                      aria-label="Book a call with Romega Solutions"
+                    >
+                      <div
+                        class="text-center flex items-center justify-center gap-2 w-full"
+                      >
+                        <span class="font-medium text-center"
+                          >Schedule a Meeting</span
+                        >
+                        <img
+                          src="../assets/images/icon-calendar-days-2.svg"
+                          alt=""
+                          class="w-5 h-5"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </button>
+                    <span
+                      class="text-sm text-center text-rs-neutral-500 mt-[5px]"
+                      >via Calendly</span
+                    >
+                  </div>
+                </div>
+              </form>
+
+              <!-- BG container -->
+              <!-- BG container behind form -->
+              <div
+                class="absolute bottom-0 right-[-5%] pointer-events-none z-0 hidden md:block"
+                aria-hidden="true"
+              >
+                <img
+                  src="../assets/images/contacts/bg-letter-send.png"
+                  alt=""
+                  class="w-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div
+          class="hidden lg:block xl:block text-center mt-12 mx-auto max-w-[1284px] w-10/12"
+        >
+          <!-- Horizontal line -->
+          <div
+            class="w-full max-w-[1284px] h-px bg-[var(--rs-neutral-400)] mb-4"
+          ></div>
+
+          <!-- Content in single row -->
+          <div
+            class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8"
+          >
+            <div class="flex-1"></div>
+            <p class="text-[var(--rs-neutral-400)] text-base flex-shrink-0">
+              © 2025 Romega Solutions. All rights reserved
+            </p>
+            <div class="flex gap-6 text-base flex-1 justify-end mr-[95px]">
+              <button
+                onclick="openPrivacyModal()"
+                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                type="button"
+                aria-label="Open Privacy Policy"
+              >
+                Privacy Policy
+              </button>
+              <button
+                onclick="openTermsModal()"
+                class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                type="button"
+                aria-label="Open Terms of Service"
+              >
+                Terms of Service
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Container -->
+    <footer
+      class="bg-[var(--rs-neutral-100)] border-t-2 border-[var(--rs-neutral-grey-400)] py-10 font-sans relative"
+      role="contentinfo"
+    >
+      <!-- Scroll to Top Button -->
+      <a href="#main-content" aria-label="Scroll to top of page">
+        <button
+          class="absolute -top-5 right-4 lg:right-12 hover:opacity-75 transition-opacity duration-300 z-10"
+          aria-label="Scroll to top"
+        >
+          <img
+            src="../assets/images/footer/btn-up.svg"
+            alt="Scroll to top"
+            class="w-10 h-10 lg:w-12 lg:h-12"
+          />
+        </button>
+      </a>
+      <div
+        class="max-w-[1600px] mx-auto md:mx-12 lg:mx-auto px-4 md:px-2 lg:px-20"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12">
+          <!-- Romega Info & Socials -->
+          <div class="lg:col-span-4 flex flex-col items-start mb-6">
+            <div class="w-full flex flex-row items-start">
+              <!-- Logo Left -->
+              <div class="flex justify-center lg:block flex-shrink-0">
+                <img
+                  src="../assets/images/footer/rs-footer.svg"
+                  alt="Romega Solutions Logo"
+                  class="w-full h-auto lg:h-[115px]"
+                />
+              </div>
+              <!-- Info + Socials Right -->
+              <div class="flex flex-col items-start text-left flex-1 ml-2">
+                <p
+                  class="text-[1rem] lg:text-[15px] leading-snug text-[var(--rs-neutral-600)] mb-2 lg:mb-1"
+                >
+                  <span class="font-bold">Romega Solutions</span>,
+                  <span> a US-based holding company founded by </span>
+                  <span class="font-bold">Robbie Galoso</span>.
+                </p>
+                <span
+                  class="uppercase tracking-widest text-[12px] lg:text-[13px] text-[var(--rs-neutral-400)] font-semibold mb-1"
+                >
+                  Follow us on
+                </span>
+                <div class="flex w-full flex-row gap-2">
+                  <a
+                    href="https://www.linkedin.com/company/romega-solutions"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex w-full justify-center items-center px-3 lg:px-4 py-2 border border-[var(--rs-neutral-400)] rounded-md bg-[var(--rs-neutral-100)] text-[var(--rs-neutral-600)] font-medium text-[14px] lg:text-[12px] transition gap-2 hover:bg-[#e6f0f3] hover:text-[#1e293b] hover:shadow-lg hover:scale-105 hover:border-[#4880b8] active:bg-[#dbeafe] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2"
+                  >
+                    <img
+                      src="../assets/images/footer/linkedin.svg"
+                      alt="LinkedIn"
+                      class="w-4 lg:w-5 h-4 lg:h-5"
+                    />
+                    LINKEDIN
+                  </a>
+                  <a
+                    href="https://www.facebook.com/romegasolutions"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex w-full justify-center items-center px-3 lg:px-4 py-2 border border-[var(--rs-neutral-400)] rounded-md bg-[var(--rs-neutral-100)] text-[var(--rs-neutral-600)] font-medium text-[14px] lg:text-[12px] transition gap-2 hover:bg-[#e6f0f3] hover:text-[#1e293b] hover:shadow-lg hover:scale-105 hover:border-[#4880b8] active:bg-[#dbeafe] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2"
+                  >
+                    <img
+                      src="../assets/images/footer/facebook.svg"
+                      alt="Facebook"
+                      class="w-4 lg:w-5 h-4 lg:h-5"
+                    />
+                    FACEBOOK
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Schedule Button: Mobile & Medium -->
+            <div class="w-full flex lg:hidden justify-center mt-4">
+              <a
+                href="https://calendly.com/romega-solutions/discoverycall?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
+                class="block w-full"
+              >
+                <button
+                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200 hover:shadow-lg hover:scale-105 active:bg-[#005999] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2"
+                  class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200 hover:shadow-lg hover:scale-105 active:bg-[#005999] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2"
+                >
+                  <img
+                    src="../assets/images/homepage/calendar-days.png"
+                    alt="Calendar"
+                    class="w-5 h-5"
+                  />
+                  <span>Schedule a Meeting</span>
+                </button>
+              </a>
+            </div>
+            <!-- Schedule Button: Desktop Only -->
+            <div class="hidden lg:flex w-full justify-center mt-4">
+              <a
+                href="https://calendly.com/romega-solutions/discoverycall"
+                class="block w-full"
+              >
+                <button
+                  class="w-full h-[50px] border-[1.5px] border-[var(--rs-primary-600)] bg-[var(--rs-primary-500)] hover:bg-[#0062b1] text-[var(--rs-primary-50)] px-4 py-2 rounded-lg font-semibold text-[18px] flex items-center justify-center gap-2 shadow transition-all duration-200"
+                >
+                  <img
+                    src="../assets/images/footer/calendar.svg"
+                    alt="Calendar"
+                    class="w-6 h-6"
+                  />
+                  <span>Schedule a Meeting</span>
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Side Container for Desktop Only -->
+          <div
+            class="lg:col-span-8 flex flex-col lg:flex-row gap-8 lg:gap-8 mt-2 lg:mt-0"
+          >
+            <!-- Company & Help Section -->
+            <div class="flex flex-row lg:flex-row lg:flex-1">
+              <!-- Company -->
+              <div class="flex-1">
+                <h3
+                  class="text-[var(--rs-neutral-400)] text-center lg:text-left text-base mb-4 uppercase tracking-widest"
+                >
+                  COMPANY
+                </h3>
+                <ul class="space-y-3 text-center lg:text-left">
+                  <li>
+                    <a
+                      href="index.html"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Home</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="about.html"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >About</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="services.html"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Services</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="careers.html"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Careers & Talent</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- Divider -->
+              <div class="flex lg:flex flex-col justify-center">
+                <div
+                  class="w-px bg-[var(--rs-neutral-300)] mx-4 h-full min-h-[180px]"
+                ></div>
+              </div>
+              <!-- Help -->
+              <div class="flex-1">
+                <h3
+                  class="text-[var(--rs-neutral-400)] text-base mb-4 uppercase tracking-widest text-center lg:text-left"
+                >
+                  HELP
+                </h3>
+                <ul class="space-y-3 text-center lg:text-left">
+                  <!-- <li>
+                    <a
+                      href="404.html"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Resources</a
+                    >
+                  </li> -->
+                  <li>
+                    <a
+                      href="contact.html"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                      >Contact</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      onclick="openTermsModal()"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline cursor-pointer"
+                      >Terms of Service</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      onclick="openPrivacyModal()"
+                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline cursor-pointer"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Reach Us Out -->
+            <div class="flex flex-col items-center lg:items-start lg:flex-1">
               <!-- Contact Details -->
               <div class="space-y-6 mb-8">
-                <div class="border border-gray-600 rounded-lg p-4 relative">
+                <div
+                  class="border border-[var(--rs-neutral-300)] rounded-lg p-4 relative"
+                >
                   <div
-                    class="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-gray-800 px-4 py-1 mb-2 uppercase font-bold text-rs-neutral-400 tracking-wide">
+                    class="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-[var(--rs-neutral-100)] px-4 py-1 mb-2 uppercase font-bold text-rs-neutral-400 tracking-wide"
+                  >
                     <h3 class="text-sm block whitespace-nowrap">
                       REACH US OUT
                     </h3>
@@ -260,16 +1150,29 @@
 
                   <div class="space-y-4">
                     <div class="text-base">
-                      <h4 class="font-medium text-rs-neutral-400 uppercase mb-1 tracking-widest">
+                      <h4
+                        class="font-medium text-rs-neutral-400 uppercase mb-1 tracking-widest"
+                      >
                         EMAIL US
                       </h4>
                       <div class="flex items-center gap-2">
-                        <a href="mailto:info@romega-solutions.com"
-                          class="text-rs-neutral-100 text-lg leading-8 hover:underline flex items-center gap-1"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <a
+                          href="mailto:info@romega-solutions.com"
+                          class="text-[var(--rs-neutral-600)] text-lg leading-8 hover:underline flex items-center gap-1"
+                          ><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
                             <path
                               d="M22 7L13.009 12.727C12.7039 12.9042 12.3573 12.9976 12.0045 12.9976C11.6517 12.9976 11.3051 12.9042 11 12.727L2 7M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z"
-                              stroke="#5381AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              stroke="#5381AC"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
                           </svg>
                           <span>info@romega-solutions.com</span>
                         </a>
@@ -277,18 +1180,32 @@
                     </div>
 
                     <div>
-                      <h4 class="text-base font-medium text-rs-neutral-400 uppercase mb-1 tracking-[1px]">
+                      <h4
+                        class="text-base font-medium text-rs-neutral-400 uppercase mb-1 tracking-[1px]"
+                      >
                         HEADQUARTERS
                       </h4>
                       <div class="flex items-start gap-1">
-                        <a href="https://www.google.com/maps?q=222+Pacific+Coast+Hwy,+%2310,+El+Segundo,+CA+90245"
-                          target="_blank" rel="noopener noreferrer"
-                          class="text-rs-neutral-100 tracking-tight hover:underline flex items-center gap-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none">
+                        <a
+                          href="https://www.google.com/maps?q=222+Pacific+Coast+Hwy,+%2310,+El+Segundo,+CA+90245"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-[var(--rs-neutral-600)] tracking-tight hover:underline flex items-center gap-2"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
                             <path
                               d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 14.993 7.539 20.193 9.399 21.799C9.57237 21.929 9.78329 21.9992 10 21.999M18 22V19M15 22C14.7348 22 14.4804 21.8946 14.2929 21.7071C14.1054 21.5196 14 21.2652 14 21V17C14 16.8354 14.0406 16.6734 14.1182 16.5282C14.1958 16.3831 14.3081 16.2593 14.445 16.168L17.445 14.168C17.6093 14.0584 17.8025 13.9999 18 13.9999C18.1975 13.9999 18.3907 14.0584 18.555 14.168L21.555 16.168C21.6919 16.2593 21.8042 16.3831 21.8818 16.5282C21.9594 16.6734 22 16.8354 22 17V21C22 21.2652 21.8946 21.5196 21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22H15ZM13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z"
-                              stroke="#5381AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              stroke="#5381AC"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
                           </svg>
 
                           222 Pacific Coast Hwy, #10 in El Segundo, CA 90245
@@ -297,883 +1214,510 @@
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Social Media -->
-              <div class="w-full">
-                <span class="uppercase text-rs-neutral-400 text-base font-semibold tracking-[3px]">
-                  Follow us on
-                </span>
-                <div class="flex flex-col xs:flex-row w-full gap-4 mt-2">
-                  <a href="https://www.linkedin.com/company/romega-solutions" target="_blank" rel="noopener"
-                    class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700 hover:shadow-lg hover:scale-105 hover:border-rs-primary-400 active:bg-rs-primary-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                      <path
-                        d="M13.5834 7.1665C14.9094 7.1665 16.1812 7.69329 17.1189 8.63097C18.0566 9.56865 18.5834 10.8404 18.5834 12.1665V17.9998H15.25V12.1665C15.25 11.7245 15.0744 11.3006 14.7619 10.988C14.4493 10.6754 14.0254 10.4998 13.5834 10.4998C13.1413 10.4998 12.7174 10.6754 12.4048 10.988C12.0923 11.3006 11.9167 11.7245 11.9167 12.1665V17.9998H8.58335V12.1665C8.58335 10.8404 9.11014 9.56865 10.0478 8.63097C10.9855 7.69329 12.2573 7.1665 13.5834 7.1665Z"
-                        stroke="#204160" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M5.25002 7.99984H1.91669V17.9998H5.25002V7.99984Z" stroke="#204160" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                      <path
-                        d="M3.58335 5.49984C4.50383 5.49984 5.25002 4.75365 5.25002 3.83317C5.25002 2.9127 4.50383 2.1665 3.58335 2.1665C2.66288 2.1665 1.91669 2.9127 1.91669 3.83317C1.91669 4.75365 2.66288 5.49984 3.58335 5.49984Z"
-                        stroke="#204160" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <span>LINKEDIN</span>
-                  </a>
-                  <a href="https://www.facebook.com/romegasolutions" target="_blank" rel="noopener"
-                    class="flex flex-1 items-center justify-center gap-1 rounded-md border border-rs-grey-400 bg-rs-primary-100 px-6 py-2 text-base font-semibold text-rs-neutral-600 transition hover:bg-rs-primary-200 hover:text-rs-neutral-700 hover:shadow-lg hover:scale-105 hover:border-rs-primary-400 active:bg-rs-primary-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-                      <path
-                        d="M15.75 2.1665H13.25C12.145 2.1665 11.0852 2.60549 10.3038 3.38689C9.52236 4.16829 9.08337 5.2281 9.08337 6.33317V8.83317H6.58337V12.1665H9.08337V18.8332H12.4167V12.1665H14.9167L15.75 8.83317H12.4167V6.33317C12.4167 6.11216 12.5045 5.9002 12.6608 5.74391C12.8171 5.58763 13.029 5.49984 13.25 5.49984H15.75V2.1665Z"
-                        stroke="#204160" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <span>FACEBOOK</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Bottom Section -->
-              <div class="block text-center mt-4 lg:hidden">
-                <!-- Horizontal line -->
-                <div class="w-full h-px bg-[var(--rs-neutral-400)] mb-3"></div>
-
-                <!-- Content in single row -->
-                <div class="flex flex-col items-center justify-between gap-3">
-                  <div class="flex-1"></div>
-                  <p class="text-[var(--rs-neutral-400)] text-base flex-shrink-0">
-                    © 2025 Romega Solutions. All rights reserved
-                  </p>
-                  <div class="flex gap-8 text-base flex-1 justify-end">
-                    <button onclick="openPrivacyModal()"
-                      class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline bg-transparent border-none cursor-pointer p-0"
-                      type="button" aria-label="Open Privacy Policy">
-                      Privacy Policy
-                    </button>
-                    <button onclick="openTermsModal()"
-                      class="text-rs-neutral-400 hover:text-rs-neutral-700 hover:underline bg-transparent border-none cursor-pointer p-0"
-                      type="button" aria-label="Open Terms of Service">
-                      Terms of Service
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Side - Contact Form (Takes full width on sm/md) -->
-          <div class="sm:min-w-[362px] max-w-[595px] w-full p-4 sm:p-8 md:p-10 lg:p-12 relative order-1 lg:order-2">
-            <form id="contact-form" class="space-y-8 z-10 relative" novalidate>
-              <!-- Honeypot field for bot detection -->
-              <input type="text" name="botfield" tabindex="-1" autocomplete="off" style="display:none;" />
-
-              <!-- Name Fields Row -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-                <div>
-                  <label for="firstName" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                    First Name <span class="text-red-500">*</span>
-                  </label>
-                  <input type="text" placeholder="John" id="firstName" name="firstName"
-                    class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                    required aria-describedby="firstName-error" />
-                  <div id="firstName-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-                </div>
-                <div>
-                  <label for="lastName" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                    Last Name <span class="text-red-500">*</span>
-                  </label>
-                  <input type="text" id="lastName" name="lastName" placeholder="Doe"
-                    class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                    required aria-describedby="lastName-error" />
-                  <div id="lastName-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-                </div>
-              </div>
-
-              <!-- Email and Subject Row -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-                <div>
-                  <label for="email" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                    Email <span class="text-red-500">*</span>
-                  </label>
-                  <input type="email" placeholder="johndoe@example.com" id="email" name="email"
-                    class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                    required aria-describedby="email-error" />
-                  <div id="email-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-                </div>
-                <div>
-                  <label for="subject" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                    Select Subject <span class="text-red-500">*</span>
-                  </label>
-                  <div class="relative">
-                    <div class="pointer-events-none absolute left-2 top-3" aria-hidden="true">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M0 7.37037C0 5.61454 0.684819 3.93062 1.90381 2.68906C3.12279 1.4475 4.77609 0.75 6.5 0.75C8.22391 0.75 9.87721 1.4475 11.0962 2.68906C12.3152 3.93062 13 5.61454 13 7.37037C13 9.1262 12.3152 10.8101 11.0962 12.0517C9.87721 13.2932 8.22391 13.9907 6.5 13.9907C4.77609 13.9907 3.12279 13.2932 1.90381 12.0517C0.684819 10.8101 0 9.1262 0 7.37037H0ZM6.12907 10.2039L9.87133 5.43899L9.19533 4.88817L6.00427 8.94955L3.744 7.03141L3.18933 7.70933L6.12907 10.2048V10.2039Z"
-                          fill="#8896AA" />
-                      </svg>
-                    </div>
-                    <select id="subject" name="subject"
-                      class="w-full appearance-none border-0 border-b-2 border-[var(--rs-primary-800)] bg-transparent px-0 py-2 pl-7 text-[var(--rs-neutral-500)] focus:border-blue-500 focus:outline-none"
-                      required aria-describedby="subject-error">
-                      <option value="">General Inquiry</option>
-                      <option value="services">Services</option>
-                      <option value="partnership">Partnership</option>
-                      <option value="careers">Careers</option>
-                      <option value="support">Support</option>
-                    </select>
-                    <div id="subject-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-                    <div class="absolute right-0 top-2 pointer-events-none" aria-hidden="true">
-                      <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Company Details and Contact Number -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-">
-                <div>
-                  <label for="company" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                    Company Name
-                    <span class="text-[var(--rs-neutral-400)] text-xs">
-                      (Optional)
-                    </span>
-                  </label>
-                  <input type="text" id="company" name="company" placeholder="Your company name"
-                    autocomplete="organization"
-                    class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                    aria-describedby="company-hint" />
-                  <div id="company-hint" class="sr-only">
-                    Optional field for your company or organization name
-                  </div>
-                </div>
-                <div>
-                  <label for="phone" class="block text-base font-medium text-[var(--rs-primary-800)] mb-1">
-                    Phone Number <span class="text-red-500">*</span>
-                  </label>
-                  <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" autocomplete="tel"
-                    class="w-full px-0 py-2 border-0 border-b-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                    required aria-describedby="phone-error phone-hint" pattern="[\+]?[0-9\s\-\(\)]{10,}" />
-                  <div id="phone-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-                  <div id="phone-hint" class="sr-only">
-                    Enter your phone number including country code if
-                    international
-                  </div>
-                </div>
-              </div>
-
-              <!-- Message Field -->
-              <div class="relative">
-                <label for="message"
-                  class="absolute top-[-11px] left-[12px] bg-rs-neutral-50 px-2 text-base focus:text-blue-500 font-medium text-[var(--rs-primary-800)]">
-                  Message <span class="text-red-500">*</span>
-                </label>
-                <textarea id="message" name="message" rows="3" placeholder="Write your message..."
-                  class="w-full px-3 py-3 border-2 border-[var(--rs-primary-800)] focus:border-blue-500 focus:outline-none bg-transparent resize-none rounded-lg text-[var(--rs-neutral-500)] placeholder:text-[var(--rs-neutral-500)]"
-                  required aria-describedby="message-error"></textarea>
-                <div id="message-error" class="text-red-500 text-sm mt-1 hidden" role="alert"></div>
-              </div>
-
-              <!-- reCAPTCHA Widget (from feature branch) -->
-              <div class="flex justify-center md:justify-start">
-                <div class="g-recaptcha" data-sitekey="6LccMycsAAAAAOlomBWW5VFR2dY11iXspYdMpvMi"></div>
-              </div>
-
-              <!-- Honeypot (hidden spam bot trap from feature branch) -->
-              <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-
-              <!-- Action Buttons -->
-              <div class="flex flex-col sm:flex-col md:flex-row gap-4 pt-4">
-                <!-- Send Message Button -->
-                <button type="submit"
-                  class="flex min-h-[54px] h-[54px] items-center justify-center text-[var(--rs-accent-50)] order-2 gap-2 px-6 py-2 bg-[var(--rs-accent-400)] rounded-md font-semibold hover:bg-[var(--rs-accent-600)] transition duration-300 flex-1 hover:shadow-lg hover:scale-105 active:bg-[var(--rs-accent-700)] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[var(--rs-accent-600)] focus:ring-offset-2">
-                  Send Message
-                  <img src="../assets/images/icon-send.svg" alt="" class="w-5 h-5" aria-hidden="true" />
-                </button>
-
-                <!-- or line -->
-                <div class="flex items-center justify-center w-full gap-2 md:hidden">
-                  <div class="w-full h-[1px] bg-rs-neutral-300"></div>
-                  <span class="text-base text-center text-rs-neutral-600 bg-rs-neutral-50 px-2 font-medium">or</span>
-                  <div class="w-full h-[1px] bg-rs-neutral-300"></div>
-                </div>
-
-                <!-- Schedule Meeting Button -->
-                <div class="flex flex-col items-center md:order-1 lg:order-1 order-2">
-                  <button type="button"
-                    onclick="window.open('https://calendly.com/romega-solutions/discoverycall', '_blank')"
-                    class="inline-flex justify-center items-center gap-1.5 px-3 py-4 rounded-[5px] text-[var(--rs-neutral-500)] border-[0.75px] border-[var(--rs-neutral-500)] hover:bg-blue-500/25 hover:border-blue-500 transition duration-300 w-full hover:shadow-lg hover:scale-105 active:bg-rs-primary-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-rs-primary-400 focus:ring-offset-2"
-                    role="button" aria-label="Book a call with Romega Solutions">
-                    <div class="text-center flex items-center justify-center gap-2 w-full">
-                      <span class="font-medium text-center">Schedule a Meeting</span>
-                      <img src="../assets/images/icon-calendar-days-2.svg" alt="" class="w-5 h-5" aria-hidden="true" />
-                    </div>
-                  </button>
-                  <span class="text-sm text-center text-rs-neutral-500 mt-[5px]">via Calendly</span>
-                </div>
-              </div>
-            </form>
-
-            <!-- BG container -->
-            <!-- BG container behind form -->
-            <div class="absolute bottom-0 right-[-5%] pointer-events-none z-0 hidden md:block" aria-hidden="true">
-              <img src="../assets/images/contacts/bg-letter-send.png" alt="" class="w-auto" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Section -->
-      <div class="hidden lg:block xl:block text-center mt-12 mx-auto max-w-[1284px] w-10/12">
-        <!-- Horizontal line -->
-        <div class="w-full max-w-[1284px] h-px bg-[var(--rs-neutral-400)] mb-4"></div>
-
-        <!-- Content in single row -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8">
-          <div class="flex-1"></div>
-          <p class="text-[var(--rs-neutral-400)] text-base flex-shrink-0">
-            © 2025 Romega Solutions. All rights reserved 
-          </p>
-          <div class="flex gap-6 text-base flex-1 justify-end mr-[95px]">
-            <button onclick="openPrivacyModal()"
-              class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
-              type="button" aria-label="Open Privacy Policy">
-              Privacy Policy
-            </button>
-            <button onclick="openTermsModal()"
-              class="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
-              type="button" aria-label="Open Terms of Service">
-              Terms of Service
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer Container -->
-  <footer class="bg-[var(--rs-neutral-100)] border-t-2 border-[var(--rs-neutral-grey-400)] py-10 font-sans relative"
-    role="contentinfo">
-    <!-- Scroll to Top Button -->
-    <a href="#main-content" aria-label="Scroll to top of page">
-      <button class="absolute -top-5 right-4 lg:right-12 hover:opacity-75 transition-opacity duration-300 z-10"
-        aria-label="Scroll to top">
-        <img src="../assets/images/footer/btn-up.svg" alt="Scroll to top" class="w-10 h-10 lg:w-12 lg:h-12" />
-      </button>
-    </a>
-    <div class="max-w-[1600px] mx-auto md:mx-12 lg:mx-auto px-4 md:px-2 lg:px-20">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12">
-        <!-- Romega Info & Socials -->
-        <div class="lg:col-span-4 flex flex-col items-start mb-6">
-          <div class="w-full flex flex-row items-start">
-            <!-- Logo Left -->
-            <div class="flex justify-center lg:block flex-shrink-0">
-              <img src="../assets/images/footer/rs-footer.svg" alt="Romega Solutions Logo"
-                class="w-full h-auto lg:h-[115px]" />
-            </div>
-            <!-- Info + Socials Right -->
-            <div class="flex flex-col items-start text-left flex-1 ml-2">
-              <p class="text-[1rem] lg:text-[15px] leading-snug text-[var(--rs-neutral-600)] mb-2 lg:mb-1">
-                <span class="font-bold">Romega Solutions</span>,
-                <span> a US-based holding company founded by </span>
-                <span class="font-bold">Robbie Galoso</span>.
-              </p>
-              <span
-                class="uppercase tracking-widest text-[12px] lg:text-[13px] text-[var(--rs-neutral-400)] font-semibold mb-1">
-                Follow us on
-              </span>
-              <div class="flex w-full flex-row gap-2">
-                <a href="https://www.linkedin.com/company/romega-solutions" target="_blank" rel="noopener"
-                  class="flex w-full justify-center items-center px-3 lg:px-4 py-2 border border-[var(--rs-neutral-400)] rounded-md bg-[var(--rs-neutral-100)] text-[var(--rs-neutral-600)] font-medium text-[14px] lg:text-[12px] transition gap-2 hover:bg-[#e6f0f3] hover:text-[#1e293b] hover:shadow-lg hover:scale-105 hover:border-[#4880b8] active:bg-[#dbeafe] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2">
-                  <img src="../assets/images/footer/linkedin.svg" alt="LinkedIn" class="w-4 lg:w-5 h-4 lg:h-5" />
-                  LINKEDIN
-                </a>
-                <a href="https://www.facebook.com/romegasolutions" target="_blank" rel="noopener"
-                  class="flex w-full justify-center items-center px-3 lg:px-4 py-2 border border-[var(--rs-neutral-400)] rounded-md bg-[var(--rs-neutral-100)] text-[var(--rs-neutral-600)] font-medium text-[14px] lg:text-[12px] transition gap-2 hover:bg-[#e6f0f3] hover:text-[#1e293b] hover:shadow-lg hover:scale-105 hover:border-[#4880b8] active:bg-[#dbeafe] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2">
-                  <img src="../assets/images/footer/facebook.svg" alt="Facebook" class="w-4 lg:w-5 h-4 lg:h-5" />
-                  FACEBOOK
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- Schedule Button: Mobile & Medium -->
-          <div class="w-full flex lg:hidden justify-center mt-4">
-            <a href="https://calendly.com/romega-solutions/discoverycall?uuid=74cf5858-012e-4142-a3cb-393a1e907333"
-              class="block w-full">
-              <button
-                class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200 hover:shadow-lg hover:scale-105 active:bg-[#005999] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2"
-                class="w-full bg-[#0078d7] hover:bg-[#0062b1] text-white px-6 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 shadow transition-all duration-200 hover:shadow-lg hover:scale-105 active:bg-[#005999] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#4880b8] focus:ring-offset-2">
-                <img src="../assets/images/homepage/calendar-days.png" alt="Calendar" class="w-5 h-5" />
-                <span>Schedule a Meeting</span>
-              </button>
-            </a>
-          </div>
-          <!-- Schedule Button: Desktop Only -->
-          <div class="hidden lg:flex w-full justify-center mt-4">
-            <a href="https://calendly.com/romega-solutions/discoverycall" class="block w-full">
-              <button
-                class="w-full h-[50px] border-[1.5px] border-[var(--rs-primary-600)] bg-[var(--rs-primary-500)] hover:bg-[#0062b1] text-[var(--rs-primary-50)] px-4 py-2 rounded-lg font-semibold text-[18px] flex items-center justify-center gap-2 shadow transition-all duration-200">
-                <img src="../assets/images/footer/calendar.svg" alt="Calendar" class="w-6 h-6" />
-                <span>Schedule a Meeting</span>
-              </button>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right Side Container for Desktop Only -->
-        <div class="lg:col-span-8 flex flex-col lg:flex-row gap-8 lg:gap-8 mt-2 lg:mt-0">
-          <!-- Company & Help Section -->
-          <div class="flex flex-row lg:flex-row lg:flex-1">
-            <!-- Company -->
-            <div class="flex-1">
-              <h3
-                class="text-[var(--rs-neutral-400)] text-center lg:text-left text-base mb-4 uppercase tracking-widest">
-                COMPANY
-              </h3>
-              <ul class="space-y-3 text-center lg:text-left">
-                <li>
-                  <a href="index.html"
-                    class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline">Home</a>
-                </li>
-                <li>
-                  <a href="about.html"
-                    class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline">About</a>
-                </li>
-                <li>
-                  <a href="services.html"
-                    class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline">Services</a>
-                </li>
-                <li>
-                  <a href="careers.html"
-                    class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline">Careers
-                    & Talent</a>
-                </li>
-              </ul>
-            </div>
-            <!-- Divider -->
-            <div class="flex lg:flex flex-col justify-center">
-              <div class="w-px bg-[var(--rs-neutral-300)] mx-4 h-full min-h-[180px]"></div>
-            </div>
-            <!-- Help -->
-            <div class="flex-1">
-              <h3
-                class="text-[var(--rs-neutral-400)] text-base mb-4 uppercase tracking-widest text-center lg:text-left">
-                HELP
-              </h3>
-              <ul class="space-y-3 text-center lg:text-left">
-                <!-- <li>
-                    <a
-                      href="404.html"
-                      class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
-                      >Resources</a
-                    >
-                  </li> -->
-                <li>
-                  <a href="contact.html"
-                    class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline">Contact</a>
-                </li>
-                <li>
-                  <a href="#" onclick="openTermsModal()"
-                    class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline cursor-pointer">Terms
-                    of Service</a>
-                </li>
-                <li>
-                  <a href="#" onclick="openPrivacyModal()"
-                    class="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline cursor-pointer">Privacy
-                    Policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Reach Us Out -->
-          <div class="flex flex-col items-center lg:items-start lg:flex-1">
-            <!-- Contact Details -->
-            <div class="space-y-6 mb-8">
-              <div class="border border-[var(--rs-neutral-300)] rounded-lg p-4 relative">
                 <div
-                  class="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-[var(--rs-neutral-100)] px-4 py-1 mb-2 uppercase font-bold text-rs-neutral-400 tracking-wide">
-                  <h3 class="text-sm block whitespace-nowrap">
-                    REACH US OUT
-                  </h3>
+                  class="text-center lg:text-left text-[var(--rs-neutral-400)] text-[1rem] w-full font-medium"
+                >
+                  © 2025 Romega Solutions. All rights reserved
                 </div>
-
-                <div class="space-y-4">
-                  <div class="text-base">
-                    <h4 class="font-medium text-rs-neutral-400 uppercase mb-1 tracking-widest">
-                      EMAIL US
-                    </h4>
-                    <div class="flex items-center gap-2">
-                      <a href="mailto:info@romega-solutions.com"
-                        class="text-[var(--rs-neutral-600)] text-lg leading-8 hover:underline flex items-center gap-1"><svg
-                          xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M22 7L13.009 12.727C12.7039 12.9042 12.3573 12.9976 12.0045 12.9976C11.6517 12.9976 11.3051 12.9042 11 12.727L2 7M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z"
-                            stroke="#5381AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span>info@romega-solutions.com</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 class="text-base font-medium text-rs-neutral-400 uppercase mb-1 tracking-[1px]">
-                      HEADQUARTERS
-                    </h4>
-                    <div class="flex items-start gap-1">
-                      <a href="https://www.google.com/maps?q=222+Pacific+Coast+Hwy,+%2310,+El+Segundo,+CA+90245"
-                        target="_blank" rel="noopener noreferrer"
-                        class="text-[var(--rs-neutral-600)] tracking-tight hover:underline flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 14.993 7.539 20.193 9.399 21.799C9.57237 21.929 9.78329 21.9992 10 21.999M18 22V19M15 22C14.7348 22 14.4804 21.8946 14.2929 21.7071C14.1054 21.5196 14 21.2652 14 21V17C14 16.8354 14.0406 16.6734 14.1182 16.5282C14.1958 16.3831 14.3081 16.2593 14.445 16.168L17.445 14.168C17.6093 14.0584 17.8025 13.9999 18 13.9999C18.1975 13.9999 18.3907 14.0584 18.555 14.168L21.555 16.168C21.6919 16.2593 21.8042 16.3831 21.8818 16.5282C21.9594 16.6734 22 16.8354 22 17V21C22 21.2652 21.8946 21.5196 21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22H15ZM13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z"
-                            stroke="#5381AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-
-                        222 Pacific Coast Hwy, #10 in El Segundo, CA 90245
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="text-center lg:text-left text-[var(--rs-neutral-400)] text-[1rem] w-full font-medium">
-                © 2025 Romega Solutions. All rights reserved
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Terms and Conditions Modal -->
-  <div id="termsModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog"
-    aria-modal="true">
-    <!-- Background overlay -->
-    <div class="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0">
-      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"
-        onclick="closeTermsModal()"></div>
-
-      <!-- Modal panel -->
+    <!-- Terms and Conditions Modal -->
+    <div
+      id="termsModal"
+      class="fixed inset-0 z-[9999] hidden overflow-y-auto"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <!-- Background overlay -->
       <div
-        class="inline-block w-full max-w-4xl transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:align-middle">
-        <!-- Header -->
-        <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-          <div class="flex items-center justify-between border-b pb-4">
-            <h3 class="text-2xl font-bold leading-6 text-gray-900" id="modal-title">
-              Terms & Conditions
-            </h3>
-            <button type="button"
-              class="rounded-md bg-white text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              onclick="closeTermsModal()">
-              <span class="sr-only">Close</span>
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+        class="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0"
+      >
+        <div
+          class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+          aria-hidden="true"
+          onclick="closeTermsModal()"
+        ></div>
+
+        <!-- Modal panel -->
+        <div
+          class="inline-block w-full max-w-4xl transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:align-middle"
+        >
+          <!-- Header -->
+          <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+            <div class="flex items-center justify-between border-b pb-4">
+              <h3
+                class="text-2xl font-bold leading-6 text-gray-900"
+                id="modal-title"
+              >
+                Terms & Conditions
+              </h3>
+              <button
+                type="button"
+                class="rounded-md bg-white text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                onclick="closeTermsModal()"
+              >
+                <span class="sr-only">Close</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="max-h-[70vh] overflow-y-auto px-4 pb-4 sm:px-6">
+            <div class="prose prose-sm max-w-none">
+              <p class="text-sm text-gray-500 mb-6">
+                Last Updated: August 27, 2025
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                AGREEMENT TO TERMS
+              </h4>
+              <p class="text-gray-700 mb-4">
+                These Terms & Conditions ("Terms") are a legally binding
+                agreement between you ("you" or "user"), whether personally or
+                on behalf of an organization, and Romega Solutions ("Company,"
+                "we," "our," or "us"), governing your access to and use of
+                www.romega-solutions.com and any related platforms, services, or
+                tools (collectively, the "Site").
+              </p>
+              <p class="text-gray-700 mb-4">
+                By accessing or using our Site, submitting your information, or
+                engaging our services, you agree to be bound by these Terms. If
+                you do not agree, you must immediately stop using the Site.
+              </p>
+              <p class="text-gray-700 mb-6">
+                We may update these Terms at any time, and the updated version
+                will be indicated by a "Last Updated" date. Your continued use
+                of the Site after changes are posted constitutes acceptance of
+                those changes.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                USE OF THE SITE
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  You must be at least 18 years old to use this Site.
+                </li>
+                <li class="mb-2">
+                  You agree to use the Site only for lawful purposes and in
+                  compliance with all applicable laws.
+                </li>
+                <li class="mb-2">
+                  You agree not to use the Site in a way that may damage,
+                  disable, overburden, or impair our systems or interfere with
+                  others' use.
+                </li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                INFORMATION YOU PROVIDE
+              </h4>
+              <p class="text-gray-700 mb-3">
+                By submitting information (such as a resume, job application, or
+                business inquiry) you represent and warrant that:
+              </p>
+              <ul class="list-disc pl-6 text-gray-700 mb-4">
+                <li class="mb-2">
+                  The information is accurate, current, and complete.
+                </li>
+                <li class="mb-2">
+                  You have the right to share such information with us.
+                </li>
+                <li class="mb-2">
+                  You understand your information will be handled according to
+                  our Privacy Policy.
+                </li>
+              </ul>
+              <p class="text-gray-700 mb-6">
+                We are not responsible for verifying the accuracy of any
+                information submitted by users.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                CLIENT SERVICES
+              </h4>
+              <p class="text-gray-700 mb-6">
+                Clients engaging Romega Solutions for staffing, recruiting, or
+                consulting services may be required to enter into separate
+                agreements outlining scope, fees, and terms. Those agreements
+                shall take precedence over these Terms in the event of conflict.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                INTELLECTUAL PROPERTY
+              </h4>
+              <p class="text-gray-700 mb-6">
+                All content on the Site, including text, graphics, logos, and
+                software, is the property of Romega Solutions or its licensors
+                and is protected by copyright and trademark laws. You may not
+                copy, reproduce, or distribute any content without prior written
+                permission.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                THIRD-PARTY LINKS & SERVICES
+              </h4>
+              <p class="text-gray-700 mb-6">
+                The Site may contain links to third-party websites. We are not
+                responsible for the content, policies, or practices of any third
+                parties. Accessing these sites is at your own risk.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                DISCLAIMERS
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  The Site is provided "as is" and "as available." We make no
+                  warranties, express or implied, about the accuracy,
+                  reliability, or availability of the Site or its content.
+                </li>
+                <li class="mb-2">
+                  Romega Solutions does not guarantee job placement for
+                  candidates or specific results for clients.
+                </li>
+                <li class="mb-2">
+                  We are not liable for any damages resulting from your use of
+                  the Site or services, including lost profits, data, or
+                  business opportunities.
+                </li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                INDEMNIFICATION
+              </h4>
+              <p class="text-gray-700 mb-6">
+                You agree to defend, indemnify, and hold harmless Romega
+                Solutions, its affiliates, employees, and partners from any
+                claims, damages, or expenses arising out of your use of the
+                Site, your submissions, or your violation of these Terms.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                GOVERNING LAW & DISPUTE RESOLUTION
+              </h4>
+              <p class="text-gray-700 mb-4">
+                These Terms are governed by the laws of the State of California,
+                without regard to conflict of laws principles.
+              </p>
+              <p class="text-gray-700 mb-6">
+                Disputes shall first be attempted to be resolved informally. If
+                unresolved, disputes will be subject to binding arbitration in
+                Los Angeles County, California, except where prohibited by law.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                TERMINATION
+              </h4>
+              <p class="text-gray-700 mb-6">
+                We reserve the right to suspend or terminate your access to the
+                Site at any time, without notice, for conduct that violates
+                these Terms or is otherwise harmful to our business interests.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                CONTACT US
+              </h4>
+              <p class="text-gray-700 mb-2">
+                For questions or concerns regarding these Terms, please contact
+                us:
+              </p>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-gray-700 mb-2">📧 info@romega-solutions.com</p>
+                <p class="text-gray-700 mb-2">🌐 www.romega-solutions.com</p>
+                <p class="text-gray-700">
+                  🏢 222 Pacific Coast Hwy, #10, El Segundo, CA 90245
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+            <button
+              type="button"
+              class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
+              onclick="closeTermsModal()"
+            >
+              I Understand
+            </button>
+            <button
+              type="button"
+              class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+              onclick="closeTermsModal()"
+            >
+              Close
             </button>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="max-h-[70vh] overflow-y-auto px-4 pb-4 sm:px-6">
-          <div class="prose prose-sm max-w-none">
-            <p class="text-sm text-gray-500 mb-6">
-              Last Updated: August 27, 2025
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              AGREEMENT TO TERMS
-            </h4>
-            <p class="text-gray-700 mb-4">
-              These Terms & Conditions ("Terms") are a legally binding
-              agreement between you ("you" or "user"), whether personally or
-              on behalf of an organization, and Romega Solutions ("Company,"
-              "we," "our," or "us"), governing your access to and use of
-              www.romega-solutions.com and any related platforms, services, or
-              tools (collectively, the "Site").
-            </p>
-            <p class="text-gray-700 mb-4">
-              By accessing or using our Site, submitting your information, or
-              engaging our services, you agree to be bound by these Terms. If
-              you do not agree, you must immediately stop using the Site.
-            </p>
-            <p class="text-gray-700 mb-6">
-              We may update these Terms at any time, and the updated version
-              will be indicated by a "Last Updated" date. Your continued use
-              of the Site after changes are posted constitutes acceptance of
-              those changes.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              USE OF THE SITE
-            </h4>
-            <ul class="list-disc pl-6 text-gray-700 mb-6">
-              <li class="mb-2">
-                You must be at least 18 years old to use this Site.
-              </li>
-              <li class="mb-2">
-                You agree to use the Site only for lawful purposes and in
-                compliance with all applicable laws.
-              </li>
-              <li class="mb-2">
-                You agree not to use the Site in a way that may damage,
-                disable, overburden, or impair our systems or interfere with
-                others' use.
-              </li>
-            </ul>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              INFORMATION YOU PROVIDE
-            </h4>
-            <p class="text-gray-700 mb-3">
-              By submitting information (such as a resume, job application, or
-              business inquiry) you represent and warrant that:
-            </p>
-            <ul class="list-disc pl-6 text-gray-700 mb-4">
-              <li class="mb-2">
-                The information is accurate, current, and complete.
-              </li>
-              <li class="mb-2">
-                You have the right to share such information with us.
-              </li>
-              <li class="mb-2">
-                You understand your information will be handled according to
-                our Privacy Policy.
-              </li>
-            </ul>
-            <p class="text-gray-700 mb-6">
-              We are not responsible for verifying the accuracy of any
-              information submitted by users.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              CLIENT SERVICES
-            </h4>
-            <p class="text-gray-700 mb-6">
-              Clients engaging Romega Solutions for staffing, recruiting, or
-              consulting services may be required to enter into separate
-              agreements outlining scope, fees, and terms. Those agreements
-              shall take precedence over these Terms in the event of conflict.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              INTELLECTUAL PROPERTY
-            </h4>
-            <p class="text-gray-700 mb-6">
-              All content on the Site, including text, graphics, logos, and
-              software, is the property of Romega Solutions or its licensors
-              and is protected by copyright and trademark laws. You may not
-              copy, reproduce, or distribute any content without prior written
-              permission.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              THIRD-PARTY LINKS & SERVICES
-            </h4>
-            <p class="text-gray-700 mb-6">
-              The Site may contain links to third-party websites. We are not
-              responsible for the content, policies, or practices of any third
-              parties. Accessing these sites is at your own risk.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              DISCLAIMERS
-            </h4>
-            <ul class="list-disc pl-6 text-gray-700 mb-6">
-              <li class="mb-2">
-                The Site is provided "as is" and "as available." We make no
-                warranties, express or implied, about the accuracy,
-                reliability, or availability of the Site or its content.
-              </li>
-              <li class="mb-2">
-                Romega Solutions does not guarantee job placement for
-                candidates or specific results for clients.
-              </li>
-              <li class="mb-2">
-                We are not liable for any damages resulting from your use of
-                the Site or services, including lost profits, data, or
-                business opportunities.
-              </li>
-            </ul>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              INDEMNIFICATION
-            </h4>
-            <p class="text-gray-700 mb-6">
-              You agree to defend, indemnify, and hold harmless Romega
-              Solutions, its affiliates, employees, and partners from any
-              claims, damages, or expenses arising out of your use of the
-              Site, your submissions, or your violation of these Terms.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              GOVERNING LAW & DISPUTE RESOLUTION
-            </h4>
-            <p class="text-gray-700 mb-4">
-              These Terms are governed by the laws of the State of California,
-              without regard to conflict of laws principles.
-            </p>
-            <p class="text-gray-700 mb-6">
-              Disputes shall first be attempted to be resolved informally. If
-              unresolved, disputes will be subject to binding arbitration in
-              Los Angeles County, California, except where prohibited by law.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              TERMINATION
-            </h4>
-            <p class="text-gray-700 mb-6">
-              We reserve the right to suspend or terminate your access to the
-              Site at any time, without notice, for conduct that violates
-              these Terms or is otherwise harmful to our business interests.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              CONTACT US
-            </h4>
-            <p class="text-gray-700 mb-2">
-              For questions or concerns regarding these Terms, please contact
-              us:
-            </p>
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <p class="text-gray-700 mb-2">📧 info@romega-solutions.com</p>
-              <p class="text-gray-700 mb-2">🌐 www.romega-solutions.com</p>
-              <p class="text-gray-700">
-                🏢 222 Pacific Coast Hwy, #10, El Segundo, CA 90245
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-          <button type="button"
-            class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
-            onclick="closeTermsModal()">
-            I Understand
-          </button>
-          <button type="button"
-            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-            onclick="closeTermsModal()">
-            Close
-          </button>
-        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Privacy Policy Modal -->
-  <div id="privacyModal" class="fixed inset-0 z-[9999] hidden overflow-y-auto" aria-labelledby="privacy-modal-title"
-    role="dialog" aria-modal="true">
-    <!-- Background overlay -->
-    <div class="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0">
-      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"
-        onclick="closePrivacyModal()"></div>
-
-      <!-- Modal panel -->
+    <!-- Privacy Policy Modal -->
+    <div
+      id="privacyModal"
+      class="fixed inset-0 z-[9999] hidden overflow-y-auto"
+      aria-labelledby="privacy-modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <!-- Background overlay -->
       <div
-        class="inline-block w-full max-w-4xl transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:align-middle">
-        <!-- Header -->
-        <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-          <div class="flex items-center justify-between border-b pb-4">
-            <h3 class="text-2xl font-bold leading-6 text-gray-900" id="privacy-modal-title">
-              Privacy Policy
-            </h3>
-            <button type="button"
-              class="rounded-md bg-white text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              onclick="closePrivacyModal()">
-              <span class="sr-only">Close</span>
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+        class="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0"
+      >
+        <div
+          class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+          aria-hidden="true"
+          onclick="closePrivacyModal()"
+        ></div>
+
+        <!-- Modal panel -->
+        <div
+          class="inline-block w-full max-w-4xl transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:align-middle"
+        >
+          <!-- Header -->
+          <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+            <div class="flex items-center justify-between border-b pb-4">
+              <h3
+                class="text-2xl font-bold leading-6 text-gray-900"
+                id="privacy-modal-title"
+              >
+                Privacy Policy
+              </h3>
+              <button
+                type="button"
+                class="rounded-md bg-white text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                onclick="closePrivacyModal()"
+              >
+                <span class="sr-only">Close</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="max-h-[70vh] overflow-y-auto px-4 pb-4 sm:px-6">
+            <div class="prose prose-sm max-w-none">
+              <p class="text-lg text-gray-800 font-medium mb-6">
+                At Romega Solutions, your privacy matters to us. Whether you're
+                a client or a job seeker, we only collect and use your
+                information to connect talent with opportunities and deliver the
+                services you expect.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                What we collect
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  Basic contact details (name, email, phone, etc.) when you fill
+                  out a form, subscribe, or apply for a role.
+                </li>
+                <li class="mb-2">
+                  Professional information such as your resume or work history
+                  (for applicants).
+                </li>
+                <li class="mb-2">
+                  Website usage data (via tools like Google Analytics) to
+                  improve your browsing experience.
+                </li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                How we use your information
+              </h4>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  To connect candidates with career opportunities and support
+                  our clients' hiring needs.
+                </li>
+                <li class="mb-2">
+                  To communicate updates, respond to inquiries, and share
+                  relevant opportunities.
+                </li>
+                <li class="mb-2">To improve our website and services.</li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                How we protect your information
+              </h4>
+              <p class="text-gray-700 mb-6">
+                We use security measures and trusted third-party providers to
+                keep your data safe. We never sell your personal information.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                Sharing information
+              </h4>
+              <p class="text-gray-700 mb-3">
+                We may share your details only with:
+              </p>
+              <ul class="list-disc pl-6 text-gray-700 mb-6">
+                <li class="mb-2">
+                  Our trusted service providers (e.g., analytics or applicant
+                  systems).
+                </li>
+                <li class="mb-2">
+                  Clients, but only if you apply or agree to be considered for a
+                  role.
+                </li>
+                <li class="mb-2">When required by law.</li>
+              </ul>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                Your choice
+              </h4>
+              <p class="text-gray-700 mb-6">
+                You can visit our website without sharing personal data. You may
+                also unsubscribe from communications at any time.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                Updates
+              </h4>
+              <p class="text-gray-700 mb-6">
+                This Privacy Policy was last updated on August 27, 2025. Any
+                changes will be posted on our website.
+              </p>
+
+              <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
+                Contact us
+              </h4>
+              <p class="text-gray-700 mb-2">
+                Have questions about how we handle your data? Reach out at:
+              </p>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-gray-700 mb-2">📧 info@romega-solutions.com</p>
+                <p class="text-gray-700 mb-2">🌐 www.romega-solutions.com</p>
+                <p class="text-gray-700">
+                  🏢 222 Pacific Coast Hwy, #10, El Segundo, CA 90245
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+            <button
+              type="button"
+              class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
+              onclick="closePrivacyModal()"
+            >
+              I Understand
+            </button>
+            <button
+              type="button"
+              class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+              onclick="closePrivacyModal()"
+            >
+              Close
             </button>
           </div>
         </div>
-
-        <!-- Content -->
-        <div class="max-h-[70vh] overflow-y-auto px-4 pb-4 sm:px-6">
-          <div class="prose prose-sm max-w-none">
-            <p class="text-lg text-gray-800 font-medium mb-6">
-              At Romega Solutions, your privacy matters to us. Whether you're
-              a client or a job seeker, we only collect and use your
-              information to connect talent with opportunities and deliver the
-              services you expect.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              What we collect
-            </h4>
-            <ul class="list-disc pl-6 text-gray-700 mb-6">
-              <li class="mb-2">
-                Basic contact details (name, email, phone, etc.) when you fill
-                out a form, subscribe, or apply for a role.
-              </li>
-              <li class="mb-2">
-                Professional information such as your resume or work history
-                (for applicants).
-              </li>
-              <li class="mb-2">
-                Website usage data (via tools like Google Analytics) to
-                improve your browsing experience.
-              </li>
-            </ul>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              How we use your information
-            </h4>
-            <ul class="list-disc pl-6 text-gray-700 mb-6">
-              <li class="mb-2">
-                To connect candidates with career opportunities and support
-                our clients' hiring needs.
-              </li>
-              <li class="mb-2">
-                To communicate updates, respond to inquiries, and share
-                relevant opportunities.
-              </li>
-              <li class="mb-2">To improve our website and services.</li>
-            </ul>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              How we protect your information
-            </h4>
-            <p class="text-gray-700 mb-6">
-              We use security measures and trusted third-party providers to
-              keep your data safe. We never sell your personal information.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              Sharing information
-            </h4>
-            <p class="text-gray-700 mb-3">
-              We may share your details only with:
-            </p>
-            <ul class="list-disc pl-6 text-gray-700 mb-6">
-              <li class="mb-2">
-                Our trusted service providers (e.g., analytics or applicant
-                systems).
-              </li>
-              <li class="mb-2">
-                Clients, but only if you apply or agree to be considered for a
-                role.
-              </li>
-              <li class="mb-2">When required by law.</li>
-            </ul>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              Your choice
-            </h4>
-            <p class="text-gray-700 mb-6">
-              You can visit our website without sharing personal data. You may
-              also unsubscribe from communications at any time.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              Updates
-            </h4>
-            <p class="text-gray-700 mb-6">
-              This Privacy Policy was last updated on August 27, 2025. Any
-              changes will be posted on our website.
-            </p>
-
-            <h4 class="text-lg font-semibold text-gray-900 mt-6 mb-3">
-              Contact us
-            </h4>
-            <p class="text-gray-700 mb-2">
-              Have questions about how we handle your data? Reach out at:
-            </p>
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <p class="text-gray-700 mb-2">📧 info@romega-solutions.com</p>
-              <p class="text-gray-700 mb-2">🌐 www.romega-solutions.com</p>
-              <p class="text-gray-700">
-                🏢 222 Pacific Coast Hwy, #10, El Segundo, CA 90245
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-          <button type="button"
-            class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
-            onclick="closePrivacyModal()">
-            I Understand
-          </button>
-          <button type="button"
-            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-            onclick="closePrivacyModal()">
-            Close
-          </button>
-        </div>
       </div>
     </div>
-  </div>
 
-  <script src="../assets/js/main.js"></script>
-  <script>
-    // Modal functionality
-    function openTermsModal() {
-      const modal = document.getElementById("termsModal");
-      modal.classList.remove("hidden");
-      modal.classList.add("animate-fadeIn");
-      document.body.style.overflow = "hidden";
+    <script src="../assets/js/main.js"></script>
 
-      // Focus management for accessibility
-      setTimeout(() => {
-        const closeButton = modal.querySelector(
-          'button[onclick="closeTermsModal()"]'
-        );
-        closeButton.focus();
-      }, 100);
-    }
+    <!-- Chatbot Script (Demo Integration) -->
+    <script src="../js/chatbot.js"></script>
 
-    function closeTermsModal() {
-      const modal = document.getElementById("termsModal");
-      modal.classList.add("hidden");
-      modal.classList.remove("animate-fadeIn");
-      document.body.style.overflow = "auto";
-    }
+    <script>
+      // Modal functionality
+      function openTermsModal() {
+        const modal = document.getElementById("termsModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("animate-fadeIn");
+        document.body.style.overflow = "hidden";
 
-    function openPrivacyModal() {
-      const modal = document.getElementById("privacyModal");
-      modal.classList.remove("hidden");
-      modal.classList.add("animate-fadeIn");
-      document.body.style.overflow = "hidden";
-
-      // Focus management for accessibility
-      setTimeout(() => {
-        const closeButton = modal.querySelector(
-          'button[onclick="closePrivacyModal()"]'
-        );
-        closeButton.focus();
-      }, 100);
-    }
-
-    function closePrivacyModal() {
-      const modal = document.getElementById("privacyModal");
-      modal.classList.add("hidden");
-      modal.classList.remove("animate-fadeIn");
-      document.body.style.overflow = "auto";
-    }
-
-    // Keyboard event listeners
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        const termsModal = document.getElementById("termsModal");
-        const privacyModal = document.getElementById("privacyModal");
-
-        if (!termsModal.classList.contains("hidden")) {
-          closeTermsModal();
-        }
-        if (!privacyModal.classList.contains("hidden")) {
-          closePrivacyModal();
-        }
+        // Focus management for accessibility
+        setTimeout(() => {
+          const closeButton = modal.querySelector(
+            'button[onclick="closeTermsModal()"]'
+          );
+          closeButton.focus();
+        }, 100);
       }
-    });
 
-    // Add custom animation classes
-    const style = document.createElement("style");
-    style.textContent = `
+      function closeTermsModal() {
+        const modal = document.getElementById("termsModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("animate-fadeIn");
+        document.body.style.overflow = "auto";
+      }
+
+      function openPrivacyModal() {
+        const modal = document.getElementById("privacyModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("animate-fadeIn");
+        document.body.style.overflow = "hidden";
+
+        // Focus management for accessibility
+        setTimeout(() => {
+          const closeButton = modal.querySelector(
+            'button[onclick="closePrivacyModal()"]'
+          );
+          closeButton.focus();
+        }, 100);
+      }
+
+      function closePrivacyModal() {
+        const modal = document.getElementById("privacyModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("animate-fadeIn");
+        document.body.style.overflow = "auto";
+      }
+
+      // Keyboard event listeners
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          const termsModal = document.getElementById("termsModal");
+          const privacyModal = document.getElementById("privacyModal");
+
+          if (!termsModal.classList.contains("hidden")) {
+            closeTermsModal();
+          }
+          if (!privacyModal.classList.contains("hidden")) {
+            closePrivacyModal();
+          }
+        }
+      });
+
+      // Add custom animation classes
+      const style = document.createElement("style");
+      style.textContent = `
       .animate-fadeIn {
         animation: fadeIn 0.3s ease-out;
       }
@@ -1211,114 +1755,114 @@
         line-height: 1.625;
       }
     `;
-    document.head.appendChild(style);
+      document.head.appendChild(style);
 
-    function toggleExpandable(id) {
-      const content = document.getElementById(id);
-      const arrow = document.getElementById(
-        id.replace("-detail", "-arrow").replace("-service", "-arrow")
-      );
-
-      content.classList.toggle("expanded");
-
-      if (content.classList.contains("expanded")) {
-        arrow.style.transform = "rotate(270deg)";
-      } else {
-        arrow.style.transform = "rotate(0deg)";
-      }
-    }
-
-    // FAQ Functions
-    function toggleFAQ(id) {
-      const content = document.getElementById(id);
-      const arrow = document.getElementById(id + "-arrow");
-
-      if (content.classList.contains("hidden")) {
-        content.classList.remove("hidden");
-        arrow.style.transform = "rotate(90deg)";
-      } else {
-        content.classList.add("hidden");
-        arrow.style.transform = "rotate(0deg)";
-      }
-    }
-
-    function toggleAllFAQs() {
-      const faqContents = document.querySelectorAll(".faq-content");
-      const faqArrows = document.querySelectorAll('[id$="-arrow"]');
-      const toggleBtn = document.getElementById("toggle-all-btn");
-      const allHidden = Array.from(faqContents).every((content) =>
-        content.classList.contains("hidden")
-      );
-
-      if (allHidden) {
-        // Show all
-        faqContents.forEach((content) => {
-          content.classList.remove("hidden");
-        });
-        faqArrows.forEach((arrow) => {
-          arrow.style.transform = "rotate(90deg)";
-        });
-        toggleBtn.textContent = "Collapse All";
-      } else {
-        // Collapse all
-        faqContents.forEach((content) => {
-          content.classList.add("hidden");
-        });
-        faqArrows.forEach((arrow) => {
-          arrow.style.transform = "rotate(0deg)";
-        });
-        toggleBtn.textContent = "Show All";
-      }
-    }
-
-    // FAQ Search Functionality
-    document.addEventListener("DOMContentLoaded", function () {
-      const searchInput = document.getElementById("faq-search");
-      const faqItems = document.querySelectorAll(".faq-item");
-
-      if (!searchInput || !faqItems.length) return;
-
-      searchInput.addEventListener("input", function (event) {
-        const searchTerm = event.target.value.toLowerCase().trim();
-
-        faqItems.forEach((item) => {
-          // Use semantic selectors for better maintainability
-          const questionElement = item.querySelector(".faq-question");
-          const answerElement = item.querySelector(".faq-answer-text");
-
-          const question = questionElement
-            ? questionElement.textContent.toLowerCase()
-            : "";
-          const answer = answerElement
-            ? answerElement.textContent.toLowerCase()
-            : "";
-
-          const isMatch =
-            !searchTerm ||
-            question.includes(searchTerm) ||
-            answer.includes(searchTerm);
-
-          // Use modern display methods
-          item.style.display = isMatch ? "block" : "none";
-
-          // Update aria attributes for accessibility
-          item.setAttribute("aria-hidden", !isMatch);
-        });
-
-        // Update search results count for screen readers
-        const visibleItems = Array.from(faqItems).filter(
-          (item) => item.style.display !== "none"
+      function toggleExpandable(id) {
+        const content = document.getElementById(id);
+        const arrow = document.getElementById(
+          id.replace("-detail", "-arrow").replace("-service", "-arrow")
         );
-        const resultsText = searchTerm
-          ? `${visibleItems.length} FAQ${visibleItems.length !== 1 ? "s" : ""
-          } found`
-          : "All FAQs visible";
 
-        // Announce results to screen readers
-        searchInput.setAttribute("aria-description", resultsText);
+        content.classList.toggle("expanded");
+
+        if (content.classList.contains("expanded")) {
+          arrow.style.transform = "rotate(270deg)";
+        } else {
+          arrow.style.transform = "rotate(0deg)";
+        }
+      }
+
+      // FAQ Functions
+      function toggleFAQ(id) {
+        const content = document.getElementById(id);
+        const arrow = document.getElementById(id + "-arrow");
+
+        if (content.classList.contains("hidden")) {
+          content.classList.remove("hidden");
+          arrow.style.transform = "rotate(90deg)";
+        } else {
+          content.classList.add("hidden");
+          arrow.style.transform = "rotate(0deg)";
+        }
+      }
+
+      function toggleAllFAQs() {
+        const faqContents = document.querySelectorAll(".faq-content");
+        const faqArrows = document.querySelectorAll('[id$="-arrow"]');
+        const toggleBtn = document.getElementById("toggle-all-btn");
+        const allHidden = Array.from(faqContents).every((content) =>
+          content.classList.contains("hidden")
+        );
+
+        if (allHidden) {
+          // Show all
+          faqContents.forEach((content) => {
+            content.classList.remove("hidden");
+          });
+          faqArrows.forEach((arrow) => {
+            arrow.style.transform = "rotate(90deg)";
+          });
+          toggleBtn.textContent = "Collapse All";
+        } else {
+          // Collapse all
+          faqContents.forEach((content) => {
+            content.classList.add("hidden");
+          });
+          faqArrows.forEach((arrow) => {
+            arrow.style.transform = "rotate(0deg)";
+          });
+          toggleBtn.textContent = "Show All";
+        }
+      }
+
+      // FAQ Search Functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("faq-search");
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        if (!searchInput || !faqItems.length) return;
+
+        searchInput.addEventListener("input", function (event) {
+          const searchTerm = event.target.value.toLowerCase().trim();
+
+          faqItems.forEach((item) => {
+            // Use semantic selectors for better maintainability
+            const questionElement = item.querySelector(".faq-question");
+            const answerElement = item.querySelector(".faq-answer-text");
+
+            const question = questionElement
+              ? questionElement.textContent.toLowerCase()
+              : "";
+            const answer = answerElement
+              ? answerElement.textContent.toLowerCase()
+              : "";
+
+            const isMatch =
+              !searchTerm ||
+              question.includes(searchTerm) ||
+              answer.includes(searchTerm);
+
+            // Use modern display methods
+            item.style.display = isMatch ? "block" : "none";
+
+            // Update aria attributes for accessibility
+            item.setAttribute("aria-hidden", !isMatch);
+          });
+
+          // Update search results count for screen readers
+          const visibleItems = Array.from(faqItems).filter(
+            (item) => item.style.display !== "none"
+          );
+          const resultsText = searchTerm
+            ? `${visibleItems.length} FAQ${
+                visibleItems.length !== 1 ? "s" : ""
+              } found`
+            : "All FAQs visible";
+
+          // Announce results to screen readers
+          searchInput.setAttribute("aria-description", resultsText);
+        });
       });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
