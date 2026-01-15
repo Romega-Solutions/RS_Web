@@ -23,8 +23,18 @@ class RomegaChatbot {
     return {
       services: {
         question: "What services does Romega Solutions offer?",
-        answer: "We provide a full suite of business support services including: RPO (Recruitment Process Outsourcing), BPO (Business Process Outsourcing), Strategic HR consulting, Quality Hire (Executive Search), Mentoring, and Teaching/Training services. We specialize in connecting visionary leaders with opportunities that drive growth, innovation, and lasting impact.",
-        keywords: ["services", "what do you do", "offerings", "help with", "provide", "RPO", "BPO", "HR"]
+        answer: "We provide comprehensive HR solutions and Digital Marketing services to help your business grow. Our offerings include: RPO (Recruitment Process Outsourcing), BPO (Business Process Outsourcing), Strategic HR consulting, Quality Hire (Executive Search), Digital Marketing strategies, SEO, Content Marketing, and Social Media Management. We're your partner for people and growth.",
+        keywords: ["services", "what do you do", "offerings", "help with", "provide", "about"]
+      },
+      hrservices: {
+        question: "What HR services do you provide?",
+        answer: "Our HR services include: 📋 RPO (Recruitment Process Outsourcing), 🏢 BPO (Business Process Outsourcing), 💼 Strategic HR consulting, 🎯 Quality Hire (Executive Search), 👥 Talent Management, and 📚 Training & Development. We specialize in connecting visionary leaders with opportunities that drive growth, innovation, and lasting impact.",
+        keywords: ["HR services", "HR", "human resources", "recruitment", "hiring", "talent", "tell me about hr"]
+      },
+      digitalmarketing: {
+        question: "What Digital Marketing services do you offer?",
+        answer: "Our Digital Marketing services help you reach and engage your audience effectively: 📱 Social Media Marketing, 🔍 SEO (Search Engine Optimization), 📝 Content Marketing, 📧 Email Marketing, 💡 Brand Strategy, and 📈 Analytics & Reporting. We create data-driven strategies that deliver measurable results for your business growth.",
+        keywords: ["digital marketing", "marketing", "social media", "SEO", "content", "advertising", "online marketing", "tell me about digital"]
       },
       rpo: {
         question: "What is RPO and how does it work?",
@@ -38,8 +48,8 @@ class RomegaChatbot {
       },
       pricing: {
         question: "How much do your services cost?",
-        answer: "We offer transparent, competitive pricing that's 15% lower than traditional recruitment firms while maintaining premium quality. Our fees vary by service type and role complexity. We provide detailed quotes within 24 hours and offer flexible payment terms. Contact us for a customized proposal based on your specific needs.",
-        keywords: ["price", "cost", "fee", "how much", "budget", "pricing", "quote", "rates"]
+        answer: "We offer transparent, competitive pricing tailored to your specific needs. Our fees vary by service type (HR services or Digital Marketing) and project complexity. We provide detailed quotes within 24 hours and offer flexible payment terms and packages. Contact us for a customized proposal based on your business goals. 📊",
+        keywords: ["price", "cost", "fee", "how much", "budget", "pricing", "quote", "rates", "packages", "what are your pricing"]
       },
       timeframe: {
         question: "How fast can you fill positions?",
@@ -53,13 +63,13 @@ class RomegaChatbot {
       },
       consultation: {
         question: "Can I schedule a consultation?",
-        answer: "Absolutely! We offer free discovery calls to understand your hiring needs and challenges. You can schedule directly through our Calendly link, use our contact form, or email us at info@romega-solutions.com. We typically respond within 4 hours and can arrange consultations within 24-48 hours.",
-        keywords: ["consultation", "schedule", "appointment", "meeting", "discovery call", "free"]
+        answer: "Absolutely! We offer free discovery calls to understand your business needs and challenges. You can schedule directly through our Calendly link, use our contact form, or email us at info@romega-solutions.com. We typically respond within 4 hours and can arrange consultations within 24-48 hours. Let's discuss how we can help you grow!",
+        keywords: ["consultation", "schedule", "appointment", "meeting", "discovery call", "free", "book a call", "want to book"]
       },
       contact: {
         question: "How can I contact Romega Solutions?",
-        answer: "You can reach us multiple ways: Email: info@romega-solutions.com, Schedule a meeting via Calendly, Use our website contact form, or visit our headquarters at 222 Pacific Coast Hwy, #10 in El Segundo, CA 90245. We respond to emails within 4 hours during business hours.",
-        keywords: ["contact", "phone", "email", "reach", "call", "support", "address"]
+        answer: "You can reach us multiple ways: 📧 Email: info@romega-solutions.com, 📅 Schedule a meeting via Calendly, 💬 Use our website contact form, or visit our headquarters at 222 Pacific Coast Hwy, #10 in El Segundo, CA 90245. We respond to emails within 4 hours during business hours. Ready to talk to a specialist?",
+        keywords: ["contact", "phone", "email", "reach", "call", "support", "address", "connect me", "talk to specialist", "speak with"]
       }
     };
   }
@@ -94,10 +104,10 @@ class RomegaChatbot {
                 <span class="text-blue-600 font-bold text-sm">R</span>
               </div>
               <div>
-                <h3 class="font-bold text-base">Ask Pulse</h3>
+                <h3 class="font-bold text-base">Ask Pulse ⭐</h3>
                 <p class="text-xs text-blue-100 flex items-center">
                   <span class="w-2 h-2 bg-green-400 rounded-full mr-1.5 animate-pulse"></span>
-                  Online • Ready to help
+                  Your HR & Digital Marketing Assistant
                 </p>
               </div>
             </div>
@@ -116,8 +126,8 @@ class RomegaChatbot {
                 <div>
                   <div class="text-sm markdown-content">
                     <p class="mb-2"><strong>Hi! I'm Pulse 👋</strong></p>
-                    <p class="mb-2">I can help you with HR solutions, digital marketing services, and growth insights.</p>
-                    <p class="text-sm text-gray-700 mt-2">What would you like to explore today?</p>
+                    <p class="mb-2">I help businesses grow through HR solutions and Digital Marketing strategies.</p>
+                    <p class="text-sm text-gray-600 mt-2">What can I help you with today?</p>
                   </div>
                 </div>
               </div>
@@ -154,24 +164,24 @@ class RomegaChatbot {
             >
             <button 
               id="send-btn" 
-              class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+              class="bg-blue-600 hoveHR or Digital Marketinghite px-4 py-2 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
             >
               Send
             </button>
           </div>
           <div class="flex justify-between items-center mt-2">
-            <div class="flex flex-wrap gap-2">
-              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded-full transition-colors" data-message="Tell me about your HR services">🔹 HR Services</button>
-              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded-full transition-colors" data-message="What digital marketing services do you offer?">🔹 Digital Marketing</button>
-              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded-full transition-colors" data-message="What are your pricing and packages?">🔹 Pricing & Packages</button>
-              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded-full transition-colors" data-message="I'd like to book a call">🔹 Book a Call</button>
-              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded-full transition-colors" data-message="I want to talk to a specialist">🔹 Talk to a Specialist</button>
+            <div class="flex space-x-2">
+              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded-full transition-colors" data-message="What services do you offer?">Services</button>
+              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded-full transition-colors" data-message="How much do your services cost?">Pricing</button>
+              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded-full transition-colors" data-message="Schedule consultation">Contact</button>
             </div>
           </div>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(chatContainer);
+        </div>flex-wrap gap-2">
+              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded-full transition-colors" data-message="Tell me about HR services">🔹 HR Services</button>
+              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded-full transition-colors" data-message="Tell me about Digital Marketing">🔹 Digital Marketing</button>
+              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded-full transition-colors" data-message="What are your pricing and packages?">🔹 Pricing & Packages</button>
+              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded-full transition-colors" data-message="I want to book a call">🔹 Book a Call</button>
+              <button class="quick-reply-btn text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded-full transition-colors" data-message="Connect me with a specialist">🔹 Talk to a Specialis
   }
 
   setupEventListeners() {
@@ -292,11 +302,11 @@ class RomegaChatbot {
     const welcomeMessage = {
       type: "bot",
       content:
-        "Hi! I'm Pulse 👋\nI can help you with HR solutions, digital marketing services, and growth insights.\nWhat would you like to explore today?",
+        "👋 Welcome to Romega Solutions! I'm Ask Pulse, your AI assistant, here to help you with recruitment, HR consulting, and more.",
       timestamp: new Date(),
     };
     this.messages.push(welcomeMessage);
-    // Don't display again - it's already in the HTML
+    // DoHi! I'm Pulse 👋 I help businesses grow through HR solutions and Digital Marketing strategies. What can I help you with today?
   }
 
   sendMessage() {
@@ -561,11 +571,11 @@ class RomegaChatbot {
     }
 
     if (message.includes("thank") || message.includes("thanks")) {
-      return "You're welcome! Is there anything else I can help you with regarding our recruitment and HR services?";
+      return "Yi there! 👋 I'm Pulse, your HR & Digital Marketing assistant. Whether you need help with talent acquisition, HR strategy, or growing your digital presence, I'm here to guide you. What can I help you with today
     }
 
     if (message.includes("bye") || message.includes("goodbye")) {
-      return "Thank you for contacting Romega Solutions! Feel free to reach out anytime. Have a great day! 👋";
+      return "Thank you for contacting Romega Solutions! Feel free to reach out anytime. We're here to help you grow! 👋";
     }
 
     // Default response with helpful suggestions
@@ -573,15 +583,19 @@ class RomegaChatbot {
 
 • Executive recruitment and RPO services
 • HR consulting and BPO solutions
+• Quality hire and talent acquisitionHere are some things I can definitely help with:
+
+📋 **HR Solutions:**
+• Executive recruitment and RPO services
+• HR consulting and BPO solutions
 • Quality hire and talent acquisition
-• Strategic HR planning
-• Global talent sourcing
 
-You can also email us at info@romega-solutions.com or schedule a discovery call through our website for immediate assistance. What specific aspect interests you most?`;
-  }
+📈 **Digital Marketing:**
+• Social Media marketing strategies
+• SEO and content marketing
+• Brand development and online presence
 
-  saveChatHistory() {
-    try {
+You can also email us at info@romega-solutions.com or book a call to speak with a specialist. What would you like to explore
       localStorage.setItem(
         "romega-chat-history",
         JSON.stringify(this.messages)

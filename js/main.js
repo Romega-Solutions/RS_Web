@@ -1,71 +1,47 @@
-// Main JavaScript file for Romega Solutions website - Mobile menu functionality only
-
-// Mobile menu toggle functionality
 document.addEventListener("DOMContentLoaded", function () {
-  setupMobileMenu();
+  _a();
 });
-
-function setupMobileMenu() {
-  const mobileMenuButton = document.querySelector(".mobile-menu-button");
-  const mobileMenu = document.querySelector(".mobile-menu");
-
-  if (mobileMenuButton && mobileMenu) {
-    // Remove any existing event listeners by cloning the button
-    const newButton = mobileMenuButton.cloneNode(true);
-    mobileMenuButton.parentNode.replaceChild(newButton, mobileMenuButton);
-
-    newButton.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const isHidden = mobileMenu.classList.contains("hidden");
-
-      if (isHidden) {
-        mobileMenu.classList.remove("hidden");
-        newButton.setAttribute("aria-expanded", "true");
-      } else {
-        mobileMenu.classList.add("hidden");
-        newButton.setAttribute("aria-expanded", "false");
-      }
+function _a() {
+  const _b = document.querySelector(".mobile-menu-button"),
+    _c = document.querySelector(".mobile-menu");
+  if (_b && _c) {
+    const _d = _b.cloneNode(!0);
+    _b.parentNode.replaceChild(_d, _b);
+    _d.addEventListener("click", function (_e) {
+      _e.preventDefault();
+      _e.stopPropagation();
+      const _f = _c.classList.contains("hidden");
+      _f
+        ? (_c.classList.remove("hidden"),
+          _d.setAttribute("aria-expanded", "true"))
+        : (_c.classList.add("hidden"),
+          _d.setAttribute("aria-expanded", "false"));
     });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener("click", function (event) {
-      if (
-        mobileMenu &&
-        newButton &&
-        !mobileMenu.contains(event.target) &&
-        !newButton.contains(event.target)
-      ) {
-        mobileMenu.classList.add("hidden");
-        newButton.setAttribute("aria-expanded", "false");
-      }
+    document.addEventListener("click", function (_e) {
+      _c &&
+        _d &&
+        !_c.contains(_e.target) &&
+        !_d.contains(_e.target) &&
+        (_c.classList.add("hidden"), _d.setAttribute("aria-expanded", "false"));
     });
-
     console.log("Mobile menu setup complete");
-  } else {
+  } else
     console.warn("Mobile menu elements not found:", {
-      button: !!mobileMenuButton,
-      menu: !!mobileMenu,
+      button: !!_b,
+      menu: !!_c,
     });
-  }
 }
-
-// Utility functions
 const utils = {
-  // Debounce function for performance optimization
-  debounce: function (func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
+  debounce: function (_g, _h) {
+    let _i;
+    return function _j(..._k) {
+      const _l = () => {
+        clearTimeout(_i);
+        _g(..._k);
       };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
+      clearTimeout(_i);
+      _i = setTimeout(_l, _h);
     };
   },
 };
-
-// Export utils for use in other scripts if needed
 window.RomegaUtils = utils;

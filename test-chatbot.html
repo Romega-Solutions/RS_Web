@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot Test</title>
+
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chatbot CSS -->
+    <link rel="stylesheet" href="assets/css/chatbot.css" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+      .test-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-card">
+      <h1
+        style="
+          font-size: 2rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+          color: #1e40af;
+        "
+      >
+        🧪 Chatbot Test Page
+      </h1>
+      <p style="margin-bottom: 1rem; color: #4b5563">
+        This is a test page to verify the Ask Pulse chatbot is working
+        correctly.
+      </p>
+
+      <div
+        style="
+          background: #f3f4f6;
+          padding: 20px;
+          border-radius: 8px;
+          margin: 20px 0;
+        "
+      >
+        <h2 style="font-weight: bold; margin-bottom: 10px">
+          ✅ Expected Behavior:
+        </h2>
+        <ul style="list-style: disc; margin-left: 20px; color: #6b7280">
+          <li>Blue chat button should appear in bottom right corner</li>
+          <li>Click it to open the chat window</li>
+          <li>See "Hi! I'm Pulse 👋" welcome message</li>
+          <li>Quick reply buttons should appear below welcome</li>
+          <li>Type and send messages to the AI</li>
+        </ul>
+      </div>
+
+      <div
+        style="
+          background: #dbeafe;
+          padding: 20px;
+          border-radius: 8px;
+          border-left: 4px solid #2563eb;
+        "
+      >
+        <p style="font-weight: bold; color: #1e40af; margin-bottom: 10px">
+          🔍 Open Browser Console (F12) to see:
+        </p>
+        <code
+          style="
+            background: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: block;
+            margin: 5px 0;
+            color: #047857;
+          "
+        >
+          Ask Pulse Chatbot initialized successfully!
+        </code>
+        <code
+          style="
+            background: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: block;
+            margin: 5px 0;
+            color: #047857;
+          "
+        >
+          Chatbot widget added to page
+        </code>
+      </div>
+
+      <div
+        style="
+          margin-top: 20px;
+          padding: 15px;
+          background: #fef3c7;
+          border-radius: 8px;
+        "
+      >
+        <p style="color: #92400e">
+          <strong>⚠️ If you don't see the chat button:</strong><br />
+          Check the console for errors and verify the API endpoint is
+          accessible.
+        </p>
+      </div>
+    </div>
+
+    <!-- Chatbot Script -->
+    <script src="js/chatbot.js"></script>
+
+    <script>
+      // Additional debug logging
+      window.addEventListener("load", () => {
+        console.log(
+          "%c🚀 Page fully loaded",
+          "color: green; font-size: 14px; font-weight: bold"
+        );
+        console.log("Chatbot instance:", window.askPulseChatbot);
+
+        setTimeout(() => {
+          const chatToggle = document.getElementById("chat-toggle");
+          const chatBtn = document.getElementById("chat-toggle-btn");
+          console.log("Chat toggle element:", chatToggle);
+          console.log("Chat button element:", chatBtn);
+
+          if (!chatToggle) {
+            console.error("❌ Chat toggle not found in DOM!");
+          } else {
+            console.log("✅ Chat toggle found and should be visible");
+            console.log("Toggle styles:", window.getComputedStyle(chatToggle));
+          }
+        }, 1000);
+      });
+    </script>
+
+    <!-- Chatbot Script -->
+    <script src="js/chatbot.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+# Romega Solutions Team
+
+## TEAM
+
+**Company:** Romega Solutions  
+**Website:** https://romegasolutions.com  
+**Location:** El Segundo, California  
+**Email:** info@romega-solutions.com
+
+## THANKS
+
+Built with passion for connecting visionary leaders with opportunities that drive growth, innovation, and lasting impact.
+
+## TECHNOLOGY
+
+- HTML5
+- CSS3 (Tailwind CSS)
+- JavaScript (Vanilla)
+- AI-Powered Chatbot
+- Google Analytics
+- Responsive Design
+
+## SITE
+
+**Last update:** 2026/01/07  
+**Standards:** HTML5, CSS3, Accessibility (WCAG 2.1)  
+**Components:** Navigation, Forms, Chatbot, Analytics  
+**Language:** English  
+**Doctype:** HTML5  
+**IDE:** Visual Studio Code

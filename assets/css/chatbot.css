@@ -1,32 +1,45 @@
 /* Romega Solutions Chatbot Styles */
 
-/* Chat Widget Base Styles */
+/* Chat Widget Base Styles - Consolidated */
+#ask-pulse-chatbot,
 #romega-chatbot {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, sans-serif;
-  z-index: 9999;
+  z-index: 9999 !important;
+  position: relative;
+  pointer-events: none;
 }
 
 /* Ensure chatbot is always on top */
 #chat-toggle {
   z-index: 9999 !important;
   position: fixed !important;
+  transform-origin: bottom right;
+  margin-left: auto;
+  pointer-events: auto;
+  display: block !important;
+  visibility: visible !important;
 }
 
 #chat-window {
   z-index: 9998 !important;
   position: fixed !important;
+  max-width: calc(100vw - 1rem);
+  transform-origin: bottom right;
+  margin-left: auto;
+  pointer-events: auto;
+}
+
+@media (min-width: 640px) {
+  #chat-window {
+    max-width: 500px;
+  }
 }
 
 /* Override any potential conflicts */
+#ask-pulse-chatbot *,
 #romega-chatbot * {
   box-sizing: border-box;
-}
-
-/* Ensure chatbot works above modals, overlays, etc. */
-#romega-chatbot {
-  position: relative;
-  z-index: 9999 !important;
 }
 
 /* Prevent body scroll when chat is open on mobile */
@@ -118,38 +131,11 @@
 }
 
 /* Ensure proper stacking context and positioning */
+#ask-pulse-chatbot,
 #romega-chatbot,
 #chat-toggle,
 #chat-window {
   isolation: isolate;
-}
-
-/* Force right alignment and prevent layout shifts */
-#chat-toggle,
-#chat-window {
-  transform-origin: bottom right;
-  margin-left: auto;
-}
-
-/* Ensure chatbot doesn't interfere with page layout */
-#romega-chatbot {
-  pointer-events: none;
-}
-
-#chat-toggle,
-#chat-window {
-  pointer-events: auto;
-}
-
-/* Prevent horizontal scrolling issues */
-#chat-window {
-  max-width: calc(100vw - 1rem);
-}
-
-@media (min-width: 640px) {
-  #chat-window {
-    max-width: 500px;
-  }
 }
 
 /* Smooth transitions for responsive changes */
@@ -748,7 +734,7 @@
 .error-message {
   background-color: #fef2f2;
   border: 1px solid #fecaca;
-  color: #dc2626;
+  color: #b91c1c;
 }
 
 .error-message::before {
@@ -759,9 +745,105 @@
 .success-message {
   background-color: #f0fdf4;
   border: 1px solid #bbf7d0;
-  color: #16a34a;
+  color: #15803d;
 }
 
 .success-message::before {
   border-right-color: #f0fdf4;
+}
+
+/* Markdown Content Styling */
+.markdown-content {
+  line-height: 1.6;
+}
+
+.markdown-content strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+.markdown-content em {
+  font-style: italic;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+.markdown-content p {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content a {
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.markdown-content a:hover {
+  opacity: 0.8;
+}
+
+/* Ensure markdown works in both bot and user messages */
+.bg-blue-600 .markdown-content strong,
+.bg-blue-600 .markdown-content em,
+.bg-blue-600 .markdown-content a {
+  color: white;
+}
+
+.bg-white .markdown-content strong,
+.bg-white .markdown-content em {
+  color: #1f2937;
+}
+
+.bg-white .markdown-content a {
+  color: #2563eb;
+}
+
+/* Inline Quick Reply Buttons in Chat Messages */
+.inline-quick-reply {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.inline-quick-reply:hover {
+  background-color: #dbeafe !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+.inline-quick-reply:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Header Spacing Fix */
+#chat-window > div:first-child {
+  padding: 1rem 1.25rem;
+}
+
+/* Ensure proper gap between chat window and toggle button */
+@media (max-width: 640px) {
+  #chat-window {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 641px) {
+  #chat-window {
+    margin-bottom: 1rem;
+  }
 }

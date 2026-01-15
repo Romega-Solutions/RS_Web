@@ -1,0 +1,11 @@
+Contact: mailto:security@romega-solutions.com
+Contact: https://romegasolutions.com/contact
+Expires: 2027-01-07T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://romegasolutions.com/.well-known/security.txt
+Policy: https://romegasolutions.com/security-policy
+Hiring: https://romegasolutions.com/careers.html
+
+# Our security address
+# If you find a security issue, please email us at security@romega-solutions.com
+# We appreciate responsible disclosure and will respond within 48 hours
