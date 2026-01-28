@@ -20,9 +20,9 @@ export function Header() {
         className="fixed top-0 z-50 w-full bg-white h-[104px] align-middle shadow-sm"
       >
         <div className="mx-auto">
-          <div className="flex items-center justify-between h-[104px] md:h-[104px] bg-[var(--rs-primary-50)] px-4 md:px-8 lg:px-[89.5px] border-b-2 border-[var(--rs-neutral-grey-400)]">
+          <div className="flex items-center justify-around h-[104px] md:h-[104px] bg-[var(--rs-primary-50)] px-4 md:px-8 lg:px-[89.5px] border-b-2 border-[var(--rs-neutral-grey-400)]">
             {/* Logo */}
-            <div className="flex items-center flex-shrink-0">
+            <div className="flex items-center flex-shrink-0 lg:ml-16">
               <Link href="/" className="flex items-center" id="logo-link">
                 <Image
                   src="/images/navbar-company-logo.svg"
@@ -35,36 +35,36 @@ export function Header() {
               </Link>
             </div>
 
-            {/* Desktop Navigation Links - Centered */}
-            <div className="hidden mx-4 flex-1 lg:flex lg:items-center lg:justify-center xl:mx-8">
-              <div className="flex items-center space-x-4">
+            {/* Desktop Navigation Links */}
+            <div className="hidden lg:flex lg:items-center lg:justify-center">
+              <div className="flex items-center gap-6">
                 <Link
                   href="/"
-                  className="text-[var(--rs-accent-600)] whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                  className="text-rs-accent-600 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
-                  className="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
                 >
                   About
                 </Link>
                 <Link
                   href="/services"
-                  className="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
                 >
                   Services
                 </Link>
                 <Link
                   href="/careers"
-                  className="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
                 >
                   Careers & Talent
                 </Link>
                 <Link
                   href="/contact"
-                  className="navbar-custom whitespace-nowrap px-2 py-2 text-[0.9rem] font-medium transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline xl:px-4 xl:text-[1rem]"
+                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
                 >
                   Contact
                 </Link>
@@ -72,21 +72,23 @@ export function Header() {
             </div>
 
             {/* Book a Call Button */}
-            <a
-              href="https://calendly.com/romega-solutions/discoverycall"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden h-[46px] items-center justify-center align-middle rounded-xl border-[1.5px] border-rs-primary-600 bg-rs-primary-500 px-[10px] text-[18px] font-medium text-rs-primary-100 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)] transition duration-300 hover:bg-rs-primary-700 lg:inline-flex lg:min-w-[172px] lg:px-[28px]"
-            >
-              <Image
-                src="/images/icon-calendar-days.svg"
-                alt="Calendar icon"
-                width={22}
-                height={22}
-                className="mr-1"
-              />
-              Book a Call
-            </a>
+            <div className="flex items-center justify-end flex-shrink-0">
+              <a
+                href="https://calendly.com/romega-solutions/discoverycall"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden h-[46px] items-center justify-center align-middle rounded-xl border-[1.5px] border-rs-primary-600 bg-rs-primary-500 px-[10px] text-[18px] font-medium text-rs-primary-100 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)] transition duration-300 hover:bg-rs-primary-700 lg:inline-flex lg:min-w-[172px] lg:px-[28px]"
+              >
+                <Image
+                  src="/images/icon-calendar-days.svg"
+                  alt="Calendar icon"
+                  width={22}
+                  height={22}
+                  className="mr-1"
+                />
+                Book a Call
+              </a>
+            </div>
 
             {/* Mobile menu button */}
             <div className="lg:hidden">
@@ -150,6 +152,8 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 mx-0 flex items-center justify-center rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
+              role="button"
+              aria-label="Book a call with Romega Solutions"
             >
               <Image
                 src="/images/icon-calendar-days.svg"

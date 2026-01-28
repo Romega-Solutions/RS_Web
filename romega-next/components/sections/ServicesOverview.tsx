@@ -1,0 +1,138 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
+const serviceTags = ['RPO', 'BPO', 'Strategic HR', 'Quality Hire', 'Mentoring', 'Teaching'];
+
+const services = [
+  {
+    tag: 'Talent Acquisition',
+    image: '/images/home/webp/talent-acquisition.webp',
+    title: 'Drive growth with strategic sales and marketing.',
+    width: 280,
+    height: 180,
+  },
+  {
+    tag: 'HR Services',
+    image: '/images/home/webp/hr-services.webp',
+    title: 'Strengthen HR with our expert-backed solutions',
+    width: 280,
+    height: 180,
+  },
+  {
+    tag: 'Sales and Marketing',
+    image: '/images/home/webp/sales-and-marketing.webp',
+    title: 'Hire top leaders quickly to grow your teams globally',
+    width: 280,
+    height: 180,
+  },
+];
+
+export default function ServicesOverview() {
+  return (
+    <section
+      className="py-16 bg-[var(--rs-primary-100)] relative overflow-hidden lg:max-h-[1000px]"
+      aria-labelledby="services-heading"
+    >
+      <div className="max-w-7xl mx-auto px-8 md:px-4 relative z-10">
+        <div className="flex flex-col space-y-12">
+          {/* Header Section */}
+          <div className="text-center space-y-6">
+            <h2
+              id="services-heading"
+              className="text-4xl text-merriweather-value-h1 font-bold text-[var(--rs-primary-600)] mb-4"
+            >
+              Cut Your Recruitment Costs with our tools!
+            </h2>
+            <p className="text-[18px] md:text-[24px] text-[var(--rs-primary-600)] max-w-4xl mx-auto leading-relaxed">
+              We simplify every aspect of building and managing leadership teams
+              globally streamlined processes, cultural fit insights, and compliance
+              support, all in one trusted partner.
+            </p>
+          </div>
+
+          {/* Service Tags */}
+          <div className="flex flex-wrap justify-start md:max-w-[930px] md:max-h-[71px] items-center gap-2 md:gap-3 mb-8 bg-services-tags py-[20px] md:py-[16px] px-[50px] md:px-[20px] border-[#fde68a] border-2 rounded-[12px] mx-auto">
+            {serviceTags.map((tag) => (
+              <span
+                key={tag}
+                className="bg-white text-rs-service-source-sans px-[20px] md:px-4 py-1 rounded-full font-medium text-sm md:text-base"
+              >
+                {tag}
+              </span>
+            ))}
+            <Link
+              href="/services"
+              className="bg-[var(--rs-primary-200)] text-rs-service-source-sans px-[20px] md:px-4 py-1 rounded-full font-medium hover:bg-[var(--rs-primary-300)] hover:text-[var(--rs-primary-100)] transition duration-300 cursor-pointer text-sm md:text-base"
+            >
+              Learn More
+            </Link>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+            {services.map((service) => (
+              <Link
+                key={service.tag}
+                href="/services"
+                className="bg-services-card border-[#fde68a] border-2 rounded-[12px] p-6 text-center md:text-start text-white relative flex flex-col transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl cursor-pointer"
+              >
+                <div className="mb-4 flex justify-center md:justify-start">
+                  <span className="bg-gray-200 text-rs-service-source-sans-sm px-3 py-1 rounded-full text-sm font-medium inline-block">
+                    {service.tag}
+                  </span>
+                </div>
+                <div className="mb-6 flex-shrink-0">
+                  <Image
+                    src={service.image}
+                    alt={`${service.tag} Services`}
+                    width={service.width}
+                    height={service.height}
+                    className="w-[176px] sm:w-[177px] md:w-[280px] h-[150px] sm:h-[151px] md:h-[180px] object-contain mx-auto"
+                  />
+                </div>
+                <div className="flex-grow flex flex-col justify-between">
+                  <h3 className="text-[24px] sm:text-[20px] md:text-[22px] font-bold mb-4">
+                    {service.title}
+                  </h3>
+                  <div className="text-white text-[1rem] text-rs-service-source px-4 py-2 rounded-lg hover:bg-white hover:text-blue-800 transition duration-300 flex items-center mx-auto md:mx-0 mt-auto">
+                    View Details
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* View All Services Button */}
+          <div className="flex justify-center mt-8">
+            <Link
+              href="/services"
+              className="w-[400px] h-[57px] inline-flex text-[22.5px] items-center justify-center px-8 py-3 group border-2 bg-[var(--rs-primary-100)] border-[var(--rs-primary-600)] text-[var(--rs-primary-600)] font-semibold rounded-[12px] hover:bg-blue-600 hover:text-[var(--rs-primary-50)] transition duration-300"
+            >
+              <Image
+                src="/images/home/bag.svg"
+                alt="Bag Icon"
+                width={27}
+                height={27}
+                className="mr-2 group-hover:filter group-hover:brightness-0 group-hover:invert transition-all duration-300"
+              />
+              View All Services
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
