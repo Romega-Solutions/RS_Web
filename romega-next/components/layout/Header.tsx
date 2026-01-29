@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Button from '@/components/ui/Button'
+import { Calendar } from 'lucide-react'
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -20,9 +22,9 @@ export function Header() {
         className="fixed top-0 z-50 w-full bg-white h-[104px] align-middle shadow-sm"
       >
         <div className="mx-auto">
-          <div className="flex items-center justify-around h-[104px] md:h-[104px] bg-[var(--rs-primary-50)] px-4 md:px-8 lg:px-[89.5px] border-b-2 border-[var(--rs-neutral-grey-400)]">
+          <div className="flex items-center justify-between h-[104px] md:h-[104px] bg-rs-primary-50 px-4 md:px-8 lg:px-24 border-b-2 border-rs-neutral-grey-400">
             {/* Logo */}
-            <div className="flex items-center flex-shrink-0 lg:ml-16">
+            <div className="flex items-center flex-shrink-0">
               <Link href="/" className="flex items-center" id="logo-link">
                 <Image
                   src="/images/navbar-company-logo.svg"
@@ -37,34 +39,40 @@ export function Header() {
 
             {/* Desktop Navigation Links */}
             <div className="hidden lg:flex lg:items-center lg:justify-center">
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-12">
                 <Link
                   href="/"
-                  className="text-rs-accent-600 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
+                  className="text-rs-accent-600 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600 hover:underline"
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
-                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
+                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600 hover:underline"
                 >
                   About
                 </Link>
                 <Link
                   href="/services"
-                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
+                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600 hover:underline"
                 >
                   Services
                 </Link>
                 <Link
                   href="/careers"
-                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
+                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600 hover:underline"
                 >
-                  Careers & Talent
+                  Careers
+                </Link>
+                <Link
+                  href="/talent"
+                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600 hover:underline"
+                >
+                  Talent
                 </Link>
                 <Link
                   href="/contact"
-                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600"
+                  className="text-rs-neutral-500 whitespace-nowrap py-2 text-[1rem] font-medium transition duration-300 hover:text-rs-accent-600 hover:underline"
                 >
                   Contact
                 </Link>
@@ -73,21 +81,16 @@ export function Header() {
 
             {/* Book a Call Button */}
             <div className="flex items-center justify-end flex-shrink-0">
-              <a
+              <Button
                 href="https://calendly.com/romega-solutions/discoverycall"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden h-[46px] items-center justify-center align-middle rounded-xl border-[1.5px] border-rs-primary-600 bg-rs-primary-500 px-[10px] text-[18px] font-medium text-rs-primary-100 shadow-[0_2px_7px_2px_rgba(18,91,161,0.3)] transition duration-300 hover:bg-rs-primary-700 lg:inline-flex lg:min-w-[172px] lg:px-[28px]"
+                variant="navbar"
+                icon={Calendar}
+                external
+                ariaLabel="Book a call with Romega Solutions"
+                className="hidden lg:inline-flex"
               >
-                <Image
-                  src="/images/icon-calendar-days.svg"
-                  alt="Calendar icon"
-                  width={22}
-                  height={22}
-                  className="mr-1"
-                />
                 Book a Call
-              </a>
+              </Button>
             </div>
 
             {/* Mobile menu button */}
@@ -111,59 +114,70 @@ export function Header() {
 
         {/* Mobile Menu */}
         <div className={`mobile-menu ${isMobileMenuOpen ? '' : 'hidden'} lg:hidden`}>
-          <div className="space-y-2 border-t border-gray-200 bg-rs-primary-50 px-4 py-3">
+          <div className="flex flex-col gap-2 border-t border-gray-200 bg-rs-primary-50 px-4 py-3">
             <Link
               href="/"
-              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-accent-600)] transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+              id="mobile-nav-home"
+              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-accent-600 transition duration-300 hover:text-rs-accent-600 hover:underline"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+              id="mobile-nav-about"
+              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-700 transition duration-300 hover:text-rs-accent-600 hover:underline"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="/services"
-              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
+              id="mobile-nav-services"
+              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-700 transition duration-300 hover:text-rs-accent-600 hover:underline"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               href="/careers"
-              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
+              id="mobile-nav-careers"
+              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-700 transition duration-300 hover:text-rs-accent-600 hover:underline"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Careers & Talent
+              Careers
+            </Link>
+            <Link
+              href="/talent"
+              id="mobile-nav-talent"
+              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-700 transition duration-300 hover:text-rs-accent-600 hover:underline"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Talent
             </Link>
             <Link
               href="/contact"
-              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-[var(--rs-neutral-500)] transition duration-300 hover:bg-gray-50 hover:text-[var(--rs-accent-600)] hover:underline"
+              id="mobile-nav-contact"
+              className="block rounded-lg px-4 py-2.5 text-[1rem] font-medium text-rs-neutral-700 transition duration-300 hover:text-rs-accent-600 hover:underline"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
             </Link>
-            <a
-              href="https://calendly.com/romega-solutions/discoverycall"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 mx-0 flex items-center justify-center rounded-lg bg-rs-primary-500 px-4 py-3 text-[1rem] font-medium text-white transition duration-300 hover:bg-rs-primary-700"
-              role="button"
-              aria-label="Book a call with Romega Solutions"
-            >
-              <Image
-                src="/images/icon-calendar-days.svg"
-                alt="Calendar icon"
-                width={22}
-                height={22}
-                className="mr-2"
-              />
-              Book a Call
-            </a>
+            
+            {/* Mobile CTA Button */}
+            <div className="mt-6 pb-2">
+              <Button
+                href="https://calendly.com/romega-solutions/discoverycall"
+                variant="primary"
+                icon={Calendar}
+                external
+                ariaLabel="Book a call with Romega Solutions"
+                className="mx-auto"
+                fullWidth
+              >
+                Book a Call
+              </Button>
+            </div>
           </div>
         </div>
       </nav>

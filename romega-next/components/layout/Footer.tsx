@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import Button from '@/components/ui/Button'
+import { Linkedin, Facebook, Calendar } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -33,7 +35,7 @@ export function Footer() {
               {/* Logo Left */}
               <div className="flex justify-center lg:block flex-shrink-0">
                 <Image
-                  src="/images/navbar-company-logo.svg"
+                  src="/images/footer/rs-footer.svg"
                   alt="Romega Solutions Logo"
                   width={200}
                   height={115}
@@ -44,87 +46,97 @@ export function Footer() {
               {/* Info + Socials Right */}
               <div className="flex flex-col items-start text-left flex-1 ml-2">
                 <p className="text-[1rem] lg:text-[15px] leading-snug text-[var(--rs-neutral-600)] mb-2 lg:mb-1">
-                  Empowering businesses with smart HR solutions for global growth and productivity.
+                  <span className="font-bold">Romega Solutions</span>,
+                  <span> a US-based holding company founded by </span>
+                  <span className="font-bold">Robbie Galoso</span>.
                 </p>
                 <span className="uppercase tracking-widest text-[12px] lg:text-[13px] text-[var(--rs-neutral-400)] font-semibold mb-1">
-                  Follow Us
+                  Follow us on
                 </span>
                 <div className="flex w-full flex-row gap-2">
-                  <a
+                  <Button
                     href="https://www.linkedin.com/company/romega-solutions"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-75 transition-opacity"
-                    aria-label="Visit our LinkedIn page"
+                    variant="social"
+                    icon={Linkedin}
+                    external
+                    ariaLabel="Visit our LinkedIn page"
+                    fullWidth
                   >
-                    <Image
-                      src="/images/footer/linkedinLogo.svg"
-                      alt="LinkedIn"
-                      width={32}
-                      height={32}
-                    />
-                  </a>
-                  <a
-                    href="https://facebook.com/romegasolutions"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-75 transition-opacity"
-                    aria-label="Visit our Facebook page"
+                    LINKEDIN
+                  </Button>
+                  <Button
+                    href="https://www.facebook.com/romegasolutions"
+                    variant="social"
+                    icon={Facebook}
+                    external
+                    ariaLabel="Visit our Facebook page"
+                    fullWidth
                   >
-                    <Image
-                      src="/images/footer/facebookLogo.svg"
-                      alt="Facebook"
-                      width={32}
-                      height={32}
-                    />
-                  </a>
+                    FACEBOOK
+                  </Button>
                 </div>
               </div>
             </div>
 
-            {/* Schedule Button */}
-            <div className="w-full flex justify-center mt-4">
-              <a
+            {/* Schedule Button: Mobile & Medium */}
+            <div className="w-full flex lg:hidden justify-center mt-4">
+              <Button
                 href="https://calendly.com/romega-solutions/discoverycall"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full"
+                variant="footer-schedule"
+                icon={Calendar}
+                external
+                ariaLabel="Schedule a meeting with Romega Solutions"
+                fullWidth
               >
-                <button className="w-full h-[50px] border-[1.5px] border-[var(--rs-primary-600)] bg-[var(--rs-primary-500)] hover:bg-[#0062b1] text-[var(--rs-primary-50)] px-4 py-2 rounded-lg font-semibold text-[18px] flex items-center justify-center gap-2 shadow transition-all duration-200">
-                  <Image
-                    src="/images/icon-calendar-days.svg"
-                    alt="Calendar"
-                    width={22}
-                    height={22}
-                  />
-                  Schedule a Call
-                </button>
-              </a>
+                Schedule a Meeting
+              </Button>
+            </div>
+
+            {/* Schedule Button: Desktop Only */}
+            <div className="hidden lg:flex w-full justify-center mt-4">
+              <Button
+                href="https://calendly.com/romega-solutions/discoverycall"
+                variant="footer-schedule"
+                icon={Calendar}
+                external
+                ariaLabel="Schedule a meeting with Romega Solutions"
+                fullWidth
+              >
+                Schedule a Meeting
+              </Button>
             </div>
           </div>
 
-          {/* Right Side Container */}
+          {/* Right Side Container for Desktop Only */}
           <div className="lg:col-span-8 flex flex-col lg:flex-row gap-8 lg:gap-8 mt-2 lg:mt-0">
             {/* Company & Help Section */}
             <div className="flex flex-row lg:flex-row lg:flex-1">
               {/* Company */}
               <div className="flex-1">
                 <h3 className="text-[var(--rs-neutral-400)] text-center lg:text-left text-base mb-4 uppercase tracking-widest">
-                  Company
+                  COMPANY
                 </h3>
                 <ul className="space-y-3 text-center lg:text-left">
                   <li>
                     <Link
-                      href="/about"
-                      className="text-[var(--rs-neutral-500)] hover:text-[var(--rs-accent-600)] transition duration-300"
+                      href="/"
+                      className="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
                     >
-                      About Us
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/about"
+                      className="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
+                    >
+                      About
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/services"
-                      className="text-[var(--rs-neutral-500)] hover:text-[var(--rs-accent-600)] transition duration-300"
+                      className="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
                     >
                       Services
                     </Link>
@@ -132,9 +144,9 @@ export function Footer() {
                   <li>
                     <Link
                       href="/careers"
-                      className="text-[var(--rs-neutral-500)] hover:text-[var(--rs-accent-600)] transition duration-300"
+                      className="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
                     >
-                      Careers
+                      Careers & Talent
                     </Link>
                   </li>
                 </ul>
@@ -148,32 +160,34 @@ export function Footer() {
               {/* Help */}
               <div className="flex-1">
                 <h3 className="text-[var(--rs-neutral-400)] text-base mb-4 uppercase tracking-widest text-center lg:text-left">
-                  Help
+                  HELP
                 </h3>
                 <ul className="space-y-3 text-center lg:text-left">
                   <li>
                     <Link
                       href="/contact"
-                      className="text-[var(--rs-neutral-500)] hover:text-[var(--rs-accent-600)] transition duration-300"
+                      className="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline"
                     >
-                      Contact Us
+                      Contact
                     </Link>
                   </li>
                   <li>
-                    <button
+                    <a
+                      href="#"
                       onClick={() => {/* Add terms modal logic */}}
-                      className="text-[var(--rs-neutral-500)] hover:text-[var(--rs-accent-600)] transition duration-300"
+                      className="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline cursor-pointer"
                     >
-                      Terms & Conditions
-                    </button>
+                      Terms of Service
+                    </a>
                   </li>
                   <li>
-                    <button
+                    <a
+                      href="#"
                       onClick={() => {/* Add privacy modal logic */}}
-                      className="text-[var(--rs-neutral-500)] hover:text-[var(--rs-accent-600)] transition duration-300"
+                      className="text-[var(--rs-neutral-600)] text-base font-medium transition-colors duration-300 hover:text-[var(--rs-accent-600)] hover:underline cursor-pointer"
                     >
                       Privacy Policy
-                    </button>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -181,34 +195,81 @@ export function Footer() {
 
             {/* Reach Us Out */}
             <div className="flex flex-col items-center lg:items-start lg:flex-1">
+              {/* Contact Details */}
               <div className="space-y-6 mb-8">
-                <div className="flex flex-col items-center lg:items-start">
-                  <h3 className="text-[var(--rs-neutral-400)] text-base mb-2 uppercase tracking-widest">
-                    Email Us
-                  </h3>
-                  <a
-                    href="mailto:hr@romegasolutions.com"
-                    className="text-[var(--rs-neutral-600)] hover:text-[var(--rs-accent-600)] transition duration-300"
-                  >
-                    hr@romegasolutions.com
-                  </a>
-                </div>
+                <div className="border border-[var(--rs-neutral-300)] rounded-lg p-4 relative">
+                  <div className="absolute -top-[10px] left-1/2 -translate-x-1/2 bg-[var(--rs-neutral-100)] px-4 py-1 mb-2 uppercase font-bold text-rs-neutral-400 tracking-wide">
+                    <h3 className="text-sm block whitespace-nowrap">
+                      REACH US OUT
+                    </h3>
+                  </div>
 
-                <div className="flex flex-col items-center lg:items-start">
-                  <h3 className="text-[var(--rs-neutral-400)] text-base mb-2 uppercase tracking-widest">
-                    Call Us
-                  </h3>
-                  <a
-                    href="tel:+18479088340"
-                    className="text-[var(--rs-neutral-600)] hover:text-[var(--rs-accent-600)] transition duration-300"
-                  >
-                    +1 (847) 908-8340
-                  </a>
+                  <div className="space-y-4">
+                    <div className="text-base">
+                      <h4 className="font-medium text-rs-neutral-400 uppercase mb-1 tracking-widest">
+                        EMAIL US
+                      </h4>
+                      <div className="flex items-center gap-2">
+                        <a
+                          href="mailto:info@romega-solutions.com"
+                          className="text-[var(--rs-neutral-600)] text-lg leading-8 hover:underline flex items-center gap-1"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M22 7L13.009 12.727C12.7039 12.9042 12.3573 12.9976 12.0045 12.9976C11.6517 12.9976 11.3051 12.9042 11 12.727L2 7M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z"
+                              stroke="#5381AC"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <span>info@romega-solutions.com</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-base font-medium text-rs-neutral-400 uppercase mb-1 tracking-[1px]">
+                        HEADQUARTERS
+                      </h4>
+                      <div className="flex items-start gap-1">
+                        <a
+                          href="https://www.google.com/maps?q=222+Pacific+Coast+Hwy,+%2310,+El+Segundo,+CA+90245"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[var(--rs-neutral-600)] tracking-tight hover:underline flex items-center gap-2"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 14.993 7.539 20.193 9.399 21.799C9.57237 21.929 9.78329 21.9992 10 21.999M18 22V19M15 22C14.7348 22 14.4804 21.8946 14.2929 21.7071C14.1054 21.5196 14 21.2652 14 21V17C14 16.8354 14.0406 16.6734 14.1182 16.5282C14.1958 16.3831 14.3081 16.2593 14.445 16.168L17.445 14.168C17.6093 14.0584 17.8025 13.9999 18 13.9999C18.1975 13.9999 18.3907 14.0584 18.555 14.168L21.555 16.168C21.6919 16.2593 21.8042 16.3831 21.8818 16.5282C21.9594 16.6734 22 16.8354 22 17V21C22 21.2652 21.8946 21.5196 21.7071 21.7071C21.5196 21.8946 21.2652 22 21 22H15ZM13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z"
+                              stroke="#5381AC"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          222 Pacific Coast Hwy, #10 in El Segundo, CA 90245
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className="text-center lg:text-left text-[var(--rs-neutral-400)] text-[1rem] w-full font-medium">
-                © 2024 Romega Solutions. All rights reserved.
+                © 2025 Romega Solutions. All rights reserved
               </div>
             </div>
           </div>

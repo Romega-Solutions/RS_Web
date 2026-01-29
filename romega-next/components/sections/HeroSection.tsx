@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Button from '@/components/ui/Button';
+import { Calendar } from 'lucide-react';
 
 export default function HeroSection() {
   return (
@@ -15,7 +16,7 @@ export default function HeroSection() {
             src="/images/home/hero-bg-romega.png"
             alt="Romega Solutions background pattern"
             fill
-            className="absolute -left-4 top-4 object-cover overflow-hidden"
+            className="absolute -left-4 top-4 w-full h-full sm:h-[80%] object-cover overflow-hidden"
             loading="eager"
             priority
           />
@@ -64,7 +65,7 @@ export default function HeroSection() {
                   alt="checkmark icon"
                   width={28}
                   height={28}
-                  className="flex-shrink-0"
+                  className="w-[28px] h-[28px] flex-shrink-0"
                   role="presentation"
                 />
                 <span>{item}</span>
@@ -74,24 +75,16 @@ export default function HeroSection() {
 
           {/* Mobile Button */}
           <div className="lg:hidden mt-8 flex justify-center relative z-10 pb-4">
-            <Link
+            <Button
               href="https://calendly.com/romega-solutions/discoverycall"
-              className="drop-shadow-xl flex items-center justify-center text-[22.5px] font-semibold rounded-xl text-[var(--rs-primary-100)] bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition duration-300"
-              style={{ width: '360px', height: '50px' }}
-              aria-label="Book an appointment with Romega Solutions"
-              target="_blank"
-              rel="noopener noreferrer"
+              variant="primary"
+              icon={Calendar}
+              external
+              ariaLabel="Book an appointment with Romega Solutions"
+              className="drop-shadow-xl"
             >
-              <Image
-                src="/images/home/calendar-days.png"
-                alt="calendar icon"
-                width={32}
-                height={32}
-                className="mr-2"
-                role="presentation"
-              />
               Book An Appointment
-            </Link>
+            </Button>
           </div>
         </div>
 
@@ -114,24 +107,16 @@ export default function HeroSection() {
         </div>
 
         {/* Desktop CTA Button */}
-        <Link
+        <Button
           href="https://calendly.com/romega-solutions/discoverycall"
-          className="hidden lg:flex md:text-[22.5px] absolute drop-shadow-lg items-center justify-center text-sm font-medium rounded-xl text-[var(--rs-primary-50)] bg-[var(--rs-primary-500)] hover:bg-blue-700 focus:ring-4 focus:ring-[var(--rs-primary-600)] border-[var(--rs-primary-600)] transition duration-300 left-1/2 bottom-12 transform -translate-x-1/2 z-10"
-          style={{ width: '400px', height: '57px' }}
-          aria-label="Book an appointment with Romega Solutions"
-          target="_blank"
-          rel="noopener noreferrer"
+          variant="primary"
+          icon={Calendar}
+          external
+          ariaLabel="Book an appointment with Romega Solutions"
+          className="hidden lg:flex absolute drop-shadow-lg left-1/2 bottom-12 transform -translate-x-1/2 z-10"
         >
-          <Image
-            src="/images/home/calendar-days.png"
-            alt="calendar icon"
-            width={27}
-            height={27}
-            className="mr-2"
-            role="presentation"
-          />
           Book An Appointment
-        </Link>
+        </Button>
       </div>
     </section>
   );

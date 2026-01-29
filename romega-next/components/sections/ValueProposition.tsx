@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Button from '@/components/ui/Button';
+import { Briefcase } from 'lucide-react';
 
 const benefits = [
   {
@@ -61,32 +62,24 @@ export default function ValueProposition() {
             </p>
 
             <div className="flex justify-center">
-              <Link
+              <Button
                 href="/about"
-                className="w-full max-w-[400px] h-[50px] sm:h-[57px] inline-flex text-[18px] sm:text-[22.5px] items-center justify-center px-4 sm:px-8 border-2 border-[var(--rs-primary-600)] text-[var(--rs-primary-600)] font-semibold rounded-[12px] hover:bg-blue-600 hover:text-[var(--rs-primary-50)] transition duration-300 group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                aria-label="Learn more about Romega Solutions and our company values"
-                role="button"
+                variant="secondary"
+                icon={Briefcase}
+                ariaLabel="Learn more about Romega Solutions and our company values"
               >
-                <Image
-                  src="/images/home/bag.svg"
-                  alt=""
-                  width={27}
-                  height={27}
-                  className="w-5 sm:w-[27.5px] mr-2 group-hover:filter group-hover:brightness-0 group-hover:invert transition-all duration-300"
-                  role="presentation"
-                />
                 Find Out More
-              </Link>
+              </Button>
             </div>
 
             {/* Benefits Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-8 md:px-0 gap-6 md:gap-8">
               {benefits.map((benefit) => (
                 <div key={benefit.title} className="rounded-xl p-6 text-center">
-                  <h3 className="text-rs-value-source-sans font-bold text-[46px] text-[#15357a] mb-3">
+                  <h3 className="text-rs-value-source-sans font-bold text-[46px] text-rs-primary-600 mb-3">
                     {benefit.title}
                   </h3>
-                  <p className="text-[06122C] text-base">{benefit.description}</p>
+                  <p className="text-rs-neutral-700 text-base">{benefit.description}</p>
                 </div>
               ))}
             </div>

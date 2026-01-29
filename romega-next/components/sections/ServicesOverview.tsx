@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Button from '@/components/ui/Button';
+import { Briefcase } from 'lucide-react';
 
 const serviceTags = ['RPO', 'BPO', 'Strategic HR', 'Quality Hire', 'Mentoring', 'Teaching'];
 
@@ -51,7 +53,7 @@ export default function ServicesOverview() {
           </div>
 
           {/* Service Tags */}
-          <div className="flex flex-wrap justify-start md:max-w-[930px] md:max-h-[71px] items-center gap-2 md:gap-3 mb-8 bg-services-tags py-[20px] md:py-[16px] px-[50px] md:px-[20px] border-[#fde68a] border-2 rounded-[12px] mx-auto">
+          <div className="flex flex-wrap justify-start md:max-w-[930px] md:max-h-[71px] items-center gap-2 md:gap-3 mb-8 bg-services-tags py-[20px] md:py-[16px] px-[50px] md:px-[20px] border-yellow-200 border-2 rounded-[12px] mx-auto">
             {serviceTags.map((tag) => (
               <span
                 key={tag}
@@ -62,7 +64,7 @@ export default function ServicesOverview() {
             ))}
             <Link
               href="/services"
-              className="bg-[var(--rs-primary-200)] text-rs-service-source-sans px-[20px] md:px-4 py-1 rounded-full font-medium hover:bg-[var(--rs-primary-300)] hover:text-[var(--rs-primary-100)] transition duration-300 cursor-pointer text-sm md:text-base"
+              className="bg-rs-primary-200 text-rs-service-source-sans px-[20px] md:px-4 py-1 rounded-full font-medium hover:bg-rs-primary-300 hover:text-rs-primary-100 transition duration-300 cursor-pointer text-sm md:text-base"
             >
               Learn More
             </Link>
@@ -74,7 +76,7 @@ export default function ServicesOverview() {
               <Link
                 key={service.tag}
                 href="/services"
-                className="bg-services-card border-[#fde68a] border-2 rounded-[12px] p-6 text-center md:text-start text-white relative flex flex-col transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl cursor-pointer"
+                className="bg-services-card border-yellow-200 border-2 rounded-[12px] p-6 text-center md:text-start text-white relative flex flex-col transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl cursor-pointer"
               >
                 <div className="mb-4 flex justify-center md:justify-start">
                   <span className="bg-gray-200 text-rs-service-source-sans-sm px-3 py-1 rounded-full text-sm font-medium inline-block">
@@ -94,7 +96,7 @@ export default function ServicesOverview() {
                   <h3 className="text-[24px] sm:text-[20px] md:text-[22px] font-bold mb-4">
                     {service.title}
                   </h3>
-                  <div className="text-white text-[1rem] text-rs-service-source px-4 py-2 rounded-lg hover:bg-white hover:text-blue-800 transition duration-300 flex items-center mx-auto md:mx-0 mt-auto">
+                  <div className="text-white text-[1rem] text-rs-service-source px-4 py-2 rounded-lg hover:bg-white hover:text-rs-primary-700 transition duration-300 flex items-center mx-auto md:mx-0 mt-auto">
                     View Details
                     <svg
                       className="w-4 h-4 ml-2"
@@ -117,19 +119,13 @@ export default function ServicesOverview() {
 
           {/* View All Services Button */}
           <div className="flex justify-center mt-8">
-            <Link
+            <Button
               href="/services"
-              className="w-[400px] h-[57px] inline-flex text-[22.5px] items-center justify-center px-8 py-3 group border-2 bg-[var(--rs-primary-100)] border-[var(--rs-primary-600)] text-[var(--rs-primary-600)] font-semibold rounded-[12px] hover:bg-blue-600 hover:text-[var(--rs-primary-50)] transition duration-300"
+              variant="secondary"
+              icon={Briefcase}
             >
-              <Image
-                src="/images/home/bag.svg"
-                alt="Bag Icon"
-                width={27}
-                height={27}
-                className="mr-2 group-hover:filter group-hover:brightness-0 group-hover:invert transition-all duration-300"
-              />
               View All Services
-            </Link>
+            </Button>
           </div>
         </div>
       </div>
