@@ -1,39 +1,50 @@
 import Image from 'next/image';
-import Button from '@/components/ui/Button';
+import Button from '@/components/atoms/Button/Button';
 import { Calendar } from 'lucide-react';
+import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
+  const features = [
+    'Cutting edge tools',
+    'Expert insights',
+    'Tailored strategies for growth'
+  ];
+
   return (
     <section
+      className={styles['hero-section']}  // Block
       aria-labelledby="hero-heading"
-      className="relative flex items-stretch mt-[104px]"
       role="banner"
     >
-      <div className="flex flex-col lg:flex-row w-full min-h-[calc(100vh-104px)] lg:max-h-[1000px] items-stretch">
+      <div className={styles['hero-section__container']}>  {/* Element */}
+        
         {/* Left side content */}
-        <div className="basis-1/2 md:basis-[45%] flex flex-col justify-center p-6 md:p-16 md:pl-24 space-y-6 h-full relative">
+        <div className={styles['hero-section__content']}>  {/* Element */}
+          
+          {/* Background Pattern */}
           <Image
             src="/images/home/hero-bg-romega.png"
             alt="Romega Solutions background pattern"
             fill
-            className="absolute -left-4 top-4 w-full h-full sm:h-[80%] object-cover overflow-hidden"
+            className={styles['hero-section__bg-pattern']}  // Element
             loading="eager"
             priority
           />
 
+          {/* Heading */}
           <h1
             id="hero-heading"
-            className="text-center xl:text-left text-merriweather-h3 md:text-merriweather-h2 text-[var(--rs-primary-600)] font-bold relative z-10"
+            className={styles['hero-section__title']}  // Element
           >
             Empower Your Team with
-            <span className="mb-0 md:mb-8 text-center xl:text-left block text-merriweather-h2 text-5xl md:text-merriweather-h1">
+            <span className={styles['hero-section__title-highlight']}>  {/* Element */}
               Smarte
               <Image
                 src="/images/home/hero-rs-text-hd.png"
                 alt="RS Solutions logo"
                 width={208}
                 height={80}
-                className="inline-block xl:hidden items-end mt-2 -ml-2 w-36 md:w-52 h-auto"
+                className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--mobile']}`}
                 loading="eager"
                 priority
               />
@@ -42,46 +53,48 @@ export default function HeroSection() {
                 alt="RS Solutions logo"
                 width={208}
                 height={80}
-                className="xl:inline-block hidden items-end absolute -mt-4 w-52 h-auto"
+                className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--desktop']}`}
                 loading="eager"
                 priority
               />
             </span>
           </h1>
 
-          <p className="text-[var(--rs-neutral-700)] text-[1rem] md:text-[1.25rem] text-center xl:text-left relative z-10 max-w-md mx-auto xl:mx-0">
+          {/* Description */}
+          <p className={styles['hero-section__description']}>  {/* Element */}
             Transform your HR operations to boost productivity, engagement, and
             growth for your business:
           </p>
 
-          <ul
-            className="text-[var(--rs-neutral-700)] space-y-1 md:text-[1.25rem] z-10 flex flex-col items-center xl:items-start mx-auto xl:mx-0"
-            role="list"
-          >
-            {['Cutting edge tools', 'Expert insights', 'Tailored strategies for growth'].map((item) => (
-              <li key={item} className="flex items-center space-x-3" role="listitem">
+          {/* Features List */}
+          <ul className={styles['hero-section__features']} role="list">  {/* Element */}
+            {features.map((feature) => (
+              <li
+                key={feature}
+                className={styles['hero-section__feature-item']}  // Element
+                role="listitem"
+              >
                 <Image
                   src="/images/home/search-check.svg"
-                  alt="checkmark icon"
+                  alt=""
                   width={28}
                   height={28}
-                  className="w-[28px] h-[28px] flex-shrink-0"
+                  className={styles['hero-section__feature-icon']}  // Element
                   role="presentation"
                 />
-                <span>{item}</span>
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
 
-          {/* Mobile Button */}
-          <div className="lg:hidden mt-8 flex justify-center relative z-10 pb-4">
+          {/* Mobile CTA Button */}
+          <div className={styles['hero-section__cta']}>  {/* Element */}
             <Button
               href="https://calendly.com/romega-solutions/discoverycall"
               variant="primary"
               icon={Calendar}
               external
               ariaLabel="Book an appointment with Romega Solutions"
-              className="drop-shadow-xl"
             >
               Book An Appointment
             </Button>
@@ -89,9 +102,9 @@ export default function HeroSection() {
         </div>
 
         {/* Right side - video */}
-        <div className="flex-1 h-full relative">
+        <div className={styles['hero-section__video-wrapper']}>  {/* Element */}
           <video
-            className="w-full h-full object-cover"
+            className={styles['hero-section__video']}  // Element
             autoPlay
             muted
             loop
@@ -107,16 +120,17 @@ export default function HeroSection() {
         </div>
 
         {/* Desktop CTA Button */}
-        <Button
-          href="https://calendly.com/romega-solutions/discoverycall"
-          variant="primary"
-          icon={Calendar}
-          external
-          ariaLabel="Book an appointment with Romega Solutions"
-          className="hidden lg:flex absolute drop-shadow-lg left-1/2 bottom-12 transform -translate-x-1/2 z-10"
-        >
-          Book An Appointment
-        </Button>
+        <div className={styles['hero-section__cta-desktop']}>  {/* Element */}
+          <Button
+            href="https://calendly.com/romega-solutions/discoverycall"
+            variant="primary"
+            icon={Calendar}
+            external
+            ariaLabel="Book an appointment with Romega Solutions"
+          >
+            Book An Appointment
+          </Button>
+        </div>
       </div>
     </section>
   );

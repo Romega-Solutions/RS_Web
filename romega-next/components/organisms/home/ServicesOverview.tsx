@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from '@/components/ui/Button';
+import Button from '@/components/atoms/Button/Button';
 import { Briefcase } from 'lucide-react';
 
 const serviceTags = ['RPO', 'BPO', 'Strategic HR', 'Quality Hire', 'Mentoring', 'Teaching'];

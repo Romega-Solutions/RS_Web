@@ -1,8 +1,8 @@
-import HeroSection from '@/components/sections/HeroSection';
-import ValueProposition from '@/components/sections/ValueProposition';
-import ServicesOverview from '@/components/sections/ServicesOverview';
-import CaseStudy from '@/components/sections/CaseStudy';
-import LinkedInSection from '@/components/sections/LinkedInSection';
+import HeroSection from '@/components/organisms/home/HeroSection';
+import ValueProposition from '@/components/organisms/home/ValueProposition';
+import ServicesOverview from '@/components/organisms/home/ServicesOverview';
+import CaseStudy from '@/components/organisms/home/CaseStudy';
+import LinkedInSection from '@/components/organisms/home/LinkedInSection';
 
 export default function HomePage() {
   return (

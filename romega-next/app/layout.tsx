@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Merriweather } from "next/font/google";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/organisms/layout/Header";
+import { Footer } from "@/components/organisms/layout/Footer";
 import "./globals.css";
 import "@/app/styles/styles.css";
 

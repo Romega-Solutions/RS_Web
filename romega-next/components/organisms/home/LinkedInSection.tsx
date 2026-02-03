@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from '@/components/ui/Button';
+import Button from '@/components/atoms/Button/Button';
 import { Linkedin } from 'lucide-react';
 
 const LinkedInIcon = () => (
@@ -39,10 +39,10 @@ export default function LinkedInSection() {
         <div className="flex flex-col space-y-12">
           {/* Header Section */}
           <div className="text-center space-y-6">
-            <h2 className="text-[30px] md:text-[40px] text-rs-linked text-merriweather-value-h1 font-bold">
+            <h2 className="text-[30px] md:text-[40px] text-rs-primary-700 text-merriweather-value-h1 font-bold">
               Stay Connected With Us on LinkedIn
             </h2>
-            <p className="text-[18px] md:text-[20px] text-rs-linked-neutral max-w-lg mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-rs-neutral-700 max-w-lg mx-auto leading-relaxed">
               Follow Romega on LinkedIn for leadership insights, hiring strategies,
               and the latest success stories.
             </p>
@@ -67,7 +67,7 @@ export default function LinkedInSection() {
                       alt={linkedInPosts[0].alt}
                       width={140}
                       height={140}
-                      className="w-[140px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      className="w-35 h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <div className="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300">
@@ -90,7 +90,7 @@ export default function LinkedInSection() {
                       alt={linkedInPosts[1].alt}
                       width={140}
                       height={140}
-                      className="w-[140px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      className="w-35 h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <div className="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300">
@@ -116,7 +116,7 @@ export default function LinkedInSection() {
                       alt={linkedInPosts[2].alt}
                       width={140}
                       height={140}
-                      className="w-[140px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      className="w-35 h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <div className="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300">
@@ -139,7 +139,7 @@ export default function LinkedInSection() {
                       alt={linkedInPosts[3].alt}
                       width={140}
                       height={140}
-                      className="w-[140px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      className="w-35 h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <div className="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300">
@@ -166,7 +166,7 @@ export default function LinkedInSection() {
                       alt={post.alt}
                       width={180}
                       height={180}
-                      className="w-[180px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      className="w-45 h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <div className="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300">
@@ -193,7 +193,7 @@ export default function LinkedInSection() {
                       alt={post.alt}
                       width={220}
                       height={220}
-                      className="w-[220px] h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
+                      className="w-55 h-auto rounded-lg shadow-md group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:-translate-y-2"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <div className="bg-white p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300">

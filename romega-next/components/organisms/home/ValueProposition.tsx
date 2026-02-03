@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Button from '@/components/ui/Button';
+import Button from '@/components/atoms/Button/Button';
 import { Briefcase } from 'lucide-react';
 
 const benefits = [
@@ -32,7 +32,7 @@ const benefits = [
 export default function ValueProposition() {
   return (
     <section
-      className="py-16 bg-[var(--rs-neutral-50)] relative overflow-hidden lg:max-h-[1000px]"
+      className="py-16 bg-(--rs-neutral-50) relative overflow-hidden lg:max-h-250"
       aria-labelledby="value-prop-heading"
     >
       <div className="max-w-7xl mx-auto my-auto items-center px-4 relative z-10">
@@ -41,21 +41,21 @@ export default function ValueProposition() {
           <div className="text-center space-y-6">
             <h2
               id="value-prop-heading"
-              className="text-4xl text-merriweather-value-h1 font-bold text-[var(--rs-primary-600)] mb-4"
+              className="text-4xl text-merriweather-value-h1 font-bold text-(--rs-primary-600) mb-4"
             >
               Why Businesses Choose Romega
             </h2>
-            <p className="text-[18px] md:text-[24px] text-[var(--rs-neutral-600)] max-w-4xl mx-auto leading-relaxed">
+            <p className="text-[18px] md:text-[24px] text-(--rs-neutral-600) max-w-4xl mx-auto leading-relaxed">
               Romega delivers{' '}
-              <span className="text-[var(--rs-primary-500)] font-semibold">
+              <span className="text-(--rs-primary-500) font-semibold">
                 unmatched service quality
               </span>{' '}
               and{' '}
-              <span className="text-[var(--rs-primary-500)] font-semibold">
+              <span className="text-(--rs-primary-500) font-semibold">
                 global reach
               </span>
               , giving your team the confidence to hire anywhere.{' '}
-              <span className="text-[var(--rs-primary-500)] font-semibold pb-4">
+              <span className="text-(--rs-primary-500) font-semibold pb-4">
                 With us excellence isn&apos;t optional, it&apos;s guaranteed
               </span>
               .
@@ -76,7 +76,7 @@ export default function ValueProposition() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-8 md:px-0 gap-6 md:gap-8">
               {benefits.map((benefit) => (
                 <div key={benefit.title} className="rounded-xl p-6 text-center">
-                  <h3 className="text-rs-value-source-sans font-bold text-[46px] text-rs-primary-600 mb-3">
+                  <h3 className="font-semibold text-[46px] text-rs-primary-600 mb-3">
                     {benefit.title}
                   </h3>
                   <p className="text-rs-neutral-700 text-base">{benefit.description}</p>
