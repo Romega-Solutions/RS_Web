@@ -1,0 +1,161 @@
+.careers-hero {
+  position: relative;
+  padding: 8rem 1.5rem 6rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+}
+
+@media (min-width: 768px) {
+  .careers-hero {
+    padding: 10rem 2rem 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .careers-hero {
+    padding: 12rem 3rem 10rem;
+  }
+}
+
+.careers-hero__container {
+  position: relative;
+  max-width: 64rem;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.careers-hero__bg-logo {
+  position: absolute;
+  top: -10rem;
+  right: -8rem;
+  width: 24rem;
+  height: 24rem;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .careers-hero__bg-logo {
+    width: 32rem;
+    height: 32rem;
+    top: -12rem;
+    right: -10rem;
+  }
+}
+
+.careers-hero__bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.careers-hero__content {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.careers-hero__title {
+  font-family: var(--font-merriweather), serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--rs-primary-700);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .careers-hero__title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .careers-hero__title {
+    font-size: 3.5rem;
+  }
+}
+
+.careers-hero__description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--rs-neutral-700);
+  margin-bottom: 3rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .careers-hero__description {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .careers-hero__description {
+    font-size: 1.375rem;
+  }
+}
+
+.careers-hero__description-text {
+  color: var(--rs-neutral-600);
+}
+
+.careers-hero__description-highlight {
+  color: var(--rs-primary-600);
+  font-weight: 600;
+}
+
+.careers-hero__description-highlight--primary {
+  color: var(--rs-primary-700);
+  font-weight: 700;
+}
+
+.careers-hero__stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .careers-hero__stats {
+    gap: 4rem;
+  }
+}
+
+.careers-hero__stat {
+  text-align: center;
+}
+
+.careers-hero__stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--rs-primary-700);
+  font-family: var(--font-merriweather), serif;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .careers-hero__stat-value {
+    font-size: 3rem;
+  }
+}
+
+.careers-hero__stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--rs-neutral-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+  .careers-hero__stat-label {
+    font-size: 1rem;
+  }
+}

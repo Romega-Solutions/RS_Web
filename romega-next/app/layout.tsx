@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sourceSans.variable} ${merriweather.variable} antialiased`}
+        className={`${sourceSans.variable} ${merriweather.variable} antialiased bg-[var(--rs-primary-50)] overflow-x-hidden`}
       >
         {/* Skip to main content for accessibility */}
         <a
