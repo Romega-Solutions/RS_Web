@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import CareersHero from '@/components/organisms/careers/CareersHero';
+import CareersPageClient from './CareersPageClient';
 import JobListings from '@/components/organisms/careers/JobListings';
+import PrivacyPriority from '@/components/organisms/careers/PrivacyPriority';
 import WhyJoinUs from '@/components/organisms/careers/WhyJoinUs';
 import ContactCTA from '@/components/organisms/shared/ContactCTA';
 
@@ -18,8 +19,9 @@ export const metadata: Metadata = {
 export default function CareersPage() {
   return (
     <main className="bg-[var(--rs-primary-50)]">
-      <CareersHero />
-      <JobListings />
+      <CareersPageClient />
+      {/* <JobListings /> */}
+      <PrivacyPriority />
       <WhyJoinUs />
       <ContactCTA />
     </main>

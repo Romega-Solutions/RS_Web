@@ -323,6 +323,7 @@ export default function ContactForm() {
               alt=""
               width={20}
               height={20}
+              style={{ width: 'auto' }}
               aria-hidden="true"
             />
           </button>
@@ -364,6 +365,7 @@ export default function ContactForm() {
           alt=""
           width={300}
           height={300}
+          style={{ height: 'auto' }}
         />
       </div>
     </div>

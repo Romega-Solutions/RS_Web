@@ -26,6 +26,7 @@ export default function HeroSection() {
             src="/images/home/hero-bg-romega.png"
             alt="Romega Solutions background pattern"
             fill
+            sizes="100vw"
             className={styles['hero-section__bg-pattern']}  // Element
             loading="eager"
             priority
@@ -45,6 +46,7 @@ export default function HeroSection() {
                 width={208}
                 height={80}
                 className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--mobile']}`}
+                style={{ width: 'auto' }}
                 loading="eager"
                 priority
               />
@@ -54,6 +56,7 @@ export default function HeroSection() {
                 width={208}
                 height={80}
                 className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--desktop']}`}
+                style={{ width: 'auto' }}
                 loading="eager"
                 priority
               />

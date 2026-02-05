@@ -2,7 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ContactInfo.module.css';
 
-export default function ContactInfo() {
+interface ContactInfoProps {
+  onOpenTerms: () => void;
+  onOpenPrivacy: () => void;
+}
+
+export default function ContactInfo({ onOpenTerms, onOpenPrivacy }: ContactInfoProps) {
   return (
     <div className={styles['contact-info']} role="complementary" aria-labelledby="contact-info-heading">
       {/* Background decorative elements */}
@@ -104,6 +109,7 @@ export default function ContactInfo() {
                 type="button"
                 className={styles['contact-info__footer-link']}
                 aria-label="Open Privacy Policy"
+                onClick={onOpenPrivacy}
               >
                 Privacy Policy
               </button>
@@ -111,6 +117,7 @@ export default function ContactInfo() {
                 type="button"
                 className={styles['contact-info__footer-link']}
                 aria-label="Open Terms of Service"
+                onClick={onOpenTerms}
               >
                 Terms of Service
               </button>

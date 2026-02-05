@@ -19,6 +19,7 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.romegasolutions.com'),
   title: "Romega Solutions | Smart HR Solutions for Business Growth",
   description: "Transform your HR operations with Romega Solutions' cutting-edge tools, expert insights, and tailored strategies for business growth and productivity.",
 };
@@ -29,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
         className={`${sourceSans.variable} ${merriweather.variable} antialiased bg-[var(--rs-primary-50)] overflow-x-hidden`}
       >

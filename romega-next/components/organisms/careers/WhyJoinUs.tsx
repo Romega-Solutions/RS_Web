@@ -92,6 +92,7 @@ export default function WhyJoinUs() {
                         alt=""
                         width={48}
                         height={48}
+                        style={{ width: 'auto' }}
                         aria-hidden="true"
                       />
                     </div>
@@ -127,6 +128,7 @@ export default function WhyJoinUs() {
                         alt=""
                         width={48}
                         height={48}
+                        style={{ width: 'auto' }}
                         aria-hidden="true"
                       />
                     </div>
@@ -152,17 +154,6 @@ export default function WhyJoinUs() {
             Learn More About Romega
           </Link>
         </div>
-      </div>
-
-      {/* Bottom Wave Divider */}
-      <div className={styles['why-join-us__wave']} aria-hidden="true">
-        <Image
-          src="/images/careers/curve-bottom.png"
-          alt=""
-          width={1920}
-          height={110}
-          className={styles['why-join-us__wave-image']}
-        />
       </div>
     </section>
   );
