@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { MapPin, Clock, DollarSign } from 'lucide-react';
+import AvatarPlaceholder from '@/components/atoms/AvatarPlaceholder';
 import styles from './TalentCard.module.css';
 
 interface TalentCardProps {
@@ -12,7 +12,6 @@ interface TalentCardProps {
     skills: string[];
     experience: string;
     availability: 'Available' | 'Busy' | 'Part-time';
-    image: string;
     location: string;
     rate: string;
   };
@@ -30,11 +29,9 @@ export default function TalentCard({ talent }: TalentCardProps) {
       {/* Header with Image and Status */}
       <div className={styles['talent-card__header']}>
         <div className={styles['talent-card__image-wrapper']}>
-          <Image
-            src={talent.image}
-            alt={talent.name}
-            width={80}
-            height={80}
+          <AvatarPlaceholder
+            size={80}
+            variant={talent.id === '1' || talent.id === '3' || talent.id === '5' ? 'female' : 'male'}
             className={styles['talent-card__image']}
           />
         </div>

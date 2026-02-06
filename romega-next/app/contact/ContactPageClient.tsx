@@ -39,11 +39,11 @@ export default function ContactPageClient() {
         />
 
         {/* Bottom Section - Desktop Only */}
-        <div className="hidden lg:block xl:block text-center mt-12 mx-auto max-w-[1284px] w-10/12">
-          <div className="w-full max-w-[1284px] h-px bg-[var(--rs-neutral-400)] mb-4" />
+        <div className="hidden lg:block xl:block text-center mt-12 mx-auto max-w-321 w-10/12">
+          <div className="w-full max-w-321 h-px bg-(--rs-neutral-400) mb-4" />
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8">
             <div className="flex-1" />
-            <p className="text-[var(--rs-neutral-400)] text-base shrink-0">
+            <p className="text-(--rs-neutral-400) text-base shrink-0">
               © 2025 Romega Solutions. All rights reserved
             </p>
             <div className="flex gap-6 text-base flex-1 justify-end mr-23.75">
@@ -57,7 +57,7 @@ export default function ContactPageClient() {
               </button>
               <button
                 type="button"
-                className="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                className="text-(--rs-neutral-500) hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
                 aria-label="Open Terms of Service"
                 onClick={() => setIsTermsOpen(true)}
               >

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Button from '@/components/atoms/Button/Button';
 import { Calendar } from 'lucide-react';
+import { trackEvent } from '@/components/analytics/GoogleAnalytics';
 import styles from './Header.module.css';
 
 const navLinks = [
@@ -74,6 +75,7 @@ export function Header() {
               icon={Calendar}
               external
               ariaLabel="Book a call with Romega Solutions"
+              onClick={() => trackEvent('click', 'CTA', 'Book a Call - Header')}
             >
               Book a Call
             </Button>
@@ -126,6 +128,7 @@ export function Header() {
                 external
                 ariaLabel="Book a call with Romega Solutions"
                 fullWidth
+                onClick={() => trackEvent('click', 'CTA', 'Book a Call - Mobile Header')}
               >
                 Book a Call
               </Button>

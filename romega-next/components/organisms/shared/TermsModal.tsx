@@ -34,51 +34,54 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
   return (
     <div 
-      className="fixed inset-0 z-[9999] overflow-y-auto animate-fadeIn" 
+      className="fixed inset-0 z-9999 flex items-center justify-center p-4 animate-fadeIn" 
       aria-labelledby="modal-title" 
       role="dialog" 
       aria-modal="true"
     >
       {/* Background overlay */}
-      <div className="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0">
-        <div 
-          className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" 
-          aria-hidden="true"
+      <div 
+        className="fixed inset-0 bg-black bg-opacity-50 transition-opacity" 
+        aria-hidden="true"
+        onClick={onClose}
+      />
+
+      {/* Modal panel */}
+      <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl transform transition-all animate-slideUp overflow-hidden">
+        {/* Close button */}
+        <button
+          type="button"
+          className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           onClick={onClose}
-        />
+          aria-label="Close modal"
+        >
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
 
-        {/* Modal panel */}
-        <div className="inline-block w-full max-w-4xl transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:align-middle">
-          {/* Header */}
-          <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-            <div className="flex items-center justify-between border-b pb-4">
-              <h3 className="text-2xl font-bold leading-6 text-gray-900" id="modal-title">
-                Terms & Conditions
-              </h3>
-              <button
-                type="button"
-                className="rounded-md bg-white text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                onClick={onClose}
-              >
-                <span className="sr-only">Close</span>
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
+        {/* Header */}
+        <div className="bg-white px-6 pt-8 pb-4 border-b border-gray-200">
+          <h3 
+            className="text-2xl font-bold text-gray-900" 
+            id="modal-title"
+            style={{ fontFamily: 'var(--font-serif), Merriweather, serif' }}
+          >
+            Terms & Conditions
+          </h3>
+        </div>
 
-          {/* Content */}
-          <div className="max-h-[70vh] overflow-y-auto px-4 pb-4 sm:px-6">
+        {/* Content */}
+        <div className="max-h-[65vh] overflow-y-auto px-6 py-4">
             <div className="prose prose-sm max-w-none">
-              <p className="text-sm text-gray-500 mb-6">
+              <p className="text-sm text-gray-500 mb-6" style={{ fontFamily: 'var(--font-sans), "Source Sans 3", sans-serif' }}>
                 Last Updated: August 27, 2025
               </p>
 
-              <h4 className="text-lg font-semibold text-gray-900 mt-6 mb-3">
+              <h4 className="text-lg font-semibold text-gray-900 mt-6 mb-3" style={{ fontFamily: 'var(--font-serif), Merriweather, serif' }}>
                 AGREEMENT TO TERMS
               </h4>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-4" style={{ fontFamily: 'var(--font-sans), "Source Sans 3", sans-serif' }}>
                 These Terms & Conditions ("Terms") are a legally binding
                 agreement between you ("you" or "user"), whether personally or
                 on behalf of an organization, and Romega Solutions ("Company,"
@@ -98,10 +101,10 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
                 those changes.
               </p>
 
-              <h4 className="text-lg font-semibold text-gray-900 mt-6 mb-3">
+              <h4 className="text-lg font-semibold text-gray-900 mt-6 mb-3" style={{ fontFamily: 'var(--font-serif), Merriweather, serif' }}>
                 USE OF THE SITE
               </h4>
-              <ul className="list-disc pl-6 text-gray-700 mb-6">
+              <ul className="list-disc pl-6 text-gray-700 mb-6" style={{ fontFamily: 'var(--font-sans), "Source Sans 3", sans-serif' }}>
                 <li className="mb-2">
                   You must be at least 18 years old to use this Site.
                 </li>
@@ -236,67 +239,29 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
                   🏢 222 Pacific Coast Hwy, #10, El Segundo, CA 90245
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-            <button
-              type="button"
-              className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
-              onClick={onClose}
-            >
-              I Understand
-            </button>
-            <button
-              type="button"
-              className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-              onClick={onClose}
-            >
-              Close
-            </button>
           </div>
         </div>
-      </div>
 
-      <style jsx global>{`
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
-        
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        
-        .prose h4 {
-          color: #1f2937;
-          font-weight: 600;
-          font-size: 1.125rem;
-          line-height: 1.75rem;
-          margin-top: 1.5rem;
-          margin-bottom: 0.75rem;
-        }
-        
-        .prose p {
-          margin-bottom: 1rem;
-          line-height: 1.625;
-        }
-        
-        .prose ul {
-          margin-bottom: 1.5rem;
-        }
-        
-        .prose li {
-          line-height: 1.625;
-        }
-      `}</style>
+        {/* Footer */}
+        <div className="bg-gray-50 px-6 py-4 border-t border-gray-200 flex flex-col-reverse sm:flex-row gap-3 sm:justify-end">
+          <button
+            type="button"
+            className="px-6 py-2.5 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            onClick={onClose}
+            style={{ fontFamily: 'var(--font-sans), "Source Sans 3", sans-serif' }}
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            className="px-6 py-2.5 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+            onClick={onClose}
+            style={{ fontFamily: 'var(--font-sans), "Source Sans 3", sans-serif' }}
+          >
+            I Understand
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

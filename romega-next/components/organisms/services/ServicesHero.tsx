@@ -42,14 +42,11 @@ export default function ServicesHero() {
       <div className={styles['services-hero__container']}>
         {/* Background Logo */}
         <div className={styles['services-hero__bg-wrapper']}>
-          <Image
-            src="/images/home/hero-bg-romega.png"
-            alt=""
-            width={384}
-            height={384}
+          <img
+            src="/images/contact/bg-romega.svg"
             className={styles['services-hero__bg-logo']}
             aria-hidden="true"
-            priority
+            alt=""
           />
           
           {/* Header Content */}

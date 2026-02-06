@@ -11,7 +11,6 @@ interface Talent {
   skills: string[];
   experience: string;
   availability: 'Available' | 'Busy' | 'Part-time';
-  image: string;
   location: string;
   rate: string;
 }
@@ -35,7 +34,6 @@ export default function TalentPool() {
       skills: ['React', 'Node.js', 'TypeScript', 'AWS'],
       experience: '8+ years',
       availability: 'Available',
-      image: '/images/about/IC/man1.png',
       location: 'United States',
       rate: '$80-120/hr',
     },
@@ -46,7 +44,6 @@ export default function TalentPool() {
       skills: ['Figma', 'Adobe XD', 'Prototyping', 'User Research'],
       experience: '6+ years',
       availability: 'Part-time',
-      image: '/images/about/IC/man2.png',
       location: 'Canada',
       rate: '$70-100/hr',
     },
@@ -57,7 +54,6 @@ export default function TalentPool() {
       skills: ['Python', 'Machine Learning', 'TensorFlow', 'SQL'],
       experience: '5+ years',
       availability: 'Available',
-      image: '/images/about/IC/man1.png',
       location: 'Spain',
       rate: '$75-110/hr',
     },
@@ -68,7 +64,6 @@ export default function TalentPool() {
       skills: ['Docker', 'Kubernetes', 'CI/CD', 'Terraform'],
       experience: '7+ years',
       availability: 'Busy',
-      image: '/images/about/IC/man2.png',
       location: 'South Korea',
       rate: '$85-125/hr',
     },
@@ -79,7 +74,6 @@ export default function TalentPool() {
       skills: ['React Native', 'iOS', 'Android', 'Flutter'],
       experience: '4+ years',
       availability: 'Available',
-      image: '/images/about/IC/man1.png',
       location: 'Poland',
       rate: '$65-95/hr',
     },
@@ -90,7 +84,6 @@ export default function TalentPool() {
       skills: ['Agile', 'Scrum', 'Roadmapping', 'Stakeholder Management'],
       experience: '10+ years',
       availability: 'Part-time',
-      image: '/images/about/IC/man2.png',
       location: 'United Kingdom',
       rate: '$90-130/hr',
     },

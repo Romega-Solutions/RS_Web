@@ -81,15 +81,15 @@
   color: var(--rs-primary-600);
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+  font-family: var(--font-sans), 'Source Sans 3', sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .why-join-us__title {
-  font-family: var(--font-merriweather), 'Merriweather', serif;
-  font-size: 2rem;
+  font-family: var(--font-serif), 'Merriweather', serif;
+  font-size: 1.875rem;
   font-weight: 700;
   color: var(--rs-neutral-50);
   margin-bottom: 1rem;
@@ -98,17 +98,29 @@
 
 @media (min-width: 768px) {
   .why-join-us__title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .why-join-us__title {
     font-size: 2.5rem;
   }
 }
 
 .why-join-us__description {
-  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
-  font-size: 1.125rem;
+  font-family: var(--font-sans), 'Source Sans 3', sans-serif;
+  font-size: 1rem;
   color: var(--rs-neutral-400);
   line-height: 1.6;
   max-width: 36rem;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .why-join-us__description {
+    font-size: 1.125rem;
+  }
 }
 
 .why-join-us__grid-wrapper {
@@ -186,7 +198,7 @@
 }
 
 .why-join-us__card-title {
-  font-family: var(--font-merriweather), 'Merriweather', serif;
+  font-family: var(--font-serif), 'Merriweather', serif;
   font-size: 1rem;
   font-weight: 700;
   color: var(--rs-primary-600);
@@ -196,13 +208,13 @@
 
 @media (min-width: 640px) {
   .why-join-us__card-title {
-    font-size: 1.375rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
   }
 }
 
 .why-join-us__card-description {
-  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+  font-family: var(--font-sans), 'Source Sans 3', sans-serif;
   font-size: 0.8125rem;
   color: var(--rs-neutral-700);
   line-height: 1.5;
@@ -210,7 +222,7 @@
 
 @media (min-width: 640px) {
   .why-join-us__card-description {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 }
 
@@ -227,8 +239,8 @@
   width: 90vw;
   max-width: 400px;
   height: 56px;
-  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
-  font-size: 1.25rem;
+  font-family: var(--font-sans), 'Source Sans 3', sans-serif;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--rs-primary-100);
   background: var(--rs-primary-500);
@@ -241,7 +253,7 @@
 
 @media (min-width: 640px) {
   .why-join-us__cta-button {
-    font-size: 1.40625rem;
+    font-size: 1.25rem;
   }
 }
 

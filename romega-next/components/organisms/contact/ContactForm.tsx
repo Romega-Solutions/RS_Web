@@ -1,9 +1,19 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script';
+import { trackEvent } from '@/components/analytics/GoogleAnalytics';
 import styles from './ContactForm.module.css';
+
+// Declare global types for EmailJS and reCAPTCHA
+declare global {
+  interface Window {
+    emailjs: any;
+    grecaptcha: any;
+  }
+}
 
 interface FormData {
   firstName: string;
@@ -22,6 +32,7 @@ interface FormErrors {
   subject?: string;
   phone?: string;
   message?: string;
+  recaptcha?: string;
 }
 
 export default function ContactForm() {
@@ -38,6 +49,9 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [emailJsLoaded, setEmailJsLoaded] = useState(false);
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const recaptchaRef = useRef<string | null>(null);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -77,18 +91,73 @@ export default function ContactForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Honeypot check - silent rejection for bots
+    const formElement = e.currentTarget;
+    const botfield = formElement.querySelector<HTMLInputElement>('input[name="botfield"]');
+    if (botfield && botfield.value.trim() !== '') {
+      console.log('Bot detected via honeypot - silently rejecting');
+      return; // Silent rejection
+    }
+
     if (!validateForm()) {
+      return;
+    }
+
+    // Validate reCAPTCHA
+    if (!window.grecaptcha) {
+      setErrors(prev => ({ ...prev, recaptcha: 'reCAPTCHA is not loaded. Please refresh the page.' }));
+      return;
+    }
+
+    const recaptchaResponse = window.grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      setErrors(prev => ({ ...prev, recaptcha: '⚠️ Please complete the reCAPTCHA verification.' }));
+      return;
+    }
+
+    // Check EmailJS availability
+    if (!window.emailjs || !emailJsLoaded) {
+      setSubmitStatus('error');
       return;
     }
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrors({});
 
     try {
-      // TODO: Implement EmailJS or your preferred email service
-      // For now, simulate submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      // Get current timestamp
+      const currentTime = new Date().toLocaleString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      });
+
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        subject: formData.subject || 'general',
+        message: formData.message,
+        company: formData.company || 'Not specified',
+        phone: formData.phone,
+        to_name: 'Romega Solutions Team',
+        reply_to: currentTime,
+        'g-recaptcha-response': recaptchaResponse
+      };
+
+      await window.emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      // Track form submission with Google Analytics
+      trackEvent('form_submission', 'Contact', 'Contact Form Submitted', 1);
+
       setSubmitStatus('success');
       setFormData({
         firstName: '',
@@ -99,8 +168,19 @@ export default function ContactForm() {
         phone: '',
         message: '',
       });
+
+      // Reset reCAPTCHA
+      if (window.grecaptcha) {
+        window.grecaptcha.reset();
+      }
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
+
+      // Reset reCAPTCHA on error
+      if (window.grecaptcha) {
+        window.grecaptcha.reset();
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -118,6 +198,29 @@ export default function ContactForm() {
 
   return (
     <div className={styles['contact-form']}>
+      {/* Load EmailJS */}
+      <Script
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          if (window.emailjs) {
+            window.emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+            setEmailJsLoaded(true);
+            console.log('EmailJS initialized successfully');
+          }
+        }}
+      />
+
+      {/* Load Google reCAPTCHA */}
+      <Script
+        src="https://www.google.com/recaptcha/api.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          setRecaptchaLoaded(true);
+          console.log('reCAPTCHA loaded successfully');
+        }}
+      />
+
       <form onSubmit={handleSubmit} className={styles['contact-form__form']} noValidate>
         {/* Honeypot field for bot detection */}
         <input type="text" name="botfield" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} />
@@ -297,6 +400,19 @@ export default function ContactForm() {
           )}
         </div>
 
+        {/* reCAPTCHA */}
+        <div className="flex flex-col items-center gap-2 my-4">
+          <div 
+            className="g-recaptcha" 
+            data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+          />
+          {errors.recaptcha && (
+            <div className={styles['contact-form__error']} role="alert">
+              {errors.recaptcha}
+            </div>
+          )}
+        </div>
+
         {/* Status Messages */}
         {submitStatus === 'success' && (
           <div className={styles['contact-form__success']} role="status">
@@ -317,15 +433,24 @@ export default function ContactForm() {
             disabled={isSubmitting}
             className={styles['contact-form__submit']}
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-            <Image
-              src="/images/icon-send.svg"
-              alt=""
-              width={20}
-              height={20}
-              style={{ width: 'auto' }}
-              aria-hidden="true"
-            />
+            {isSubmitting ? (
+              <div className="flex items-center gap-2">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                Sending...
+              </div>
+            ) : (
+              <>
+                Send Message
+                <Image
+                  src="/images/icon-send.svg"
+                  alt=""
+                  width={20}
+                  height={20}
+                  style={{ width: 'auto' }}
+                  aria-hidden="true"
+                />
+              </>
+            )}
           </button>
 
           {/* or line - Mobile only */}
@@ -342,6 +467,7 @@ export default function ContactForm() {
               target="_blank"
               rel="noopener noreferrer"
               className={styles['contact-form__schedule-button']}
+              onClick={() => trackEvent('click', 'CTA', 'Schedule a Meeting - Contact Form')}
             >
               <div className={styles['contact-form__schedule-content']}>
                 <Image

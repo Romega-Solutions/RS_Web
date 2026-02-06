@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import styles from './TalentHero.module.css';
 
 export default function TalentHero() {
@@ -46,14 +45,26 @@ export default function TalentHero() {
         {/* Hero Image */}
         <div className={styles['talent-hero__image-wrapper']}>
           <div className={styles['talent-hero__image-container']}>
-            <Image
-              src="/images/careers/hero-image.png"
-              alt="Professional talent pool"
-              width={600}
-              height={500}
-              priority
+            <svg
+              width="600"
+              height="500"
+              viewBox="0 0 600 500"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               className={styles['talent-hero__image']}
-            />
+              role="img"
+              aria-label="Professional talent pool illustration"
+            >
+              <rect width="600" height="500" fill="#E0F2FE" rx="12" />
+              <g transform="translate(200, 120)">
+                <circle cx="100" cy="80" r="60" fill="#0369A1" opacity="0.2" />
+                <circle cx="100" cy="60" r="35" fill="#0369A1" />
+                <ellipse cx="100" cy="140" rx="55" ry="45" fill="#0369A1" />
+              </g>
+              <text x="300" y="450" fontSize="20" fill="#0369A1" textAnchor="middle" fontWeight="600">
+                Exceptional Talent Pool
+              </text>
+            </svg>
           </div>
         </div>
       </div>

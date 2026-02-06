@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Source_Sans_3, Merriweather } from "next/font/google";
 import { Header } from "@/components/organisms/layout/Header";
 import { Footer } from "@/components/organisms/layout/Footer";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import "./globals.css";
 import "@/app/styles/styles.css";
 
@@ -32,12 +33,13 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${sourceSans.variable} ${merriweather.variable} antialiased bg-[var(--rs-primary-50)] overflow-x-hidden`}
+        className={`${sourceSans.variable} ${merriweather.variable} antialiased bg-(--rs-primary-50) overflow-x-hidden`}
       >
+        <GoogleAnalytics />
         {/* Skip to main content for accessibility */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-[9999]"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-9999"
         >
           Skip to main content
         </a>

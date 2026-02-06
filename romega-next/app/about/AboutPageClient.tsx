@@ -13,7 +13,7 @@ export default function AboutPageClient() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
   return (
-    <main className="bg-[var(--rs-primary-50)]">
+    <main className="bg-(--rs-primary-50)">
       <AboutHero />
       <MissionVision />
       <TeamCarousel onMemberClick={setSelectedMember} />

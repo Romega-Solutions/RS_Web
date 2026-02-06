@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { trackEvent } from '@/components/analytics/GoogleAnalytics';
 import styles from './ContactCTA.module.css';
 
 export default function ContactCTA() {
@@ -18,10 +21,10 @@ export default function ContactCTA() {
         {/* Headings */}
         <div className={styles['contact-cta__header']}>
           <h2 id="cta-title" className={styles['contact-cta__title']}>
-            Ready to hire leaders who fit and perform?
+            Ready to work with us?
           </h2>
           <p className={styles['contact-cta__subtitle']}>
-            We help companies fill senior roles in as little as 14 days while ensuring cultural alignment and long-term success.
+            Connect with top talent and transform your leadership strategy
           </p>
         </div>
 
@@ -34,6 +37,7 @@ export default function ContactCTA() {
               target="_blank"
               rel="noopener noreferrer"
               className={styles['contact-cta__button']}
+              onClick={() => trackEvent('click', 'CTA', 'Contact Us - Services Page')}
             >
               <Image
                 src="/images/services/services-cta-icon-1.svg"
@@ -42,11 +46,8 @@ export default function ContactCTA() {
                 height={24}
                 className={styles['contact-cta__icon']}
               />
-              <span>Book A Call</span>
+              <span>Contact Us</span>
             </Link>
-            <p className={styles['contact-cta__helper-text']}>
-              Instantly schedule with our team
-            </p>
           </div>
         </div>
       </div>

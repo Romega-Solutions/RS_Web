@@ -206,8 +206,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'ken-patrick-garcia',
     name: 'Ken Patrick Garcia',
-    title: 'Full-Stack Developer',
-    role: 'Full-Stack Developer',
+    title: 'Full Stack AI Engineer',
+    role: 'Full Stack AI Engineer',
     location: 'San Luis',
     image: '/images/about/IC/IC_Web_Developer_Ken.jpg',
     bio: 'Full-Stack Developer specializing in modern web and mobile applications with AI/ML integration. Award-winning developer focused on building scalable, intelligent solutions.',

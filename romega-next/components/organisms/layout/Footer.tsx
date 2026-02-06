@@ -1,11 +1,17 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Button from '@/components/atoms/Button/Button'
 import { Linkedin, Facebook, Calendar } from 'lucide-react'
+import { trackEvent } from '@/components/analytics/GoogleAnalytics'
+import PrivacyModal from '@/components/organisms/shared/PrivacyModal'
+import TermsModal from '@/components/organisms/shared/TermsModal'
 
 export function Footer() {
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false)
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false)
   return (
     <footer
       className="bg-(--rs-neutral-100) border-t-2 border-(--rs-neutral-grey-400) py-10 font-sans relative"
@@ -62,6 +68,7 @@ export function Footer() {
                     external
                     ariaLabel="Visit our LinkedIn page"
                     fullWidth
+                    onClick={() => trackEvent('click', 'Social', 'LinkedIn - Footer')}
                   >
                     LINKEDIN
                   </Button>
@@ -72,6 +79,7 @@ export function Footer() {
                     external
                     ariaLabel="Visit our Facebook page"
                     fullWidth
+                    onClick={() => trackEvent('click', 'Social', 'Facebook - Footer')}
                   >
                     FACEBOOK
                   </Button>
@@ -88,6 +96,7 @@ export function Footer() {
                 external
                 ariaLabel="Schedule a meeting with Romega Solutions"
                 fullWidth
+                onClick={() => trackEvent('click', 'CTA', 'Schedule a Meeting - Footer Mobile')}
               >
                 Schedule a Meeting
               </Button>
@@ -102,6 +111,7 @@ export function Footer() {
                 external
                 ariaLabel="Schedule a meeting with Romega Solutions"
                 fullWidth
+                onClick={() => trackEvent('click', 'CTA', 'Schedule a Meeting - Footer Desktop')}
               >
                 Schedule a Meeting
               </Button>
@@ -175,7 +185,10 @@ export function Footer() {
                   <li>
                     <a
                       href="#"
-                      onClick={() => {/* Add terms modal logic */}}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsTermsModalOpen(true);
+                      }}
                       className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline cursor-pointer"
                     >
                       Terms of Service
@@ -184,7 +197,10 @@ export function Footer() {
                   <li>
                     <a
                       href="#"
-                      onClick={() => {/* Add privacy modal logic */}}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsPrivacyModalOpen(true);
+                      }}
                       className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline cursor-pointer"
                     >
                       Privacy Policy
@@ -276,6 +292,10 @@ export function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Modals */}
+      <PrivacyModal isOpen={isPrivacyModalOpen} onClose={() => setIsPrivacyModalOpen(false)} />
+      <TermsModal isOpen={isTermsModalOpen} onClose={() => setIsTermsModalOpen(false)} />
     </footer>
   )
 }

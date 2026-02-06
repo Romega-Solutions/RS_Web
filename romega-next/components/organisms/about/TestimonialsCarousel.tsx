@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, GraduationCap } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/constants';
@@ -8,19 +8,73 @@ import styles from './TestimonialsCarousel.module.css';
 
 export default function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [cardsPerView, setCardsPerView] = useState(1);
+
+  // Create extended array for infinite scroll (duplicate items at both ends)
+  const extendedTestimonials = [
+    ...TESTIMONIALS.slice(-1), // Last item at the beginning
+    ...TESTIMONIALS,
+    ...TESTIMONIALS.slice(0, 1), // First item at the end
+  ];
+
+  // Update cards per view based on screen size
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth >= 1280) {
+        setCardsPerView(5);
+      } else if (window.innerWidth >= 1024) {
+        setCardsPerView(4);
+      } else if (window.innerWidth >= 768) {
+        setCardsPerView(3);
+      } else if (window.innerWidth >= 640) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(1);
+      }
+    };
+
+    updateCardsPerView();
+    window.addEventListener('resize', updateCardsPerView);
+    return () => window.removeEventListener('resize', updateCardsPerView);
+  }, []);
 
   const handleScroll = (direction: 1 | -1) => {
-    setCurrentIndex((prev) => {
-      const newIndex = prev + direction;
-      if (newIndex >= TESTIMONIALS.length) return 0;
-      if (newIndex < 0) return TESTIMONIALS.length - 1;
-      return newIndex;
-    });
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + direction);
   };
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index);
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex(index + 1); // +1 because of the prepended item
   };
+
+  // Handle infinite loop
+  useEffect(() => {
+    if (!isTransitioning) return;
+
+    const transitionEnd = setTimeout(() => {
+      if (currentIndex === 0) {
+        // Jump to the real last item
+        setCurrentIndex(TESTIMONIALS.length);
+      } else if (currentIndex === extendedTestimonials.length - 1) {
+        // Jump to the real first item
+        setCurrentIndex(1);
+      }
+      setIsTransitioning(false);
+    }, 500); // Match the CSS transition duration
+
+    return () => clearTimeout(transitionEnd);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex, isTransitioning]);
+
+  // Initialize to first real item
+  useEffect(() => {
+    setCurrentIndex(1);
+  }, []);
 
   const renderStars = (rating: number) => {
     return (
@@ -28,7 +82,7 @@ export default function TestimonialsCarousel() {
         {Array.from({ length: 5 }, (_, i) => (
           <Image
             key={i}
-            src={i < rating ? '/images/homepage/full-start.png' : '/images/homepage/no-star.png'}
+            src={i < rating ? '/images/home/full-start.png' : '/images/home/no-star.png'}
             alt={i < rating ? 'Filled star' : 'Empty star'}
             width={20}
             height={20}
@@ -81,12 +135,13 @@ export default function TestimonialsCarousel() {
           <div
             className={styles['testimonials-carousel__track']}
             style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
+              transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+              transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none',
             }}
           >
-            {TESTIMONIALS.map((testimonial) => (
+            {extendedTestimonials.map((testimonial, idx) => (
               <div
-                key={testimonial.id}
+                key={`${testimonial.id}-${idx}`}
                 className={styles['testimonials-carousel__slide']}
               >
                 <a
@@ -150,17 +205,24 @@ export default function TestimonialsCarousel() {
           </button>
 
           <div className={styles['testimonials-carousel__dots']}>
-            {TESTIMONIALS.map((_, index) => (
-              <button
-                key={index}
-                className={`${styles['testimonials-carousel__dot']} ${
-                  index === currentIndex ? styles['testimonials-carousel__dot--active'] : ''
-                }`}
-                onClick={() => goToSlide(index)}
-                aria-label={`Go to testimonial ${index + 1}`}
-                aria-current={index === currentIndex ? 'true' : 'false'}
-              />
-            ))}
+            {TESTIMONIALS.map((_, index) => {
+              // Calculate the real index (accounting for the prepended item)
+              const realIndex = currentIndex === 0 ? TESTIMONIALS.length - 1 : 
+                               currentIndex === extendedTestimonials.length - 1 ? 0 : 
+                               currentIndex - 1;
+              
+              return (
+                <button
+                  key={index}
+                  className={`${styles['testimonials-carousel__dot']} ${
+                    index === realIndex ? styles['testimonials-carousel__dot--active'] : ''
+                  }`}
+                  onClick={() => goToSlide(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-current={index === realIndex ? 'true' : 'false'}
+                />
+              );
+            })}
           </div>
 
           <button

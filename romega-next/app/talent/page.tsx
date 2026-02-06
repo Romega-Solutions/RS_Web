@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function TalentPage() {
   return (
-    <main className="bg-[var(--rs-primary-50)]">
+    <main className="bg-(--rs-primary-50)">
       <TalentPageClient />
       <TalentPool />
       <ContactCTA />
