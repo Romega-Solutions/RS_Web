@@ -65,8 +65,9 @@ export default function ServicesOverview() {
             <Link
               href="/services"
               className="bg-rs-primary-200 text-rs-service-source-sans px-5 md:px-4 py-1 rounded-full font-medium hover:bg-rs-primary-300 hover:text-rs-primary-100 transition duration-300 cursor-pointer text-sm md:text-base"
+              aria-label="Learn more about our services"
             >
-              Learn More
+              Learn More About Services
             </Link>
           </div>
 
@@ -89,8 +90,9 @@ export default function ServicesOverview() {
                     alt={`${service.tag} Services`}
                     width={service.width}
                     height={service.height}
-                    className="w-44 sm:w-44.25 md:w-70 h-37.5 sm:h-37.75 md:h-45 object-contain mx-auto"
+                    className="w-44 sm:w-44.25 md:w-70 h-auto object-contain mx-auto"
                     loading="lazy"
+                    style={{ aspectRatio: `${service.width}/${service.height}` }}
                   />
                 </div>
                 <div className="grow flex flex-col justify-between">
@@ -98,7 +100,7 @@ export default function ServicesOverview() {
                     {service.title}
                   </h3>
                   <div className="text-white text-[1rem] text-rs-service-source px-4 py-2 rounded-lg hover:bg-white hover:text-rs-primary-700 transition duration-300 flex items-center mx-auto md:mx-0 mt-auto">
-                    View Details
+                    View {service.tag} Details
                     <svg
                       className="w-4 h-4 ml-2"
                       fill="none"

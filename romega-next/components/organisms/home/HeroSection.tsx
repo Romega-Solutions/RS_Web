@@ -24,13 +24,15 @@ export default function HeroSection() {
           {/* Background Pattern */}
           <Image
             src="/images/home/hero-bg-romega.png"
-            alt="Romega Solutions background pattern"
+            alt=""
             fill
             sizes="100vw"
             className={styles['hero-section__bg-pattern']}  // Element
             loading="eager"
             priority
             fetchPriority="high"
+            quality={75}
+            aria-hidden="true"
           />
 
           {/* Heading */}
@@ -43,22 +45,21 @@ export default function HeroSection() {
               Smarter
               <Image
                 src="/images/home/hero-rs-text-hd.png"
-                alt="RS Solutions logo"
+                alt="RS Solutions"
                 width={208}
                 height={80}
                 className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--mobile']}`}
-                loading="eager"
                 priority
-                fetchPriority="high"
+                quality={85}
               />
               <Image
                 src="/images/home/hero-rs-text-hd.png"
-                alt="RS Solutions logo"
+                alt="RS Solutions"
                 width={208}
                 height={80}
                 className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--desktop']}`}
-                loading="eager"
                 priority
+                quality={85}
               />
             </span>
           </h1>
@@ -112,12 +113,12 @@ export default function HeroSection() {
             muted
             loop
             playsInline
-            preload="metadata"
-            aria-label="Romega Solutions promotional video"
+            preload="none"
+            aria-label="Romega Solutions promotional video showing our services"
             poster="/images/home/hero-right.png"
-            role="img"
           >
             <source src="/images/home/webp/WebsiteAssetVideo.mp4" type="video/mp4" />
+            <track kind="captions" srcLang="en" label="English" />
             Your browser does not support the video tag.
           </video>
         </div>

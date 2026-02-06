@@ -35,11 +35,13 @@ export function Header() {
             <Link href="/" className={styles['header__logo-link']}>
               <Image
                 src="/images/navbar-company-logo.svg"
-                alt="Romega Solutions Logo"
+                alt="Romega Solutions"
                 width={200}
                 height={56}
                 className={styles['header__logo-image']}  // Element
-                priority                fetchPriority="high"              />
+                priority
+                quality={90}
+              />
             </Link>
           </div>
 

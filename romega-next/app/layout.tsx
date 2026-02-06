@@ -11,6 +11,8 @@ const sourceSans = Source_Sans_3({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 const merriweather = Merriweather({
@@ -18,6 +20,8 @@ const merriweather = Merriweather({
   subsets: ["latin"],
   weight: ["300", "400", "700", "900"],
   display: "swap",
+  preload: true,
+  fallback: ['georgia', 'serif'],
 });
 
 export const metadata: Metadata = {
@@ -109,10 +113,14 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth">
       <head>
         {/* Preconnect to critical external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://calendly.com" />
+        {/* Preload critical images */}
+        <link rel="preload" as="image" href="/images/home/hero-right.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#0A2540" />
       </head>

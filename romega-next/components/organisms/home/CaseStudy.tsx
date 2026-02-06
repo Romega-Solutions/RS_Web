@@ -34,8 +34,9 @@ export default function CaseStudy() {
                 alt="Professional team meeting discussing leadership solutions"
                 width={500}
                 height={300}
-                className="w-94 sm:w-125 h-55 sm:h-75 object-cover rounded-lg"
+                className="w-94 sm:w-125 h-auto object-cover rounded-lg"
                 loading="lazy"
+                style={{ aspectRatio: '5/3' }}
               />
             </div>
 
@@ -63,8 +64,9 @@ export default function CaseStudy() {
                   alt="Professional team meeting discussing leadership solutions"
                   width={600}
                   height={350}
-                  className="w-150 h-87.5 object-cover rounded-lg"
+                  className="w-150 h-auto object-cover rounded-lg"
                   loading="lazy"
+                  style={{ aspectRatio: '12/7' }}
                 />
               </div>
             </div>
