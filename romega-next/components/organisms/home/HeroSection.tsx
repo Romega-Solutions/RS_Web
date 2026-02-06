@@ -112,12 +112,12 @@ export default function HeroSection() {
             muted
             loop
             playsInline
+            preload="auto"
             aria-label="Romega Solutions promotional video"
             poster="/images/home/hero-right.png"
             role="img"
           >
             <source src="/images/home/webp/WebsiteAssetVideo.mp4" type="video/mp4" />
-            <source src="/images/home/webp/WebsiteAssetVideo.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
         </div>

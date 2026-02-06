@@ -68,7 +68,6 @@ export function Footer() {
                     external
                     ariaLabel="Visit our LinkedIn page"
                     fullWidth
-                    onClick={() => trackEvent('click', 'Social', 'LinkedIn - Footer')}
                   >
                     LINKEDIN
                   </Button>
@@ -79,7 +78,6 @@ export function Footer() {
                     external
                     ariaLabel="Visit our Facebook page"
                     fullWidth
-                    onClick={() => trackEvent('click', 'Social', 'Facebook - Footer')}
                   >
                     FACEBOOK
                   </Button>
@@ -96,7 +94,6 @@ export function Footer() {
                 external
                 ariaLabel="Schedule a meeting with Romega Solutions"
                 fullWidth
-                onClick={() => trackEvent('click', 'CTA', 'Schedule a Meeting - Footer Mobile')}
               >
                 Schedule a Meeting
               </Button>
@@ -111,7 +108,6 @@ export function Footer() {
                 external
                 ariaLabel="Schedule a meeting with Romega Solutions"
                 fullWidth
-                onClick={() => trackEvent('click', 'CTA', 'Schedule a Meeting - Footer Desktop')}
               >
                 Schedule a Meeting
               </Button>

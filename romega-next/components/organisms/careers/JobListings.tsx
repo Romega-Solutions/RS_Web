@@ -3,16 +3,9 @@
 import { useState, useEffect } from 'react';
 import { Briefcase, MapPin, Clock, ExternalLink } from 'lucide-react';
 import styles from './JobListings.module.css';
-
-interface Job {
-  job_title: string;
-  location: string;
-  work_type: string;
-  employment_type: string;
-  posted_date: string;
-  status: string;
-  application_url: string;
-}
+import { fetchJobs } from '@/lib/api/jobs';
+import type { Job } from '@/types/jobs';
+import JobCard from './JobCard';
 
 export default function JobListings() {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -20,22 +13,27 @@ export default function JobListings() {
   const [error, setError] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  const apiUrl = "https://script.google.com/macros/s/AKfycbwuPSsnmiz2B2lBIbmhWcJwQ35nrPCtdR0DXjrK7dhWvGaXuoin4rs5LhkEUpWBud0f6A/exec";
-
   useEffect(() => {
     loadJobs();
+    
+    // Refresh jobs every 5 minutes
+    const interval = setInterval(() => {
+      loadJobs();
+    }, 5 * 60 * 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const loadJobs = async () => {
     try {
       setLoading(true);
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      setJobs(data);
       setError(false);
+      const data = await fetchJobs();
+      setJobs(data);
     } catch (err) {
       console.error("Failed to load jobs:", err);
       setError(true);
+      setJobs([]); // Set empty array on error
     } finally {
       setLoading(false);
     }

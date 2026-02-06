@@ -1,10 +1,8 @@
 import type { Job } from '@/types/jobs';
 
-const JOBS_API_URL =
-  'https://script.google.com/macros/s/AKfycbwuPSsnmiz2B2lBIbmhWcJwQ35nrPCtdR0DXjrK7dhWvGaXuoin4rs5LhkEUpWBud0f6A/exec';
-
 /**
- * Fetches job listings from the Google Apps Script API
+ * Fetches job listings from our secure API proxy
+ * This proxies through our API route to hide the external endpoint
  * @returns Promise<Job[]> Array of job objects
  * @throws Error if the API request fails
  */
@@ -13,13 +11,15 @@ export async function fetchJobs(): Promise<Job[]> {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-    const response = await fetch(JOBS_API_URL, {
+    // Use our internal API route instead of external URL
+    const apiUrl = `${process.env.NEXT_PUBLIC_APP_URL || ''}/api/careers/jobs`;
+
+    const response = await fetch(apiUrl, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      cache: 'no-store',
+      next: { revalidate: 300 }, // Revalidate every 5 minutes
       signal: controller.signal,
     });
 
@@ -29,7 +29,15 @@ export async function fetchJobs(): Promise<Job[]> {
       throw new Error(`API responded with status: ${response.status}`);
     }
 
-    const jobs: Job[] = await response.json();
+    const data = await response.json();
+    
+    // Handle both successful response and fallback empty array
+    if (data.error) {
+      console.warn('Jobs API returned error:', data.error);
+      return data.jobs || [];
+    }
+
+    const jobs: Job[] = Array.isArray(data) ? data : [];
     return jobs;
   } catch (error) {
     // More detailed error logging
@@ -43,8 +51,8 @@ export async function fetchJobs(): Promise<Job[]> {
       console.error('Failed to fetch jobs:', error);
     }
     
-    // Re-throw for handling in the hook
-    throw error;
+    // Return empty array instead of throwing to prevent UI breakage
+    return [];
   }
 }
 

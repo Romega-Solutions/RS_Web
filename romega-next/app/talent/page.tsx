@@ -4,13 +4,40 @@ import TalentPool from '@/components/organisms/talent/TalentPool';
 import ContactCTA from '@/components/organisms/shared/ContactCTA';
 
 export const metadata: Metadata = {
-  title: 'Talent Pool | Romega Solutions',
-  description: 'Discover exceptional tech talent in our curated pool of professionals. Connect with skilled developers, designers, and tech experts ready for your next project.',
+  title: 'Talent Pool - Find Top Tech Professionals',
+  description: 'Discover exceptional tech talent in our curated pool of professionals. Connect with skilled developers, designers, engineers, and tech experts ready for your next project. Pre-vetted talent for remote and on-site positions.',
+  keywords: [
+    'tech talent pool',
+    'hire developers',
+    'tech professionals',
+    'skilled designers',
+    'software engineers',
+    'pre-vetted talent',
+    'remote developers',
+    'tech recruitment',
+  ],
   openGraph: {
     title: 'Talent Pool | Romega Solutions',
-    description: 'Discover exceptional tech talent in our curated pool of professionals ready for your next project.',
-    url: 'https://romegasolutions.com/talent',
+    description: 'Discover exceptional pre-vetted tech talent ready for your next project. Developers, designers, and engineers.',
+    url: 'https://www.romegasolutions.com/talent',
     type: 'website',
+    images: [
+      {
+        url: '/images/og-talent.png',
+        width: 1200,
+        height: 630,
+        alt: 'Romega Solutions Talent Pool',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Talent Pool | Romega Solutions',
+    description: 'Discover exceptional tech talent ready for your next project.',
+    images: ['/images/og-talent.png'],
+  },
+  alternates: {
+    canonical: 'https://www.romegasolutions.com/talent',
   },
 };
 
