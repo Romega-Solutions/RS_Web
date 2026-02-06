@@ -1,0 +1,305 @@
+/* ============================================
+   BUTTON COMPONENT (BEM)
+   Atom-level component with multiple variants
+   ============================================ */
+
+/* Block */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--rs-primary-500);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   MODIFIERS: Variants
+   ============================================ */
+
+/* Primary variant */
+.button--primary {
+  height: 50px;
+  padding: 0 1rem;
+  font-size: 18px;
+  border-radius: 12px;
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 4px 14px 0 rgba(0, 123, 255, 0.39);
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .button--primary {
+    height: 57px;
+    padding: 0 2rem;
+    font-size: 22.5px;
+  }
+}
+
+.button--primary:hover:not(.button--disabled) {
+  background-color: #0056b3;
+  box-shadow: 0 4px 14px 0 rgba(0, 123, 255, 0.39);
+}
+
+.button--primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+}
+
+/* Secondary variant */
+.button--secondary {
+  height: 50px;
+  padding: 0 1rem;
+  font-size: 18px;
+  border-radius: 12px;
+  background-color: var(--rs-primary-100);
+  color: var(--rs-primary-600);
+  border: 2px solid var(--rs-primary-600);
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .button--secondary {
+    height: 57px;
+    padding: 0 2rem;
+    font-size: 22.5px;
+  }
+}
+
+.button--secondary:hover:not(.button--disabled) {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.button--secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #007bff, 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
+/* Navbar variant */
+.button--navbar {
+  height: 46px;
+  padding: 0 10px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 1.5px solid var(--rs-primary-600);
+  background-color: var(--rs-primary-500);
+  color: white;
+  box-shadow: 0 2px 7px 2px rgba(18, 91, 161, 0.3);
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .button--navbar {
+    padding: 0 28px;
+    min-width: 172px;
+  }
+}
+
+.button--navbar:hover:not(.button--disabled) {
+  background-color: var(--rs-primary-700);
+}
+
+.button--navbar:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--rs-primary-600), 0 0 0 4px rgba(18, 91, 161, 0.2);
+}
+
+/* Social variant */
+.button--social {
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid var(--rs-neutral-400);
+  background-color: var(--rs-neutral-100);
+  color: var(--rs-neutral-600);
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .button--social {
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+  }
+}
+
+.button--social:hover:not(.button--disabled) {
+  background-color: var(--rs-neutral-200);
+  color: var(--rs-neutral-800);
+  border-color: var(--rs-primary-500);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.button--social:active:not(.button--disabled) {
+  background-color: var(--rs-neutral-100);
+  transform: scale(0.95);
+}
+
+.button--social:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--rs-primary-500), 0 0 0 4px rgba(18, 91, 161, 0.2);
+}
+
+/* Footer Schedule variant */
+.button--footer-schedule {
+  height: 50px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1.5px solid var(--rs-primary-600);
+  background-color: var(--rs-primary-500);
+  color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .button--footer-schedule {
+    font-size: 18px;
+  }
+}
+
+.button--footer-schedule:hover:not(.button--disabled) {
+  background-color: var(--rs-primary-700);
+  transform: scale(1.05);
+}
+
+.button--footer-schedule:active:not(.button--disabled) {
+  background-color: var(--rs-primary-800);
+  transform: scale(0.95);
+}
+
+.button--footer-schedule:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--rs-primary-500), 0 0 0 4px rgba(18, 91, 161, 0.2);
+}
+
+/* ============================================
+   MODIFIERS: States
+   ============================================ */
+
+.button--full-width {
+  width: 100%;
+}
+
+.button--max-width {
+  width: 100%;
+  max-width: 400px;
+}
+
+.button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================
+   ELEMENTS
+   ============================================ */
+
+.button__icon {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* Icon sizes for primary and secondary */
+.button--primary .button__icon,
+.button--secondary .button__icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 640px) {
+  .button--primary .button__icon,
+  .button--secondary .button__icon {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+/* Icon sizes for navbar */
+.button--navbar .button__icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 0.25rem;
+}
+
+/* Icon sizes for social */
+.button--social .button__icon {
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 1024px) {
+  .button--social .button__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Icon sizes for footer-schedule */
+.button--footer-schedule .button__icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 1024px) {
+  .button--footer-schedule .button__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Icon animations */
+.button:hover:not(.button--disabled) .button__icon {
+  transform: scale(1.1);
+}
+
+.button__text {
+  display: inline-block;
+}
+
+/* Icon color transitions */
+.button--primary .button__icon {
+  color: white;
+}
+
+.button--secondary .button__icon {
+  color: var(--rs-primary-600);
+}
+
+.button--secondary:hover .button__icon {
+  color: white;
+}
+
+.button--navbar .button__icon {
+  color: white;
+}
+
+.button--social .button__icon {
+  color: var(--rs-neutral-600);
+}
+
+.button--social:hover .button__icon {
+  color: #1e293b;
+}
+
+.button--footer-schedule .button__icon {
+  color: white;
+}

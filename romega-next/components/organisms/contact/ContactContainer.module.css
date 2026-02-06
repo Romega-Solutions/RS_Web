@@ -1,0 +1,29 @@
+/* ============================================
+   CONTACT CONTAINER (BEM)
+   ============================================ */
+
+/* Block */
+.contact-container {
+  background-color: var(--rs-neutral-50);
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  max-width: fit-content;
+  margin: 0 auto;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+/* Elements */
+.contact-container__wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+@media (min-width: 1024px) {
+  .contact-container__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+  }
+}

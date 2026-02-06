@@ -1,0 +1,123 @@
+/* ===========================
+   Talent Pool Section
+   =========================== */
+
+.talent-pool {
+  background: var(--rs-neutral-900);
+  padding: 5rem 1.5rem;
+  position: relative;
+}
+
+.talent-pool__container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+/* Header */
+.talent-pool__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.talent-pool__badge {
+  display: inline-block;
+  background: var(--rs-primary-100);
+  color: var(--rs-primary-600);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.talent-pool__title {
+  font-family: var(--font-merriweather), 'Merriweather', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .talent-pool__title {
+    font-size: 3rem;
+  }
+}
+
+.talent-pool__description {
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+  font-size: 1.125rem;
+  color: var(--rs-neutral-300);
+  line-height: 1.6;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+/* Filters */
+.talent-pool__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.talent-pool__filter-btn {
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  background: var(--rs-neutral-800);
+  color: var(--rs-neutral-300);
+  border: 1px solid var(--rs-neutral-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.talent-pool__filter-btn:hover {
+  background: var(--rs-neutral-700);
+  color: #ffffff;
+  border-color: var(--rs-neutral-600);
+}
+
+.talent-pool__filter-btn--active {
+  background: var(--rs-primary-600);
+  color: #ffffff;
+  border-color: var(--rs-primary-600);
+}
+
+.talent-pool__filter-btn--active:hover {
+  background: var(--rs-primary-500);
+  border-color: var(--rs-primary-500);
+}
+
+/* Talent Grid */
+.talent-pool__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .talent-pool__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .talent-pool__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Empty State */
+.talent-pool__empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--rs-neutral-400);
+  font-family: var(--font-source-sans), 'Source Sans 3', sans-serif;
+  font-size: 1.125rem;
+}

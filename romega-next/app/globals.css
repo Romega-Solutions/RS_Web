@@ -1,0 +1,223 @@
+@import "tailwindcss";
+@import "./styles/styles.css";
+@import "./styles/modals.css";
+
+/* ===========================
+   COPY PROTECTION STYLES
+   =========================== */
+/* Disable text selection */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Prevent text selection on all elements */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection for input fields and textareas (for forms) */
+input,
+textarea,
+select,
+[contenteditable="true"],
+[role="textbox"] {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+@layer theme {
+  :root {
+    /* ================================
+       ROMEGA SOLUTIONS COLOR SYSTEM
+       ================================ */
+
+    /* Primary Blues */
+    --rs-primary-50: hsla(207, 77%, 95%, 1);
+    --rs-primary-100: hsla(209, 84%, 88%, 1);
+    --rs-primary-200: hsla(209, 89%, 78%, 1);
+    --rs-primary-300: hsla(209, 96%, 65%, 1);
+    --rs-primary-400: hsla(209, 100%, 55%, 1);
+    --rs-primary-500: hsla(209, 100%, 45%, 1);
+    --rs-primary-600: hsla(209, 80%, 35%, 1);
+    --rs-primary-700: hsla(209, 100%, 28%, 1);
+    --rs-primary-800: hsla(209, 100%, 23%, 1);
+    --rs-primary-900: hsla(209, 90%, 18%, 1);
+    --rs-primary-950: hsla(209, 70%, 12%, 1);
+
+    /* Accent Yellows/Oranges */
+    --rs-accent-50: hsla(42, 77%, 95%, 1);
+    --rs-accent-100: hsla(42, 100%, 88%, 1);
+    --rs-accent-200: hsla(42, 95%, 76%, 1);
+    --rs-accent-300: hsla(42, 95%, 62%, 1);
+    --rs-accent-400: hsla(42, 95%, 52%, 1);
+    --rs-accent-500: hsla(42, 94%, 45%, 1);
+    --rs-accent-600: hsla(42, 94%, 43%, 1);
+    --rs-accent-700: hsla(42, 94%, 38%, 1);
+    --rs-accent-800: hsla(42, 86%, 30%, 1);
+    --rs-accent-900: hsla(43, 76%, 18%, 1);
+    --rs-accent-950: hsla(42, 60%, 10%, 1);
+
+    /* Neutral Colors */
+    --rs-neutral-50: hsla(208, 87%, 97%, 1);
+    --rs-neutral-100: hsla(209, 69%, 90%, 1);
+    --rs-neutral-200: hsla(209, 60%, 80%, 1);
+    --rs-neutral-300: hsla(209, 50%, 70%, 1);
+    --rs-neutral-400: hsla(209, 40%, 60%, 1);
+    --rs-neutral-500: hsla(209, 35%, 50%, 1);
+    --rs-neutral-600: hsla(209, 40%, 35%, 1);
+    --rs-neutral-700: hsla(209, 50%, 25%, 1);
+    --rs-neutral-800: hsla(208, 60%, 18%, 1);
+    --rs-neutral-900: hsla(209, 67%, 13%, 1);
+    --rs-neutral-950: hsla(208, 74%, 9%, 1);
+
+    /* Neutral Grey Colors */
+    --rs-neutral-grey-50: hsla(220, 20%, 97%, 1);
+    --rs-neutral-grey-100: hsla(213, 18%, 90%, 1);
+    --rs-neutral-grey-200: hsla(217, 18%, 80%, 1);
+    --rs-neutral-grey-300: hsla(216, 17%, 70%, 1);
+    --rs-neutral-grey-400: hsla(215, 17%, 60%, 1);
+    --rs-neutral-grey-500: hsla(216, 17%, 50%, 1);
+    --rs-neutral-grey-600: hsla(217, 18%, 40%, 1);
+    --rs-neutral-grey-700: hsla(217, 20%, 30%, 1);
+    --rs-neutral-grey-800: hsla(215, 22%, 20%, 1);
+    --rs-neutral-grey-900: hsla(218, 24%, 13%, 1);
+    --rs-neutral-grey-950: hsla(217, 32%, 8%, 1);
+
+    /* Semantic Colors */
+    --rs-success: #10b981;
+    --rs-warning: #f59e0b;
+    --rs-error: #ef4444;
+    --rs-info: #3b82f6;
+    
+    /* Base colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @layer theme {
+    :root {
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+      --primary: 217.2 91.2% 59.8%;
+      --primary-foreground: 222.2 47.4% 11.2%;
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 224.3 76.3% 48%;
+    }
+  }
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans), sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif), serif;
+    font-weight: 700;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+}
+
