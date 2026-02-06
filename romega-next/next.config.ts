@@ -33,6 +33,26 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // Cache static assets aggressively
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Cache fonts
+        source: '/fonts/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
   },
 
@@ -64,6 +84,11 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: false,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Image optimization formats
+    formats: ['image/webp', 'image/avif'],
+    // Device sizes for responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
   // Turbopack configuration (Next.js 16+ default)

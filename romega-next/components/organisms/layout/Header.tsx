@@ -14,7 +14,6 @@ const navLinks = [
   { href: '/about', label: 'About', id: 'about' },
   { href: '/services', label: 'Services', id: 'services' },
   { href: '/careers', label: 'Careers', id: 'careers' },
-  { href: '/talent', label: 'Talent', id: 'talent' },
   { href: '/contact', label: 'Contact', id: 'contact' },
 ];
 
@@ -40,8 +39,7 @@ export function Header() {
                 width={200}
                 height={56}
                 className={styles['header__logo-image']}  // Element
-                priority
-              />
+                priority                fetchPriority="high"              />
             </Link>
           </div>
 

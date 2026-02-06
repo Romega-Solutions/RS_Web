@@ -10,7 +10,6 @@ export default function CareersPageClient() {
   useEffect(() => {
     // Listen for the custom event from CareersHero
     const handleOpenSidebar = () => {
-      console.log('Received openJobsSidebar event, opening sidebar');
       setIsSidebarOpen(true);
     };
 

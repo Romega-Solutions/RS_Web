@@ -90,6 +90,7 @@ export default function ServicesOverview() {
                     width={service.width}
                     height={service.height}
                     className="w-44 sm:w-44.25 md:w-70 h-37.5 sm:h-37.75 md:h-45 object-contain mx-auto"
+                    loading="lazy"
                   />
                 </div>
                 <div className="grow flex flex-col justify-between">

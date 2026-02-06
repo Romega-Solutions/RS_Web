@@ -47,6 +47,7 @@ export function Footer() {
                   height={115}
                   className="w-full h-auto lg:h-28.75"
                   style={{ height: 'auto' }}
+                  loading="lazy"
                 />
               </div>
 

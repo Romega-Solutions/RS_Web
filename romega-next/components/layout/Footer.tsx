@@ -146,7 +146,7 @@ export function Footer() {
                       href="/careers"
                       className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
                     >
-                      Careers & Talent
+                      Careers
                     </Link>
                   </li>
                 </ul>

@@ -30,6 +30,7 @@ export default function HeroSection() {
             className={styles['hero-section__bg-pattern']}  // Element
             loading="eager"
             priority
+            fetchPriority="high"
           />
 
           {/* Heading */}
@@ -48,6 +49,7 @@ export default function HeroSection() {
                 className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--mobile']}`}
                 loading="eager"
                 priority
+                fetchPriority="high"
               />
               <Image
                 src="/images/home/hero-rs-text-hd.png"
@@ -110,7 +112,7 @@ export default function HeroSection() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             aria-label="Romega Solutions promotional video"
             poster="/images/home/hero-right.png"
             role="img"

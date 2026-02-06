@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import AboutPageClient from './AboutPageClient';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -39,5 +40,30 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutPageClient />;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Romega Solutions',
+    description: 'Learn about Romega Solutions, our mission, and the team driving innovation.',
+    url: 'https://www.romegasolutions.com/about',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'Romega Solutions',
+      founder: {
+        '@type': 'Person',
+        name: 'Robbie Galoso',
+      },
+    },
+  };
+
+  return (
+    <>
+      <Script
+        id="structured-data-about"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <AboutPageClient />
+    </>
+  );
 }

@@ -107,6 +107,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
+      <head>
+        {/* Preconnect to critical external domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://calendly.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#0A2540" />
+      </head>
       <body
         className={`${sourceSans.variable} ${merriweather.variable} antialiased bg-(--rs-primary-50) overflow-x-hidden`}
       >

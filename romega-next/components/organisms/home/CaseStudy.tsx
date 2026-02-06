@@ -35,6 +35,7 @@ export default function CaseStudy() {
                 width={500}
                 height={300}
                 className="w-94 sm:w-125 h-55 sm:h-75 object-cover rounded-lg"
+                loading="lazy"
               />
             </div>
 
@@ -63,6 +64,7 @@ export default function CaseStudy() {
                   width={600}
                   height={350}
                   className="w-150 h-87.5 object-cover rounded-lg"
+                  loading="lazy"
                 />
               </div>
             </div>
