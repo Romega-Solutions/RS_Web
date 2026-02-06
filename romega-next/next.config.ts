@@ -68,6 +68,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false, // Remove X-Powered-By header
   
+  // Vercel CDN Optimization - Output standalone for optimal edge caching
+  output: 'standalone',
+  
   // Compiler options for production optimization
   compiler: {
     // Remove console logs in production
@@ -76,7 +79,7 @@ const nextConfig: NextConfig = {
     } : false,
   },
 
-  // Image optimization security
+  // Image optimization for Vercel CDN
   images: {
     remotePatterns: [
       {
@@ -92,11 +95,15 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: false,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Image optimization formats
+    // Image optimization formats (Vercel auto-serves based on browser support)
     formats: ['image/webp', 'image/avif'],
     // Device sizes for responsive images
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Vercel CDN will cache optimized images at edge
+    minimumCacheTTL: 31536000, // 1 year cache for optimized images
+    // Limit concurrent image optimization (Vercel limits)
+    unoptimized: false,
   },
 
   // Turbopack configuration (Next.js 16+ default)
@@ -116,11 +123,19 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  // Disable x-powered-by and other identifying headers
-  generateEtags: false,
+  // Enable ETags for better caching with Vercel CDN
+  generateEtags: true,
   
-  // Compress responses
+  // Compress responses (Vercel handles this at edge, but enable for local dev)
   compress: true,
+  
+  // Experimental features for better performance
+  experimental: {
+    // Optimize CSS loading
+    optimizeCss: true,
+    // Optimize package imports
+    optimizePackageImports: ['lucide-react'],
+  },
 };
 
 export default nextConfig;
