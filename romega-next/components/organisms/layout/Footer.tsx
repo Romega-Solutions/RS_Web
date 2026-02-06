@@ -180,14 +180,6 @@ export function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/talent"
-                      className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
-                    >
-                      Talent
-                    </Link>
-                  </li>
-                  <li>
                     <a
                       href="#"
                       onClick={(e) => {

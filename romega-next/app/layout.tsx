@@ -119,8 +119,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://calendly.com" />
-        {/* Preload critical images */}
-        <link rel="preload" as="image" href="/images/home/hero-right.png" />
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#0A2540" />
       </head>
