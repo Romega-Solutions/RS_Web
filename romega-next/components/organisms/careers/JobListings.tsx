@@ -79,9 +79,6 @@ export default function JobListings() {
       <div className={styles['job-listings__container']}>
         {/* Header */}
         <div className={styles['job-listings__header']}>
-          <h2 id="jobs-heading" className={styles['job-listings__title']}>
-            Open Positions
-          </h2>
           <p className={styles['job-listings__subtitle']}>
             Explore our current opportunities and find your perfect role
           </p>

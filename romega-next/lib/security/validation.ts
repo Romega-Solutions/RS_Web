@@ -88,23 +88,39 @@ export function isValidOrigin(request: NextRequest): boolean {
   const origin = request.headers.get('origin');
   const referer = request.headers.get('referer');
   
+  // In development, allow localhost
+  const isDev = process.env.NODE_ENV === 'development';
+  
   const allowedOrigins = [
     process.env.NEXT_PUBLIC_APP_URL,
     'https://www.romegasolutions.com',
     'https://romegasolutions.com',
+    ...(isDev ? ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000'] : []),
   ].filter(Boolean);
 
   if (!origin && !referer) {
-    // Allow requests without origin/referer (direct access)
+    // Allow requests without origin/referer (direct access, server-side, etc.)
     return true;
   }
 
   if (origin) {
-    return allowedOrigins.some(allowed => origin.startsWith(allowed!));
+    // Allow if origin matches any allowed origin
+    const isAllowed = allowedOrigins.some(allowed => origin.startsWith(allowed!));
+    if (!isAllowed && isDev) {
+      console.warn('[SECURITY] Origin not in allowed list (dev mode, allowing):', origin);
+      return true; // In dev, be more permissive
+    }
+    return isAllowed;
   }
 
   if (referer) {
-    return allowedOrigins.some(allowed => referer.startsWith(allowed!));
+    // Allow if referer matches any allowed origin
+    const isAllowed = allowedOrigins.some(allowed => referer.startsWith(allowed!));
+    if (!isAllowed && isDev) {
+      console.warn('[SECURITY] Referer not in allowed list (dev mode, allowing):', referer);
+      return true; // In dev, be more permissive
+    }
+    return isAllowed;
   }
 
   return false;

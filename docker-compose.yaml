@@ -9,16 +9,69 @@ services:
     ports:
       - "8080:80"
     restart: unless-stopped
-    networks:
-      - romega-network
+    
+    # Security: Read-only root filesystem
+    read_only: true
+    
+    # Security: Capability restrictions
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - SETGID
+      - SETUID
+    
+    # Security: Run as non-root user
+    user: "1001:1001"
+    
+    # Security: Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    
+    # Security: Disable new privileges
+    security_opt:
+      - no-new-privileges:true
+    
+    # Security: Temporary filesystems
+    tmpfs:
+      - /tmp:noexec,nosuid,size=50m
+      - /var/cache/nginx:noexec,nosuid,size=50m
+      - /var/run:noexec,nosuid,size=10m
+    
+    # Health check with improved security
     healthcheck:
-      test:
-        ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      test: ["CMD", "curl", "-f", "http://localhost/"]
       interval: 30s
       timeout: 3s
       retries: 3
-      start_period: 5s
+      start_period: 10s
+    
+    # Environment variables (minimal exposure)
+    environment:
+      - NGINX_ENTRYPOINT_QUIET_LOGS=1
+    
+    networks:
+      - romega-network
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 networks:
   romega-network:
     driver: bridge
+    # Security: Enable network isolation
+    internal: false
+    driver_opts:
+      com.docker.network.bridge.name: romega-br0
+      com.docker.network.bridge.enable_ip_masquerade: "true"

@@ -229,6 +229,15 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
+/* Modifier: White background for specific team members */
+.team-carousel__card--white-bg {
+  background-color: #ffffff;
+}
+
+.team-carousel__card--white-bg .team-carousel__image {
+  mix-blend-mode: multiply;
+}
+
 .team-carousel__item--center .team-carousel__card {
   border: 4px solid #FFA500;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);

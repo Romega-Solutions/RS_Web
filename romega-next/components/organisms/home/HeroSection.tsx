@@ -39,14 +39,13 @@ export default function HeroSection() {
           >
             Empower Your Team with
             <span className={styles['hero-section__title-highlight']}>  {/* Element */}
-              Smarte
+              Smarter
               <Image
                 src="/images/home/hero-rs-text-hd.png"
                 alt="RS Solutions logo"
                 width={208}
                 height={80}
                 className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--mobile']}`}
-                style={{ width: 'auto' }}
                 loading="eager"
                 priority
               />
@@ -56,7 +55,6 @@ export default function HeroSection() {
                 width={208}
                 height={80}
                 className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--desktop']}`}
-                style={{ width: 'auto' }}
                 loading="eager"
                 priority
               />

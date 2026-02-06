@@ -84,7 +84,9 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
                   }`}
                 >
                   <button
-                    className={styles['team-carousel__card']}
+                    className={`${styles['team-carousel__card']} ${
+                      member.id === 'rich-salvador' ? styles['team-carousel__card--white-bg'] : ''
+                    }`}
                     onClick={() => isCenter && onMemberClick?.(member)}
                     aria-label={`View ${member.name}'s profile`}
                     disabled={!isCenter}

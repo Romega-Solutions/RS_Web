@@ -3,6 +3,7 @@ import { Source_Sans_3, Merriweather } from "next/font/google";
 import { Header } from "@/components/organisms/layout/Header";
 import { Footer } from "@/components/organisms/layout/Footer";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import CopyProtection from "@/components/layout/CopyProtection";
 import "./globals.css";
 import "@/app/styles/styles.css";
 
@@ -101,6 +102,7 @@ export default function RootLayout({
       <body
         className={`${sourceSans.variable} ${merriweather.variable} antialiased bg-(--rs-primary-50) overflow-x-hidden`}
       >
+        <CopyProtection />
         <GoogleAnalytics />
         {/* Skip to main content for accessibility */}
         <a

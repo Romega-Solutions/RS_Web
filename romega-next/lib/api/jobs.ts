@@ -9,15 +9,18 @@ import type { Job } from '@/types/jobs';
 export async function fetchJobs(): Promise<Job[]> {
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), 35000); // 35 second timeout (slightly longer than server)
 
     // Use our internal API route instead of external URL
-    const apiUrl = `${process.env.NEXT_PUBLIC_APP_URL || ''}/api/careers/jobs`;
+    // Support both absolute and relative URLs
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || '';
+    const apiUrl = baseUrl ? `${baseUrl}/api/careers/jobs` : '/api/careers/jobs';
 
     const response = await fetch(apiUrl, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
+        'Cache-Control': 'no-cache', // Prevent browser caching issues
       },
       next: { revalidate: 300 }, // Revalidate every 5 minutes
       signal: controller.signal,
@@ -34,17 +37,21 @@ export async function fetchJobs(): Promise<Job[]> {
     // Handle both successful response and fallback empty array
     if (data.error) {
       console.warn('Jobs API returned error:', data.error);
+      if (data.message) {
+        console.warn('Additional info:', data.message);
+      }
       return data.jobs || [];
     }
 
     const jobs: Job[] = Array.isArray(data) ? data : [];
+    console.log(`[CLIENT] Successfully received ${jobs.length} jobs`);
     return jobs;
   } catch (error) {
     // More detailed error logging
     if (error instanceof Error) {
       if (error.name === 'AbortError') {
-        console.error('Request timed out after 10 seconds');
-        throw new Error('Request timed out. Please try again later.');
+        console.error('Client request timed out after 35 seconds');
+        throw new Error('Request timed out. Please check your connection and try again.');
       }
       console.error('Failed to fetch jobs:', error.message);
     } else {

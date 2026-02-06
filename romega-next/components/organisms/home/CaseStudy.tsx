@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function CaseStudy() {
   return (
     <section
-      className="py-16 bg-case relative overflow-hidden lg:max-h-[1000px]"
+      className="py-16 bg-case relative overflow-hidden lg:max-h-250"
       aria-labelledby="case-study-heading"
     >
       <div className="max-w-7xl mx-auto px-8 md:px-4 relative z-10">
@@ -34,7 +34,7 @@ export default function CaseStudy() {
                 alt="Professional team meeting discussing leadership solutions"
                 width={500}
                 height={300}
-                className="w-[376px] sm:w-[500px] h-[220px] sm:h-[300px] object-cover rounded-lg"
+                className="w-94 sm:w-125 h-55 sm:h-75 object-cover rounded-lg"
               />
             </div>
 
@@ -56,13 +56,13 @@ export default function CaseStudy() {
               </div>
 
               {/* Right Image - Desktop only */}
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <Image
                   src="/images/home/webp/Case Study Photo.webp"
                   alt="Professional team meeting discussing leadership solutions"
                   width={600}
                   height={350}
-                  className="w-[600px] h-[350px] object-cover rounded-lg"
+                  className="w-150 h-87.5 object-cover rounded-lg"
                 />
               </div>
             </div>

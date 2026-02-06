@@ -19,6 +19,7 @@ export default function CareersHero() {
   const handleOpenJobsSidebar = () => {
     // This will trigger the sidebar from the parent component
     if (typeof window !== 'undefined') {
+      console.log('Dispatching openJobsSidebar event');
       const event = new CustomEvent('openJobsSidebar');
       window.dispatchEvent(event);
     }

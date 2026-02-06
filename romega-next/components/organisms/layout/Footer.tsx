@@ -120,7 +120,7 @@ export function Footer() {
             <div className="flex flex-row lg:flex-row lg:flex-1">
               {/* Company */}
               <div className="flex-1">
-                <h3 className="text-(--rs-neutral-400) text-center lg:text-left text-base mb-4 uppercase tracking-widest">
+                <h3 className="text-(--rs-neutral-400) text-center lg:text-left text-base mb-4 uppercase tracking-widest font-normal">
                   COMPANY
                 </h3>
                 <ul className="space-y-3 text-center lg:text-left">
@@ -153,7 +153,7 @@ export function Footer() {
                       href="/careers"
                       className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
                     >
-                      Careers & Talent
+                      Careers
                     </Link>
                   </li>
                 </ul>
@@ -166,7 +166,7 @@ export function Footer() {
 
               {/* Help */}
               <div className="flex-1">
-                <h3 className="text-(--rs-neutral-400) text-base mb-4 uppercase tracking-widest text-center lg:text-left">
+                <h3 className="text-(--rs-neutral-400) text-base mb-4 uppercase tracking-widest text-center lg:text-left font-normal">
                   HELP
                 </h3>
                 <ul className="space-y-3 text-center lg:text-left">
@@ -176,6 +176,14 @@ export function Footer() {
                       className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
                     >
                       Contact
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/talent"
+                      className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
+                    >
+                      Talent
                     </Link>
                   </li>
                   <li>
@@ -211,8 +219,8 @@ export function Footer() {
               {/* Contact Details */}
               <div className="space-y-6 mb-8">
                 <div className="border border-(--rs-neutral-300) rounded-lg p-4 relative">
-                  <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-(--rs-neutral-100) px-4 py-1 mb-2 uppercase font-bold text-rs-neutral-400 tracking-wide">
-                    <h3 className="text-sm block whitespace-nowrap">
+                  <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-(--rs-neutral-100) px-4 py-1 mb-2 uppercase text-rs-neutral-400 tracking-wide">
+                    <h3 className="text-sm block whitespace-nowrap font-normal">
                       REACH US OUT
                     </h3>
                   </div>

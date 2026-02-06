@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import CareersPageClient from './CareersPageClient';
-import JobListings from '@/components/organisms/careers/JobListings';
 import PrivacyPriority from '@/components/organisms/careers/PrivacyPriority';
 import WhyJoinUs from '@/components/organisms/careers/WhyJoinUs';
 import ContactCTA from '@/components/organisms/shared/ContactCTA';
@@ -67,7 +66,6 @@ export default function CareersPage() {
       />
       <main className="bg-[var(--rs-primary-50)]">
         <CareersPageClient />
-        <JobListings />
         <PrivacyPriority />
         <WhyJoinUs />
         <ContactCTA />

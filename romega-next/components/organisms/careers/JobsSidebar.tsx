@@ -11,12 +11,10 @@ interface JobsSidebarProps {
 }
 
 export default function JobsSidebar({ isOpen, onClose }: JobsSidebarProps) {
-  const [isAnimating, setIsAnimating] = useState(false);
   const { jobs, state, error, refetch } = useJobs();
 
   useEffect(() => {
     if (isOpen) {
-      setIsAnimating(true);
       // Prevent body scroll when sidebar is open
       document.body.style.overflow = 'hidden';
       // Refetch jobs when sidebar opens
@@ -42,11 +40,11 @@ export default function JobsSidebar({ isOpen, onClose }: JobsSidebarProps) {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
 
-  if (!isOpen && !isAnimating) return null;
+  if (!isOpen) return null;
 
   return (
     <div
-      className={`fixed inset-0 z-[60] ${isOpen ? 'block' : 'hidden'}`}
+      className="fixed inset-0 z-[9999]"
       role="dialog"
       aria-modal="true"
       aria-labelledby="sidebar-title"
@@ -60,9 +58,7 @@ export default function JobsSidebar({ isOpen, onClose }: JobsSidebarProps) {
 
       {/* Sidebar Panel */}
       <div
-        className={`fixed right-0 top-0 h-full w-full sm:w-[400px] bg-[var(--rs-neutral-100)] shadow-xl transition-transform duration-300 ease-in-out z-[70] ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className="fixed right-0 top-0 h-full w-full sm:w-[400px] bg-[var(--rs-neutral-100)] shadow-xl transition-transform duration-300 ease-in-out z-[10000] translate-x-0"
       >
         {/* Header */}
         <div className="flex items-center justify-between p-4 bg-[#e1f0f5]">

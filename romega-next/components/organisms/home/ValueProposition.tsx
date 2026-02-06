@@ -67,6 +67,7 @@ export default function ValueProposition() {
                 variant="secondary"
                 icon={Briefcase}
                 ariaLabel="Learn more about Romega Solutions and our company values"
+                className="bg-(--rs-neutral-50)! hover:bg-(--rs-primary-500)! hover:text-white! hover:border-(--rs-primary-500)!"
               >
                 Find Out More
               </Button>
