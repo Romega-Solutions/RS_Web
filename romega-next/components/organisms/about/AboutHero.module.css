@@ -4,6 +4,9 @@
 
 /* Block */
 .about-hero {
+  position: relative;
+  display: flex;
+  align-items: stretch;
   margin-top: 104px;
   background-color: var(--rs-primary-50);
 }
@@ -20,7 +23,6 @@
   max-width: 95vw;
   margin: 0 auto;
   align-items: stretch;
-  min-height: auto;
 }
 
 @media (min-width: 768px) {
@@ -59,7 +61,7 @@
 
 @media (min-width: 768px) {
   .about-hero__content {
-    flex-basis: 50%;
+    flex: 0 0 50%;
     padding: 2rem 1.5rem;
     gap: 1.5rem;
     order: 1;
@@ -68,7 +70,7 @@
 
 @media (min-width: 1024px) {
   .about-hero__content {
-    flex-basis: 45%;
+    flex: 0 0 45%;
     padding: 4rem 4rem 4rem 3rem;
     gap: 2rem;
     order: 1;
@@ -77,30 +79,26 @@
 
 .about-hero__image-wrapper {
   position: relative;
-  flex-basis: 50%;
+  flex: 1;
   order: 2;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  height: 100%;
-  min-height: 300px;
 }
 
 @media (min-width: 768px) {
   .about-hero__image-wrapper {
-    flex-basis: 50%;
+    flex: 0 0 50%;
     aspect-ratio: auto;
     height: 100%;
-    min-height: 100%;
+    min-height: 500px;
     order: 2;
   }
 }
 
 @media (min-width: 1024px) {
   .about-hero__image-wrapper {
-    flex-basis: 55%;
-    aspect-ratio: auto;
-    height: 100%;
-    order: 2;
+    flex: 0 0 55%;
+    min-height: 600px;
   }
 }
 
