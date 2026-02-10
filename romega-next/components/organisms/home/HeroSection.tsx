@@ -42,7 +42,7 @@ export default function HeroSection() {
           >
             Empower Your Team with
             <span className={styles['hero-section__title-highlight']}>  {/* Element */}
-              Smarter
+              Smarte
               <Image
                 src="/images/home/hero-rs-text-hd.png"
                 alt="RS Solutions"

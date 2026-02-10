@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from './CareersHero.module.css';
 
 export default function CareersHero() {
   const [updatedDate, setUpdatedDate] = useState('');
@@ -26,7 +27,7 @@ export default function CareersHero() {
 
   return (
     <section
-      className="relative bg-[var(--rs-neutral-50)] py-12 md:py-16 lg:py-20 overflow-hidden mt-[104px] min-h-[calc(100vh-104px)]"
+      className={styles['careers-hero']}
       aria-labelledby="leadership-opportunities-heading"
     >
       {/* Background image */}
@@ -35,16 +36,15 @@ export default function CareersHero() {
         alt=""
         fill
         sizes="100vw"
-        className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
+        className={styles['careers-hero__bg-pattern']}
         loading="eager"
         priority
         aria-hidden="true"
-        style={{ objectFit: 'cover' }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className={styles['careers-hero__container']}>
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 relative z-10">
           <h1
             id="leadership-opportunities-heading"
             className="text-3xl sm:text-4xl lg:text-[40px] text-merriweather font-bold text-[var(--rs-primary-600)] mb-4"

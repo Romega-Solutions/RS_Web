@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Security headers
   async headers() {
+    const isProduction = process.env.NODE_ENV === 'production';
+    
     return [
       {
         source: '/:path*',
@@ -33,7 +35,9 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://calendly.com https://assets.calendly.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://calendly.com https://*.supabase.co https://*.vercel.app https://api.emailjs.com; frame-src https://calendly.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+            value: isProduction 
+              ? "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://calendly.com https://assets.calendly.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://calendly.com https://*.supabase.co https://*.vercel.app https://api.emailjs.com; frame-src https://calendly.com; object-src 'none'; base-uri 'self'; form-action 'self';"
+              : "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://calendly.com https://assets.calendly.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://calendly.com https://localhost:* https://*.supabase.co https://*.vercel.app https://api.emailjs.com; frame-src https://calendly.com; object-src 'none';"
           },
           {
             key: 'Cross-Origin-Opener-Policy',
@@ -100,6 +104,8 @@ const nextConfig: NextConfig = {
     // Device sizes for responsive images
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Image quality options
+    qualities: [75, 85, 90],
     // Vercel CDN will cache optimized images at edge
     minimumCacheTTL: 31536000, // 1 year cache for optimized images
     // Limit concurrent image optimization (Vercel limits)

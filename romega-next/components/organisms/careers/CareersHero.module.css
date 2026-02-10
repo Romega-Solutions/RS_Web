@@ -1,27 +1,65 @@
 .careers-hero {
   position: relative;
-  padding: 8rem 1.5rem 6rem;
+  background-color: var(--rs-neutral-50);
+  padding: 3rem 1.5rem;
   overflow: hidden;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+  margin-top: 104px;
 }
 
 @media (min-width: 768px) {
   .careers-hero {
-    padding: 10rem 2rem 8rem;
+    padding: 4rem 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .careers-hero {
-    padding: 12rem 3rem 10rem;
+    padding: 5rem 3rem;
   }
 }
 
 .careers-hero__container {
   position: relative;
-  max-width: 64rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 95vw;
   margin: 0 auto;
-  z-index: 1;
+  align-items: stretch;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .careers-hero__container {
+    max-width: 95vw;
+    min-height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .careers-hero__container {
+    max-height: 62.5rem;
+    max-width: 98vw;
+    min-height: 600px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .careers-hero__container {
+    max-width: 1680px;
+  }
+}
+
+.careers-hero__bg-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.1;
+  pointer-events: none;
+  select-none: none;
+  z-index: 0;
 }
 
 .careers-hero__bg-logo {

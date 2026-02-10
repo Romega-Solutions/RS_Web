@@ -53,18 +53,18 @@ export default function ServicesOverview() {
           </div>
 
           {/* Service Tags */}
-          <div className="flex flex-wrap justify-start md:max-w-232.5 md:max-h-17.75 items-center gap-2 md:gap-3 mb-8 bg-services-tags py-5 md:py-4 px-12.5 md:px-5 border-yellow-200 border-2 rounded-xl mx-auto">
+          <div className="flex flex-wrap justify-center md:justify-start md:max-w-232.5 items-center gap-2 md:gap-3 mb-8 bg-services-tags py-5 md:py-4 px-6 md:px-5 border-yellow-200 border-2 rounded-xl mx-auto">
             {serviceTags.map((tag) => (
               <span
                 key={tag}
-                className="bg-white text-rs-service-source-sans px-5 md:px-4 py-1 rounded-full font-medium text-sm md:text-base"
+                className="bg-white text-rs-service-source-sans px-4 md:px-4 py-2 rounded-full font-medium text-sm md:text-base hover:bg-rs-primary-600 hover:text-white hover:scale-105 active:scale-95 transition-all duration-200 cursor-default"
               >
                 {tag}
               </span>
             ))}
             <Link
               href="/services"
-              className="bg-rs-primary-200 text-rs-service-source-sans px-5 md:px-4 py-1 rounded-full font-medium hover:bg-rs-primary-300 hover:text-rs-primary-100 transition duration-300 cursor-pointer text-sm md:text-base"
+              className="bg-rs-primary-200 text-rs-service-source-sans px-4 md:px-4 py-2 rounded-full font-medium hover:bg-rs-primary-600 hover:text-white hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-sm md:text-base"
               aria-label="Learn more about our services"
             >
               Learn More About Services
@@ -99,10 +99,10 @@ export default function ServicesOverview() {
                   <h3 className="text-[24px] sm:text-[20px] md:text-[22px] font-bold mb-4">
                     {service.title}
                   </h3>
-                  <div className="text-white text-[1rem] text-rs-service-source px-4 py-2 rounded-lg hover:bg-white hover:text-rs-primary-700 transition duration-300 flex items-center mx-auto md:mx-0 mt-auto">
+                  <div className="text-white text-[1rem] text-rs-service-source px-4 py-2 rounded-lg bg-transparent border border-white hover:bg-white hover:!text-[#1e3a5f] hover:border-white transition duration-300 flex items-center mx-auto md:mx-0 mt-auto">
                     View {service.tag} Details
                     <svg
-                      className="w-4 h-4 ml-2"
+                      className="w-4 h-4 ml-2 transition-colors duration-300"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
