@@ -101,12 +101,12 @@ function addSecurityHeaders(response: NextResponse): NextResponse {
     // Content Security Policy (CSP)
     'Content-Security-Policy': [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: https: blob:",
       "media-src 'self' blob:",
-      "connect-src 'self' https://www.google-analytics.com https://*.supabase.co",
+      "connect-src 'self' https://www.google-analytics.com https://*.supabase.co https://www.google.com",
       "frame-src 'self' https://www.google.com",
       "object-src 'none'",
       "base-uri 'self'",

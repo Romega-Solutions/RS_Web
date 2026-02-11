@@ -28,6 +28,7 @@
   .hero-section__container {
     flex-direction: row;
     max-width: 95vw;
+    min-height: 500px;
   }
 }
 
@@ -35,6 +36,7 @@
   .hero-section__container {
     max-height: 62.5rem;
     max-width: 98vw;
+    min-height: 600px;
   }
 }
 
