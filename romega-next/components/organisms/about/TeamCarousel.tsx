@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
 import { TEAM_MEMBERS, type TeamMember } from '@/lib/constants';
@@ -13,6 +13,12 @@ interface TeamCarouselProps {
 export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(3); // Start with CEO in center
   const [isAnimating, setIsAnimating] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
 
   const handleScroll = (direction: 1 | -1) => {
     if (isAnimating) return;
@@ -30,8 +36,49 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
 
   const goToSlide = (index: number) => {
     if (isAnimating || index === currentIndex) return;
+    setIsAnimating(true);
     setCurrentIndex(index);
+    setTimeout(() => setIsAnimating(false), 600);
   };
+
+  // Touch handlers for mobile swipe
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleScroll(1);
+    } else if (isRightSwipe) {
+      handleScroll(-1);
+    }
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        handleScroll(-1);
+      } else if (e.key === 'ArrowRight') {
+        handleScroll(1);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAnimating]);
 
   // Get visible team members (7 total: 3 left + center + 3 right)
   const getVisibleMembers = () => {
@@ -70,8 +117,16 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
         </div>
 
         {/* Carousel Track */}
-        <div className={styles['team-carousel__track-wrapper']}>
-          <div className={styles['team-carousel__track']}>
+        <div 
+          className={styles['team-carousel__track-wrapper']}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <div 
+            ref={trackRef}
+            className={styles['team-carousel__track']}
+          >
             {getVisibleMembers().map(({ member, position }) => {
               const isCenter = position === 3;
               const positionClass = styles[`team-carousel__item--position-${position}`];

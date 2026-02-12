@@ -73,14 +73,28 @@
 .team-carousel__track-wrapper {
   position: relative;
   width: 100%;
-  height: 450px;
-  margin-bottom: 3rem;
+  height: 280px;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  touch-action: pan-y;
+}
+
+@media (min-width: 640px) {
+  .team-carousel__track-wrapper {
+    height: 350px;
+  }
 }
 
 @media (min-width: 768px) {
+  .team-carousel__track-wrapper {
+    height: 400px;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .team-carousel__track-wrapper {
     height: 450px;
   }
@@ -94,7 +108,7 @@
   align-items: center;
   justify-content: center;
   gap: 0;
-  padding: 0 1rem;
+  padding: 0;
   transition: all 0.5s ease-in-out;
 }
 
@@ -108,106 +122,211 @@
   transform-style: preserve-3d;
 }
 
-/* Position 0 (Far Left) - 140x140 */
-.team-carousel__item--position-0 {
-  margin-right: -30px;
-  opacity: 1;
-  z-index: 1;
+/* Mobile (< 640px): Show center only */
+@media (max-width: 639px) {
+  .team-carousel__item--position-0,
+  .team-carousel__item--position-1,
+  .team-carousel__item--position-2,
+  .team-carousel__item--position-4,
+  .team-carousel__item--position-5,
+  .team-carousel__item--position-6 {
+    display: none;
+  }
+
+  .team-carousel__item--position-3 {
+    opacity: 1;
+    z-index: 50;
+  }
+
+  .team-carousel__item--position-3 .team-carousel__card {
+    width: 280px;
+    height: 300px;
+  }
 }
 
-.team-carousel__item--position-0 .team-carousel__card {
-  width: 140px;
-  height: 140px;
-}
-
-/* Position 1 (Left) - 200x215 */
-.team-carousel__item--position-1 {
-  margin-right: -40px;
-  opacity: 1;
-  z-index: 2;
-}
-
-.team-carousel__item--position-1 .team-carousel__card {
-  width: 200px;
-  height: 215px;
-}
-
-/* Position 2 (Left-Center) - 270x288 */
-.team-carousel__item--position-2 {
-  margin-right: -50px;
-  opacity: 1;
-  z-index: 3;
-}
-
-.team-carousel__item--position-2 .team-carousel__card {
-  width: 270px;
-  height: 288px;
-}
-
-/* Position 3 (CENTER) - 340x365 with yellow border */
-.team-carousel__item--position-3 {
-  margin-right: -50px;
-  opacity: 1;
-  z-index: 50;
-}
-
-.team-carousel__item--position-3 .team-carousel__card {
-  width: 340px;
-  height: 365px;
-}
-
-/* Position 4 (Right-Center) - 270x288 */
-.team-carousel__item--position-4 {
-  margin-right: -40px;
-  opacity: 1;
-  z-index: 3;
-}
-
-.team-carousel__item--position-4 .team-carousel__card {
-  width: 270px;
-  height: 288px;
-}
-
-/* Position 5 (Right) - 200x215 */
-.team-carousel__item--position-5 {
-  margin-right: -30px;
-  opacity: 1;
-  z-index: 2;
-}
-
-.team-carousel__item--position-5 .team-carousel__card {
-  width: 200px;
-  height: 215px;
-}
-
-/* Position 6 (Far Right) - 140x140 */
-.team-carousel__item--position-6 {
-  margin-right: 0;
-  opacity: 1;
-  z-index: 1;
-}
-
-.team-carousel__item--position-6 .team-carousel__card {
-  width: 140px;
-  height: 140px;
-}
-
-/* Mobile adjustments */
-@media (max-width: 767px) {
+/* Tablet (640px - 767px): Show center + 1 on each side */
+@media (min-width: 640px) and (max-width: 767px) {
   .team-carousel__item--position-0,
   .team-carousel__item--position-1,
   .team-carousel__item--position-5,
   .team-carousel__item--position-6 {
-    opacity: 0;
-    pointer-events: none;
+    display: none;
   }
 
   .team-carousel__item--position-2 {
-    transform: translate(-50%, -50%) translateX(-150px) scale(0.7);
+    margin-right: -20px;
+    opacity: 0.7;
+    z-index: 2;
+  }
+
+  .team-carousel__item--position-2 .team-carousel__card {
+    width: 150px;
+    height: 180px;
+  }
+
+  .team-carousel__item--position-3 {
+    margin-right: -20px;
+    opacity: 1;
+    z-index: 50;
+  }
+
+  .team-carousel__item--position-3 .team-carousel__card {
+    width: 280px;
+    height: 320px;
   }
 
   .team-carousel__item--position-4 {
-    transform: translate(-50%, -50%) translateX(150px) scale(0.7);
+    margin-right: 0;
+    opacity: 0.7;
+    z-index: 2;
+  }
+
+  .team-carousel__item--position-4 .team-carousel__card {
+    width: 150px;
+    height: 180px;
+  }
+}
+
+/* Tablet Large (768px - 1023px): Show center + 2 on each side */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .team-carousel__item--position-0,
+  .team-carousel__item--position-6 {
+    display: none;
+  }
+
+  .team-carousel__item--position-1 {
+    margin-right: -25px;
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  .team-carousel__item--position-1 .team-carousel__card {
+    width: 140px;
+    height: 160px;
+  }
+
+  .team-carousel__item--position-2 {
+    margin-right: -30px;
+    opacity: 0.8;
+    z-index: 3;
+  }
+
+  .team-carousel__item--position-2 .team-carousel__card {
+    width: 200px;
+    height: 230px;
+  }
+
+  .team-carousel__item--position-3 {
+    margin-right: -30px;
+    opacity: 1;
+    z-index: 50;
+  }
+
+  .team-carousel__item--position-3 .team-carousel__card {
+    width: 300px;
+    height: 340px;
+  }
+
+  .team-carousel__item--position-4 {
+    margin-right: -25px;
+    opacity: 0.8;
+    z-index: 3;
+  }
+
+  .team-carousel__item--position-4 .team-carousel__card {
+    width: 200px;
+    height: 230px;
+  }
+
+  .team-carousel__item--position-5 {
+    margin-right: 0;
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  .team-carousel__item--position-5 .team-carousel__card {
+    width: 140px;
+    height: 160px;
+  }
+}
+
+/* Desktop (>= 1024px): Show all positions */
+@media (min-width: 1024px) {
+  .team-carousel__item--position-0 {
+    margin-right: -30px;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .team-carousel__item--position-0 .team-carousel__card {
+    width: 140px;
+    height: 140px;
+  }
+
+  .team-carousel__item--position-1 {
+    margin-right: -40px;
+    opacity: 0.7;
+    z-index: 2;
+  }
+
+  .team-carousel__item--position-1 .team-carousel__card {
+    width: 200px;
+    height: 215px;
+  }
+
+  .team-carousel__item--position-2 {
+    margin-right: -50px;
+    opacity: 0.9;
+    z-index: 3;
+  }
+
+  .team-carousel__item--position-2 .team-carousel__card {
+    width: 270px;
+    height: 288px;
+  }
+
+  .team-carousel__item--position-3 {
+    margin-right: -50px;
+    opacity: 1;
+    z-index: 50;
+  }
+
+  .team-carousel__item--position-3 .team-carousel__card {
+    width: 340px;
+    height: 365px;
+  }
+
+  .team-carousel__item--position-4 {
+    margin-right: -40px;
+    opacity: 0.9;
+    z-index: 3;
+  }
+
+  .team-carousel__item--position-4 .team-carousel__card {
+    width: 270px;
+    height: 288px;
+  }
+
+  .team-carousel__item--position-5 {
+    margin-right: -30px;
+    opacity: 0.7;
+    z-index: 2;
+  }
+
+  .team-carousel__item--position-5 .team-carousel__card {
+    width: 200px;
+    height: 215px;
+  }
+
+  .team-carousel__item--position-6 {
+    margin-right: 0;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .team-carousel__item--position-6 .team-carousel__card {
+    width: 140px;
+    height: 140px;
   }
 }
 
@@ -322,24 +441,68 @@
 }
 
 /* Responsive text for non-center items */
-.team-carousel__item--position-0 .team-carousel__name,
-.team-carousel__item--position-6 .team-carousel__name {
-  font-size: 0.875rem;
+@media (min-width: 1024px) {
+  .team-carousel__item--position-0 .team-carousel__name,
+  .team-carousel__item--position-6 .team-carousel__name {
+    font-size: 0.875rem;
+  }
+
+  .team-carousel__item--position-0 .team-carousel__role,
+  .team-carousel__item--position-6 .team-carousel__role {
+    font-size: 0.625rem;
+  }
+
+  .team-carousel__item--position-1 .team-carousel__name,
+  .team-carousel__item--position-5 .team-carousel__name {
+    font-size: 1.25rem;
+  }
+
+  .team-carousel__item--position-1 .team-carousel__role,
+  .team-carousel__item--position-5 .team-carousel__role {
+    font-size: 0.875rem;
+  }
 }
 
-.team-carousel__item--position-0 .team-carousel__role,
-.team-carousel__item--position-6 .team-carousel__role {
-  font-size: 0.625rem;
+@media (min-width: 768px) and (max-width: 1023px) {
+  .team-carousel__item--position-1 .team-carousel__name,
+  .team-carousel__item--position-5 .team-carousel__name {
+    font-size: 0.875rem;
+  }
+
+  .team-carousel__item--position-1 .team-carousel__role,
+  .team-carousel__item--position-5 .team-carousel__role {
+    font-size: 0.625rem;
+  }
+
+  .team-carousel__item--position-2 .team-carousel__name,
+  .team-carousel__item--position-4 .team-carousel__name {
+    font-size: 1.125rem;
+  }
+
+  .team-carousel__item--position-2 .team-carousel__role,
+  .team-carousel__item--position-4 .team-carousel__role {
+    font-size: 0.75rem;
+  }
 }
 
-.team-carousel__item--position-1 .team-carousel__name,
-.team-carousel__item--position-5 .team-carousel__name {
-  font-size: 1.25rem;
-}
+@media (min-width: 640px) and (max-width: 767px) {
+  .team-carousel__item--position-2 .team-carousel__name,
+  .team-carousel__item--position-4 .team-carousel__name {
+    font-size: 0.875rem;
+  }
 
-.team-carousel__item--position-1 .team-carousel__role,
-.team-carousel__item--position-5 .team-carousel__role {
-  font-size: 0.875rem;
+  .team-carousel__item--position-2 .team-carousel__role,
+  .team-carousel__item--position-4 .team-carousel__role {
+    font-size: 0.625rem;
+  }
+
+  .team-carousel__item--position-3 .team-carousel__name {
+    font-size: 1.5rem;
+  }
+
+  .team-carousel__item--position-3 .team-carousel__role {
+    font-size: 0.875rem;
+  }
 }
 
 /* ============================================
@@ -383,16 +546,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .team-carousel__controls {
+    gap: 2rem;
+    margin-top: 2rem;
+  }
 }
 
 .team-carousel__button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   background-color: white;
   color: #125ba1;
   border: none;
@@ -400,6 +571,14 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .team-carousel__button {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 .team-carousel__button:hover:not(:disabled) {
