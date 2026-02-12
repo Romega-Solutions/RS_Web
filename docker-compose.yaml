@@ -5,19 +5,20 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
     container_name: romega-solutions-website
     ports:
-      - "8080:80"
+      - "3000:3000"
     restart: unless-stopped
     
-    # Security: Read-only root filesystem
+    # Security: Read-only root filesystem (excluding Next.js cache)
     read_only: true
     
     # Security: Capability restrictions
     cap_drop:
       - ALL
     cap_add:
-      - NET_BIND_SERVICE
       - CHOWN
       - SETGID
       - SETUID
@@ -25,37 +26,39 @@ services:
     # Security: Run as non-root user
     user: "1001:1001"
     
-    # Security: Resource limits
+    # Security: Resource limits (adjusted for Next.js)
     deploy:
       resources:
         limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
           cpus: '0.5'
           memory: 256M
-        reservations:
-          cpus: '0.25'
-          memory: 128M
     
     # Security: Disable new privileges
     security_opt:
       - no-new-privileges:true
     
-    # Security: Temporary filesystems
+    # Security: Temporary filesystems for Next.js
     tmpfs:
-      - /tmp:noexec,nosuid,size=50m
-      - /var/cache/nginx:noexec,nosuid,size=50m
-      - /var/run:noexec,nosuid,size=10m
+      - /tmp:noexec,nosuid,size=100m
+      - /app/.next/cache:noexec,nosuid,size=200m
     
-    # Health check with improved security
+    # Health check for Next.js
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"] 
       interval: 30s
-      timeout: 3s
+      timeout: 5s
       retries: 3
-      start_period: 10s
+      start_period: 40s
     
-    # Environment variables (minimal exposure)
+    # Environment variables
     environment:
-      - NGINX_ENTRYPOINT_QUIET_LOGS=1
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
     
     networks:
       - romega-network

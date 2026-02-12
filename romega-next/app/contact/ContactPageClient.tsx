@@ -49,7 +49,7 @@ export default function ContactPageClient() {
             <div className="flex gap-6 text-base flex-1 justify-end mr-23.75">
               <button
                 type="button"
-                className="text-[var(--rs-neutral-500)] hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                className="text-(--rs-neutral-500) hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
                 aria-label="Open Privacy Policy"
                 onClick={() => setIsPrivacyOpen(true)}
               >
