@@ -4,6 +4,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
 // Rate limiting storage (in production, use Redis or similar)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -131,67 +132,180 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
 }
 
 /**
- * Send email via EmailJS
+ * Send email via Resend
  */
 async function sendEmail(formData: any): Promise<boolean> {
-  const serviceId = process.env.EMAILJS_SERVICE_ID;
-  const templateId = process.env.EMAILJS_TEMPLATE_ID;
-  const publicKey = process.env.EMAILJS_PUBLIC_KEY;
-  const privateKey = process.env.EMAILJS_PRIVATE_KEY;
+  const resendApiKey = process.env.RESEND_API_KEY;
+  const adminEmail = process.env.ADMIN_EMAIL || 'info@romega-solutions.com';
 
-  if (!serviceId || !templateId || !publicKey || !privateKey) {
-    console.error('[EmailJS] Configuration missing:');
-    console.error('[EmailJS] SERVICE_ID:', serviceId ? 'SET' : 'MISSING');
-    console.error('[EmailJS] TEMPLATE_ID:', templateId ? 'SET' : 'MISSING');
-    console.error('[EmailJS] PUBLIC_KEY:', publicKey ? 'SET' : 'MISSING');
-    console.error('[EmailJS] PRIVATE_KEY:', privateKey ? 'SET' : 'MISSING');
+  if (!resendApiKey) {
+    console.error('[Resend] API key missing');
     return false;
   }
 
   try {
-    console.log('[EmailJS] Attempting to send email...');
+    console.log('[Resend] Initializing...');
     
-    const payload = {
-      service_id: serviceId,
-      template_id: templateId,
-      user_id: publicKey,
-      accessToken: privateKey,
-      template_params: {
-        from_name: `${formData.firstName} ${formData.lastName}`,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        company: formData.company || 'Not specified',
-        phone: formData.phone,
-        to_name: 'Romega Solutions Team',
-        reply_to: new Date().toLocaleString('en-US', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-          timeZoneName: 'short'
-        })
-      }
-    };
-    
-    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+    const resend = new Resend(resendApiKey);
+
+    const timestamp = new Date().toLocaleString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'short'
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('[EmailJS] API Error:', response.status, errorText);
-      return false;
-    }
-    
-    console.log('[EmailJS] Email sent successfully');
+    console.log('[Resend] Sending email...');
+
+    await resend.emails.send({
+      from: 'Romega Contact Form <onboarding@resend.dev>',
+      to: adminEmail,
+      replyTo: formData.email,
+      subject: `New Contact: ${formData.subject}`,
+      html: `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form Submission - Romega Solutions</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #F1F5F9; font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #F1F5F9;">
+    <tr>
+      <td style="padding: 40px 20px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width: 650px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(18, 91, 161, 0.08);">
+          
+          <tr>
+            <td style="background: linear-gradient(135deg, #125BA1 0%, #5381AC 100%); padding: 40px 30px; text-align: center;">
+              <div style="background-color: rgba(255, 255, 255, 0.12); padding: 20px 30px; border-radius: 16px; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.2);">
+                <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: 1px; font-family: 'Source Sans 3', sans-serif;">ROMEGA SOLUTIONS</h1>
+                <div style="height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent); margin: 12px 0;"></div>
+                <p style="color: #E8F3FC; margin: 0; font-size: 15px; font-weight: 500; font-family: 'Source Sans 3', sans-serif;">New Contact Form Submission</p>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="background: linear-gradient(90deg, #FEF3C7 0%, #FDE68A 100%); padding: 15px 30px; text-align: center; border-bottom: 2px solid #F59E0B;">
+              <p style="margin: 0; color: #92400E; font-size: 14px; font-weight: 600; font-family: 'Source Sans 3', sans-serif;"><strong>Priority:</strong> New customer inquiry - Please respond within 24 hours</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding: 40px 30px 20px;">
+              <h2 style="color: #125BA1; font-size: 20px; font-weight: 700; margin: 0 0 12px 0; font-family: 'Source Sans 3', sans-serif;">Hello Romega Team,</h2>
+              <p style="color: #64748B; font-size: 16px; line-height: 1.7; margin: 0; font-family: 'Source Sans 3', sans-serif;">You've received a new message from your website contact form:</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding: 0 30px 30px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%); border: 2px solid #DBEAFE; border-radius: 16px; overflow: hidden;">
+                
+                <!-- Contact Information Header -->
+                <tr>
+                  <td style="padding: 30px; border-bottom: 2px solid #DBEAFE;">
+                    <h3 style="color: #125BA1; font-size: 18px; font-weight: 700; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Source Sans 3', sans-serif;">Contact Details</h3>
+                    
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                      <tr>
+                        <td style="padding: 12px 0;">
+                          <div style="background-color: #ffffff; padding: 15px 20px; border-radius: 10px; border-left: 4px solid #125BA1; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                            <div style="color: #64748B; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: 'Source Sans 3', sans-serif;">Full Name</div>
+                            <div style="color: #125BA1; font-size: 18px; font-weight: 700; font-family: 'Source Sans 3', sans-serif;">${formData.firstName} ${formData.lastName}</div>
+                          </div>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td style="padding: 12px 0;">
+                          <div style="background-color: #ffffff; padding: 15px 20px; border-radius: 10px; border-left: 4px solid #3B82F6; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                            <div style="color: #64748B; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: 'Source Sans 3', sans-serif;">Email Address</div>
+                            <div style="color: #1E293B; font-size: 16px; font-weight: 600; font-family: 'Source Sans 3', sans-serif;">
+                              <a href="mailto:${formData.email}" style="color: #3B82F6; text-decoration: none; font-family: 'Source Sans 3', sans-serif;">${formData.email}</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td style="padding: 12px 0;">
+                          <div style="background-color: #ffffff; padding: 15px 20px; border-radius: 10px; border-left: 4px solid #10B981; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                            <div style="color: #64748B; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: 'Source Sans 3', sans-serif;">Phone Number</div>
+                            <div style="color: #1E293B; font-size: 16px; font-weight: 600; font-family: 'Source Sans 3', sans-serif;">
+                              <a href="tel:${formData.phone}" style="color: #10B981; text-decoration: none; font-family: 'Source Sans 3', sans-serif;">${formData.phone}</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td style="padding: 12px 0;">
+                          <div style="background-color: #ffffff; padding: 15px 20px; border-radius: 10px; border-left: 4px solid #8B5CF6; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                            <div style="color: #64748B; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: 'Source Sans 3', sans-serif;">Company</div>
+                            <div style="color: #1E293B; font-size: 16px; font-weight: 600; font-family: 'Source Sans 3', sans-serif;">${formData.company || 'Not specified'}</div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Message Section -->
+                <tr>
+                  <td style="padding: 30px;">
+                    <div style="background-color: #ffffff; border-left: 4px solid #125BA1; padding: 18px 24px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                      <div style="color: #125BA1; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-family: 'Source Sans 3', sans-serif;">Subject</div>
+                      <div style="color: #1E293B; font-size: 18px; font-weight: 700; line-height: 1.4; font-family: 'Source Sans 3', sans-serif;">${formData.subject}</div>
+                    </div>
+
+                    <div style="background-color: #ffffff; border-left: 4px solid #5381AC; padding: 18px 24px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                      <div style="color: #5381AC; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-family: 'Source Sans 3', sans-serif;">Received On</div>
+                      <div style="color: #475569; font-size: 14px; font-weight: 600; font-family: 'Source Sans 3', sans-serif;">${timestamp}</div>
+                    </div>
+
+                    <div style="background-color: #ffffff; border: 3px solid #DBEAFE; border-radius: 12px; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                      <div style="color: #125BA1; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; padding-bottom: 12px; border-bottom: 2px solid #DBEAFE; font-family: 'Source Sans 3', sans-serif;">Message Content</div>
+                      <div style="color: #1E293B; font-size: 16px; line-height: 1.8; white-space: pre-wrap; font-weight: 400; font-family: 'Source Sans 3', sans-serif;">${formData.message}</div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding: 10px 30px 40px; text-align: center;">
+              <a href="mailto:${formData.email}?subject=Re: ${formData.subject}" style="display: inline-block; background: linear-gradient(135deg, #125BA1 0%, #5381AC 100%); color: #ffffff; text-decoration: none; padding: 16px 32px; border-radius: 12px; font-weight: 700; font-size: 16px; margin: 10px; font-family: 'Source Sans 3', sans-serif;">Reply via Email</a>
+              <a href="https://meetings.hubspot.com/robbie-galoso" style="display: inline-block; background-color: #ffffff; color: #125BA1; text-decoration: none; padding: 16px 32px; border: 3px solid #125BA1; border-radius: 12px; font-weight: 700; font-size: 16px; margin: 10px; font-family: 'Source Sans 3', sans-serif;">Schedule Meeting</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%); padding: 35px 30px; text-align: center; border-top: 1px solid #E2E8F0;">
+              <div style="color: #125BA1; font-weight: 800; font-size: 18px; margin-bottom: 8px; font-family: 'Source Sans 3', sans-serif;">ROMEGA SOLUTIONS</div>
+              <div style="color: #64748B; font-size: 14px; line-height: 1.6; margin-bottom: 15px; font-family: 'Source Sans 3', sans-serif;">222 Pacific Coast Hwy, #10, El Segundo, CA 90245</div>
+              <div style="color: #94A3B8; font-size: 12px; font-family: 'Source Sans 3', sans-serif;">© 2026 Romega Solutions. All rights reserved.</div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+      `,
+    });
+
+    console.log('[Resend] Email sent successfully');
     return true;
   } catch (error) {
-    console.error('[EmailJS] Send error:', error);
+    console.error('[Resend] Send error:', error);
     return false;
   }
 }

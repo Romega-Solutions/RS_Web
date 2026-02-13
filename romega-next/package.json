@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.2.2",
     "@prisma/client": "^5.22.0",
     "@radix-ui/react-dialog": "^1.1.15",
@@ -26,11 +27,12 @@
     "framer-motion": "^12.29.2",
     "lucide-react": "^0.563.0",
     "next": "^16.1.6",
+    "nodemailer": "^8.0.1",
     "prisma": "^5.22.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.71.1",
-    "resend": "^6.8.0",
+    "resend": "^6.9.2",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.3.6"
   },
@@ -43,6 +45,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.9",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

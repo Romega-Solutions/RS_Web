@@ -114,7 +114,7 @@ export default function ContactForm() {
     setErrors({});
 
     try {
-      // Send to secure API endpoint
+      // Send to secure API endpoint (server-side Nodemailer)
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -162,7 +162,8 @@ export default function ContactForm() {
           window.grecaptcha.reset();
         }
       }
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
 
       // Reset reCAPTCHA on error

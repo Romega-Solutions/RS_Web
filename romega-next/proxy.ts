@@ -106,7 +106,7 @@ function addSecurityHeaders(response: NextResponse): NextResponse {
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: https: blob:",
       "media-src 'self' blob:",
-      "connect-src 'self' https://www.google-analytics.com https://*.supabase.co https://www.google.com",
+      "connect-src 'self' https://www.google-analytics.com https://*.supabase.co https://www.google.com https://api.emailjs.com",
       "frame-src 'self' https://www.google.com",
       "object-src 'none'",
       "base-uri 'self'",
