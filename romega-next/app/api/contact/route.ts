@@ -136,45 +136,62 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
 async function sendEmail(formData: any): Promise<boolean> {
   const serviceId = process.env.EMAILJS_SERVICE_ID;
   const templateId = process.env.EMAILJS_TEMPLATE_ID;
+  const publicKey = process.env.EMAILJS_PUBLIC_KEY;
   const privateKey = process.env.EMAILJS_PRIVATE_KEY;
 
-  if (!serviceId || !templateId || !privateKey) {
-    console.error('EmailJS configuration missing');
+  if (!serviceId || !templateId || !publicKey || !privateKey) {
+    console.error('[EmailJS] Configuration missing:');
+    console.error('[EmailJS] SERVICE_ID:', serviceId ? 'SET' : 'MISSING');
+    console.error('[EmailJS] TEMPLATE_ID:', templateId ? 'SET' : 'MISSING');
+    console.error('[EmailJS] PUBLIC_KEY:', publicKey ? 'SET' : 'MISSING');
+    console.error('[EmailJS] PRIVATE_KEY:', privateKey ? 'SET' : 'MISSING');
     return false;
   }
 
   try {
+    console.log('[EmailJS] Attempting to send email...');
+    
+    const payload = {
+      service_id: serviceId,
+      template_id: templateId,
+      user_id: publicKey,
+      accessToken: privateKey,
+      template_params: {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        company: formData.company || 'Not specified',
+        phone: formData.phone,
+        to_name: 'Romega Solutions Team',
+        reply_to: new Date().toLocaleString('en-US', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          timeZoneName: 'short'
+        })
+      }
+    };
+    
     const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        service_id: serviceId,
-        template_id: templateId,
-        user_id: process.env.EMAILJS_PUBLIC_KEY,
-        accessToken: privateKey,
-        template_params: {
-          from_name: `${formData.firstName} ${formData.lastName}`,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          company: formData.company || 'Not specified',
-          phone: formData.phone,
-          to_name: 'Romega Solutions Team',
-          reply_to: new Date().toLocaleString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            timeZoneName: 'short'
-          })
-        }
-      })
+      body: JSON.stringify(payload)
     });
 
-    return response.ok;
-  } catch {
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('[EmailJS] API Error:', response.status, errorText);
+      return false;
+    }
+    
+    console.log('[EmailJS] Email sent successfully');
+    return true;
+  } catch (error) {
+    console.error('[EmailJS] Send error:', error);
     return false;
   }
 }
@@ -309,7 +326,13 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    // Don't expose internal errors
+    // Log the actual error for debugging
+    console.error('[Contact API] Unexpected error:', error);
+    if (error instanceof Error) {
+      console.error('[Contact API] Error message:', error.message);
+      console.error('[Contact API] Error stack:', error.stack);
+    }
+    
     return NextResponse.json(
       { success: false, message: 'An error occurred. Please try again.' },
       { status: 500 }
