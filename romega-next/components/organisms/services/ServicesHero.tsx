@@ -47,6 +47,7 @@ export default function ServicesHero() {
             className={styles['services-hero__bg-logo']}
             aria-hidden="true"
             alt=""
+            fetchPriority="high"
           />
           
           {/* Header Content */}

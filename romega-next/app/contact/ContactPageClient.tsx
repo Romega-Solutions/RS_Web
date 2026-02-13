@@ -19,6 +19,7 @@ export default function ContactPageClient() {
           className="absolute top-0 -left-16 w-auto h-auto opacity-10 -z-10"
           aria-hidden="true"
           alt=""
+          fetchPriority="high"
         />
         {/* Ellipse 793 BG Top Right 1 */}
         <span className="size-80 bg-blue-100 rounded-full absolute -top-32.75 -right-7.5" aria-hidden="true" />
@@ -43,13 +44,13 @@ export default function ContactPageClient() {
           <div className="w-full max-w-321 h-px bg-(--rs-neutral-400) mb-4" />
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8">
             <div className="flex-1" />
-            <p className="text-(--rs-neutral-400) text-base shrink-0">
+            <p className="text-(--rs-neutral-600) text-base shrink-0">
               © 2025 Romega Solutions. All rights reserved
             </p>
             <div className="flex gap-6 text-base flex-1 justify-end mr-23.75">
               <button
                 type="button"
-                className="text-(--rs-neutral-500) hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                className="text-(--rs-neutral-700) hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
                 aria-label="Open Privacy Policy"
                 onClick={() => setIsPrivacyOpen(true)}
               >
@@ -57,7 +58,7 @@ export default function ContactPageClient() {
               </button>
               <button
                 type="button"
-                className="text-(--rs-neutral-500) hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
+                className="text-(--rs-neutral-700) hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
                 aria-label="Open Terms of Service"
                 onClick={() => setIsTermsOpen(true)}
               >

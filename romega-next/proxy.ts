@@ -80,9 +80,9 @@ function isSuspiciousRequest(request: NextRequest): boolean {
   return false;
 }
 
-function addSecurityHeaders(response: NextResponse): NextResponse {
+function addSecurityHeaders(response: NextResponse, pathname: string): NextResponse {
   // Comprehensive security headers
-  const headers = {
+  const headers: Record<string, string> = {
     // Prevent clickjacking
     'X-Frame-Options': 'SAMEORIGIN',
     
@@ -118,12 +118,23 @@ function addSecurityHeaders(response: NextResponse): NextResponse {
     // Remove server information
     'X-Powered-By': '',
     'Server': '',
-    
-    // Cache control for sensitive routes
-    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-    'Pragma': 'no-cache',
-    'Expires': '0',
   };
+
+  // Only disable caching for API routes and sensitive pages
+  // Allow back/forward cache for public pages
+  const isApiRoute = pathname.startsWith('/api/');
+  const isSensitiveRoute = pathname.includes('/admin') || pathname.includes('/dashboard');
+  
+  if (isApiRoute || isSensitiveRoute) {
+    // Strict no-cache for API and sensitive routes
+    headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, proxy-revalidate';
+    headers['Pragma'] = 'no-cache';
+    headers['Expires'] = '0';
+  } else {
+    // Allow back/forward cache for public pages
+    // This significantly improves performance for browser navigation
+    headers['Cache-Control'] = 'public, max-age=0, must-revalidate';
+  }
 
   Object.entries(headers).forEach(([key, value]) => {
     response.headers.set(key, value);
@@ -132,7 +143,7 @@ function addSecurityHeaders(response: NextResponse): NextResponse {
   return response;
 }
 
-function createErrorResponse(message: string, status: number = 403): NextResponse {
+function createErrorResponse(message: string, status: number = 403, pathname: string = ''): NextResponse {
   // Obfuscated error messages to not reveal system information
   const obfuscatedMessages: Record<number, string> = {
     403: 'Access Denied',
@@ -148,7 +159,7 @@ function createErrorResponse(message: string, status: number = 403): NextRespons
     { status }
   );
 
-  return addSecurityHeaders(response);
+  return addSecurityHeaders(response, pathname);
 }
 
 export default async function proxy(request: NextRequest) {
@@ -160,7 +171,7 @@ export default async function proxy(request: NextRequest) {
   // Check for suspicious requests
   if (isSuspiciousRequest(request)) {
     console.warn(`Suspicious request detected from ${clientId}: ${pathname}`);
-    return createErrorResponse('Invalid request', 403);
+    return createErrorResponse('Invalid request', 403, pathname);
   }
 
   // Rate limiting based on route type
@@ -174,7 +185,7 @@ export default async function proxy(request: NextRequest) {
   if (!isDevelopment || !isLocalhost) {
     if (isRateLimited(clientId, maxRequests)) {
       console.warn(`Rate limit exceeded for ${clientId}: ${pathname}`);
-      return createErrorResponse('Rate limit exceeded', 429);
+      return createErrorResponse('Rate limit exceeded', 429, pathname);
     }
   }
 
@@ -185,7 +196,7 @@ export default async function proxy(request: NextRequest) {
       const contentType = request.headers.get('content-type');
       
       if (!contentType || !contentType.includes('application/json')) {
-        return createErrorResponse('Invalid content type', 400);
+        return createErrorResponse('Invalid content type', 400, pathname);
       }
     }
 
@@ -193,7 +204,7 @@ export default async function proxy(request: NextRequest) {
     const supabaseResponse = await updateSession(request);
     
     // Add security headers and CORS
-    addSecurityHeaders(supabaseResponse);
+    addSecurityHeaders(supabaseResponse, pathname);
     
     // Strict CORS for API routes
     const origin = request.headers.get('origin');
@@ -220,7 +231,7 @@ export default async function proxy(request: NextRequest) {
 
   // For non-API routes, update Supabase session and add security headers
   const response = await updateSession(request);
-  return addSecurityHeaders(response);
+  return addSecurityHeaders(response, pathname);
 }
 
 export const config = {
