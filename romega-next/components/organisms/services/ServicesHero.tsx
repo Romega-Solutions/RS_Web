@@ -44,6 +44,8 @@ export default function ServicesHero() {
         <div className={styles['services-hero__bg-wrapper']}>
           <img
             src="/images/contact/bg-romega.svg"
+            width="530"
+            height="654"
             className={styles['services-hero__bg-logo']}
             aria-hidden="true"
             alt=""

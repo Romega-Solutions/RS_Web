@@ -95,6 +95,7 @@ const nextConfig: NextConfig = {
 
   // Target modern browsers to reduce bundle size (ES2020+ features)
   // This reduces legacy JavaScript transpilation significantly
+  // Configured via browserslist in package.json
   transpilePackages: [],
 
   // Image optimization for Vercel CDN

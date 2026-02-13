@@ -464,7 +464,6 @@ export default function ContactForm() {
           alt=""
           width={300}
           height={300}
-          style={{ height: 'auto' }}
         />
       </div>
     </div>

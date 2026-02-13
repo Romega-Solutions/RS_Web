@@ -16,6 +16,8 @@ export default function ContactPageClient() {
       <div className="bg-clip-content">
         <img
           src="/images/contact/bg-romega.svg"
+          width="530"
+          height="654"
           className="absolute top-0 -left-16 w-auto h-auto opacity-10 -z-10"
           aria-hidden="true"
           alt=""
