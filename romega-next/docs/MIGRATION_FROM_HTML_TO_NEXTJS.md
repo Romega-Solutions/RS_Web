@@ -250,9 +250,12 @@ export const supabase = createBrowserClient(
 
 #### Security Layers
 
-**A. Middleware Protection** (`proxy.ts`)
+**A. Proxy Layer Protection** (`proxy.ts`)
+
+> **Note:** Next.js 16+ uses `proxy.ts` with a `proxy` function instead of `middleware.ts`
+
 ```typescript
-export default function middleware(request: NextRequest) {
+export default async function proxy(request: NextRequest) {
   // Rate limiting
   const rateLimiter = new Map<string, RateLimit>();
   

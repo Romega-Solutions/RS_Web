@@ -14,6 +14,11 @@ coverage/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.production
+
+# Secrets directory (Docker secrets)
+secrets/
+!secrets/.gitkeep
 
 # IDE and editor files
 .vscode/

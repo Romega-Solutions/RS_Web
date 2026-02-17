@@ -12,8 +12,8 @@ WORKDIR /app
 # Copy package files for dependency installation
 COPY romega-next/package*.json ./
 
-# Install dependencies with clean npm ci for reproducible builds
-RUN npm ci --only=production --ignore-scripts && \
+# Install ALL dependencies (needed for build stage)
+RUN npm ci --ignore-scripts && \
     npm cache clean --force
 
 # ==============================================================================

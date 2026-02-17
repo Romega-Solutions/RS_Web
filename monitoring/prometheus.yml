@@ -1,0 +1,74 @@
+# ==============================================================================
+# Prometheus Configuration for Romega Solutions Website
+# ==============================================================================
+# This configuration tells Prometheus:
+# - What metrics to collect (scrape targets)
+# - How often to collect them (scrape intervals)
+# - Where to store them
+
+global:
+  # How often to scrape targets
+  scrape_interval: 15s
+  
+  # How often to evaluate rules
+  evaluation_interval: 15s
+  
+  # Labels to add to all metrics
+  external_labels:
+    monitor: 'romega-solutions'
+    environment: 'production'
+
+# Alerting configuration (optional - for future use with Alertmanager)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets: ['alertmanager:9093']
+
+# Rule files (optional - for alerts and recording rules)
+# rule_files:
+#   - 'alerts.yml'
+
+# Scrape configurations
+scrape_configs:
+  # Scrape Prometheus itself
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          app: 'prometheus'
+          component: 'monitoring'
+
+  # Scrape Next.js application metrics
+  - job_name: 'romega-website'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+    metrics_path: '/api/metrics'
+    
+    # Bearer token authentication
+    authorization:
+      type: Bearer
+      credentials: 'fb5a662a4d72dcbb99ae8dbc3ea583e2f391d3838227aabcd7ec87709cc311b3'
+    
+    static_configs:
+      - targets: ['romega-website:3000']
+        labels:
+          app: 'romega-solutions-website'
+          component: 'frontend'
+          tier: 'web'
+    
+    # Relabeling for better metric names
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'romega-website'
+
+  # Scrape Docker container metrics (if you add cAdvisor later)
+  # - job_name: 'cadvisor'
+  #   scrape_interval: 30s
+  #   static_configs:
+  #     - targets: ['cadvisor:8080']
+
+  # Scrape Node Exporter metrics (if you add it later for host metrics)
+  # - job_name: 'node'
+  #   static_configs:
+  #     - targets: ['node-exporter:9100']

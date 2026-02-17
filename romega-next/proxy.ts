@@ -1,5 +1,6 @@
 import { updateSession } from '@/lib/supabase/middleware';
 import { NextRequest, NextResponse } from 'next/server';
+import { metricsStore } from '@/lib/metrics/store';
 
 // Rate limiting storage (in-memory for simplicity, use Redis in production)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -163,7 +164,16 @@ function createErrorResponse(message: string, status: number = 403, pathname: st
 }
 
 export default async function proxy(request: NextRequest) {
+  // Start metrics tracking
+  const startTime = Date.now();
+  
   const { pathname } = request.nextUrl;
+  
+  // Skip metrics tracking for the metrics endpoint itself
+  const shouldTrackMetrics = pathname !== '/api/metrics';
+  
+  // Log to verify proxy is running
+  console.log(`[Proxy] Processing: ${pathname}, shouldTrack: ${shouldTrackMetrics}`);
   
   // Get client identifier
   const clientId = getClientIdentifier(request);
@@ -226,12 +236,27 @@ export default async function proxy(request: NextRequest) {
       supabaseResponse.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     }
 
+    // Track metrics for API routes too
+    if (shouldTrackMetrics) {
+      const duration = (Date.now() - startTime) / 1000;
+      metricsStore.trackRequest(duration);
+    }
+
     return supabaseResponse;
   }
 
   // For non-API routes, update Supabase session and add security headers
   const response = await updateSession(request);
-  return addSecurityHeaders(response, pathname);
+  const finalResponse = addSecurityHeaders(response, pathname);
+  
+  // Track metrics at the end of the request
+  if (shouldTrackMetrics) {
+    const duration = (Date.now() - startTime) / 1000;
+    console.log(`[Proxy] Tracking request: path=${finalResponse.url}, duration=${duration}s`);
+    metricsStore.trackRequest(duration);
+  }
+  
+  return finalResponse;
 }
 
 export const config = {

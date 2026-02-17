@@ -258,14 +258,16 @@ export async function createClient() {
 }
 ```
 
-**Middleware (`middleware.ts` in root):**
+**Proxy (`proxy.ts` in root):**
+
+> **Note:** Next.js 16+ renamed `middleware.ts` to `proxy.ts` to clarify its purpose as a network proxy layer.
 
 ```typescript
-// middleware.ts
+// proxy.ts
 import { type NextRequest } from 'next/server'
 import { updateSession } from '@/lib/supabase/middleware'
 
-export async function middleware(request: NextRequest) {
+export default async function proxy(request: NextRequest) {
   return await updateSession(request)
 }
 
@@ -276,7 +278,7 @@ export const config = {
 }
 ```
 
-**Middleware Helper (`lib/supabase/middleware.ts`):**
+**Session Helper (`lib/supabase/middleware.ts`):**
 
 ```typescript
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
