@@ -1,149 +1,261 @@
 'use client';
 
 import { useState } from 'react';
+import { Search, ChevronDown, ChevronUp, SlidersHorizontal, X } from 'lucide-react';
 import TalentCard from './TalentCard';
 import styles from './TalentPool.module.css';
+import type { Talent } from '@/types/jobs';
 
-interface Talent {
-  id: string;
-  name: string;
-  role: string;
-  skills: string[];
-  experience: string;
-  availability: 'Available' | 'Busy' | 'Part-time';
-  location: string;
-  rate: string;
+interface TalentPoolProps {
+  talents: Talent[];
 }
 
-export default function TalentPool() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+const SPECIALIZATIONS = [
+  'AI Developer', 'AI/ML Engineer', 'Account Manager',
+  'Designers', 'Developers', 'Virtual Assistant', 'Sales Experts',
+];
 
-  const categories = [
-    { id: 'all', label: 'All Talent' },
-    { id: 'development', label: 'Development' },
-    { id: 'design', label: 'Design' },
-    { id: 'data', label: 'Data Science' },
-    { id: 'management', label: 'Project Management' },
-  ];
+const SENIORITY_LEVELS = ['Expert', 'Junior', 'Middle', 'Senior'];
 
-  const talents: Talent[] = [
-    {
-      id: '1',
-      name: 'Sarah Johnson',
-      role: 'Senior Full Stack Developer',
-      skills: ['React', 'Node.js', 'TypeScript', 'AWS'],
-      experience: '8+ years',
-      availability: 'Available',
-      location: 'United States',
-      rate: '$80-120/hr',
-    },
-    {
-      id: '2',
-      name: 'Michael Chen',
-      role: 'UI/UX Designer',
-      skills: ['Figma', 'Adobe XD', 'Prototyping', 'User Research'],
-      experience: '6+ years',
-      availability: 'Part-time',
-      location: 'Canada',
-      rate: '$70-100/hr',
-    },
-    {
-      id: '3',
-      name: 'Emily Rodriguez',
-      role: 'Data Scientist',
-      skills: ['Python', 'Machine Learning', 'TensorFlow', 'SQL'],
-      experience: '5+ years',
-      availability: 'Available',
-      location: 'Spain',
-      rate: '$75-110/hr',
-    },
-    {
-      id: '4',
-      name: 'David Kim',
-      role: 'DevOps Engineer',
-      skills: ['Docker', 'Kubernetes', 'CI/CD', 'Terraform'],
-      experience: '7+ years',
-      availability: 'Busy',
-      location: 'South Korea',
-      rate: '$85-125/hr',
-    },
-    {
-      id: '5',
-      name: 'Anna Kowalski',
-      role: 'Mobile Developer',
-      skills: ['React Native', 'iOS', 'Android', 'Flutter'],
-      experience: '4+ years',
-      availability: 'Available',
-      location: 'Poland',
-      rate: '$65-95/hr',
-    },
-    {
-      id: '6',
-      name: 'James Wilson',
-      role: 'Product Manager',
-      skills: ['Agile', 'Scrum', 'Roadmapping', 'Stakeholder Management'],
-      experience: '10+ years',
-      availability: 'Part-time',
-      location: 'United Kingdom',
-      rate: '$90-130/hr',
-    },
-  ];
+const RATE_RANGES = [
+  { label: '€20 and below', max: 20 },
+  { label: '€21 – €30', min: 21, max: 30 },
+  { label: '€31 – €40', min: 31, max: 40 },
+];
 
-  const filteredTalents = selectedCategory === 'all' 
-    ? talents 
-    : talents.filter(talent => {
-        const roleLower = talent.role.toLowerCase();
-        if (selectedCategory === 'development') return roleLower.includes('developer') || roleLower.includes('engineer');
-        if (selectedCategory === 'design') return roleLower.includes('design');
-        if (selectedCategory === 'data') return roleLower.includes('data');
-        if (selectedCategory === 'management') return roleLower.includes('manager');
-        return true;
-      });
+const CURRENCIES = ['€', '$', '£'];
+
+const PAGE_SIZE = 6;
+
+export default function TalentPool({ talents }: TalentPoolProps) {
+  const [search, setSearch] = useState('');
+  const [selectedSpecs, setSelectedSpecs] = useState<string[]>([]);
+  const [selectedSeniority, setSelectedSeniority] = useState<string[]>([]);
+  const [selectedRates, setSelectedRates] = useState<string[]>([]);
+  const [currency, setCurrency] = useState('€');
+  const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({
+    roles: true, skills: true, location: true,
+  });
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  const activeFilterCount = selectedSpecs.length + selectedSeniority.length + selectedRates.length;
+
+  const toggleSpec = (spec: string) =>
+    setSelectedSpecs(prev => prev.includes(spec) ? prev.filter(s => s !== spec) : [...prev, spec]);
+  const toggleSeniority = (s: string) =>
+    setSelectedSeniority(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s]);
+  const toggleRate = (r: string) =>
+    setSelectedRates(prev => prev.includes(r) ? prev.filter(x => x !== r) : [...prev, r]);
+  const toggleSection = (key: string) =>
+    setCollapsedSections(prev => ({ ...prev, [key]: !prev[key] }));
+
+  const filtered = talents.filter(t => {
+    if (search) {
+      const q = search.toLowerCase();
+      if (
+        !t.name.toLowerCase().includes(q) &&
+        !t.role.toLowerCase().includes(q) &&
+        !t.skills.some(s => s.toLowerCase().includes(q))
+      ) return false;
+    }
+    if (selectedSpecs.length > 0) {
+      const match = selectedSpecs.some(s =>
+        t.category?.toLowerCase().includes(s.toLowerCase()) ||
+        t.role?.toLowerCase().includes(s.toLowerCase())
+      );
+      if (!match) return false;
+    }
+    if (selectedSeniority.length > 0) {
+      const level = (t.experience_level || '').toLowerCase();
+      const match = selectedSeniority.some(s => level.includes(s.toLowerCase()) || (s === 'Middle' && level.includes('mid')));
+      if (!match) return false;
+    }
+    return true;
+  });
+
+  const visible = filtered.slice(0, visibleCount);
 
   return (
-    <section className={styles['talent-pool']} aria-labelledby="talent-pool-heading">
-      <div className={styles['talent-pool__container']}>
-        {/* Header */}
-        <div className={styles['talent-pool__header']}>
-          <span className={styles['talent-pool__badge']}>Browse Talent</span>
-          <h2 id="talent-pool-heading" className={styles['talent-pool__title']}>
-            Discover Your Next Team Member
-          </h2>
-          <p className={styles['talent-pool__description']}>
-            Connect with vetted professionals who are ready to contribute to your success.
-          </p>
+    <section className={styles['talent-pool']} aria-label="Talent Pool">
+      <div className={styles['talent-pool__layout']}>
+
+        {/* Mobile filter toggle button */}
+        <div className={styles['talent-pool__mobile-filter-bar']}>
+          <button
+            className={styles['talent-pool__filter-toggle']}
+            onClick={() => setMobileFiltersOpen(true)}
+            aria-expanded={mobileFiltersOpen}
+          >
+            <SlidersHorizontal size={16} />
+            Filters{activeFilterCount > 0 && ` (${activeFilterCount})`}
+          </button>
+          <span className={styles['talent-pool__count-badge-mobile']}>
+            {filtered.length} talents
+          </span>
         </div>
 
-        {/* Filters */}
-        <div className={styles['talent-pool__filters']}>
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`${styles['talent-pool__filter-btn']} ${
-                selectedCategory === category.id ? styles['talent-pool__filter-btn--active'] : ''
-              }`}
-              aria-pressed={selectedCategory === category.id}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Talent Grid */}
-        <div className={styles['talent-pool__grid']}>
-          {filteredTalents.map((talent) => (
-            <TalentCard key={talent.id} talent={talent} />
-          ))}
-        </div>
-
-        {/* Empty State */}
-        {filteredTalents.length === 0 && (
-          <div className={styles['talent-pool__empty']}>
-            <p>No talent found in this category. Try selecting a different filter.</p>
-          </div>
+        {/* Mobile filter overlay */}
+        {mobileFiltersOpen && (
+          <div
+            className={styles['talent-pool__overlay']}
+            onClick={() => setMobileFiltersOpen(false)}
+            aria-hidden="true"
+          />
         )}
+
+        {/* ── SIDEBAR ── */}
+        <aside
+          className={`${styles['talent-pool__sidebar']} ${mobileFiltersOpen ? styles['talent-pool__sidebar--open'] : ''}`}
+          aria-label="Filters"
+        >
+          {/* Mobile close button */}
+          <button
+            className={styles['sidebar__close-btn']}
+            onClick={() => setMobileFiltersOpen(false)}
+            aria-label="Close filters"
+          >
+            <X size={18} />
+          </button>
+
+          {/* Specialization */}
+          <div className={styles['sidebar__section']}>
+            <h3 className={styles['sidebar__heading']}>Specialization</h3>
+            <div className={styles['sidebar__pills']}>
+              {SPECIALIZATIONS.map(s => (
+                <button
+                  key={s}
+                  onClick={() => toggleSpec(s)}
+                  className={`${styles['sidebar__pill']} ${selectedSpecs.includes(s) ? styles['sidebar__pill--active'] : ''}`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Seniority */}
+          <div className={styles['sidebar__section']}>
+            <h3 className={styles['sidebar__heading']}>Seniority</h3>
+            {SENIORITY_LEVELS.map(s => (
+              <label key={s} className={styles['sidebar__checkbox-row']}>
+                <input
+                  type="checkbox"
+                  checked={selectedSeniority.includes(s)}
+                  onChange={() => toggleSeniority(s)}
+                  className={styles['sidebar__checkbox']}
+                />
+                <span>{s}</span>
+              </label>
+            ))}
+          </div>
+
+          {/* Filter by Rate */}
+          <div className={styles['sidebar__section']}>
+            <h3 className={styles['sidebar__heading']}>Filter by Rate</h3>
+            {RATE_RANGES.map(r => (
+              <label key={r.label} className={styles['sidebar__checkbox-row']}>
+                <input
+                  type="checkbox"
+                  checked={selectedRates.includes(r.label)}
+                  onChange={() => toggleRate(r.label)}
+                  className={styles['sidebar__checkbox']}
+                />
+                <span>{r.label}</span>
+              </label>
+            ))}
+          </div>
+
+          {/* Currency */}
+          <div className={styles['sidebar__section']}>
+            <h3 className={styles['sidebar__heading']}>Currency</h3>
+            <div className={styles['sidebar__radio-row']}>
+              {CURRENCIES.map(c => (
+                <label key={c} className={styles['sidebar__radio-label']}>
+                  <input
+                    type="radio"
+                    name="currency"
+                    value={c}
+                    checked={currency === c}
+                    onChange={() => setCurrency(c)}
+                    className={styles['sidebar__radio']}
+                  />
+                  <span>{c}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Collapsible: Roles */}
+          {(['roles', 'skills', 'location'] as const).map(key => (
+            <div key={key} className={styles['sidebar__section']}>
+              <button
+                className={styles['sidebar__collapsible']}
+                onClick={() => toggleSection(key)}
+                aria-expanded={!collapsedSections[key]}
+              >
+                <span className={styles['sidebar__heading']} style={{ margin: 0 }}>
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                </span>
+                {collapsedSections[key]
+                  ? <ChevronDown size={16} />
+                  : <ChevronUp size={16} />
+                }
+              </button>
+            </div>
+          ))}
+        </aside>
+
+        {/* ── MAIN CONTENT ── */}
+        <div className={styles['talent-pool__main']}>
+
+          {/* Search bar */}
+          <div className={styles['talent-pool__search-row']}>
+            <div className={styles['talent-pool__search-wrap']}>
+              <Search size={16} className={styles['talent-pool__search-icon']} aria-hidden="true" />
+              <input
+                type="search"
+                placeholder="Search by role, skill or keyword..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                className={styles['talent-pool__search-input']}
+                aria-label="Search talent"
+              />
+            </div>
+            <span className={styles['talent-pool__count-badge']}>
+              Available talents: {filtered.length}
+            </span>
+          </div>
+
+          {/* Grid */}
+          {visible.length > 0 ? (
+            <div className={styles['talent-pool__grid']}>
+              {visible.map(talent => (
+                <TalentCard key={talent.id} talent={talent} currency={currency} />
+              ))}
+            </div>
+          ) : (
+            <div className={styles['talent-pool__empty']}>
+              No talent found matching your filters.
+            </div>
+          )}
+
+          {/* Load More */}
+          {visibleCount < filtered.length && (
+            <div className={styles['talent-pool__load-more-wrap']}>
+              <button
+                className={styles['talent-pool__load-more']}
+                onClick={() => setVisibleCount(v => v + PAGE_SIZE)}
+              >
+                Load More Talents
+                <ChevronDown size={18} aria-hidden="true" />
+              </button>
+            </div>
+          )}
+        </div>
+
       </div>
     </section>
   );
 }
+

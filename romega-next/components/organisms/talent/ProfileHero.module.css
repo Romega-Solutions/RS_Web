@@ -1,0 +1,175 @@
+/* ===========================
+   PROFILE HERO
+   BEM: ProfileHero
+   =========================== */
+
+.ProfileHero {
+  background: linear-gradient(135deg, var(--rs-primary-600) 0%, var(--rs-primary-800) 100%);
+  color: white;
+  padding: calc(3rem + 104px) 1.5rem 2rem; /* Added 104px for fixed header */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background pattern */
+.ProfileHero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.ProfileHero__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.ProfileHero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.ProfileHero__avatar {
+  position: relative;
+}
+
+.ProfileHero__avatarImage {
+  border: 4px solid rgba(255, 255, 255 0.2);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.ProfileHero__badge {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--rs-accent-500);
+  color: var(--rs-neutral-900);
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ProfileHero__info {
+  max-width: 800px;
+}
+
+.ProfileHero__name {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.ProfileHero__role {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--rs-primary-100);
+  margin-bottom: 0.75rem;
+}
+
+.ProfileHero__tagline {
+  font-size: 1.125rem;
+  color: var(--rs-primary-100);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ProfileHero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.ProfileHero__stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--rs-primary-50);
+}
+
+.ProfileHero__statIcon {
+  color: var(--rs-accent-400);
+  flex-shrink: 0;
+}
+
+.ProfileHero__statStatus {
+  font-weight: 600;
+}
+
+/* Availability Status Colors */
+.ProfileHero__statusAvailable {
+  color: var(--rs-accent-300);
+  font-weight: 700;
+}
+
+.ProfileHero__statusBusy {
+  color: var(--rs-neutral-grey-300);
+}
+
+.ProfileHero__statusParttime {
+  color: var(--rs-primary-200);
+}
+
+/* Tablet and up: Horizontal layout */
+@media (min-width: 768px) {
+  .ProfileHero {
+    padding: 4rem 2rem 3rem;
+  }
+
+  .ProfileHero__content {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .ProfileHero__info {
+    text-align: left;
+  }
+
+  .ProfileHero__tagline {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .ProfileHero__stats {
+    justify-content: flex-start;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .ProfileHero__name {
+    font-size: 3rem;
+  }
+
+  .ProfileHero__role {
+    font-size: 1.5rem;
+  }
+
+  .ProfileHero__stats {
+    gap: 2rem;
+  }
+}

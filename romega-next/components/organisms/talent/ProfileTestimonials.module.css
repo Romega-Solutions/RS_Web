@@ -1,0 +1,130 @@
+/* ===========================
+   PROFILE TESTIMONIALS
+   BEM: ProfileTestimonials
+   =========================== */
+
+.ProfileTestimonials {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ProfileTestimonials__title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--rs-neutral-900);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.ProfileTestimonials__subtitle {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1rem;
+  color: var(--rs-neutral-600);
+  margin-bottom: 2rem;
+}
+
+.ProfileTestimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.ProfileTestimonials__card {
+  position: relative;
+  background: var(--rs-neutral-50);
+  border: 1px solid var(--rs-neutral-200);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.2s ease;
+}
+
+.ProfileTestimonials__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--rs-primary-200);
+}
+
+.ProfileTestimonials__icon {
+  color: var(--rs-accent-400);
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+
+.ProfileTestimonials__rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.ProfileTestimonials__starFilled {
+  color: var(--rs-accent-500);
+}
+
+.ProfileTestimonials__starEmpty {
+  color: var(--rs-neutral-300);
+}
+
+.ProfileTestimonials__quote {
+  font-family: 'Merriweather', serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--rs-neutral-800);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.ProfileTestimonials__author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.ProfileTestimonials__authorName {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--rs-neutral-900);
+  margin-bottom: 0.25rem;
+}
+
+.ProfileTestimonials__authorTitle {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.9rem;
+  color: var(--rs-neutral-600);
+}
+
+.ProfileTestimonials__project {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.875rem;
+  color: var(--rs-primary-600);
+  font-weight: 600;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rs-neutral-200);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .ProfileTestimonials {
+    padding: 2.5rem;
+  }
+
+  .ProfileTestimonials__title {
+    font-size: 2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .ProfileTestimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ProfileTestimonials__title {
+    font-size: 2.25rem;
+  }
+}

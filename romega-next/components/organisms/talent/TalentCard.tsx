@@ -1,84 +1,88 @@
 'use client';
 
-import { MapPin, Clock, DollarSign } from 'lucide-react';
+import Link from 'next/link';
 import AvatarPlaceholder from '@/components/atoms/AvatarPlaceholder';
 import styles from './TalentCard.module.css';
+import type { Talent } from '@/types/jobs';
 
 interface TalentCardProps {
-  talent: {
-    id: string;
-    name: string;
-    role: string;
-    skills: string[];
-    experience: string;
-    availability: 'Available' | 'Busy' | 'Part-time';
-    location: string;
-    rate: string;
-  };
+  talent: Talent;
+  currency?: string;
 }
 
-export default function TalentCard({ talent }: TalentCardProps) {
-  const availabilityColors = {
-    Available: styles['talent-card__status--available'],
-    Busy: styles['talent-card__status--busy'],
-    'Part-time': styles['talent-card__status--part-time'],
-  };
+function getSeniorityLabel(level?: string): string {
+  switch (level) {
+    case 'Junior': return 'JUNIOR';
+    case 'Mid-Level': return 'MIDDLE';
+    case 'Senior': return 'SENIOR';
+    case 'Lead': return 'LEAD';
+    case 'Principal': return 'PRINCIPAL';
+    default: return 'MIDDLE';
+  }
+}
+
+function formatRate(talent: Talent, currency = '€'): string {
+  if (talent.hourly_rate_min) {
+    return `${currency} ${(talent.hourly_rate_min * 160).toLocaleString()}`;
+  }
+  if (talent.rate) return talent.rate;
+  return `${currency} —`;
+}
+
+export default function TalentCard({ talent, currency = '€' }: TalentCardProps) {
+  const seniority = getSeniorityLabel(talent.experience_level);
+  const rate = formatRate(talent, currency);
+  const country = talent.location ? talent.location.toUpperCase() : '';
 
   return (
     <article className={styles['talent-card']}>
-      {/* Header with Image and Status */}
+      {/* Header Row */}
       <div className={styles['talent-card__header']}>
-        <div className={styles['talent-card__image-wrapper']}>
+        <div className={styles['talent-card__avatar-wrap']}>
           <AvatarPlaceholder
-            size={80}
-            variant={talent.id === '1' || talent.id === '3' || talent.id === '5' ? 'female' : 'male'}
-            className={styles['talent-card__image']}
+            size={60}
+            variant={talent.gender || 'neutral'}
+            className={styles['talent-card__avatar']}
           />
         </div>
-        <span className={`${styles['talent-card__status']} ${availabilityColors[talent.availability]}`}>
-          {talent.availability}
-        </span>
-      </div>
 
-      {/* Content */}
-      <div className={styles['talent-card__content']}>
-        <h3 className={styles['talent-card__name']}>{talent.name}</h3>
-        <p className={styles['talent-card__role']}>{talent.role}</p>
-
-        {/* Info */}
         <div className={styles['talent-card__info']}>
-          <div className={styles['talent-card__info-item']}>
-            <MapPin size={16} aria-hidden="true" />
-            <span>{talent.location}</span>
+          <div className={styles['talent-card__name-row']}>
+            <span className={styles['talent-card__name']}>{talent.name}</span>
+            <span className={styles['talent-card__country']}>🌍 {country}</span>
           </div>
-          <div className={styles['talent-card__info-item']}>
-            <Clock size={16} aria-hidden="true" />
-            <span>{talent.experience}</span>
-          </div>
-          <div className={styles['talent-card__info-item']}>
-            <DollarSign size={16} aria-hidden="true" />
-            <span>{talent.rate}</span>
-          </div>
+          <p className={styles['talent-card__role']}>{talent.role}</p>
+          <p className={styles['talent-card__level']}>{seniority}</p>
         </div>
 
-        {/* Skills */}
-        <div className={styles['talent-card__skills']}>
-          {talent.skills.slice(0, 4).map((skill, index) => (
-            <span key={index} className={styles['talent-card__skill']}>
-              {skill}
-            </span>
-          ))}
-        </div>
+        <span className={styles['talent-card__id']}>ID: {talent.id}</span>
       </div>
 
-      {/* CTA */}
+      {/* Skills Row */}
+      <div className={styles['talent-card__skills']}>
+        {talent.skills.slice(0, 3).map((skill, i) => (
+          <span key={i} className={styles['talent-card__skill']}>{skill}</span>
+        ))}
+        {talent.skills.length > 3 && (
+          <span className={styles['talent-card__skill-more']}>
+            +{talent.skills.length - 3} more
+          </span>
+        )}
+      </div>
+
+      {/* Footer Row */}
       <div className={styles['talent-card__footer']}>
-        <button
+        <div className={styles['talent-card__rate']}>
+          <span className={styles['talent-card__rate-amount']}>{rate}</span>
+          <span className={styles['talent-card__rate-period']}>&nbsp;/ month</span>
+        </div>
+        <Link
+          href={`/talent/${talent.id}`}
           className={styles['talent-card__cta']}
           aria-label={`View ${talent.name}'s profile`}
         >
-          View Profile
-        </button>
+          VIEW PROFILE
+        </Link>
       </div>
     </article>
   );

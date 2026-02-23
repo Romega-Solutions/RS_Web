@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import TalentPageClient from './TalentPageClient';
 import TalentPool from '@/components/organisms/talent/TalentPool';
-import ContactCTA from '@/components/organisms/shared/ContactCTA';
+import TalentCTA from '@/components/organisms/talent/TalentCTA';
+import { getTalents } from '@/lib/supabase/talents';
 
 export const metadata: Metadata = {
   title: 'Talent Pool - Find Top Tech Professionals',
@@ -41,12 +42,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TalentPage() {
+export default async function TalentPage() {
+  // Fetch talents from Supabase on the server
+  const talents = await getTalents();
+
   return (
     <main className="bg-(--rs-primary-50)">
       <TalentPageClient />
-      <TalentPool />
-      <ContactCTA />
+      <TalentPool talents={talents} />
+      <TalentCTA />
     </main>
   );
 }
