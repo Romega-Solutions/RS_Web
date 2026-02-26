@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Button from '@/components/atoms/Button/Button';
 import { Calendar } from 'lucide-react';
-import { trackEvent } from '@/components/analytics/GoogleAnalytics';
 import styles from './Header.module.css';
 
 const navLinks = [
@@ -30,7 +29,7 @@ export function Header() {
         aria-label="Main navigation"
       >
         <div className={styles.header__container}>  {/* Element */}
-          
+
           {/* Logo */}
           <div className={styles.header__logo}>  {/* Element */}
             <Link href="/" className={styles['header__logo-link']}>

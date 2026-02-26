@@ -33,7 +33,7 @@ export async function fetchJobs(): Promise<Job[]> {
     }
 
     const data = await response.json();
-    
+
     // Handle both successful response and fallback empty array
     if (data.error) {
       console.warn('Jobs API returned error:', data.error);
@@ -57,7 +57,7 @@ export async function fetchJobs(): Promise<Job[]> {
     } else {
       console.error('Failed to fetch jobs:', error);
     }
-    
+
     // Return empty array instead of throwing to prevent UI breakage
     return [];
   }
@@ -76,7 +76,7 @@ export function formatJobDate(dateString: string): string {
       month: 'long',
       day: 'numeric',
     });
-  } catch (error) {
+  } catch (_error) {
     console.error('Invalid date string:', dateString);
     return 'Date unavailable';
   }

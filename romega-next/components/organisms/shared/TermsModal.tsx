@@ -96,7 +96,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
             </p>
             <p className="text-gray-700 mb-6">
               We may update these Terms at any time, and the updated version
-              will be indicated by a "Last Updated" date. Your continued use
+              will be indicated by a &ldquo;Last Updated&rdquo; date. Your continued use
               of the Site after changes are posted constitutes acceptance of
               those changes.
             </p>
@@ -178,7 +178,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
             </h4>
             <ul className="list-disc pl-6 text-gray-700 mb-6">
               <li className="mb-2">
-                The Site is provided "as is" and "as available." We make no
+                The Site is provided &ldquo;as is&rdquo; and &ldquo;as available.&rdquo; We make no
                 warranties, express or implied, about the accuracy,
                 reliability, or availability of the Site or its content.
               </li>

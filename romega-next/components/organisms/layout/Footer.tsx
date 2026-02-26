@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Button from '@/components/atoms/Button/Button'
 import { Linkedin, Facebook, Calendar } from 'lucide-react'
-import { trackEvent } from '@/components/analytics/GoogleAnalytics'
 import PrivacyModal from '@/components/organisms/shared/PrivacyModal'
 import TermsModal from '@/components/organisms/shared/TermsModal'
 

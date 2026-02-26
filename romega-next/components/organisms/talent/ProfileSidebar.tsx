@@ -1,5 +1,5 @@
 import type { Talent } from '@/types/jobs';
-import { Mail, Phone, Globe, Linkedin, Github, TrendingUp, Eye } from 'lucide-react';
+import { Mail, Globe, Linkedin, Github, TrendingUp, Eye } from 'lucide-react';
 import Link from 'next/link';
 import styles from './ProfileSidebar.module.css';
 
@@ -21,7 +21,7 @@ export function ProfileSidebar({ talent }: ProfileSidebarProps) {
           Contact {talent.name.split(' ')[0]}
         </Link>
         <p className={styles.ProfileSidebar__note}>
-          We'll respond within 24 hours
+          We&apos;ll respond within 24 hours
         </p>
       </div>
 

@@ -24,21 +24,18 @@ export default function TalentPool({ talents }: TalentPoolProps) {
   const [search, setSearch] = useState('');
   const [selectedSpecs, setSelectedSpecs] = useState<string[]>([]);
   const [selectedSeniority, setSelectedSeniority] = useState<string[]>([]);
-  const [selectedRates, setSelectedRates] = useState<string[]>([]);
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({
     roles: true, skills: true, location: true,
   });
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  const activeFilterCount = selectedSpecs.length + selectedSeniority.length + selectedRates.length;
+  const activeFilterCount = selectedSpecs.length + selectedSeniority.length;
 
   const toggleSpec = (spec: string) =>
     setSelectedSpecs(prev => prev.includes(spec) ? prev.filter(s => s !== spec) : [...prev, spec]);
   const toggleSeniority = (s: string) =>
     setSelectedSeniority(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s]);
-  const toggleRate = (r: string) =>
-    setSelectedRates(prev => prev.includes(r) ? prev.filter(x => x !== r) : [...prev, r]);
   const toggleSection = (key: string) =>
     setCollapsedSections(prev => ({ ...prev, [key]: !prev[key] }));
 

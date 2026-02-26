@@ -79,7 +79,7 @@ export function checkRateLimit(
 /**
  * Validate request body against common attack vectors
  */
-export function validateRequestBody(body: any): SecurityCheckResult {
+export function validateRequestBody(body: unknown): SecurityCheckResult {
   // Check body size
   if (!isValidBodySize(body, 100)) {
     return {
@@ -90,7 +90,7 @@ export function validateRequestBody(body: any): SecurityCheckResult {
   }
 
   // Recursively check all string values for injection attempts
-  const checkValues = (obj: any): boolean => {
+  const checkValues = (obj: unknown): boolean => {
     if (typeof obj === 'string') {
       if (containsSqlInjection(obj) || containsXss(obj)) {
         return false;
@@ -257,13 +257,13 @@ export function createSecurityErrorResponse(
 ): NextResponse {
   // Obfuscate error messages
   const obfuscatedError = obfuscateErrorMessage(error);
-  
+
   return NextResponse.json(
     {
       error: obfuscatedError,
       code: generateErrorCode(),
     },
-    { 
+    {
       status: statusCode,
       headers: {
         'X-Content-Type-Options': 'nosniff',
@@ -283,7 +283,7 @@ function getRequestIdentifier(request: NextRequest): string {
   const realIp = request.headers.get('x-real-ip');
   const ip = forwarded?.split(',')[0] || realIp || 'unknown';
   const userAgent = request.headers.get('user-agent') || 'unknown';
-  
+
   // Create obfuscated identifier
   return Buffer.from(`${ip}:${userAgent}`).toString('base64').slice(0, 32);
 }
@@ -306,10 +306,10 @@ function generateErrorCode(): string {
 }
 
 function logSecurityEvent(eventType: string, request: NextRequest): void {
-  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 
-              request.headers.get('x-real-ip') || 
-              'unknown';
-  
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ||
+    request.headers.get('x-real-ip') ||
+    'unknown';
+
   console.warn(`[SECURITY] ${eventType} - IP: ${obfuscateIp(ip)} - Path: ${request.nextUrl.pathname}`);
 }
 
@@ -323,7 +323,7 @@ export function withSecurity(
   return async (request: NextRequest): Promise<NextResponse> => {
     // Run security checks
     const securityResult = await securityCheck(request, config);
-    
+
     if (!securityResult.passed) {
       return createSecurityErrorResponse(
         securityResult.error || 'Security check failed',

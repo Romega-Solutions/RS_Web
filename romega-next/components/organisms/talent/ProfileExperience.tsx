@@ -1,5 +1,5 @@
 import { getTalentExperience } from '@/lib/supabase/talent-experience';
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import styles from './ProfileExperience.module.css';
 
 interface ProfileExperienceProps {
@@ -17,7 +17,7 @@ function calculateDuration(startDate: string, endDate: string | null): string {
   const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
   const years = Math.floor(months / 12);
   const remainingMonths = months % 12;
-  
+
   if (years === 0) {
     return `${remainingMonths} ${remainingMonths === 1 ? 'month' : 'months'}`;
   }
