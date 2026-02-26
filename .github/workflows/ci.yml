@@ -51,6 +51,12 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+# ─── PERMISSIONS ─────────────────────────────────────────────────────────────
+# Required for the JUnit report action to create GitHub check runs.
+permissions:
+  checks: write
+  contents: read
+
 # ─── ENVIRONMENT VARIABLES ───────────────────────────────────────────────────
 # Available to every job in this workflow.
 #
@@ -237,24 +243,22 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
 
-      # Upload test report and failure screenshots/videos so you can debug
-      # exactly what the browser saw when a test failed.
       - name: Upload Playwright test report
         uses: actions/upload-artifact@v4
-        if: always()                 # Always upload — especially useful on failure
+        if: always()
         with:
           name: playwright-report
           path: |
             romega-next/playwright-report/
             romega-next/playwright-results/
-          retention-days: 14         # Keep for 2 weeks for post-mortem debugging
+          retention-days: 14
+          if-no-files-found: ignore
 
-      # This step publishes test results inline in the GitHub PR UI.
-      # Reviewers see a ✅/❌ summary without clicking into the workflow.
+      # Publish test results inline in the GitHub PR UI.
       - name: Publish test results summary
         uses: mikepenz/action-junit-report@v4
         if: always()
         with:
           report_paths: 'romega-next/playwright-results/results.xml'
           check_name: 'Playwright E2E Test Results'
-          fail_on_failure: true
+          fail_on_failure: false   # Don't double-fail if tests already failed
