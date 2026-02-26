@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   // Security headers
   async headers() {
     const isProduction = process.env.NODE_ENV === 'production';
-    
+
     return [
       {
         source: '/:path*',
@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: isProduction 
+            value: isProduction
               ? "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://calendly.com https://assets.calendly.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://calendly.com https://*.supabase.co https://*.vercel.app https://api.emailjs.com; frame-src https://calendly.com; object-src 'none'; base-uri 'self'; form-action 'self';"
               : "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://calendly.com https://assets.calendly.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://calendly.com https://localhost:* https://*.supabase.co https://*.vercel.app https://api.emailjs.com; frame-src https://calendly.com; object-src 'none';"
           },
@@ -81,10 +81,11 @@ const nextConfig: NextConfig = {
   // Production optimization and security
   reactStrictMode: true,
   poweredByHeader: false, // Remove X-Powered-By header
-  
+
   // Vercel CDN Optimization - Output standalone for optimal edge caching
-  output: 'standalone',
-  
+  // Disabled in CI where we use `next start` for E2E testing
+  ...(process.env.CI ? {} : { output: 'standalone' as const }),
+
   // Compiler options for production optimization
   compiler: {
     // Remove console logs in production
@@ -146,14 +147,14 @@ const nextConfig: NextConfig = {
 
   // Enable ETags for better caching with Vercel CDN
   generateEtags: true,
-  
+
   // Compress responses (Vercel handles this at edge, but enable for local dev)
   compress: true,
-  
+
   // Experimental features for better performance
   experimental: {
-    // Optimize CSS loading
-    optimizeCss: true,
+    // Optimize CSS loading (requires critters, skip in CI)
+    optimizeCss: !process.env.CI,
     // Optimize package imports
     optimizePackageImports: ['lucide-react'],
   },

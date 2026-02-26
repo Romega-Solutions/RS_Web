@@ -218,30 +218,32 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
+      - name: Generate Prisma Client
+        working-directory: romega-next
+        run: npx prisma generate
+        env:
+          DATABASE_URL: 'postgresql://ci:ci@localhost:5432/ci'
+
       - name: Build the Next.js application
         working-directory: romega-next
         run: npm run build
         env:
-          # CI=true is important so Playwright knows to start `npm run start`
-          # (the production server) instead of `npm run dev`
-          CI: true
-          # Inject secrets from GitHub repository settings (Settings → Secrets)
-          # These are never visible in logs or to anyone outside the repo.
+          CI: 'true'
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000' }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://ci:ci@localhost:5432/ci' }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co' }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key' }}
 
       - name: Run Playwright E2E tests
         working-directory: romega-next
         run: npm run test:e2e
         env:
-          CI: true
+          CI: 'true'
           PLAYWRIGHT_BASE_URL: 'http://localhost:3000'
           NEXT_PUBLIC_SITE_URL: 'http://localhost:3000'
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://ci:ci@localhost:5432/ci' }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co' }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key' }}
 
       - name: Upload Playwright test report
         uses: actions/upload-artifact@v4
