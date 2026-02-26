@@ -1,0 +1,259 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# GitHub Actions – CI Pipeline
+#
+# ┌──────────────────────────────────────────────────────────────────────────┐
+# │  WHAT IS A CI PIPELINE? (layman's explanation)                           │
+# │                                                                          │
+# │  Imagine you have a factory assembly line.  Every time someone sends     │
+# │  new code (opens a Pull Request or pushes to main), GitHub automatically │
+# │  runs this "assembly line" to make sure nothing is broken before it      │
+# │  ships.  If anything fails, the pipeline turns RED and blocks the merge. │
+# │                                                                          │
+# │  3 JOBS IN THIS PIPELINE (they run in order):                           │
+# │                                                                          │
+# │  1. lint-and-typecheck  ──► Did anyone break the code style or types?   │
+# │  2. unit-tests          ──► Do all the individual pieces work?           │
+# │  3. e2e-tests           ──► Does the whole website work like a user?     │
+# │                                                                          │
+# │  WHY THIS ORDER?                                                         │
+# │  Cheap checks run first (lint is seconds) so we catch dumb mistakes      │
+# │  quickly.  Expensive checks (E2E runs a real browser) only run if the    │
+# │  cheap checks pass — saving CI minutes and money.                        │
+# └──────────────────────────────────────────────────────────────────────────┘
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: CI
+
+# WHEN DOES THIS PIPELINE RUN?
+#   - On every push to ANY branch (so feat/* branches also get checked)
+#   - On every Pull Request targeting main or develop
+#
+# Skipping paths like docs/ means a README fix doesn't waste 10 minutes
+# running the full test suite.
+on:
+  push:
+    branches-ignore:
+      - 'dependabot/**'    # Don't run on automated dependency bumps
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - '.gitignore'
+  pull_request:
+    branches: [main, develop]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - '.gitignore'
+
+# Cancel any in-progress run for the same PR/branch when a new commit is
+# pushed.  This avoids wasting minutes on outdated runs.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+# ─── ENVIRONMENT VARIABLES ───────────────────────────────────────────────────
+# Available to every job in this workflow.
+#
+# NEXT_PUBLIC_* variables are safe to expose in CI (they're already public
+# in the browser bundle).  Secret API keys are injected from GitHub Secrets
+# — they never appear in the workflow file.
+env:
+  NODE_VERSION: '20'
+  NEXT_TELEMETRY_DISABLED: '1'          # Don't send data to Vercel during CI
+
+# ═════════════════════════════════════════════════════════════════════════════
+# JOB 1: LINT & TYPE CHECK
+# ═════════════════════════════════════════════════════════════════════════════
+# WHAT THIS DOES (plain English):
+#   - Checks that all code follows the agreed style rules (ESLint)
+#   - Verifies there are no TypeScript type errors (tsc --noEmit)
+#
+# WHY THIS IS JOB 1:
+#   It runs in ~30 seconds and catches 80% of obvious mistakes instantly.
+#   Failing here means we never waste time booting up a browser for E2E.
+# ─────────────────────────────────────────────────────────────────────────────
+jobs:
+  lint-and-typecheck:
+    name: 🔍 Lint & Type Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          # Cache the node_modules folder based on package-lock.json hash.
+          # If no dependencies changed, the cache is restored in ~5 seconds
+          # instead of downloading everything fresh (~60 seconds).
+          cache: 'npm'
+          cache-dependency-path: romega-next/package-lock.json
+
+      - name: Install dependencies
+        working-directory: romega-next
+        run: npm ci
+        # `npm ci` (clean install) is preferred over `npm install` in CI:
+        #   - It's reproducible: uses exact versions from package-lock.json
+        #   - It's faster: skips the dependency resolution step
+        #   - It fails if package-lock.json is out of sync with package.json
+
+      - name: Run ESLint
+        working-directory: romega-next
+        run: npm run lint
+
+      - name: Run TypeScript type check
+        working-directory: romega-next
+        run: npx tsc --noEmit
+        # --noEmit: check for type errors WITHOUT generating any output files.
+        # This is the fastest way to validate types in CI.
+
+# ═════════════════════════════════════════════════════════════════════════════
+# JOB 2: UNIT TESTS (VITEST)
+# ═════════════════════════════════════════════════════════════════════════════
+# WHAT THIS DOES (plain English):
+#   Runs all files in __tests__/ through Vitest.
+#   Each test file verifies one module in isolation (no database, no network).
+#
+# WHY UNIT TESTS MATTER:
+#   They're the automated version of "did I break anything when I refactored?"
+#   Run in seconds, no browser needed.
+# ─────────────────────────────────────────────────────────────────────────────
+  unit-tests:
+    name: 🧪 Unit Tests
+    runs-on: ubuntu-latest
+    needs: lint-and-typecheck        # Only run if lint passed (saves CI minutes)
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: romega-next/package-lock.json
+
+      - name: Install dependencies
+        working-directory: romega-next
+        run: npm ci
+
+      - name: Run Vitest unit tests with coverage
+        working-directory: romega-next
+        run: npm run test:ci
+        env:
+          # Provide minimal env vars so modules that read process.env don't crash
+          NEXT_PUBLIC_SITE_URL: 'http://localhost:3000'
+          DATABASE_URL: 'postgresql://test:test@localhost:5432/test'
+
+      # Upload the coverage report so you can view it in the GitHub Actions UI
+      # and track whether coverage is going up or down over time.
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()                 # Upload even if tests fail (so you can debug)
+        with:
+          name: coverage-report
+          path: romega-next/coverage/
+          retention-days: 7          # Keep for one week, then auto-delete
+
+# ═════════════════════════════════════════════════════════════════════════════
+# JOB 3: END-TO-END TESTS (PLAYWRIGHT)
+# ═════════════════════════════════════════════════════════════════════════════
+# WHAT THIS DOES (plain English):
+#   - Starts your Next.js app on port 3000
+#   - Opens a real Chromium browser
+#   - Visits pages and clicks buttons like a real user
+#   - Takes screenshots if anything fails
+#
+# WHY E2E COSTS MORE:
+#   It needs to download browsers (~200MB), build the app, and run a server.
+#   That's why it only starts AFTER unit tests pass — no point running a 5-minute
+#   browser test if the 30-second unit test would have caught the bug anyway.
+# ─────────────────────────────────────────────────────────────────────────────
+  e2e-tests:
+    name: 🎭 E2E Tests (Playwright)
+    runs-on: ubuntu-latest
+    needs: unit-tests                # Gate on unit tests passing first
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: romega-next/package-lock.json
+
+      - name: Install dependencies
+        working-directory: romega-next
+        run: npm ci
+
+      # Cache Playwright browsers between CI runs.
+      # Playwright downloads ~250MB of browsers on first install.
+      # The cache key changes only when the Playwright version changes,
+      # so we reuse browsers across every PR — saving a huge amount of time.
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('romega-next/package-lock.json') }}
+
+      - name: Install Playwright browsers (if not cached)
+        working-directory: romega-next
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+        # We only install Chromium (not Firefox + Safari) to keep CI fast.
+        # Add more browsers here as your team grows and cross-browser bugs appear.
+
+      - name: Install Playwright system dependencies (if cached)
+        working-directory: romega-next
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Build the Next.js application
+        working-directory: romega-next
+        run: npm run build
+        env:
+          # CI=true is important so Playwright knows to start `npm run start`
+          # (the production server) instead of `npm run dev`
+          CI: true
+          # Inject secrets from GitHub repository settings (Settings → Secrets)
+          # These are never visible in logs or to anyone outside the repo.
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000' }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+      - name: Run Playwright E2E tests
+        working-directory: romega-next
+        run: npm run test:e2e
+        env:
+          CI: true
+          PLAYWRIGHT_BASE_URL: 'http://localhost:3000'
+          NEXT_PUBLIC_SITE_URL: 'http://localhost:3000'
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+      # Upload test report and failure screenshots/videos so you can debug
+      # exactly what the browser saw when a test failed.
+      - name: Upload Playwright test report
+        uses: actions/upload-artifact@v4
+        if: always()                 # Always upload — especially useful on failure
+        with:
+          name: playwright-report
+          path: |
+            romega-next/playwright-report/
+            romega-next/playwright-results/
+          retention-days: 14         # Keep for 2 weeks for post-mortem debugging
+
+      # This step publishes test results inline in the GitHub PR UI.
+      # Reviewers see a ✅/❌ summary without clicking into the workflow.
+      - name: Publish test results summary
+        uses: mikepenz/action-junit-report@v4
+        if: always()
+        with:
+          report_paths: 'romega-next/playwright-results/results.xml'
+          check_name: 'Playwright E2E Test Results'
+          fail_on_failure: true
