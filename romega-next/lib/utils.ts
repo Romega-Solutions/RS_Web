@@ -123,7 +123,9 @@ export function formatCurrency(amount: number, currency = 'USD'): string {
  * @param length - Length of the ID (default: 8)
  */
 export function generateId(length = 8): string {
-  return Math.random()
-    .toString(36)
-    .substring(2, 2 + length)
+  let result = ''
+  while (result.length < length) {
+    result += Math.random().toString(36).substring(2)
+  }
+  return result.substring(0, length)
 }
