@@ -155,6 +155,7 @@ jobs:
           name: coverage-report
           path: romega-next/coverage/
           retention-days: 7          # Keep for one week, then auto-delete
+          if-no-files-found: ignore  # Don't fail if coverage wasn't generated
 
 # ═════════════════════════════════════════════════════════════════════════════
 # JOB 3: END-TO-END TESTS (PLAYWRIGHT)

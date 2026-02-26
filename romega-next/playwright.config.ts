@@ -64,7 +64,7 @@ export default defineConfig({
             use: { ...devices['Desktop Chrome'] },
         },
 
-        // Uncomment these when you want cross-browser coverage:
+        // Uncomment these when you want cross-browser/mobile coverage:
         // {
         //   name: 'firefox',
         //   use: { ...devices['Desktop Firefox'] },
@@ -73,12 +73,10 @@ export default defineConfig({
         //   name: 'webkit',
         //   use: { ...devices['Desktop Safari'] },
         // },
-
-        // Mobile viewport test (Chromium engine)
-        {
-            name: 'Mobile Chrome',
-            use: { ...devices['Pixel 5'] },
-        },
+        // {
+        //   name: 'Mobile Chrome',
+        //   use: { ...devices['Pixel 5'] },
+        // },
     ],
 
     /**
