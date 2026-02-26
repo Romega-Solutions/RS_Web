@@ -112,12 +112,6 @@ export default function TalentProfileClient({
   const [activeTab, setActiveTab] = useState<Tab>('overview');
 
   const firstName = talent.name.split(' ')[0];
-  const rateLabel = talent.rate ?? (
-    talent.hourly_rate_min
-      ? `${talent.rate_currency ?? '$'}${talent.hourly_rate_min}${talent.hourly_rate_max ? `–${talent.hourly_rate_max}` : ''}/hr`
-      : null
-  );
-
   const availColor: Record<string, string> = {
     Available: '#16a34a',
     Busy: '#dc2626',
@@ -238,17 +232,6 @@ export default function TalentProfileClient({
               <span className={styles['sidebar__stat-sub']}>Level</span>
             </div>
           </div>
-
-          {/* Hourly rate */}
-          {rateLabel && (
-            <>
-              <div className={styles.sidebar__divider} />
-              <p className={styles.sidebar__label}>Hourly Rate</p>
-              <div className={styles.sidebar__rate}>
-                <span className={styles['sidebar__rate-amount']}>{rateLabel}</span>
-              </div>
-            </>
-          )}
 
         </aside>
 

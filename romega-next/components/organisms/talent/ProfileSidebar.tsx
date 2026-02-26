@@ -13,7 +13,7 @@ export function ProfileSidebar({ talent }: ProfileSidebarProps) {
       {/* Contact Card */}
       <div className={styles.ProfileSidebar__card}>
         <h2 className={styles.ProfileSidebar__cardTitle}>Get in Touch</h2>
-        <Link 
+        <Link
           href={`/contact?talent=${talent.id}`}
           className={styles.ProfileSidebar__ctaButton}
         >
@@ -38,16 +38,7 @@ export function ProfileSidebar({ talent }: ProfileSidebarProps) {
               </div>
             </div>
           )}
-          
-          {talent.rate && (
-            <div className={styles.ProfileSidebar__statItem}>
-              <span className={styles.ProfileSidebar__statIcon}>$</span>
-              <div>
-                <p className={styles.ProfileSidebar__statLabel}>Hourly Rate</p>
-                <p className={styles.ProfileSidebar__statValue}>{talent.rate}</p>
-              </div>
-            </div>
-          )}
+
 
           {talent.timezone && (
             <div className={styles.ProfileSidebar__statItem}>
@@ -77,9 +68,9 @@ export function ProfileSidebar({ talent }: ProfileSidebarProps) {
           <h3 className={styles.ProfileSidebar__cardTitle}>Links</h3>
           <div className={styles.ProfileSidebar__links}>
             {talent.portfolio_url && (
-              <a 
-                href={talent.portfolio_url} 
-                target="_blank" 
+              <a
+                href={talent.portfolio_url}
+                target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ProfileSidebar__link}
               >
@@ -88,9 +79,9 @@ export function ProfileSidebar({ talent }: ProfileSidebarProps) {
               </a>
             )}
             {talent.linkedin_url && (
-              <a 
-                href={talent.linkedin_url} 
-                target="_blank" 
+              <a
+                href={talent.linkedin_url}
+                target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ProfileSidebar__link}
               >
@@ -99,9 +90,9 @@ export function ProfileSidebar({ talent }: ProfileSidebarProps) {
               </a>
             )}
             {talent.github_url && (
-              <a 
-                href={talent.github_url} 
-                target="_blank" 
+              <a
+                href={talent.github_url}
+                target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ProfileSidebar__link}
               >

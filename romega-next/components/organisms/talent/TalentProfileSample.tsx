@@ -29,9 +29,6 @@ const SAMPLE = {
   location: 'London, United Kingdom',
   yearsExp: '7+',
   projectCount: 42,
-  rateMin: 85,
-  rateMax: 120,
-  currency: '$',
   availability: 'Available Now',
   availabilitySub: 'Full-time or Contract',
   bio: [
@@ -178,14 +175,6 @@ export default function TalentProfileSample() {
 
           <div className={styles.sidebar__divider} />
 
-          {/* Hourly rate */}
-          <p className={styles.sidebar__label}>Hourly Rate</p>
-          <div className={styles.sidebar__rate}>
-            <span className={styles['sidebar__rate-amount']}>
-              {SAMPLE.currency}{SAMPLE.rateMin} – {SAMPLE.currency}{SAMPLE.rateMax}
-            </span>
-            <span className={styles['sidebar__rate-unit']}>&nbsp;/ hr</span>
-          </div>
         </aside>
 
         {/* ── RIGHT CONTENT ─────────────────── */}

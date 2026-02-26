@@ -7,7 +7,6 @@ import type { Talent } from '@/types/jobs';
 
 interface TalentCardProps {
   talent: Talent;
-  currency?: string;
 }
 
 function getSeniorityLabel(level?: string): string {
@@ -21,17 +20,8 @@ function getSeniorityLabel(level?: string): string {
   }
 }
 
-function formatRate(talent: Talent, currency = '€'): string {
-  if (talent.hourly_rate_min) {
-    return `${currency} ${(talent.hourly_rate_min * 160).toLocaleString()}`;
-  }
-  if (talent.rate) return talent.rate;
-  return `${currency} —`;
-}
-
-export default function TalentCard({ talent, currency = '€' }: TalentCardProps) {
+export default function TalentCard({ talent }: TalentCardProps) {
   const seniority = getSeniorityLabel(talent.experience_level);
-  const rate = formatRate(talent, currency);
   const country = talent.location ? talent.location.toUpperCase() : '';
 
   return (
@@ -72,10 +62,6 @@ export default function TalentCard({ talent, currency = '€' }: TalentCardProps
 
       {/* Footer Row */}
       <div className={styles['talent-card__footer']}>
-        <div className={styles['talent-card__rate']}>
-          <span className={styles['talent-card__rate-amount']}>{rate}</span>
-          <span className={styles['talent-card__rate-period']}>&nbsp;/ month</span>
-        </div>
         <Link
           href={`/talent/${talent.id}`}
           className={styles['talent-card__cta']}

@@ -17,13 +17,6 @@ const SPECIALIZATIONS = [
 
 const SENIORITY_LEVELS = ['Expert', 'Junior', 'Middle', 'Senior'];
 
-const RATE_RANGES = [
-  { label: '€20 and below', max: 20 },
-  { label: '€21 – €30', min: 21, max: 30 },
-  { label: '€31 – €40', min: 31, max: 40 },
-];
-
-const CURRENCIES = ['€', '$', '£'];
 
 const PAGE_SIZE = 6;
 
@@ -32,7 +25,6 @@ export default function TalentPool({ talents }: TalentPoolProps) {
   const [selectedSpecs, setSelectedSpecs] = useState<string[]>([]);
   const [selectedSeniority, setSelectedSeniority] = useState<string[]>([]);
   const [selectedRates, setSelectedRates] = useState<string[]>([]);
-  const [currency, setCurrency] = useState('€');
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({
     roles: true, skills: true, location: true,
   });
@@ -150,41 +142,6 @@ export default function TalentPool({ talents }: TalentPoolProps) {
             ))}
           </div>
 
-          {/* Filter by Rate */}
-          <div className={styles['sidebar__section']}>
-            <h3 className={styles['sidebar__heading']}>Filter by Rate</h3>
-            {RATE_RANGES.map(r => (
-              <label key={r.label} className={styles['sidebar__checkbox-row']}>
-                <input
-                  type="checkbox"
-                  checked={selectedRates.includes(r.label)}
-                  onChange={() => toggleRate(r.label)}
-                  className={styles['sidebar__checkbox']}
-                />
-                <span>{r.label}</span>
-              </label>
-            ))}
-          </div>
-
-          {/* Currency */}
-          <div className={styles['sidebar__section']}>
-            <h3 className={styles['sidebar__heading']}>Currency</h3>
-            <div className={styles['sidebar__radio-row']}>
-              {CURRENCIES.map(c => (
-                <label key={c} className={styles['sidebar__radio-label']}>
-                  <input
-                    type="radio"
-                    name="currency"
-                    value={c}
-                    checked={currency === c}
-                    onChange={() => setCurrency(c)}
-                    className={styles['sidebar__radio']}
-                  />
-                  <span>{c}</span>
-                </label>
-              ))}
-            </div>
-          </div>
 
           {/* Collapsible: Roles */}
           {(['roles', 'skills', 'location'] as const).map(key => (
@@ -231,7 +188,7 @@ export default function TalentPool({ talents }: TalentPoolProps) {
           {visible.length > 0 ? (
             <div className={styles['talent-pool__grid']}>
               {visible.map(talent => (
-                <TalentCard key={talent.id} talent={talent} currency={currency} />
+                <TalentCard key={talent.id} talent={talent} />
               ))}
             </div>
           ) : (
