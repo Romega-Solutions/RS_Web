@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { TEAM_MEMBERS, type TeamMember } from '@/lib/constants';
 import styles from './TeamCarousel.module.css';
 
@@ -22,7 +22,7 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
 
   const handleScroll = (direction: 1 | -1) => {
     if (isAnimating) return;
-    
+
     setIsAnimating(true);
     setCurrentIndex((prev) => {
       const newIndex = prev + direction;
@@ -53,7 +53,7 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -111,19 +111,19 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
             Meet the Experts Behind Your Success
           </h2>
           <p className={styles['team-carousel__description']}>
-            Our leadership team brings decades of combined experience in executive search, 
+            Our leadership team brings decades of combined experience in executive search,
             HR transformation, and business growth.
           </p>
         </div>
 
         {/* Carousel Track */}
-        <div 
+        <div
           className={styles['team-carousel__track-wrapper']}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          <div 
+          <div
             ref={trackRef}
             className={styles['team-carousel__track']}
           >
@@ -134,14 +134,12 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
               return (
                 <div
                   key={`${member.id}-${position}`}
-                  className={`${styles['team-carousel__item']} ${positionClass} ${
-                    isCenter ? styles['team-carousel__item--center'] : ''
-                  }`}
+                  className={`${styles['team-carousel__item']} ${positionClass} ${isCenter ? styles['team-carousel__item--center'] : ''
+                    }`}
                 >
                   <button
-                    className={`${styles['team-carousel__card']} ${
-                      member.id === 'rich-salvador' ? styles['team-carousel__card--white-bg'] : ''
-                    }`}
+                    className={`${styles['team-carousel__card']} ${member.id === 'rich-salvador' ? styles['team-carousel__card--white-bg'] : ''
+                      }`}
                     onClick={() => isCenter && onMemberClick?.(member)}
                     aria-label={`View ${member.name}'s profile`}
                     disabled={!isCenter}
@@ -153,7 +151,7 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
                       className={styles['team-carousel__image']}
                       sizes="(max-width: 768px) 200px, 400px"
                     />
-                    
+
                     <div className={styles['team-carousel__overlay']}>
                       <h3 className={styles['team-carousel__name']}>
                         {member.name}
@@ -190,9 +188,8 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
             {TEAM_MEMBERS.map((_, index) => (
               <button
                 key={index}
-                className={`${styles['team-carousel__dot']} ${
-                  index === currentIndex ? styles['team-carousel__dot--active'] : ''
-                }`}
+                className={`${styles['team-carousel__dot']} ${index === currentIndex ? styles['team-carousel__dot--active'] : ''
+                  }`}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to team member ${index + 1}`}
                 aria-current={index === currentIndex ? 'true' : 'false'}

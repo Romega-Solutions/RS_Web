@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from './MissionVision.module.css';
 
 export default function MissionVision() {
@@ -12,7 +11,7 @@ export default function MissionVision() {
 
       <div className={styles['mission-vision__container']}>
         <div className={styles['mission-vision__content']}>
-          
+
           {/* Mission */}
           <div className={styles['mission-vision__section']}>
             <h2
@@ -22,11 +21,11 @@ export default function MissionVision() {
               Our Mission
             </h2>
             <p className={styles['mission-vision__text']}>
-              To revolutionize the future of work by empowering Philippine-based talent 
+              To revolutionize the future of work by empowering Philippine-based talent
               to lead global innovation.
             </p>
             <p className={styles['mission-vision__text']}>
-              We envision a world where businesses thrive through strategic remote collaboration, 
+              We envision a world where businesses thrive through strategic remote collaboration,
               improving lives and shaping industries worldwide.
             </p>
           </div>
@@ -37,11 +36,11 @@ export default function MissionVision() {
               Our Vision
             </h2>
             <p className={styles['mission-vision__text']}>
-              To bridge the gap between exceptional tech talent and forward-thinking companies, 
+              To bridge the gap between exceptional tech talent and forward-thinking companies,
               fostering mutual growth through meaningful connections.
             </p>
             <p className={styles['mission-vision__text']}>
-              By matching skilled professionals with innovative employers, we unlock potential, 
+              By matching skilled professionals with innovative employers, we unlock potential,
               drive progress, and create lasting impact in the global tech ecosystem.
             </p>
           </div>

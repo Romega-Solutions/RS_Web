@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import ContactHero from '@/components/organisms/contact/ContactHero';
 import ContactContainer from '@/components/organisms/contact/ContactContainer';
@@ -14,14 +15,14 @@ export default function ContactPageClient() {
     <main className="relative min-h-screen w-full max-w-7xl mx-auto overflow-hidden xl:overflow-visible mt-26" id="main-content">
       {/* Background Decorative Elements */}
       <div className="bg-clip-content">
-        <img
+        <Image
           src="/images/contact/bg-romega.svg"
-          width="530"
-          height="654"
+          width={530}
+          height={654}
           className="absolute top-0 -left-16 w-auto h-auto opacity-10 -z-10"
-          aria-hidden="true"
+          aria-hidden={true}
           alt=""
-          fetchPriority="high"
+          priority
         />
         {/* Ellipse 793 BG Top Right 1 */}
         <span className="size-80 bg-blue-100 rounded-full absolute -top-32.75 -right-7.5" aria-hidden="true" />
@@ -36,7 +37,7 @@ export default function ContactPageClient() {
       {/* Content Overlay */}
       <section className="py-20 relative z-10 min-h-screen max-w-7xl mx-auto px-4">
         <ContactHero />
-        <ContactContainer 
+        <ContactContainer
           onOpenTerms={() => setIsTermsOpen(true)}
           onOpenPrivacy={() => setIsPrivacyOpen(true)}
         />

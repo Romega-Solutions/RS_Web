@@ -10,7 +10,10 @@ import styles from './ContactForm.module.css';
 // Declare global type for reCAPTCHA
 declare global {
   interface Window {
-    grecaptcha: any;
+    grecaptcha: {
+      getResponse: () => string;
+      reset: () => void;
+    };
   }
 }
 
@@ -48,7 +51,6 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -156,7 +158,7 @@ export default function ContactForm() {
         }
       } else {
         setSubmitStatus('error');
-        
+
         // Reset reCAPTCHA on error
         if (window.grecaptcha) {
           window.grecaptcha.reset();
@@ -178,7 +180,7 @@ export default function ContactForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
@@ -191,7 +193,6 @@ export default function ContactForm() {
       <Script
         src="https://www.google.com/recaptcha/api.js"
         strategy="lazyOnload"
-        onLoad={() => setRecaptchaLoaded(true)}
       />
 
       <form onSubmit={handleSubmit} className={styles['contact-form__form']} noValidate>
@@ -375,8 +376,8 @@ export default function ContactForm() {
 
         {/* reCAPTCHA */}
         <div className="flex flex-col items-center gap-2 my-4">
-          <div 
-            className="g-recaptcha" 
+          <div
+            className="g-recaptcha"
             data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
           />
           {errors.recaptcha && (

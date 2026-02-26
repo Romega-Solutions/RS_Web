@@ -111,7 +111,7 @@ function hasXSS(text: string): boolean {
  */
 async function verifyRecaptcha(token: string): Promise<boolean> {
   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  
+
   if (!secretKey) {
     console.error('reCAPTCHA secret key not configured');
     return false;
@@ -131,10 +131,20 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
   }
 }
 
+interface ContactFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  company: string;
+  phone: string;
+  message: string;
+}
+
 /**
  * Send email via Resend
  */
-async function sendEmail(formData: any): Promise<boolean> {
+async function sendEmail(formData: ContactFormData): Promise<boolean> {
   const resendApiKey = process.env.RESEND_API_KEY;
   const adminEmail = process.env.ADMIN_EMAIL || 'info@romega-solutions.com';
 
@@ -145,7 +155,7 @@ async function sendEmail(formData: any): Promise<boolean> {
 
   try {
     console.log('[Resend] Initializing...');
-    
+
     const resend = new Resend(resendApiKey);
 
     const timestamp = new Date().toLocaleString('en-US', {
@@ -322,7 +332,7 @@ export async function POST(request: NextRequest) {
     if (!rateLimit.allowed) {
       return NextResponse.json(
         { success: false, message: 'Too many requests. Please try again later.' },
-        { 
+        {
           status: 429,
           headers: {
             'X-RateLimit-Remaining': '0',
@@ -427,11 +437,11 @@ export async function POST(request: NextRequest) {
 
     // 12. Success response
     return NextResponse.json(
-      { 
-        success: true, 
-        message: 'Thank you! Your message has been sent successfully.' 
+      {
+        success: true,
+        message: 'Thank you! Your message has been sent successfully.'
       },
-      { 
+      {
         status: 200,
         headers: {
           'X-RateLimit-Remaining': String(rateLimit.remaining)
@@ -446,7 +456,7 @@ export async function POST(request: NextRequest) {
       console.error('[Contact API] Error message:', error.message);
       console.error('[Contact API] Error stack:', error.stack);
     }
-    
+
     return NextResponse.json(
       { success: false, message: 'An error occurred. Please try again.' },
       { status: 500 }

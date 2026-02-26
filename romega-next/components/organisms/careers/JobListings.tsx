@@ -5,7 +5,6 @@ import { Briefcase, MapPin, Clock, ExternalLink } from 'lucide-react';
 import styles from './JobListings.module.css';
 import { fetchJobs } from '@/lib/api/jobs';
 import type { Job } from '@/types/jobs';
-import JobCard from './JobCard';
 
 export default function JobListings() {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -15,7 +14,7 @@ export default function JobListings() {
 
   useEffect(() => {
     loadJobs();
-    
+
     // Refresh jobs every 5 minutes
     const interval = setInterval(() => {
       loadJobs();
@@ -56,23 +55,23 @@ export default function JobListings() {
     { id: 'hr', label: 'HR & Talent' },
   ];
 
-  const filteredJobs = selectedCategory === 'all' 
-    ? jobs 
+  const filteredJobs = selectedCategory === 'all'
+    ? jobs
     : jobs.filter(job => {
-        const title = job.job_title.toLowerCase();
-        switch(selectedCategory) {
-          case 'engineering':
-            return title.includes('engineer') || title.includes('developer') || title.includes('technical');
-          case 'sales':
-            return title.includes('sales') || title.includes('marketing') || title.includes('business');
-          case 'operations':
-            return title.includes('operations') || title.includes('manager') || title.includes('coordinator');
-          case 'hr':
-            return title.includes('hr') || title.includes('talent') || title.includes('recruiter');
-          default:
-            return true;
-        }
-      });
+      const title = job.job_title.toLowerCase();
+      switch (selectedCategory) {
+        case 'engineering':
+          return title.includes('engineer') || title.includes('developer') || title.includes('technical');
+        case 'sales':
+          return title.includes('sales') || title.includes('marketing') || title.includes('business');
+        case 'operations':
+          return title.includes('operations') || title.includes('manager') || title.includes('coordinator');
+        case 'hr':
+          return title.includes('hr') || title.includes('talent') || title.includes('recruiter');
+        default:
+          return true;
+      }
+    });
 
   return (
     <section className={styles['job-listings']} aria-labelledby="jobs-heading">
@@ -90,9 +89,8 @@ export default function JobListings() {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`${styles['job-listings__filter']} ${
-                selectedCategory === category.id ? styles['job-listings__filter--active'] : ''
-              }`}
+              className={`${styles['job-listings__filter']} ${selectedCategory === category.id ? styles['job-listings__filter--active'] : ''
+                }`}
               role="tab"
               aria-selected={selectedCategory === category.id}
               aria-controls="jobs-list"
@@ -137,13 +135,12 @@ export default function JobListings() {
             <div className={styles['job-listings__grid']}>
               {filteredJobs.map((job, index) => {
                 const isActive = job.status === 'Active';
-                
+
                 return (
                   <div
                     key={index}
-                    className={`${styles['job-listings__card']} ${
-                      !isActive ? styles['job-listings__card--inactive'] : ''
-                    }`}
+                    className={`${styles['job-listings__card']} ${!isActive ? styles['job-listings__card--inactive'] : ''
+                      }`}
                   >
                     {/* Card Header */}
                     <div className={styles['job-listings__card-header']}>

@@ -5,10 +5,10 @@ import { withSecurity } from '@/lib/security';
  * Secure proxy for fetching jobs from Google Apps Script
  * This hides the actual API URL from the client and adds security measures
  */
-async function handleJobsRequest(request: NextRequest) {
+async function handleJobsRequest(_request: NextRequest) {
   try {
     // Get the API URL from environment (falls back to hardcoded if not set)
-    const JOBS_API_URL = process.env.JOBS_API_URL || 
+    const JOBS_API_URL = process.env.JOBS_API_URL ||
       'https://script.google.com/macros/s/AKfycbwuPSsnmiz2B2lBIbmhWcJwQ35nrPCtdR0DXjrK7dhWvGaXuoin4rs5LhkEUpWBud0f6A/exec';
 
     // Retry configuration
@@ -37,7 +37,7 @@ async function handleJobsRequest(request: NextRequest) {
           signal: controller.signal,
         });
 
-            clearTimeout(timeoutId);
+        clearTimeout(timeoutId);
 
         if (!response.ok) {
           throw new Error(`External API responded with status: ${response.status}`);
@@ -64,7 +64,7 @@ async function handleJobsRequest(request: NextRequest) {
         });
       } catch (error) {
         lastError = error instanceof Error ? error : new Error('Unknown error');
-        
+
         // If it's an abort error (timeout), log it
         if (lastError.name === 'AbortError') {
           console.warn(`[JOBS API] Attempt ${attempt + 1} timed out after ${TIMEOUT_MS}ms`);
@@ -123,7 +123,7 @@ export const GET = withSecurity(handleJobsRequest, {
 });
 
 // Handle OPTIONS for CORS preflight
-export async function OPTIONS(request: NextRequest) {
+export async function OPTIONS(_request: NextRequest) {
   return new NextResponse(null, {
     status: 200,
     headers: {
