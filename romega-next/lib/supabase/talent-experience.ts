@@ -19,7 +19,7 @@ export interface TalentExperience {
 export async function getTalentExperience(talentId: string): Promise<TalentExperience[]> {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  
+
   if (!supabaseUrl || !supabaseKey || supabaseKey.includes('placeholder')) {
     console.warn('Supabase not configured, no experience data available');
     return [];
@@ -27,7 +27,7 @@ export async function getTalentExperience(talentId: string): Promise<TalentExper
 
   try {
     const supabase = await createClient();
-    
+
     const { data, error } = await supabase
       .from('talent_experience')
       .select('*')
@@ -40,8 +40,8 @@ export async function getTalentExperience(talentId: string): Promise<TalentExper
     }
 
     return data || [];
-  } catch (error) {
-    console.warn('Error in getTalentExperience:', error);
+  } catch (_error) {
+    console.warn('Error in getTalentExperience:', _error);
     return [];
   }
 }

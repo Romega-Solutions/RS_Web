@@ -46,16 +46,16 @@ export async function fetchJobs(): Promise<Job[]> {
     const jobs: Job[] = Array.isArray(data) ? data : [];
     console.log(`[CLIENT] Successfully received ${jobs.length} jobs`);
     return jobs;
-  } catch (error) {
+  } catch (_error) {
     // More detailed error logging
-    if (error instanceof Error) {
-      if (error.name === 'AbortError') {
+    if (_error instanceof Error) {
+      if (_error.name === 'AbortError') {
         console.error('Client request timed out after 35 seconds');
         throw new Error('Request timed out. Please check your connection and try again.');
       }
-      console.error('Failed to fetch jobs:', error.message);
+      console.error('Failed to fetch jobs:', _error.message);
     } else {
-      console.error('Failed to fetch jobs:', error);
+      console.error('Failed to fetch jobs:', _error);
     }
 
     // Return empty array instead of throwing to prevent UI breakage

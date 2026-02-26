@@ -119,8 +119,11 @@ export function validateRequestBody(body: unknown): SecurityCheckResult {
 /**
  * Validate contact form submission
  */
-export function validateContactForm(data: any): SecurityCheckResult {
-  const { name, email, phone, message, company } = data;
+export function validateContactForm(data: Record<string, unknown>): SecurityCheckResult {
+  const name = data.name as string | undefined;
+  const email = data.email as string | undefined;
+  const message = data.message as string | undefined;
+  const company = data.company as string | undefined;
 
   // Required fields
   if (!name || !email || !message) {
@@ -236,7 +239,7 @@ export async function securityCheck(
         logSecurityEvent('INVALID_BODY', request);
         return bodyValidation;
       }
-    } catch (error) {
+    } catch (_error) {
       return {
         passed: false,
         error: 'Invalid request body',
@@ -334,9 +337,9 @@ export function withSecurity(
     try {
       // Call the actual handler
       return await handler(request);
-    } catch (error) {
+    } catch (_error) {
       // Log error but don't expose details
-      console.error('[API ERROR]', error);
+      console.error('[API ERROR]', _error);
       return createSecurityErrorResponse('Internal error', 500);
     }
   };

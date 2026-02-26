@@ -154,12 +154,12 @@ const MOCK_TALENTS: Talent[] = [
 /**
  * Transform database talent to include computed display properties
  */
-function transformTalent(dbTalent: any): Talent {
+function transformTalent(dbTalent: Record<string, unknown>): Talent {
   return {
-    ...dbTalent,
+    ...(dbTalent as unknown as Talent),
     // Add computed display properties
     experience: `${dbTalent.experience_years}+ years`,
-    rate: dbTalent.hourly_rate_min && dbTalent.hourly_rate_max 
+    rate: dbTalent.hourly_rate_min && dbTalent.hourly_rate_max
       ? `$${dbTalent.hourly_rate_min}-${dbTalent.hourly_rate_max}/hr`
       : undefined,
   };
@@ -174,7 +174,7 @@ export async function getTalents(): Promise<Talent[]> {
   // Check if Supabase is properly configured
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  
+
   if (!supabaseUrl || !supabaseKey || supabaseKey.includes('placeholder')) {
     console.warn('Supabase not configured, using mock data');
     return MOCK_TALENTS;
@@ -182,7 +182,7 @@ export async function getTalents(): Promise<Talent[]> {
 
   try {
     const supabase = await createClient();
-    
+
     const { data, error } = await supabase
       .from('talents')
       .select('*')
@@ -203,8 +203,8 @@ export async function getTalents(): Promise<Talent[]> {
 
     // Transform database talents to match interface
     return data.map(transformTalent);
-  } catch (error) {
-    console.warn('Error in getTalents, using mock data:', error);
+  } catch (_error) {
+    console.warn('Error in getTalents, using mock data:', _error);
     return MOCK_TALENTS;
   }
 }
@@ -231,7 +231,7 @@ export async function getTalentsByAvailability(availability: string): Promise<Ta
 export async function getTalentById(id: string): Promise<Talent | null> {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  
+
   if (!supabaseUrl || !supabaseKey || supabaseKey.includes('placeholder')) {
     // Return mock data talent by ID
     const talent = MOCK_TALENTS.find(t => t.id === id);
@@ -240,7 +240,7 @@ export async function getTalentById(id: string): Promise<Talent | null> {
 
   try {
     const supabase = await createClient();
-    
+
     const { data, error } = await supabase
       .from('talents')
       .select('*')
@@ -248,15 +248,15 @@ export async function getTalentById(id: string): Promise<Talent | null> {
       .eq('verified', true)
       .single();
 
-    if (error ||!data) {
+    if (error || !data) {
       console.warn('Talent not found in database, checking mock data');
       const mockTalent = MOCK_TALENTS.find(t => t.id === id);
       return mockTalent || null;
     }
 
     return transformTalent(data);
-  } catch (error) {
-    console.warn('Error fetching talent by ID:', error);
+  } catch (_error) {
+    console.warn('Error fetching talent by ID:', _error);
     const mockTalent = MOCK_TALENTS.find(t => t.id === id);
     return mockTalent || null;
   }
@@ -268,7 +268,7 @@ export async function getTalentById(id: string): Promise<Talent | null> {
 export async function getTalentExperience(talentId: string) {
   try {
     const supabase = await createClient();
-    
+
     const { data, error } = await supabase
       .from('talent_experience')
       .select('*')
@@ -281,8 +281,8 @@ export async function getTalentExperience(talentId: string) {
     }
 
     return data || [];
-  } catch (error) {
-    console.warn('Error in getTalentExperience:', error);
+  } catch (_error) {
+    console.warn('Error in getTalentExperience:', _error);
     return [];
   }
 }
@@ -293,7 +293,7 @@ export async function getTalentExperience(talentId: string) {
 export async function getTalentProjects(talentId: string) {
   try {
     const supabase = await createClient();
-    
+
     const { data, error } = await supabase
       .from('talent_projects')
       .select('*')
@@ -307,8 +307,8 @@ export async function getTalentProjects(talentId: string) {
     }
 
     return data || [];
-  } catch (error) {
-    console.warn('Error in getTalentProjects:', error);
+  } catch (_error) {
+    console.warn('Error in getTalentProjects:', _error);
     return [];
   }
 }
@@ -319,7 +319,7 @@ export async function getTalentProjects(talentId: string) {
 export async function getTalentTestimonials(talentId: string) {
   try {
     const supabase = await createClient();
-    
+
     const { data, error } = await supabase
       .from('talent_testimonials')
       .select('*')
@@ -332,8 +332,8 @@ export async function getTalentTestimonials(talentId: string) {
     }
 
     return data || [];
-  } catch (error) {
-    console.warn('Error in getTalentTestimonials:', error);
+  } catch (_error) {
+    console.warn('Error in getTalentTestimonials:', _error);
     return [];
   }
 }

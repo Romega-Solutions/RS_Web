@@ -164,8 +164,8 @@ export default function ContactForm() {
           window.grecaptcha.reset();
         }
       }
-    } catch (error) {
-      console.error('Form submission error:', error);
+    } catch (_error) {
+      console.error('Form submission error:', _error);
       setSubmitStatus('error');
 
       // Reset reCAPTCHA on error

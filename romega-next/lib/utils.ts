@@ -58,7 +58,7 @@ export function truncate(text: string, length: number, suffix = '...'): string {
  * @param func - The function to debounce
  * @param wait - The debounce delay in milliseconds
  */
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => void>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {

@@ -7,7 +7,7 @@ import { NextRequest } from 'next/server';
 // Email validation with strict regex
 export function isValidEmail(email: string): boolean {
   const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-  
+
   if (!emailRegex.test(email)) {
     return false;
   }
@@ -16,7 +16,7 @@ export function isValidEmail(email: string): boolean {
   if (email.length > 254) return false;
   const parts = email.split('@');
   if (parts[0].length > 64) return false;
-  
+
   return true;
 }
 
@@ -24,7 +24,7 @@ export function isValidEmail(email: string): boolean {
 export function isValidPhone(phone: string): boolean {
   // Remove common separators
   const cleaned = phone.replace(/[\s\-\(\)\.]/g, '');
-  
+
   // Check if it's a valid phone number (7-15 digits with optional + prefix)
   const phoneRegex = /^\+?[1-9]\d{6,14}$/;
   return phoneRegex.test(cleaned);
@@ -87,10 +87,10 @@ export function containsXss(input: string): boolean {
 export function isValidOrigin(request: NextRequest): boolean {
   const origin = request.headers.get('origin');
   const referer = request.headers.get('referer');
-  
+
   // In development, allow localhost
   const isDev = process.env.NODE_ENV === 'development';
-  
+
   const allowedOrigins = [
     process.env.NEXT_PUBLIC_APP_URL,
     'https://www.romegasolutions.com',
@@ -150,7 +150,7 @@ export function isValidToken(token: string, maxAge: number = 300000): boolean {
 }
 
 // Honeypot field checker
-export function checkHoneypot(honeypotValue: any): boolean {
+export function checkHoneypot(honeypotValue: unknown): boolean {
   // Honeypot field should be empty
   return !honeypotValue || honeypotValue === '';
 }
@@ -198,7 +198,7 @@ export function generateCsrfToken(): string {
 }
 
 // Validate request body size
-export function isValidBodySize(body: any, maxSizeKb: number = 100): boolean {
+export function isValidBodySize(body: unknown, maxSizeKb: number = 100): boolean {
   try {
     const size = JSON.stringify(body).length;
     return size <= maxSizeKb * 1024;
