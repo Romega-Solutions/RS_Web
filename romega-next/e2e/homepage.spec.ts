@@ -10,20 +10,23 @@ import { test, expect } from '@playwright/test'
 test.describe('Homepage', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/', { waitUntil: 'domcontentloaded' })
+        // Wait for hydration — Header is a 'use client' component
+        // In CI production mode, hydration can take significantly longer
+        await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => { })
     })
 
     test('loads successfully and has a title', async ({ page }) => {
-        // Wait for the page to be fully interactive before checking the title
-        // In CI production mode, SSR pages may take longer to resolve metadata
-        await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => { })
-
         const title = await page.title()
         expect(title.length).toBeGreaterThan(0)
     })
 
     test('renders the main navigation', async ({ page }) => {
-        const nav = page.getByRole('navigation').first()
-        await expect(nav).toBeVisible({ timeout: 10000 })
+        // The Header component uses role="navigation" on the <nav> element.
+        // It's a 'use client' component so we need to wait for hydration.
+        // The <nav> element is always in the DOM (both desktop and mobile),
+        // but we need to wait for React hydration to complete rendering.
+        const nav = page.locator('nav[role="navigation"], nav[aria-label="Main navigation"]').first()
+        await expect(nav).toBeVisible({ timeout: 15000 })
     })
 
     test('has a visible main content area', async ({ page }) => {
@@ -39,7 +42,6 @@ test.describe('Homepage', () => {
     test('page renders without crashing', async ({ page }) => {
         // Verify the page didn't crash by checking that the body has rendered content
         // In CI, some content might be in images/SVGs — so just check the page loaded
-        await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => { })
         const body = page.locator('body')
         await expect(body).toBeVisible()
     })

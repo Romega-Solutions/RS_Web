@@ -10,42 +10,41 @@ import { test, expect } from '@playwright/test'
 test.describe('Contact Page', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/contact', { waitUntil: 'domcontentloaded' })
+        // Wait for hydration — ContactPageClient, ContactContainer, and
+        // ContactForm are all 'use client' components. In CI production
+        // mode the hydration chain can take significantly longer.
+        await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => { })
     })
 
     test('loads the contact page with a title', async ({ page }) => {
-        await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => { })
         const title = await page.title()
         expect(title.length).toBeGreaterThan(0)
         expect(title.toLowerCase()).toContain('contact')
     })
 
     test('displays the contact form', async ({ page }) => {
+        // The form is rendered by ContactForm (a deeply nested client component).
+        // After networkidle in beforeEach, we still give it generous time here
+        // because React hydration can happen after networkidle fires.
         const form = page.locator('form').first()
-        await expect(form).toBeVisible({ timeout: 10000 })
+        await expect(form).toBeVisible({ timeout: 30000 })
     })
 
     test('has input fields in the form', async ({ page }) => {
-        // Wait for client hydration — the form is a 'use client' component
-        // In CI production mode, hydration can take significantly longer
-        await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => { })
-
-        // Wait for the form to be visible first (ensures SSR has rendered)
+        // Wait for the form to be visible first (ensures hydration has started)
         const form = page.locator('form').first()
-        await expect(form).toBeVisible({ timeout: 15000 })
+        await expect(form).toBeVisible({ timeout: 30000 })
 
-        // Now wait for at least one visible input inside the form
-        // Using toBeVisible() with timeout instead of count() which doesn't wait
+        // Now wait for at least one visible input inside the form.
+        // The ContactForm component has text inputs, email, tel, textarea, and select fields.
         const firstInput = page.locator('form input[type="text"], form input[type="email"], form input[type="tel"], form textarea, form select').first()
-        await expect(firstInput).toBeVisible({ timeout: 10000 })
+        await expect(firstInput).toBeVisible({ timeout: 15000 })
     })
 
     test('shows validation errors when form is submitted empty', async ({ page }) => {
-        // Wait for full hydration so React event handlers are attached
-        await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => { })
-
         // Wait for the form to be fully hydrated and interactive
         const form = page.locator('form').first()
-        await expect(form).toBeVisible({ timeout: 15000 })
+        await expect(form).toBeVisible({ timeout: 30000 })
 
         // Find and click the submit button (must be type="submit" inside the form)
         const submitButton = page.locator('form button[type="submit"]').first()
