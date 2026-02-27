@@ -13,6 +13,10 @@ test.describe('Homepage', () => {
     })
 
     test('loads successfully and has a title', async ({ page }) => {
+        // Wait for the page to be fully interactive before checking the title
+        // In CI production mode, SSR pages may take longer to resolve metadata
+        await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => { })
+
         const title = await page.title()
         expect(title.length).toBeGreaterThan(0)
     })

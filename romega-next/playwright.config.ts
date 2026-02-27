@@ -26,6 +26,9 @@ export default defineConfig({
     // Where to find E2E test files (separate from unit tests)
     testDir: './e2e',
 
+    // Give tests more time on CI (production server + hydration can be slower)
+    timeout: process.env.CI ? 60_000 : 30_000,
+
     // Don't run tests in parallel within a file (prevents race conditions on shared pages)
     fullyParallel: true,
 
@@ -90,6 +93,6 @@ export default defineConfig({
         command: process.env.CI ? 'npm run start' : 'npm run dev',
         url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI, // Reuse running server in local dev
-        timeout: 120 * 1000,                  // Give Next.js up to 2min to start
+        timeout: 180 * 1000,                  // Give Next.js up to 3min to start (CI can be slow)
     },
 })
