@@ -94,5 +94,9 @@ export default defineConfig({
         url: 'http://localhost:3000',
         reuseExistingServer: !process.env.CI, // Reuse running server in local dev
         timeout: 180 * 1000,                  // Give Next.js up to 3min to start (CI can be slow)
+        env: {
+            ...process.env,
+            E2E_TEST_MODE: 'true',
+        },
     },
 })

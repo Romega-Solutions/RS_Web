@@ -9,7 +9,8 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Homepage', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('/', { waitUntil: 'domcontentloaded' })
+        const response = await page.goto('/', { waitUntil: 'domcontentloaded' })
+        expect(response?.ok(), `GET / failed with status ${response?.status()}`).toBeTruthy()
         // Wait for hydration — Header is a 'use client' component
         // In CI production mode, hydration can take significantly longer
         await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => { })
@@ -21,12 +22,9 @@ test.describe('Homepage', () => {
     })
 
     test('renders the main navigation', async ({ page }) => {
-        // The Header component uses role="navigation" on the <nav> element.
-        // It's a 'use client' component so we need to wait for hydration.
-        // The <nav> element is always in the DOM (both desktop and mobile),
-        // but we need to wait for React hydration to complete rendering.
-        const nav = page.locator('nav[role="navigation"], nav[aria-label="Main navigation"]').first()
-        await expect(nav).toBeVisible({ timeout: 15000 })
+        // Assert via stable header link hrefs instead of ARIA-role dependent selectors.
+        const primaryNavLink = page.locator('header a[href="/about"], header a[href="/services"], header a[href="/contact"]').first()
+        await expect(primaryNavLink).toBeVisible({ timeout: 30000 })
     })
 
     test('has a visible main content area', async ({ page }) => {
@@ -35,8 +33,8 @@ test.describe('Homepage', () => {
     })
 
     test('contains a link to the Contact page', async ({ page }) => {
-        const contactLink = page.getByRole('link', { name: /contact/i }).first()
-        await expect(contactLink).toBeVisible({ timeout: 10000 })
+        const contactLink = page.locator('a[href="/contact"]').first()
+        await expect(contactLink).toBeVisible({ timeout: 30000 })
     })
 
     test('page renders without crashing', async ({ page }) => {

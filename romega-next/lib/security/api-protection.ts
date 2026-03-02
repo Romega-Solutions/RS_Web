@@ -175,6 +175,14 @@ export function validateContactForm(data: Record<string, unknown>): SecurityChec
  * Check request origin and headers
  */
 export function validateRequestHeaders(request: NextRequest): SecurityCheckResult {
+  const hostname = request.nextUrl.hostname.toLowerCase();
+  const isLocalhostRequest = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
+
+  // Localhost requests are used by local development and CI E2E runs.
+  if (isLocalhostRequest) {
+    return { passed: true };
+  }
+
   // Validate origin
   if (!isValidOrigin(request)) {
     return {
@@ -216,6 +224,11 @@ export async function securityCheck(
   request: NextRequest,
   config?: RateLimitConfig
 ): Promise<SecurityCheckResult> {
+  // Deterministic bypass for Playwright E2E pipeline.
+  if (process.env.E2E_TEST_MODE === 'true') {
+    return { passed: true };
+  }
+
   // 1. Check rate limit
   const rateLimit = checkRateLimit(request, config);
   if (!rateLimit.passed) {

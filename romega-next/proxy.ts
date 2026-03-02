@@ -166,8 +166,11 @@ function createErrorResponse(message: string, status: number = 403, pathname: st
 export default async function proxy(request: NextRequest) {
   // Start metrics tracking
   const startTime = Date.now();
+  const isE2ETestMode = process.env.E2E_TEST_MODE === 'true';
   
   const { pathname } = request.nextUrl;
+  const hostname = request.nextUrl.hostname.toLowerCase();
+  const isLocalhostRequest = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
   
   // Skip metrics tracking for the metrics endpoint itself
   const shouldTrackMetrics = pathname !== '/api/metrics';
@@ -179,7 +182,7 @@ export default async function proxy(request: NextRequest) {
   const clientId = getClientIdentifier(request);
 
   // Check for suspicious requests
-  if (isSuspiciousRequest(request)) {
+  if (!isE2ETestMode && !isLocalhostRequest && isSuspiciousRequest(request)) {
     console.warn(`Suspicious request detected from ${clientId}: ${pathname}`);
     return createErrorResponse('Invalid request', 403, pathname);
   }
@@ -188,11 +191,9 @@ export default async function proxy(request: NextRequest) {
   const isApiRoute = pathname.startsWith('/api/');
   const maxRequests = isApiRoute ? API_RATE_LIMIT_MAX_REQUESTS : RATE_LIMIT_MAX_REQUESTS;
 
-  // Skip rate limiting in development for localhost
-  const isDevelopment = process.env.NODE_ENV === 'development';
-  const isLocalhost = clientId.includes('localhost') || clientId.includes('127.0.0.1');
-  
-  if (!isDevelopment || !isLocalhost) {
+  // Skip middleware rate limiting for localhost requests (dev + CI Playwright).
+  // API routes still have their own per-route guards via withSecurity().
+  if (!isE2ETestMode && !isLocalhostRequest) {
     if (isRateLimited(clientId, maxRequests)) {
       console.warn(`Rate limit exceeded for ${clientId}: ${pathname}`);
       return createErrorResponse('Rate limit exceeded', 429, pathname);

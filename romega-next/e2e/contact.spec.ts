@@ -9,7 +9,8 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Contact Page', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('/contact', { waitUntil: 'domcontentloaded' })
+        const response = await page.goto('/contact', { waitUntil: 'domcontentloaded' })
+        expect(response?.ok(), `GET /contact failed with status ${response?.status()}`).toBeTruthy()
         // Wait for hydration — ContactPageClient, ContactContainer, and
         // ContactForm are all 'use client' components. In CI production
         // mode the hydration chain can take significantly longer.
@@ -23,32 +24,28 @@ test.describe('Contact Page', () => {
     })
 
     test('displays the contact form', async ({ page }) => {
-        // The form is rendered by ContactForm (a deeply nested client component).
-        // After networkidle in beforeEach, we still give it generous time here
-        // because React hydration can happen after networkidle fires.
-        const form = page.locator('form').first()
-        await expect(form).toBeVisible({ timeout: 30000 })
+        // Assert a concrete, user-visible control from the contact form.
+        // This avoids false positives from hidden honeypot fields and brittle generic form matching.
+        const firstName = page.locator('input[name="firstName"]')
+        await expect(firstName).toBeVisible({ timeout: 30000 })
     })
 
     test('has input fields in the form', async ({ page }) => {
-        // Wait for the form to be visible first (ensures hydration has started)
-        const form = page.locator('form').first()
-        await expect(form).toBeVisible({ timeout: 30000 })
+        const firstName = page.locator('input[name="firstName"]')
+        const email = page.locator('input[name="email"]')
+        const phone = page.locator('input[name="phone"]')
+        const subject = page.locator('select[name="subject"]')
 
-        // Now wait for at least one visible input inside the form.
-        // The ContactForm component has text inputs, email, tel, textarea, and select fields.
-        const firstInput = page.locator('form input[type="text"], form input[type="email"], form input[type="tel"], form textarea, form select').first()
-        await expect(firstInput).toBeVisible({ timeout: 15000 })
+        await expect(firstName).toBeVisible({ timeout: 30000 })
+        await expect(email).toBeVisible({ timeout: 15000 })
+        await expect(phone).toBeVisible({ timeout: 15000 })
+        await expect(subject).toBeVisible({ timeout: 15000 })
     })
 
     test('shows validation errors when form is submitted empty', async ({ page }) => {
-        // Wait for the form to be fully hydrated and interactive
-        const form = page.locator('form').first()
-        await expect(form).toBeVisible({ timeout: 30000 })
-
-        // Find and click the submit button (must be type="submit" inside the form)
-        const submitButton = page.locator('form button[type="submit"]').first()
-        await expect(submitButton).toBeVisible({ timeout: 10000 })
+        // Use an accessible, user-visible selector for the form action.
+        const submitButton = page.getByRole('button', { name: /send message/i }).first()
+        await expect(submitButton).toBeVisible({ timeout: 30000 })
         await submitButton.click()
 
         // After clicking submit with empty fields, error messages should appear
