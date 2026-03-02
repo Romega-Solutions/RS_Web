@@ -1,8 +1,8 @@
 /**
  * E2E Test: Contact Page
  *
- * Tests the contact page renders and the form works.
- * Uses flexible selectors that work with both SSR and client hydration.
+ * Tests the contact page renders and the form is interactable.
+ * Excludes honeypot/anti-bot fields by targeting labelled controls.
  */
 
 import { test, expect } from '@playwright/test'
@@ -11,10 +11,8 @@ test.describe('Contact Page', () => {
     test.beforeEach(async ({ page }) => {
         const response = await page.goto('/contact', { waitUntil: 'domcontentloaded' })
         expect(response?.ok(), `GET /contact failed with status ${response?.status()}`).toBeTruthy()
-        // Wait for hydration — ContactPageClient, ContactContainer, and
-        // ContactForm are all 'use client' components. In CI production
-        // mode the hydration chain can take significantly longer.
-        await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => { })
+        await expect(page).toHaveURL(/\/contact\/?$/)
+        await expect(page.getByRole('heading', { level: 1, name: /contact us/i })).toBeVisible({ timeout: 30000 })
     })
 
     test('loads the contact page with a title', async ({ page }) => {
@@ -24,38 +22,29 @@ test.describe('Contact Page', () => {
     })
 
     test('displays the contact form', async ({ page }) => {
-        // Assert a concrete, user-visible control from the contact form.
-        // This avoids false positives from hidden honeypot fields and brittle generic form matching.
-        const firstName = page.locator('input[name="firstName"]')
-        await expect(firstName).toBeVisible({ timeout: 30000 })
+        await expect(page.getByLabel(/first name/i)).toBeVisible({ timeout: 30000 })
+        await expect(page.getByRole('button', { name: /send message/i })).toBeVisible({ timeout: 30000 })
     })
 
     test('has input fields in the form', async ({ page }) => {
-        const firstName = page.locator('input[name="firstName"]')
-        const email = page.locator('input[name="email"]')
-        const phone = page.locator('input[name="phone"]')
-        const subject = page.locator('select[name="subject"]')
-
-        await expect(firstName).toBeVisible({ timeout: 30000 })
-        await expect(email).toBeVisible({ timeout: 15000 })
-        await expect(phone).toBeVisible({ timeout: 15000 })
-        await expect(subject).toBeVisible({ timeout: 15000 })
+        await expect(page.getByLabel(/first name/i)).toBeVisible({ timeout: 30000 })
+        await expect(page.getByLabel(/email/i)).toBeVisible({ timeout: 30000 })
+        await expect(page.getByLabel(/phone number/i)).toBeVisible({ timeout: 30000 })
+        await expect(page.getByLabel(/select subject/i)).toBeVisible({ timeout: 30000 })
+        await expect(page.getByLabel(/message/i)).toBeVisible({ timeout: 30000 })
     })
 
     test('shows validation errors when form is submitted empty', async ({ page }) => {
-        // Use an accessible, user-visible selector for the form action.
-        const submitButton = page.getByRole('button', { name: /send message/i }).first()
+        const submitButton = page.getByRole('button', { name: /send message/i })
         await expect(submitButton).toBeVisible({ timeout: 30000 })
         await submitButton.click()
 
-        // After clicking submit with empty fields, error messages should appear
-        // These are rendered as divs with role="alert" by the ContactForm component
-        const errorMessages = page.locator('[role="alert"]')
-        await expect(errorMessages.first()).toBeVisible({ timeout: 10000 })
+        await expect(page.getByText('First name is required')).toBeVisible({ timeout: 10000 })
+        await expect(page.getByText('Last name is required')).toBeVisible({ timeout: 10000 })
+        await expect(page.getByText('Email is required')).toBeVisible({ timeout: 10000 })
     })
 
     test('page renders without crashing', async ({ page }) => {
-        const body = page.locator('body')
-        await expect(body).toBeVisible()
+        await expect(page.getByRole('heading', { level: 1, name: /contact us/i })).toBeVisible({ timeout: 30000 })
     })
 })

@@ -1,41 +1,38 @@
 /**
  * E2E Test: Careers Page
  *
- * Tests the careers/talent page renders correctly.
- * Kept intentionally simple — verifies the page loads and has content.
+ * Tests the careers page renders correctly with deterministic selectors.
  */
 
 import { test, expect } from '@playwright/test'
 
 test.describe('Careers Page', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('/careers', { waitUntil: 'domcontentloaded' })
+        const response = await page.goto('/careers', { waitUntil: 'domcontentloaded' })
+        expect(response?.ok(), `GET /careers failed with status ${response?.status()}`).toBeTruthy()
+        await expect(page).toHaveURL(/\/careers\/?$/)
+        await expect(page.getByRole('heading', { level: 1, name: /explore leadership opportunities/i })).toBeVisible({ timeout: 30000 })
     })
 
     test('loads the careers page with a title', async ({ page }) => {
         const title = await page.title()
         expect(title.length).toBeGreaterThan(0)
-        // Title should reference careers (actual: "Careers & Talent Opportunities | Romega Solutions")
         expect(title.toLowerCase()).toContain('career')
     })
 
     test('displays a page heading', async ({ page }) => {
-        const heading = page.getByRole('heading').first()
-        await expect(heading).toBeVisible({ timeout: 10000 })
+        await expect(page.getByRole('heading', { level: 1, name: /explore leadership opportunities/i })).toBeVisible({ timeout: 30000 })
     })
 
     test('page has meaningful content (not blank)', async ({ page }) => {
-        const main = page.getByRole('main')
-        await expect(main).toBeVisible({ timeout: 10000 })
-
-        const bodyText = await page.innerText('body')
-        expect(bodyText.length).toBeGreaterThan(100)
+        await expect(page.getByRole('button', { name: /view open roles/i })).toBeVisible({ timeout: 30000 })
+        await expect(page.getByRole('heading', { name: /what we're looking for/i })).toBeVisible({ timeout: 30000 })
     })
 
     test('contains navigation to other pages', async ({ page }) => {
-        // The page should have navigation links
-        const links = page.getByRole('link')
-        const count = await links.count()
-        expect(count).toBeGreaterThan(3)
+        const mainNav = page.getByRole('navigation', { name: /main navigation/i }).getByRole('list')
+        await expect(mainNav.getByRole('link', { name: 'About' })).toBeVisible({ timeout: 30000 })
+        await expect(mainNav.getByRole('link', { name: 'Services' })).toBeVisible({ timeout: 30000 })
+        await expect(mainNav.getByRole('link', { name: 'Contact' })).toBeVisible({ timeout: 30000 })
     })
 })
