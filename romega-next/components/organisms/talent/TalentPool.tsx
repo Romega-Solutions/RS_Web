@@ -24,6 +24,9 @@ export default function TalentPool({ talents }: TalentPoolProps) {
   const [search, setSearch] = useState('');
   const [selectedSpecs, setSelectedSpecs] = useState<string[]>([]);
   const [selectedSeniority, setSelectedSeniority] = useState<string[]>([]);
+  
+  // Check if database is completely empty (no initial talents)
+  const isDatabaseEmpty = talents.length === 0;
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({
     roles: true, skills: true, location: true,
   });
@@ -182,7 +185,12 @@ export default function TalentPool({ talents }: TalentPoolProps) {
           </div>
 
           {/* Grid */}
-          {visible.length > 0 ? (
+          {isDatabaseEmpty ? (
+            <div className={styles['talent-pool__empty']}>
+              <p style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>No Talents Available Yet</p>
+              <p style={{ color: 'var(--rs-text-secondary, #666)' }}>We&apos;re currently building our talent pool. Check back soon to discover amazing professionals!</p>
+            </div>
+          ) : visible.length > 0 ? (
             <div className={styles['talent-pool__grid']}>
               {visible.map(talent => (
                 <TalentCard key={talent.id} talent={talent} />
@@ -190,7 +198,8 @@ export default function TalentPool({ talents }: TalentPoolProps) {
             </div>
           ) : (
             <div className={styles['talent-pool__empty']}>
-              No talent found matching your filters.
+              <p style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>No Matching Talents</p>
+              <p style={{ color: 'var(--rs-text-secondary, #666)' }}>Try adjusting your search or filters to find the perfect talent.</p>
             </div>
           )}
 

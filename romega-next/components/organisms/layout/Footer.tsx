@@ -156,14 +156,6 @@ export function Footer() {
                       Talent
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="/careers"
-                      className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
-                    >
-                      Careers
-                    </Link>
-                  </li>
                 </ul>
               </div>
 
@@ -184,6 +176,14 @@ export function Footer() {
                       className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
                     >
                       Contact
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/careers"
+                      className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
+                    >
+                      Careers
                     </Link>
                   </li>
                   <li>

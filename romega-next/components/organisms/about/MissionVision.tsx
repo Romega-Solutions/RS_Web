@@ -21,12 +21,13 @@ export default function MissionVision() {
               Our Mission
             </h2>
             <p className={styles['mission-vision__text']}>
-              To revolutionize the future of work by empowering Philippine-based talent
-              to lead global innovation.
+              To be a steady growth partner for businesses by building strong teams and credible
+              brands that last.
             </p>
             <p className={styles['mission-vision__text']}>
-              We envision a world where businesses thrive through strategic remote collaboration,
-              improving lives and shaping industries worldwide.
+              We work closely with founders and leaders to bring the right people, clear systems,
+              and thoughtful brand foundations together, helping businesses grow with confidence
+              in a changing global landscape.
             </p>
           </div>
 
@@ -36,12 +37,9 @@ export default function MissionVision() {
               Our Vision
             </h2>
             <p className={styles['mission-vision__text']}>
-              To bridge the gap between exceptional tech talent and forward-thinking companies,
-              fostering mutual growth through meaningful connections.
-            </p>
-            <p className={styles['mission-vision__text']}>
-              By matching skilled professionals with innovative employers, we unlock potential,
-              drive progress, and create lasting impact in the global tech ecosystem.
+              To shape a future where businesses grow with clarity, consistency, and purpose,
+              scaling not just by moving fast, but by building teams that perform with intention
+              and brands that connect with trust, relevance, and long-term value.
             </p>
           </div>
         </div>

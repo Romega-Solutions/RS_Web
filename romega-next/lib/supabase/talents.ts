@@ -176,8 +176,8 @@ export async function getTalents(): Promise<Talent[]> {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey || supabaseKey.includes('placeholder')) {
-    console.warn('Supabase not configured, using mock data');
-    return MOCK_TALENTS;
+    console.warn('Supabase not configured, returning empty array');
+    return [];
   }
 
   try {
@@ -191,21 +191,21 @@ export async function getTalents(): Promise<Talent[]> {
       .order('created_at', { ascending: false });
 
     if (error) {
-      console.warn('Error fetching talents from Supabase, using mock data:', error.message);
-      return MOCK_TALENTS;
+      console.error('Error fetching talents from Supabase:', error.message);
+      return [];
     }
 
-    // If no data from database, return mock data
+    // If no data from database, return empty array
     if (!data || data.length === 0) {
-      console.warn('No talents found in database, using mock data');
-      return MOCK_TALENTS;
+      console.info('No talents found in database');
+      return [];
     }
 
     // Transform database talents to match interface
     return data.map(transformTalent);
   } catch (_error) {
-    console.warn('Error in getTalents, using mock data:', _error);
-    return MOCK_TALENTS;
+    console.error('Error in getTalents:', _error);
+    return [];
   }
 }
 
@@ -233,9 +233,7 @@ export async function getTalentById(id: string): Promise<Talent | null> {
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey || supabaseKey.includes('placeholder')) {
-    // Return mock data talent by ID
-    const talent = MOCK_TALENTS.find(t => t.id === id);
-    return talent || null;
+    return null;
   }
 
   try {
