@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Button from '@/components/atoms/Button/Button';
 import { Calendar } from 'lucide-react';
 import styles from './HeroSection.module.css';
+import HeroMedia from './HeroMedia';
 
 export default function HeroSection() {
   const features = [
@@ -106,22 +107,12 @@ export default function HeroSection() {
         </div>
 
         {/* Right side - video */}
-        <div className={styles['hero-section__video-wrapper']}>  {/* Element */}
-          <video
-            className={styles['hero-section__video']}  // Element
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-label="Romega Solutions promotional video showing our services"
-            poster="/images/home/hero-right.png"
-          >
-            <source src="/images/home/webp/WebsiteAssetVideo.mp4" type="video/mp4" />
-            <track kind="captions" srcLang="en" label="English" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <HeroMedia
+          wrapperClassName={styles['hero-section__video-wrapper']}
+          mediaClassName={styles['hero-section__video']}
+          defaultPosterSrc="/images/home/hero-right.png"
+          ariaLabel="Romega Solutions promotional video showing our services"
+        />
 
         {/* Desktop CTA Button */}
         <div className={styles['hero-section__cta-desktop']}>  {/* Element */}

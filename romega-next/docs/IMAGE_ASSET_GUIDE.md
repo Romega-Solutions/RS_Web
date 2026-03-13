@@ -612,13 +612,14 @@ This guide catalogs all images in the `public/images` directory and explains how
 
 ### Video
 
-#### `webp/WebsiteAssetVideo.mp4`
+#### `romega-video.mp4`
 - **Usage:** Hero video content
 - **Component:** `components/organisms/home/HeroSection.tsx`
-- **Path:** `/images/home/webp/WebsiteAssetVideo.mp4`
+- **Path:** `/romega-video.mp4`
 - **Purpose:** Animated hero content
 - **Format:** MP4 video
-- **Note:** Technically not an image but stored in webp folder
+- **Duration:** 58.838 seconds
+- **Note:** Current source asset is large (~91 MB) and should be transcoded before long-term production delivery
 
 ### Team & Background Images
 

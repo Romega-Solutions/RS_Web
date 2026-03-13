@@ -18,6 +18,10 @@ const optionalEnvVars = [
   'NEXT_PUBLIC_EMAILJS_TEMPLATE_ID',
   'NEXT_PUBLIC_RECAPTCHA_SITE_KEY',
   'NEXT_PUBLIC_GA_MEASUREMENT_ID',
+  'NEXT_PUBLIC_HERO_VIDEO_MP4_URL',
+  'NEXT_PUBLIC_HERO_VIDEO_WEBM_URL',
+  'NEXT_PUBLIC_HERO_VIDEO_POSTER_URL',
+  'NEXT_PUBLIC_MEDIA_CDN_ORIGIN',
 ] as const;
 
 interface ValidationResult {
@@ -67,6 +71,10 @@ export function validateEnvironment(): ValidationResult {
     if (isPlaceholderValue(value)) {
       warnings.push(`${varName} contains placeholder value`);
     }
+
+    if (varName.includes('URL') && !isValidUrlOrAbsolutePath(value)) {
+      warnings.push(`${varName} should be an absolute URL or a root-relative path`);
+    }
   }
 
   // Security checks
@@ -79,6 +87,23 @@ export function validateEnvironment(): ValidationResult {
     // Check for development keys in production
     if (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.includes('placeholder')) {
       errors.push('Using placeholder API keys in production');
+    }
+
+    if (process.env.NEXT_PUBLIC_MEDIA_CDN_ORIGIN && !process.env.NEXT_PUBLIC_MEDIA_CDN_ORIGIN.startsWith('https://')) {
+      errors.push('NEXT_PUBLIC_MEDIA_CDN_ORIGIN must use HTTPS in production');
+    }
+
+    const heroMediaUrls = [
+      'NEXT_PUBLIC_HERO_VIDEO_MP4_URL',
+      'NEXT_PUBLIC_HERO_VIDEO_WEBM_URL',
+      'NEXT_PUBLIC_HERO_VIDEO_POSTER_URL',
+    ] as const;
+
+    for (const varName of heroMediaUrls) {
+      const value = process.env[varName];
+      if (value?.startsWith('http://')) {
+        errors.push(`${varName} must use HTTPS in production`);
+      }
     }
   }
 
@@ -139,6 +164,17 @@ function isValidUrl(url: string): boolean {
   } catch {
     return false;
   }
+}
+
+/**
+ * Validate either a full URL or a root-relative path
+ */
+function isValidUrlOrAbsolutePath(value: string): boolean {
+  if (value.startsWith('/')) {
+    return true;
+  }
+
+  return isValidUrl(value);
 }
 
 /**
