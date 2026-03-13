@@ -18,6 +18,7 @@ const optionalEnvVars = [
   'NEXT_PUBLIC_EMAILJS_TEMPLATE_ID',
   'NEXT_PUBLIC_RECAPTCHA_SITE_KEY',
   'NEXT_PUBLIC_GA_MEASUREMENT_ID',
+  'HERO_VIDEO_BLOB_URL',
   'NEXT_PUBLIC_HERO_VIDEO_MP4_URL',
   'NEXT_PUBLIC_HERO_VIDEO_WEBM_URL',
   'NEXT_PUBLIC_HERO_VIDEO_POSTER_URL',
@@ -103,6 +104,16 @@ export function validateEnvironment(): ValidationResult {
       const value = process.env[varName];
       if (value?.startsWith('http://')) {
         errors.push(`${varName} must use HTTPS in production`);
+      }
+    }
+
+    if (process.env.NEXT_PUBLIC_HERO_VIDEO_MP4_URL === '/api/media/hero-video') {
+      if (!process.env.HERO_VIDEO_BLOB_URL) {
+        errors.push('HERO_VIDEO_BLOB_URL is required when NEXT_PUBLIC_HERO_VIDEO_MP4_URL is /api/media/hero-video');
+      }
+
+      if (process.env.HERO_VIDEO_BLOB_URL?.startsWith('http://')) {
+        errors.push('HERO_VIDEO_BLOB_URL must use HTTPS in production');
       }
     }
   }
