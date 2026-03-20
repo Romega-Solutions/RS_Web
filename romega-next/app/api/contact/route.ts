@@ -139,6 +139,11 @@ interface ContactFormData {
   company: string;
   phone: string;
   message: string;
+  privacyConsent: boolean;
+  privacyPolicyVersion: string;
+  futureOpportunitiesConsent: boolean;
+  clientMatchingConsent: boolean;
+  publicShowcaseConsent: boolean;
 }
 
 /**
@@ -278,6 +283,17 @@ async function sendEmail(formData: ContactFormData): Promise<boolean> {
                       <div style="color: #475569; font-size: 14px; font-weight: 600; font-family: 'Source Sans 3', sans-serif;">${timestamp}</div>
                     </div>
 
+                    <div style="background-color: #ffffff; border-left: 4px solid #0EA5E9; padding: 18px 24px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                      <div style="color: #0C4A6E; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-family: 'Source Sans 3', sans-serif;">Privacy Consent Metadata</div>
+                      <div style="color: #1E293B; font-size: 14px; line-height: 1.6; font-family: 'Source Sans 3', sans-serif;">
+                        <div><strong>Required Processing Consent:</strong> ${formData.privacyConsent ? 'Yes' : 'No'}</div>
+                        <div><strong>Policy Version:</strong> ${formData.privacyPolicyVersion}</div>
+                        <div><strong>Future Opportunities:</strong> ${formData.futureOpportunitiesConsent ? 'Yes' : 'No'}</div>
+                        <div><strong>Client Matching:</strong> ${formData.clientMatchingConsent ? 'Yes' : 'No'}</div>
+                        <div><strong>Public Showcase Interest:</strong> ${formData.publicShowcaseConsent ? 'Yes' : 'No'}</div>
+                      </div>
+                    </div>
+
                     <div style="background-color: #ffffff; border: 3px solid #DBEAFE; border-radius: 12px; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                       <div style="color: #125BA1; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; padding-bottom: 12px; border-bottom: 2px solid #DBEAFE; font-family: 'Source Sans 3', sans-serif;">Message Content</div>
                       <div style="color: #1E293B; font-size: 16px; line-height: 1.8; white-space: pre-wrap; font-weight: 400; font-family: 'Source Sans 3', sans-serif;">${formData.message}</div>
@@ -381,7 +397,23 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 6. Validate email format
+    // 6. Validate required privacy consent
+    if (body.privacyConsent !== true) {
+      return NextResponse.json(
+        { success: false, message: 'Privacy consent is required.' },
+        { status: 400 }
+      );
+    }
+
+    // 7. Validate policy version marker
+    if (typeof body.privacyPolicyVersion !== 'string' || body.privacyPolicyVersion.trim().length === 0) {
+      return NextResponse.json(
+        { success: false, message: 'Privacy policy version is required.' },
+        { status: 400 }
+      );
+    }
+
+    // 8. Validate email format
     if (!isValidEmail(body.email)) {
       return NextResponse.json(
         { success: false, message: 'Invalid email address.' },
@@ -389,7 +421,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 7. Validate phone format
+    // 9. Validate phone format
     if (!isValidPhone(body.phone)) {
       return NextResponse.json(
         { success: false, message: 'Invalid phone number.' },
@@ -397,7 +429,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 8. Check for SQL injection
+    // 10. Check for SQL injection
     const textFields = [body.firstName, body.lastName, body.company, body.message];
     if (textFields.some(field => field && hasSQLInjection(field))) {
       return NextResponse.json(
@@ -406,7 +438,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 9. Check for XSS
+    // 11. Check for XSS
     if (textFields.some(field => field && hasXSS(field))) {
       return NextResponse.json(
         { success: false, message: 'Invalid input detected.' },
@@ -414,7 +446,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 10. Sanitize all inputs
+    // 12. Sanitize all inputs
     const sanitizedData = {
       firstName: sanitizeText(body.firstName),
       lastName: sanitizeText(body.lastName),
@@ -422,10 +454,15 @@ export async function POST(request: NextRequest) {
       subject: body.subject || 'general',
       company: body.company ? sanitizeText(body.company) : '',
       phone: sanitizeText(body.phone),
-      message: sanitizeText(body.message)
+      message: sanitizeText(body.message),
+      privacyConsent: true,
+      privacyPolicyVersion: sanitizeText(body.privacyPolicyVersion),
+      futureOpportunitiesConsent: Boolean(body.futureOpportunitiesConsent),
+      clientMatchingConsent: Boolean(body.clientMatchingConsent),
+      publicShowcaseConsent: Boolean(body.publicShowcaseConsent),
     };
 
-    // 11. Send email
+    // 13. Send email
     const emailSent = await sendEmail(sanitizedData);
 
     if (!emailSent) {
@@ -435,7 +472,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 12. Success response
+    // 14. Success response
     return NextResponse.json(
       {
         success: true,

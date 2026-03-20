@@ -37,6 +37,10 @@ export interface Talent {
   gender?: 'male' | 'female' | 'neutral';
   featured?: boolean;
   verified?: boolean;
+  public_showcase_consent?: boolean;
+  public_showcase_consent_at?: string;
+  consent_policy_version?: string;
+  consent_source?: string;
   views_count?: number;
   contact_count?: number;
   success_rate?: number;

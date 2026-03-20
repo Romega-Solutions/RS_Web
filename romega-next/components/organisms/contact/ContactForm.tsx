@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
 import { trackEvent } from '@/components/analytics/GoogleAnalytics';
+import { PRIVACY_POLICY_VERSION } from '@/lib/legal/privacy-policy';
 import styles from './ContactForm.module.css';
 
 // Declare global type for reCAPTCHA
@@ -25,6 +26,10 @@ interface FormData {
   company: string;
   phone: string;
   message: string;
+  privacyConsent: boolean;
+  futureOpportunitiesConsent: boolean;
+  clientMatchingConsent: boolean;
+  publicShowcaseConsent: boolean;
 }
 
 interface FormErrors {
@@ -34,6 +39,7 @@ interface FormErrors {
   subject?: string;
   phone?: string;
   message?: string;
+  privacyConsent?: string;
   recaptcha?: string;
 }
 
@@ -46,6 +52,10 @@ export default function ContactForm() {
     company: '',
     phone: '',
     message: '',
+    privacyConsent: false,
+    futureOpportunitiesConsent: false,
+    clientMatchingConsent: false,
+    publicShowcaseConsent: false,
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -81,6 +91,10 @@ export default function ContactForm() {
 
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
+    }
+
+    if (!formData.privacyConsent) {
+      newErrors.privacyConsent = 'You must agree to the privacy policy to continue';
     }
 
     setErrors(newErrors);
@@ -130,6 +144,11 @@ export default function ContactForm() {
           company: formData.company,
           phone: formData.phone,
           message: formData.message,
+          privacyConsent: formData.privacyConsent,
+          privacyPolicyVersion: PRIVACY_POLICY_VERSION,
+          futureOpportunitiesConsent: formData.futureOpportunitiesConsent,
+          clientMatchingConsent: formData.clientMatchingConsent,
+          publicShowcaseConsent: formData.publicShowcaseConsent,
           recaptchaToken: recaptchaResponse,
           botfield: honeypotValue
         }),
@@ -150,6 +169,10 @@ export default function ContactForm() {
           company: '',
           phone: '',
           message: '',
+          privacyConsent: false,
+          futureOpportunitiesConsent: false,
+          clientMatchingConsent: false,
+          publicShowcaseConsent: false,
         });
 
         // Reset reCAPTCHA
@@ -184,6 +207,15 @@ export default function ContactForm() {
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setFormData(prev => ({ ...prev, [name]: checked }));
+
+    if (name === 'privacyConsent' && errors.privacyConsent) {
+      setErrors(prev => ({ ...prev, privacyConsent: undefined }));
     }
   };
 
@@ -373,6 +405,76 @@ export default function ContactForm() {
             </div>
           )}
         </div>
+
+        {/* Privacy and Consent */}
+        <section className={styles['contact-form__consent']} aria-labelledby="contact-form-consent-title">
+          <h3 id="contact-form-consent-title" className={styles['contact-form__consent-title']}>
+            Data Privacy and Consent
+          </h3>
+
+          <label className={styles['contact-form__consent-item']}>
+            <input
+              type="checkbox"
+              name="privacyConsent"
+              checked={formData.privacyConsent}
+              onChange={handleCheckboxChange}
+              className={styles['contact-form__consent-checkbox']}
+            />
+            <span className={styles['contact-form__consent-label']}>
+              I have read and agree to the <Link href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link> and I consent to processing of my submitted data for recruitment or business inquiry handling.
+              <span className={styles['contact-form__consent-required']}> (required)</span>
+            </span>
+          </label>
+
+          <label className={styles['contact-form__consent-item']}>
+            <input
+              type="checkbox"
+              name="futureOpportunitiesConsent"
+              checked={formData.futureOpportunitiesConsent}
+              onChange={handleCheckboxChange}
+              className={styles['contact-form__consent-checkbox']}
+            />
+            <span className={styles['contact-form__consent-label']}>
+              I allow retention of my profile for future opportunities.
+            </span>
+          </label>
+
+          <label className={styles['contact-form__consent-item']}>
+            <input
+              type="checkbox"
+              name="clientMatchingConsent"
+              checked={formData.clientMatchingConsent}
+              onChange={handleCheckboxChange}
+              className={styles['contact-form__consent-checkbox']}
+            />
+            <span className={styles['contact-form__consent-label']}>
+              I allow sharing of relevant professional information for client or project matching.
+            </span>
+          </label>
+
+          <label className={styles['contact-form__consent-item']}>
+            <input
+              type="checkbox"
+              name="publicShowcaseConsent"
+              checked={formData.publicShowcaseConsent}
+              onChange={handleCheckboxChange}
+              className={styles['contact-form__consent-checkbox']}
+            />
+            <span className={styles['contact-form__consent-label']}>
+              I am open to public talent showcase consideration. I understand this requires separate explicit publication approval before any profile is published.
+            </span>
+          </label>
+
+          <p className={styles['contact-form__consent-note']}>
+            Policy version: {PRIVACY_POLICY_VERSION}
+          </p>
+
+          {errors.privacyConsent && (
+            <div className={styles['contact-form__error']} role="alert">
+              {errors.privacyConsent}
+            </div>
+          )}
+        </section>
 
         {/* reCAPTCHA */}
         <div className="flex flex-col items-center gap-2 my-4">

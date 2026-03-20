@@ -6,14 +6,13 @@ import styles from './ContactContainer.module.css';
 
 interface ContactContainerProps {
   onOpenTerms: () => void;
-  onOpenPrivacy: () => void;
 }
 
-export default function ContactContainer({ onOpenTerms, onOpenPrivacy }: ContactContainerProps) {
+export default function ContactContainer({ onOpenTerms }: ContactContainerProps) {
   return (
     <div className={styles['contact-container']}>
       <div className={styles['contact-container__wrapper']}>
-        <ContactInfo onOpenTerms={onOpenTerms} onOpenPrivacy={onOpenPrivacy} />
+        <ContactInfo onOpenTerms={onOpenTerms} />
         <ContactForm />
       </div>
     </div>

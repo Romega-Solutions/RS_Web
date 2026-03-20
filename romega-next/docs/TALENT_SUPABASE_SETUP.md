@@ -4,6 +4,17 @@
 ✅ Talent page is **working with mock data**  
 ⏸️ Supabase connection **not yet configured**
 
+## Quick Legal-Safe Insert (Alymar Profile)
+
+If your Supabase tables already exist and you only want to add the legally filtered Alymar profile plus required publication-consent fields, run:
+
+- `docs/SUPABASE_APPLY_CONSENT_AND_INSERT_ALYMAR.sql`
+
+This script is non-destructive:
+- adds consent columns if missing
+- updates RLS to require `verified` and `public_showcase_consent`
+- inserts/updates Alymar profile and related experience/projects
+
 The talent page will automatically switch to real database data once you configure Supabase.
 
 ---

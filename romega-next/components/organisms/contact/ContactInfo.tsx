@@ -3,10 +3,9 @@ import styles from './ContactInfo.module.css';
 
 interface ContactInfoProps {
   onOpenTerms: () => void;
-  onOpenPrivacy: () => void;
 }
 
-export default function ContactInfo({ onOpenTerms, onOpenPrivacy }: ContactInfoProps) {
+export default function ContactInfo({ onOpenTerms }: ContactInfoProps) {
   return (
     <div className={styles['contact-info']} role="complementary" aria-labelledby="contact-info-heading">
       {/* Background decorative elements */}
@@ -104,14 +103,13 @@ export default function ContactInfo({ onOpenTerms, onOpenPrivacy }: ContactInfoP
               © 2025 Romega Solutions. All rights reserved
             </p>
             <div className={styles['contact-info__footer-links']}>
-              <button
-                type="button"
+              <Link
+                href="/privacy"
                 className={styles['contact-info__footer-link']}
-                aria-label="Open Privacy Policy"
-                onClick={onOpenPrivacy}
+                aria-label="View Privacy Policy"
               >
                 Privacy Policy
-              </button>
+              </Link>
               <button
                 type="button"
                 className={styles['contact-info__footer-link']}

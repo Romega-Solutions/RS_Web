@@ -77,6 +77,10 @@ CREATE TABLE talents (
   gender VARCHAR(20) CHECK (gender IN ('male', 'female', 'neutral')),
   featured BOOLEAN DEFAULT false, -- Featured talents appear first
   verified BOOLEAN DEFAULT false, -- Verification badge
+  public_showcase_consent BOOLEAN DEFAULT false, -- Explicit consent required for public listing
+  public_showcase_consent_at TIMESTAMPTZ,
+  consent_policy_version VARCHAR(50),
+  consent_source VARCHAR(100),
   
   -- Metrics
   views_count INTEGER DEFAULT 0,
@@ -171,6 +175,7 @@ CREATE INDEX idx_talents_category ON talents(category);
 CREATE INDEX idx_talents_availability ON talents(availability);
 CREATE INDEX idx_talents_featured ON talents(featured) WHERE featured = true;
 CREATE INDEX idx_talents_verified ON talents(verified) WHERE verified = true;
+CREATE INDEX idx_talents_public_showcase_consent ON talents(public_showcase_consent) WHERE public_showcase_consent = true;
 CREATE INDEX idx_talents_skills ON talents USING GIN(skills); -- Full-text search on skills
 CREATE INDEX idx_talents_hourly_rate ON talents(hourly_rate_min, hourly_rate_max);
 CREATE INDEX idx_talents_category_availability ON talents(category, availability);
@@ -193,34 +198,64 @@ ALTER TABLE talent_availability_slots ENABLE ROW LEVEL SECURITY;
 -- STEP 5: CREATE RLS POLICIES
 -- ================================================
 
--- Public can read verified talents
-CREATE POLICY "Anyone can view verified talents" ON talents
-  FOR SELECT USING (verified = true);
+-- Public can read verified talents with explicit publication consent
+CREATE POLICY "Anyone can view verified talents with publication consent" ON talents
+  FOR SELECT USING (verified = true AND public_showcase_consent = true);
 
 -- Public can read related data for verified talents
 CREATE POLICY "Anyone can view talent experience" ON talent_experience
   FOR SELECT USING (
-    EXISTS (SELECT 1 FROM talents WHERE talents.id = talent_experience.talent_id AND talents.verified = true)
+    EXISTS (
+      SELECT 1
+      FROM talents
+      WHERE talents.id = talent_experience.talent_id
+      AND talents.verified = true
+      AND talents.public_showcase_consent = true
+    )
   );
 
 CREATE POLICY "Anyone can view talent projects" ON talent_projects
   FOR SELECT USING (
-    EXISTS (SELECT 1 FROM talents WHERE talents.id = talent_projects.talent_id AND talents.verified = true)
+    EXISTS (
+      SELECT 1
+      FROM talents
+      WHERE talents.id = talent_projects.talent_id
+      AND talents.verified = true
+      AND talents.public_showcase_consent = true
+    )
   );
 
 CREATE POLICY "Anyone can view talent testimonials" ON talent_testimonials
   FOR SELECT USING (
-    EXISTS (SELECT 1 FROM talents WHERE talents.id = talent_testimonials.talent_id AND talents.verified = true)
+    EXISTS (
+      SELECT 1
+      FROM talents
+      WHERE talents.id = talent_testimonials.talent_id
+      AND talents.verified = true
+      AND talents.public_showcase_consent = true
+    )
   );
 
 CREATE POLICY "Anyone can view talent certifications" ON talent_certifications
   FOR SELECT USING (
-    EXISTS (SELECT 1 FROM talents WHERE talents.id = talent_certifications.talent_id AND talents.verified = true)
+    EXISTS (
+      SELECT 1
+      FROM talents
+      WHERE talents.id = talent_certifications.talent_id
+      AND talents.verified = true
+      AND talents.public_showcase_consent = true
+    )
   );
 
 CREATE POLICY "Anyone can view talent availability" ON talent_availability_slots
   FOR SELECT USING (
-    EXISTS (SELECT 1 FROM talents WHERE talents.id = talent_availability_slots.talent_id AND talents.verified = true)
+    EXISTS (
+      SELECT 1
+      FROM talents
+      WHERE talents.id = talent_availability_slots.talent_id
+      AND talents.verified = true
+      AND talents.public_showcase_consent = true
+    )
   );
 
 -- ================================================
@@ -430,6 +465,77 @@ INSERT INTO talents (
   'neutral',
   false,
   true
+);
+
+-- Mark seeded sample profiles as consented for public showcase
+UPDATE talents
+SET
+  public_showcase_consent = true,
+  public_showcase_consent_at = NOW(),
+  consent_policy_version = 'PP-2026-03-20-v1',
+  consent_source = 'seed-script-sample-data'
+WHERE email IN (
+  'sarah.johnson@example.com',
+  'michael.chen@example.com',
+  'emily.rodriguez@example.com',
+  'david.kim@example.com',
+  'anna.kowalski@example.com',
+  'james.wilson@example.com',
+  'maria.garcia@example.com',
+  'alex.thompson@example.com'
+);
+
+-- Insert legally filtered profile sample: Alymar Tantiado
+INSERT INTO talents (
+  name,
+  email,
+  phone,
+  role,
+  tagline,
+  bio,
+  skills,
+  experience_years,
+  experience_level,
+  availability,
+  hourly_rate_min,
+  hourly_rate_max,
+  location,
+  timezone,
+  category,
+  subcategories,
+  portfolio_url,
+  gender,
+  featured,
+  verified,
+  public_showcase_consent,
+  public_showcase_consent_at,
+  consent_policy_version,
+  consent_source
+) VALUES (
+  'Alymar T.',
+  'tantiadoalymar18@gmail.com',
+  '+639389495814',
+  'Web Developer',
+  'Junior web developer focused on practical public-service systems',
+  'Computer Science graduate with hands-on experience in responsive web development, backend workflows, and municipal system support.',
+  ARRAY['PHP', 'JavaScript', 'HTML', 'CSS', 'MySQL', 'AJAX', 'Bootstrap', 'REST API Integration', 'Git', 'GitHub', 'XAMPP', 'VS Code'],
+  1,
+  'Junior',
+  'Available',
+  10,
+  18,
+  'Bohol, Philippines',
+  'Asia/Manila',
+  'development',
+  ARRAY['web development', 'database systems', 'municipal systems'],
+  'https://hr.calapebohol.com/',
+  'male',
+  false,
+  true,
+  true,
+  NOW(),
+  'PP-2026-03-20-v1',
+  'signed-applicant-consent-form'
 );
 
 -- Insert sample work experience for Sarah Johnson
@@ -719,6 +825,46 @@ SELECT
   'Analytics Platform API'
 FROM talents WHERE email = 'alex.thompson@example.com';
 
+-- Alymar T. (Web Developer) - Work Experience
+INSERT INTO talent_experience (talent_id, company_name, role, start_date, end_date, description, achievements, technologies)
+SELECT
+  id,
+  'Municipality of Calape, Bohol',
+  'Intern - Web Systems Developer',
+  '2025-06-01'::DATE,
+  '2025-09-30'::DATE,
+  'Supported the development of municipal systems for water billing and daily time record workflows.',
+  ARRAY[
+    'Helped streamline data entry workflows to reduce manual errors',
+    'Contributed to reporting and operational data analysis summaries',
+    'Collaborated with team members on practical system improvements'
+  ],
+  ARRAY['PHP', 'JavaScript', 'MySQL', 'AJAX', 'Bootstrap']
+FROM talents WHERE email = 'tantiadoalymar18@gmail.com';
+
+-- Alymar T. - Projects
+INSERT INTO talent_projects (talent_id, title, description, project_url, technologies, completion_date, featured)
+SELECT
+  id,
+  'Municipal HR Web System',
+  'Web-based HR operations portal supporting attendance and workforce process tracking.',
+  'https://hr.calapebohol.com/',
+  ARRAY['PHP', 'JavaScript', 'MySQL', 'Bootstrap'],
+  '2025-09-15'::DATE,
+  true
+FROM talents WHERE email = 'tantiadoalymar18@gmail.com';
+
+INSERT INTO talent_projects (talent_id, title, description, project_url, technologies, completion_date, featured)
+SELECT
+  id,
+  'Municipal Waterworks Billing System',
+  'Water billing and records platform for municipal operations.',
+  'https://waterworks.calapebohol.com/',
+  ARRAY['PHP', 'MySQL', 'AJAX', 'Bootstrap'],
+  '2025-09-20'::DATE,
+  true
+FROM talents WHERE email = 'tantiadoalymar18@gmail.com';
+
 -- ================================================
 -- VERIFICATION QUERIES (Run these to confirm setup)
 -- ================================================
@@ -738,13 +884,13 @@ FROM talents WHERE email = 'alex.thompson@example.com';
 -- SETUP COMPLETE! ✅
 -- ================================================
 -- Your database is now ready with:
--- ✅ 8 sample talents (all verified, diverse roles & locations)
--- ✅ 10+ work experience entries (realistic career histories)
--- ✅ 8+ portfolio projects (with descriptions & tech stacks)
+-- ✅ 9 sample talents (all verified with explicit showcase consent)
+-- ✅ 11+ work experience entries (realistic career histories)
+-- ✅ 10+ portfolio projects (with descriptions & tech stacks)
 -- ✅ 7+ client testimonials (5-star reviews)
 -- ✅ 1 certification (Sarah Johnson's AWS cert)
 -- ✅ All indexes created for fast queries
--- ✅ RLS policies enabled (public can view verified talents)
+-- ✅ RLS policies enabled (public can view only consented + verified talents)
 -- ✅ Helper functions ready (view tracking, search, auto-timestamps)
 -- 
 -- Sample Talents Include:
@@ -756,4 +902,5 @@ FROM talents WHERE email = 'alex.thompson@example.com';
 -- 6. James Wilson - Product Manager (UK)
 -- 7. Maria Garcia - Frontend Developer (Mexico)
 -- 8. Alex Thompson - Backend Engineer (Australia)
+-- 9. Alymar T. - Web Developer (Bohol, Philippines)
 -- ================================================

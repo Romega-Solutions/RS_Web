@@ -1,15 +1,14 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import ContactHero from '@/components/organisms/contact/ContactHero';
 import ContactContainer from '@/components/organisms/contact/ContactContainer';
 import TermsModal from '@/components/organisms/shared/TermsModal';
-import PrivacyModal from '@/components/organisms/shared/PrivacyModal';
 
 export default function ContactPageClient() {
   const [isTermsOpen, setIsTermsOpen] = useState(false);
-  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
 
   return (
     <main className="relative min-h-screen w-full max-w-7xl mx-auto overflow-hidden xl:overflow-visible mt-26" id="main-content">
@@ -39,7 +38,6 @@ export default function ContactPageClient() {
         <ContactHero />
         <ContactContainer
           onOpenTerms={() => setIsTermsOpen(true)}
-          onOpenPrivacy={() => setIsPrivacyOpen(true)}
         />
 
         {/* Bottom Section - Desktop Only */}
@@ -51,14 +49,13 @@ export default function ContactPageClient() {
               © 2025 Romega Solutions. All rights reserved
             </p>
             <div className="flex gap-6 text-base flex-1 justify-end mr-23.75">
-              <button
-                type="button"
+              <Link
+                href="/privacy"
                 className="text-(--rs-neutral-700) hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
-                aria-label="Open Privacy Policy"
-                onClick={() => setIsPrivacyOpen(true)}
+                aria-label="View Privacy Policy"
               >
                 Privacy Policy
-              </button>
+              </Link>
               <button
                 type="button"
                 className="text-(--rs-neutral-700) hover:text-rs-neutral-900 hover:cursor-pointer hover:underline bg-transparent border-none cursor-pointer p-0"
@@ -74,7 +71,6 @@ export default function ContactPageClient() {
 
       {/* Modals */}
       <TermsModal isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
-      <PrivacyModal isOpen={isPrivacyOpen} onClose={() => setIsPrivacyOpen(false)} />
     </main>
   );
 }
