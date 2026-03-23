@@ -366,12 +366,15 @@ export async function getTalents(): Promise<Talent[]> {
   try {
     const supabase = await createClient();
     let data: Record<string, unknown>[] | null = null;
+    let querySource: 'rpc' | 'table-fallback' = 'rpc';
 
     const { data: rpcData, error: rpcError } = await supabase.rpc('get_public_talents');
 
     if (!rpcError && Array.isArray(rpcData)) {
       data = rpcData as Record<string, unknown>[];
+      console.info('[talents] source=rpc rows=', data.length);
     } else {
+      querySource = 'table-fallback';
       if (rpcError) {
         console.warn('RPC get_public_talents unavailable, falling back to table query:', rpcError.message);
       }
@@ -392,6 +395,7 @@ export async function getTalents(): Promise<Talent[]> {
       }
 
       data = (tableData as Record<string, unknown>[] | null) ?? [];
+      console.info('[talents] source=table-fallback rows=', data.length);
     }
 
     // If no data from database, return empty array
@@ -404,7 +408,20 @@ export async function getTalents(): Promise<Talent[]> {
     }
 
     // Transform database talents and enforce explicit publication consent
-    return data.map(transformTalent).filter(talent => talent.public_showcase_consent === true);
+    const publicTalents = data
+      .map(transformTalent)
+      .filter(talent => talent.public_showcase_consent === true);
+
+    console.info(
+      '[talents] source=',
+      querySource,
+      'rawRows=',
+      data.length,
+      'publicRows=',
+      publicTalents.length,
+    );
+
+    return publicTalents;
   } catch (_error) {
     console.error('Error in getTalents:', _error);
     if (shouldUseMockFallback()) {
