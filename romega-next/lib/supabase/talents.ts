@@ -365,20 +365,33 @@ export async function getTalents(): Promise<Talent[]> {
 
   try {
     const supabase = await createClient();
+    let data: Record<string, unknown>[] | null = null;
 
-    const { data, error } = await supabase
-      .from('talents')
-      .select('*')
-      .eq('verified', true) // Only fetch verified talents
-      .order('featured', { ascending: false }) // Featured first
-      .order('created_at', { ascending: false });
+    const { data: rpcData, error: rpcError } = await supabase.rpc('get_public_talents');
 
-    if (error) {
-      console.error('Error fetching talents from Supabase:', error.message);
-      if (shouldUseMockFallback()) {
-        return getMockPublicTalents();
+    if (!rpcError && Array.isArray(rpcData)) {
+      data = rpcData as Record<string, unknown>[];
+    } else {
+      if (rpcError) {
+        console.warn('RPC get_public_talents unavailable, falling back to table query:', rpcError.message);
       }
-      return [];
+
+      const { data: tableData, error: tableError } = await supabase
+        .from('talents')
+        .select('*')
+        .eq('verified', true) // Only fetch verified talents
+        .order('featured', { ascending: false }) // Featured first
+        .order('created_at', { ascending: false });
+
+      if (tableError) {
+        console.error('Error fetching talents from Supabase:', tableError.message);
+        if (shouldUseMockFallback()) {
+          return getMockPublicTalents();
+        }
+        return [];
+      }
+
+      data = (tableData as Record<string, unknown>[] | null) ?? [];
     }
 
     // If no data from database, return empty array
