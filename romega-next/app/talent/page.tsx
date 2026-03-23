@@ -4,6 +4,8 @@ import TalentPool from '@/components/organisms/talent/TalentPool';
 import TalentCTA from '@/components/organisms/talent/TalentCTA';
 import { getTalents } from '@/lib/supabase/talents';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Talent Pool - Find Top Tech Professionals',
   description: 'Discover exceptional tech talent in our curated pool of professionals. Connect with skilled developers, designers, engineers, and tech experts ready for your next project. Pre-vetted talent for remote and on-site positions.',

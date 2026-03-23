@@ -97,7 +97,7 @@ function addSecurityHeaders(response: NextResponse, pathname: string): NextRespo
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     
     // Permissions Policy (formerly Feature Policy)
-    'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
     
     // Content Security Policy (CSP)
     'Content-Security-Policy': [

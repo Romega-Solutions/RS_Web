@@ -66,12 +66,7 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ],
+  "rewrites": [],
   "trailingSlash": false,
   "cleanUrls": true,
   "images": {
