@@ -9,6 +9,16 @@
   padding: calc(3rem + 104px) 1.5rem 2rem; /* Added 104px for fixed header */
   position: relative;
   overflow: hidden;
+  animation: heroFadeIn 0.6s ease-out;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Decorative background pattern */
@@ -37,10 +47,34 @@
   align-items: center;
   gap: 1.5rem;
   text-align: center;
+  animation: slideUpFadeIn 0.7s ease-out 0.2s both;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .ProfileHero__avatar {
   position: relative;
+  animation: scaleInFadeIn 0.7s ease-out 0.1s both;
+}
+
+@keyframes scaleInFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .ProfileHero__avatarImage {

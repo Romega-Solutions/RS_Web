@@ -10,7 +10,19 @@
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 480px) {
@@ -21,8 +33,9 @@
 }
 
 .talent-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   border-color: var(--rs-primary-300, #93c5fd);
+  transform: translateY(-4px);
 }
 
 /* Header Row */
@@ -297,4 +310,10 @@
 .talent-card__cta:hover {
   background: var(--rs-primary-600);
   color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.talent-card__cta:active {
+  transform: scale(0.98);
 }

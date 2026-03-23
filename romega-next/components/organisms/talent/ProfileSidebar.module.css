@@ -11,6 +11,18 @@
   top: 2rem;
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
+  animation: slideRightFadeIn 0.7s ease-out 0.3s both;
+}
+
+@keyframes slideRightFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .ProfileSidebar__card {
