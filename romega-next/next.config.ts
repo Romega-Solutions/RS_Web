@@ -131,8 +131,10 @@ const nextConfig: NextConfig = {
   },
 
   // Turbopack configuration (Next.js 16+ default)
-  // Empty config to acknowledge Turbopack usage and silence webpack warning
-  turbopack: {},
+  // Pin the app root because the repo intentionally contains another lockfile one level up.
+  turbopack: {
+    root: process.cwd(),
+  },
 
   // Webpack configuration for additional security (fallback for non-Turbopack builds)
   webpack: (config, { isServer }) => {

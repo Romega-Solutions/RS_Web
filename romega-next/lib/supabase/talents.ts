@@ -2,6 +2,31 @@ import { createClient } from './server';
 import type { Talent, ExperienceItem } from '@/types/jobs';
 import { PRIVACY_POLICY_VERSION } from '@/lib/legal/privacy-policy';
 
+export interface TalentProject {
+  id: string;
+  talent_id?: string;
+  title: string;
+  description: string;
+  project_url?: string;
+  image_url?: string;
+  technologies: string[];
+  completion_date?: string;
+  featured: boolean;
+  created_at?: string;
+}
+
+export interface TalentTestimonial {
+  id: string;
+  talent_id?: string;
+  client_name: string;
+  client_company?: string;
+  client_role?: string;
+  testimonial: string;
+  rating: number;
+  project_name?: string;
+  created_at?: string;
+}
+
 // Mock data for development/fallback (matches database schema)
 const BASE_MOCK_TALENTS: Talent[] = [
   {
@@ -218,7 +243,7 @@ const MOCK_TALENT_EXPERIENCE: Record<string, Array<Record<string, unknown>>> = {
   ],
 };
 
-const MOCK_TALENT_PROJECTS: Record<string, Array<Record<string, unknown>>> = {
+const MOCK_TALENT_PROJECTS: Record<string, TalentProject[]> = {
   '9': [
     {
       id: '9-proj-1',
@@ -245,7 +270,7 @@ const MOCK_TALENT_PROJECTS: Record<string, Array<Record<string, unknown>>> = {
   ],
 };
 
-const MOCK_TALENT_TESTIMONIALS: Record<string, Array<Record<string, unknown>>> = {
+const MOCK_TALENT_TESTIMONIALS: Record<string, TalentTestimonial[]> = {
   '9': [],
 };
 
@@ -512,7 +537,7 @@ export async function getTalentExperience(talentId: string): Promise<ExperienceI
  * Note: Projects are not part of the public RPC contract yet.
  * Return mock data only if available; otherwise empty array.
  */
-export async function getTalentProjects(talentId: string) {
+export async function getTalentProjects(talentId: string): Promise<TalentProject[]> {
   if (shouldUseMockFallback() && MOCK_TALENT_PROJECTS[talentId]) {
     console.info('[talent-projects] Using mock data:', talentId);
     return MOCK_TALENT_PROJECTS[talentId];
@@ -529,7 +554,7 @@ export async function getTalentProjects(talentId: string) {
  * Note: Testimonials are not part of the public RPC contract yet.
  * Return mock data only if available; otherwise empty array.
  */
-export async function getTalentTestimonials(talentId: string) {
+export async function getTalentTestimonials(talentId: string): Promise<TalentTestimonial[]> {
   if (shouldUseMockFallback() && MOCK_TALENT_TESTIMONIALS[talentId]) {
     console.info('[talent-testimonials] Using mock data:', talentId);
     return MOCK_TALENT_TESTIMONIALS[talentId];

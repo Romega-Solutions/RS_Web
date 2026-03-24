@@ -20,8 +20,7 @@ import {
   Github,
 } from 'lucide-react';
 import AvatarPlaceholder from '@/components/atoms/AvatarPlaceholder/AvatarPlaceholder';
-import type { Talent } from '@/types/jobs';
-import type { TalentExperience } from '@/lib/supabase/talent-experience';
+import type { ExperienceItem, Talent } from '@/types/jobs';
 import styles from './TalentProfileSample.module.css';
 
 /* ── inline types for project / testimonial ── */
@@ -48,7 +47,7 @@ interface Testimonial {
 
 interface TalentProfileClientProps {
   talent: Talent;
-  experience: TalentExperience[];
+  experience: ExperienceItem[];
   projects: Project[];
   testimonials: Testimonial[];
 }
@@ -63,31 +62,31 @@ type Tab = 'overview' | 'experience' | 'reviews';
 /* ────────────────────────────────────────────────
    EXPERIENCE LIST
 ──────────────────────────────────────────────── */
-function ExperienceList({ experience }: { experience: TalentExperience[] }) {
+function ExperienceList({ experience }: { experience: ExperienceItem[] }) {
   if (!experience.length) {
     return <p className={styles.about__body}>No experience listed yet.</p>;
   }
   return (
     <div className={styles.exp__list}>
       {experience.map((exp, i) => {
-        const isCurrent = !exp.end_date;
+        const isCurrent = exp.is_current ?? !exp.end_date;
         const dateRange = `${formatDate(exp.start_date)} – ${isCurrent ? 'Present' : formatDate(exp.end_date!)}`;
         return (
-          <div key={exp.id} className={styles.exp__item}>
+          <div key={`${exp.company_name}-${exp.role_title}-${exp.start_date}-${i}`} className={styles.exp__item}>
             <div className={styles.exp__indicator}>
               <div className={`${styles.exp__dot} ${isCurrent ? styles['exp__dot--active'] : styles['exp__dot--past']}`} />
               {i < experience.length - 1 && <div className={styles.exp__line} />}
             </div>
             <div className={styles.exp__body}>
               <div className={styles.exp__row}>
-                <h3 className={styles.exp__title}>{exp.role}</h3>
+                <h3 className={styles.exp__title}>{exp.role_title}</h3>
                 <span className={styles.exp__date}>{dateRange}</span>
               </div>
               <p className={styles.exp__company}>{exp.company_name}</p>
-              {exp.description && <p className={styles.exp__desc}>{exp.description}</p>}
-              {exp.technologies?.length > 0 && (
+              {exp.highlights && <p className={styles.exp__desc}>{exp.highlights}</p>}
+              {Boolean(exp.tools?.length) && (
                 <div className={styles.exp__tags}>
-                  {exp.technologies.map((t) => (
+                  {exp.tools?.map((t) => (
                     <span key={t} className={styles.exp__tag}>{t}</span>
                   ))}
                 </div>
