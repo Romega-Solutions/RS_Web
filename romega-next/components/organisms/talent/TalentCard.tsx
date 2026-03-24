@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import AvatarPlaceholder from '@/components/atoms/AvatarPlaceholder';
+import { MapPin } from 'lucide-react';
 import styles from './TalentCard.module.css';
 import type { Talent } from '@/types/jobs';
 
@@ -28,18 +28,13 @@ export default function TalentCard({ talent }: TalentCardProps) {
     <article className={styles['talent-card']}>
       {/* Header Row */}
       <div className={styles['talent-card__header']}>
-        <div className={styles['talent-card__avatar-wrap']}>
-          <AvatarPlaceholder
-            size={60}
-            variant={talent.gender || 'neutral'}
-            className={styles['talent-card__avatar']}
-          />
-        </div>
-
         <div className={styles['talent-card__info']}>
           <div className={styles['talent-card__name-row']}>
             <span className={styles['talent-card__name']}>{talent.name}</span>
-            <span className={styles['talent-card__country']}>🌍 {country}</span>
+            <span className={styles['talent-card__country']}>
+              <MapPin size={12} aria-hidden="true" />
+              {country}
+            </span>
           </div>
           <p className={styles['talent-card__role']}>{talent.role}</p>
           <p className={styles['talent-card__level']}>{seniority}</p>
@@ -50,10 +45,10 @@ export default function TalentCard({ talent }: TalentCardProps) {
 
       {/* Skills Row */}
       <div className={styles['talent-card__skills']}>
-        {talent.skills.slice(0, 3).map((skill, i) => (
+        {(talent.skills || []).slice(0, 3).map((skill, i) => (
           <span key={i} className={styles['talent-card__skill']}>{skill}</span>
         ))}
-        {talent.skills.length > 3 && (
+        {talent.skills && talent.skills.length > 3 && (
           <span className={styles['talent-card__skill-more']}>
             +{talent.skills.length - 3} more
           </span>

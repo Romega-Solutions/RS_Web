@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Search, ChevronDown, ChevronUp, SlidersHorizontal, X } from 'lucide-react';
 import TalentCard from './TalentCard';
 import styles from './TalentPool.module.css';
@@ -21,12 +21,24 @@ const SENIORITY_LEVELS = ['Expert', 'Junior', 'Middle', 'Senior'];
 const PAGE_SIZE = 6;
 
 export default function TalentPool({ talents }: TalentPoolProps) {
+  const MAX_SELECTIONS_PER_GROUP = 8;
+  const OPTION_PREVIEW_COUNT = 12;
+
   const [search, setSearch] = useState('');
   const [selectedSpecs, setSelectedSpecs] = useState<string[]>([]);
   const [selectedSeniority, setSelectedSeniority] = useState<string[]>([]);
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
+  const [roleQuery, setRoleQuery] = useState('');
+  const [skillQuery, setSkillQuery] = useState('');
+  const [locationQuery, setLocationQuery] = useState('');
+  const [showAllOptions, setShowAllOptions] = useState<Record<string, boolean>>({
+    roles: false,
+    skills: false,
+    location: false,
+  });
+  const [guardrailMessage, setGuardrailMessage] = useState('');
   
   // Check if database is completely empty (no initial talents)
   const isDatabaseEmpty = talents.length === 0;
@@ -36,28 +48,34 @@ export default function TalentPool({ talents }: TalentPoolProps) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  const roleOptions = useMemo(
-    () => Array.from(new Set(talents.map(talent => talent.role).filter(Boolean))).sort((a, b) => a.localeCompare(b)),
-    [talents],
-  );
+  // Helper function to build and filter option lists
+  const getOptionsList = (items: string[], query: string): string[] => {
+    const filtered = query.trim()
+      ? items.filter(item => item.toLowerCase().includes(query.trim().toLowerCase()))
+      : items;
+    return filtered;
+  };
 
-  const skillOptions = useMemo(
-    () =>
-      Array.from(
-        new Set(
-          talents
-            .flatMap(talent => talent.skills ?? [])
-            .map(skill => skill.trim())
-            .filter(Boolean),
-        ),
-      ).sort((a, b) => a.localeCompare(b)),
-    [talents],
-  );
+  // Build base lists (simple, cheap operations—no memo needed)
+  const baseRolesList = Array.from(new Set(talents.map(t => t.role).filter(Boolean))).sort();
+  const baseSkillsList = Array.from(new Set(talents.flatMap(t => t.skills ?? []).map(s => s.trim()).filter(Boolean))).sort();
+  const baseLocationsList = Array.from(new Set(talents.map(t => t.location).filter(Boolean))).sort();
 
-  const locationOptions = useMemo(
-    () => Array.from(new Set(talents.map(talent => talent.location).filter(Boolean))).sort((a, b) => a.localeCompare(b)),
-    [talents],
-  );
+  // Apply query filters
+  const filteredRoleOptions = getOptionsList(baseRolesList, roleQuery);
+  const filteredSkillOptions = getOptionsList(baseSkillsList, skillQuery);
+  const filteredLocationOptions = getOptionsList(baseLocationsList, locationQuery);
+
+  // Apply display limits
+  const displayedRoleOptions = showAllOptions.roles
+    ? filteredRoleOptions
+    : filteredRoleOptions.slice(0, OPTION_PREVIEW_COUNT);
+  const displayedSkillOptions = showAllOptions.skills
+    ? filteredSkillOptions
+    : filteredSkillOptions.slice(0, OPTION_PREVIEW_COUNT);
+  const displayedLocationOptions = showAllOptions.location
+    ? filteredLocationOptions
+    : filteredLocationOptions.slice(0, OPTION_PREVIEW_COUNT);
 
   const activeFilterCount =
     selectedSpecs.length +
@@ -66,16 +84,25 @@ export default function TalentPool({ talents }: TalentPoolProps) {
     selectedSkills.length +
     selectedLocations.length;
 
-  const toggleSpec = (spec: string) =>
-    setSelectedSpecs(prev => prev.includes(spec) ? prev.filter(s => s !== spec) : [...prev, spec]);
-  const toggleSeniority = (s: string) =>
-    setSelectedSeniority(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s]);
-  const toggleRole = (role: string) =>
-    setSelectedRoles(prev => prev.includes(role) ? prev.filter(value => value !== role) : [...prev, role]);
-  const toggleSkill = (skill: string) =>
-    setSelectedSkills(prev => prev.includes(skill) ? prev.filter(value => value !== skill) : [...prev, skill]);
-  const toggleLocation = (location: string) =>
-    setSelectedLocations(prev => prev.includes(location) ? prev.filter(value => value !== location) : [...prev, location]);
+  const toggleWithLimit = (current: string[], value: string, setter: (next: string[]) => void) => {
+    if (current.includes(value)) {
+      setter(current.filter(item => item !== value));
+      return;
+    }
+
+    if (current.length >= MAX_SELECTIONS_PER_GROUP) {
+      setGuardrailMessage(`You can select up to ${MAX_SELECTIONS_PER_GROUP} options per filter group.`);
+      return;
+    }
+
+    setter([...current, value]);
+  };
+
+  const toggleSpec = (spec: string) => toggleWithLimit(selectedSpecs, spec, setSelectedSpecs);
+  const toggleSeniority = (value: string) => toggleWithLimit(selectedSeniority, value, setSelectedSeniority);
+  const toggleRole = (role: string) => toggleWithLimit(selectedRoles, role, setSelectedRoles);
+  const toggleSkill = (skill: string) => toggleWithLimit(selectedSkills, skill, setSelectedSkills);
+  const toggleLocation = (location: string) => toggleWithLimit(selectedLocations, location, setSelectedLocations);
   const toggleSection = (key: string) =>
     setCollapsedSections(prev => ({ ...prev, [key]: !prev[key] }));
 
@@ -86,8 +113,39 @@ export default function TalentPool({ talents }: TalentPoolProps) {
     setSelectedRoles([]);
     setSelectedSkills([]);
     setSelectedLocations([]);
+    setRoleQuery('');
+    setSkillQuery('');
+    setLocationQuery('');
+    setShowAllOptions({ roles: false, skills: false, location: false });
+    setGuardrailMessage('');
     setVisibleCount(PAGE_SIZE);
   };
+
+  useEffect(() => {
+    if (!guardrailMessage) return;
+    const timer = setTimeout(() => setGuardrailMessage(''), 2800);
+    return () => clearTimeout(timer);
+  }, [guardrailMessage]);
+
+  useEffect(() => {
+    if (!mobileFiltersOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileFiltersOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [mobileFiltersOpen]);
 
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
@@ -209,6 +267,14 @@ export default function TalentPool({ talents }: TalentPoolProps) {
             </div>
           )}
 
+          {guardrailMessage && (
+            <div className={styles['sidebar__section']}>
+              <p className={styles['sidebar__guardrail']} role="status" aria-live="polite">
+                {guardrailMessage}
+              </p>
+            </div>
+          )}
+
           {/* Specialization */}
           <div className={styles['sidebar__section']}>
             <h3 className={styles['sidebar__heading']}>Specialization</h3>
@@ -256,7 +322,15 @@ export default function TalentPool({ talents }: TalentPoolProps) {
             </button>
             {!collapsedSections.roles && (
               <div className={styles['talent-pool__collapsible-content']}>
-                {roleOptions.map(roleOption => (
+                <input
+                  type="search"
+                  value={roleQuery}
+                  onChange={(event) => setRoleQuery(event.target.value)}
+                  placeholder="Search roles"
+                  className={styles['sidebar__option-search']}
+                  aria-label="Search role filters"
+                />
+                {displayedRoleOptions.map(roleOption => (
                   <label key={roleOption} className={styles['sidebar__checkbox-row']}>
                     <input
                       type="checkbox"
@@ -267,6 +341,19 @@ export default function TalentPool({ talents }: TalentPoolProps) {
                     <span>{roleOption}</span>
                   </label>
                 ))}
+                {filteredRoleOptions.length > OPTION_PREVIEW_COUNT && (
+                  <button
+                    type="button"
+                    className={styles['sidebar__show-more']}
+                    onClick={() =>
+                      setShowAllOptions(prev => ({ ...prev, roles: !prev.roles }))
+                    }
+                  >
+                    {showAllOptions.roles
+                      ? 'Show fewer roles'
+                      : `Show all roles (${filteredRoleOptions.length})`}
+                  </button>
+                )}
               </div>
             )}
           </div>
@@ -285,8 +372,16 @@ export default function TalentPool({ talents }: TalentPoolProps) {
             </button>
             {!collapsedSections.skills && (
               <div className={styles['talent-pool__collapsible-content']}>
+                <input
+                  type="search"
+                  value={skillQuery}
+                  onChange={(event) => setSkillQuery(event.target.value)}
+                  placeholder="Search skills"
+                  className={styles['sidebar__option-search']}
+                  aria-label="Search skill filters"
+                />
                 <div className={styles['sidebar__pills']}>
-                  {skillOptions.map(skillOption => (
+                  {displayedSkillOptions.map(skillOption => (
                     <button
                       key={skillOption}
                       onClick={() => toggleSkill(skillOption)}
@@ -296,6 +391,19 @@ export default function TalentPool({ talents }: TalentPoolProps) {
                     </button>
                   ))}
                 </div>
+                {filteredSkillOptions.length > OPTION_PREVIEW_COUNT && (
+                  <button
+                    type="button"
+                    className={styles['sidebar__show-more']}
+                    onClick={() =>
+                      setShowAllOptions(prev => ({ ...prev, skills: !prev.skills }))
+                    }
+                  >
+                    {showAllOptions.skills
+                      ? 'Show fewer skills'
+                      : `Show all skills (${filteredSkillOptions.length})`}
+                  </button>
+                )}
               </div>
             )}
           </div>
@@ -314,7 +422,15 @@ export default function TalentPool({ talents }: TalentPoolProps) {
             </button>
             {!collapsedSections.location && (
               <div className={styles['talent-pool__collapsible-content']}>
-                {locationOptions.map(locationOption => (
+                <input
+                  type="search"
+                  value={locationQuery}
+                  onChange={(event) => setLocationQuery(event.target.value)}
+                  placeholder="Search locations"
+                  className={styles['sidebar__option-search']}
+                  aria-label="Search location filters"
+                />
+                {displayedLocationOptions.map(locationOption => (
                   <label key={locationOption} className={styles['sidebar__checkbox-row']}>
                     <input
                       type="checkbox"
@@ -325,8 +441,31 @@ export default function TalentPool({ talents }: TalentPoolProps) {
                     <span>{locationOption}</span>
                   </label>
                 ))}
+                {filteredLocationOptions.length > OPTION_PREVIEW_COUNT && (
+                  <button
+                    type="button"
+                    className={styles['sidebar__show-more']}
+                    onClick={() =>
+                      setShowAllOptions(prev => ({ ...prev, location: !prev.location }))
+                    }
+                  >
+                    {showAllOptions.location
+                      ? 'Show fewer locations'
+                      : `Show all locations (${filteredLocationOptions.length})`}
+                  </button>
+                )}
               </div>
             )}
+          </div>
+
+          <div className={styles['sidebar__mobile-actions']}>
+            <button
+              type="button"
+              className={styles['sidebar__apply-btn']}
+              onClick={() => setMobileFiltersOpen(false)}
+            >
+              View results ({filtered.length})
+            </button>
           </div>
         </aside>
 

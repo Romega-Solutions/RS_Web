@@ -41,34 +41,9 @@
 /* Header Row */
 .talent-card__header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.75rem;
   min-width: 0;
-}
-
-.talent-card__avatar-wrap {
-  flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #fce7f3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (min-width: 480px) {
-  .talent-card__avatar-wrap {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-.talent-card__avatar {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .talent-card__info {
@@ -106,6 +81,9 @@
 }
 
 .talent-card__country {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
   font-family: 'Source Sans 3', sans-serif;
   font-size: 0.6875rem;
   font-weight: 600;

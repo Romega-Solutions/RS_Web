@@ -1,5 +1,5 @@
 import { createClient } from './server';
-import type { Talent } from '@/types/jobs';
+import type { Talent, ExperienceItem } from '@/types/jobs';
 import { PRIVACY_POLICY_VERSION } from '@/lib/legal/privacy-policy';
 
 // Mock data for development/fallback (matches database schema)
@@ -323,6 +323,37 @@ function getConsentSource(record: Record<string, unknown>): string | undefined {
   return readRecordString(record, ['consent_source', 'consent_channel']);
 }
 
+function parseExperienceItems(value: unknown): ExperienceItem[] {
+  if (!value) return [];
+
+  try {
+    // If it's already an array, parse each item
+    if (Array.isArray(value)) {
+      return value.filter(item => {
+        // Validate that each item has required fields
+        if (typeof item !== 'object' || item === null) return false;
+        const record = item as Record<string, unknown>;
+        return (
+          typeof record.company_name === 'string' &&
+          typeof record.role_title === 'string' &&
+          typeof record.start_date === 'string'
+        );
+      }) as ExperienceItem[];
+    }
+
+    // If it's a JSON string, parse it first
+    if (typeof value === 'string') {
+      const parsed = JSON.parse(value);
+      return parseExperienceItems(parsed);
+    }
+
+    return [];
+  } catch (_error) {
+    console.warn('Failed to parse experience_items:', _error);
+    return [];
+  }
+}
+
 /**
  * Transform database talent to include computed display properties
  */
@@ -335,6 +366,7 @@ function transformTalent(dbTalent: Record<string, unknown>): Talent {
     public_showcase_consent_at: getConsentTimestamp(dbTalent),
     consent_policy_version: getConsentPolicyVersion(dbTalent),
     consent_source: getConsentSource(dbTalent),
+    experience_items: parseExperienceItems(dbTalent.experience_items),
     // Add computed display properties
     experience: `${dbTalent.experience_years}+ years`,
     rate: dbTalent.hourly_rate_min && dbTalent.hourly_rate_max
@@ -344,9 +376,9 @@ function transformTalent(dbTalent: Record<string, unknown>): Talent {
 }
 
 /**
- * Fetch all talents from Supabase
- * This runs on the server side for better performance and security
- * Falls back to mock data if Supabase is not configured
+ * Fetch all talents from Supabase via public RPC
+ * RPC enforces publication consent and verification at database level.
+ * This is the authoritative public contract.
  */
 export async function getTalents(): Promise<Talent[]> {
   // Check if Supabase is properly configured
@@ -365,61 +397,31 @@ export async function getTalents(): Promise<Talent[]> {
 
   try {
     const supabase = await createClient();
-    let data: Record<string, unknown>[] | null = null;
-    let querySource: 'rpc' | 'table-fallback' = 'rpc';
 
+    // RPC is the single source of truth for public talents
     const { data: rpcData, error: rpcError } = await supabase.rpc('get_public_talents');
 
-    if (!rpcError && Array.isArray(rpcData)) {
-      data = rpcData as Record<string, unknown>[];
-      console.info('[talents] source=rpc rows=', data.length);
-    } else {
-      querySource = 'table-fallback';
-      if (rpcError) {
-        console.warn('RPC get_public_talents unavailable, falling back to table query:', rpcError.message);
-      }
-
-      const { data: tableData, error: tableError } = await supabase
-        .from('talents')
-        .select('*')
-        .eq('verified', true) // Only fetch verified talents
-        .order('featured', { ascending: false }) // Featured first
-        .order('created_at', { ascending: false });
-
-      if (tableError) {
-        console.error('Error fetching talents from Supabase:', tableError.message);
-        if (shouldUseMockFallback()) {
-          return getMockPublicTalents();
-        }
-        return [];
-      }
-
-      data = (tableData as Record<string, unknown>[] | null) ?? [];
-      console.info('[talents] source=table-fallback rows=', data.length);
-    }
-
-    // If no data from database, return empty array
-    if (!data || data.length === 0) {
-      console.info('No talents found in database');
+    if (rpcError) {
+      console.error('[talents] RPC get_public_talents error:', rpcError.message);
+      // No table fallback: RPC failure means no public data available
       if (shouldUseMockFallback()) {
+        console.warn('[talents] Using mock fallback due to RPC error');
         return getMockPublicTalents();
       }
       return [];
     }
 
-    // Transform database talents and enforce explicit publication consent
-    const publicTalents = data
-      .map(transformTalent)
-      .filter(talent => talent.public_showcase_consent === true);
+    if (!Array.isArray(rpcData) || rpcData.length === 0) {
+      console.info('[talents] RPC returned empty result');
+      return [];
+    }
 
-    console.info(
-      '[talents] source=',
-      querySource,
-      'rawRows=',
-      data.length,
-      'publicRows=',
-      publicTalents.length,
-    );
+    // Transform RPC data. Trust RPC for publication consent (already filtered at DB).
+    // No additional consent filtering needed here.
+    const publicTalents = rpcData
+      .map(talent => transformTalent(talent as Record<string, unknown>));
+
+    console.info('[talents] source=rpc rows=', publicTalents.length);
 
     return publicTalents;
   } catch (_error) {
@@ -448,159 +450,93 @@ export async function getTalentsByAvailability(availability: string): Promise<Ta
 }
 
 /**
- * Fetch a single talent by ID
+ * Fetch a single talent by ID from public RPC results
+ * For now, fetches all public talents and finds by ID.
+ * In production, can be replaced with get_public_talent_by_id(id) RPC if needed.
  */
 export async function getTalentById(id: string): Promise<Talent | null> {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  try {
+    const allTalents = await getTalents();
+    const found = allTalents.find(t => t.id === id);
+    if (found) {
+      console.info('[talent-by-id] Found via RPC:', id);
+      return found;
+    }
 
-  if (!supabaseUrl || !supabaseKey || supabaseKey.includes('placeholder')) {
+    // Not in public RPC results, check mock fallback
     if (shouldUseMockFallback()) {
+      console.warn('[talent-by-id] Not public, checking mock:', id);
       return getMockTalentById(id);
     }
 
     return null;
-  }
-
-  try {
-    const supabase = await createClient();
-
-    const { data, error } = await supabase
-      .from('talents')
-      .select('*')
-      .eq('id', id)
-      .eq('verified', true)
-      .single();
-
-    if (error || !data) {
-      console.warn('Talent not found in database, checking mock data');
-      const mockTalent = shouldUseMockFallback() ? getMockTalentById(id) : null;
-      return mockTalent || null;
-    }
-
-    const transformedTalent = transformTalent(data);
-
-    if (!transformedTalent.public_showcase_consent) {
-      console.warn('Talent found but missing publication consent:', id);
-      return null;
-    }
-
-    return transformedTalent;
   } catch (_error) {
-    console.warn('Error fetching talent by ID:', _error);
-    const mockTalent = shouldUseMockFallback() ? getMockTalentById(id) : null;
-    return mockTalent || null;
+    console.error('[talent-by-id] Error fetching talent:', id, _error);
+    if (shouldUseMockFallback()) {
+      return getMockTalentById(id);
+    }
+    return null;
   }
 }
 
 /**
  * Fetch talent experience by talent ID
+ * Note: Experience/Projects/Testimonials are not part of the public RPC contract yet.
+ * Return mock data only if available; otherwise empty array.
  */
-export async function getTalentExperience(talentId: string) {
-  if (shouldUseMockFallback() && MOCK_TALENT_EXPERIENCE[talentId]) {
-    return MOCK_TALENT_EXPERIENCE[talentId];
-  }
-
+export async function getTalentExperience(talentId: string): Promise<ExperienceItem[]> {
   try {
-    const supabase = await createClient();
-
-    const { data, error } = await supabase
-      .from('talent_experience')
-      .select('*')
-      .eq('talent_id', talentId)
-      .order('start_date', { ascending: false });
-
-    if (error) {
-      console.warn('Error fetching talent experience:', error.message);
-      if (shouldUseMockFallback()) {
-        return MOCK_TALENT_EXPERIENCE[talentId] ?? [];
-      }
-      return [];
+    const talent = await getTalentById(talentId);
+    if (talent && talent.experience_items && talent.experience_items.length > 0) {
+      console.info('[talent-experience] Returning RPC data:', talentId, talent.experience_items.length, 'items');
+      return talent.experience_items;
     }
 
-    return data && data.length > 0
-      ? data
-      : (shouldUseMockFallback() ? (MOCK_TALENT_EXPERIENCE[talentId] ?? []) : []);
+    // Fallback to mock data if available
+    if (shouldUseMockFallback() && MOCK_TALENT_EXPERIENCE[talentId]) {
+      console.info('[talent-experience] Using mock data:', talentId);
+      // Transform mock data to ExperienceItem format
+      return (MOCK_TALENT_EXPERIENCE[talentId] as unknown as ExperienceItem[]);
+    }
+
+    console.info('[talent-experience] No data available:', talentId);
+    return [];
   } catch (_error) {
-    console.warn('Error in getTalentExperience:', _error);
-    if (shouldUseMockFallback()) {
-      return MOCK_TALENT_EXPERIENCE[talentId] ?? [];
-    }
+    console.error('[talent-experience] Error:', _error);
     return [];
   }
 }
 
 /**
  * Fetch talent projects by talent ID
+ * Note: Projects are not part of the public RPC contract yet.
+ * Return mock data only if available; otherwise empty array.
  */
 export async function getTalentProjects(talentId: string) {
   if (shouldUseMockFallback() && MOCK_TALENT_PROJECTS[talentId]) {
+    console.info('[talent-projects] Using mock data:', talentId);
     return MOCK_TALENT_PROJECTS[talentId];
   }
 
-  try {
-    const supabase = await createClient();
-
-    const { data, error } = await supabase
-      .from('talent_projects')
-      .select('*')
-      .eq('talent_id', talentId)
-      .order('featured', { ascending: false })
-      .order('completion_date', { ascending: false });
-
-    if (error) {
-      console.warn('Error fetching talent projects:', error.message);
-      if (shouldUseMockFallback()) {
-        return MOCK_TALENT_PROJECTS[talentId] ?? [];
-      }
-      return [];
-    }
-
-    return data && data.length > 0
-      ? data
-      : (shouldUseMockFallback() ? (MOCK_TALENT_PROJECTS[talentId] ?? []) : []);
-  } catch (_error) {
-    console.warn('Error in getTalentProjects:', _error);
-    if (shouldUseMockFallback()) {
-      return MOCK_TALENT_PROJECTS[talentId] ?? [];
-    }
-    return [];
-  }
+  // No direct table reads for public pages.
+  // Projects data not yet exposed via secure RPC.
+  console.info('[talent-projects] No public data available:', talentId);
+  return [];
 }
 
 /**
  * Fetch talent testimonials by talent ID
+ * Note: Testimonials are not part of the public RPC contract yet.
+ * Return mock data only if available; otherwise empty array.
  */
 export async function getTalentTestimonials(talentId: string) {
   if (shouldUseMockFallback() && MOCK_TALENT_TESTIMONIALS[talentId]) {
+    console.info('[talent-testimonials] Using mock data:', talentId);
     return MOCK_TALENT_TESTIMONIALS[talentId];
   }
 
-  try {
-    const supabase = await createClient();
-
-    const { data, error } = await supabase
-      .from('talent_testimonials')
-      .select('*')
-      .eq('talent_id', talentId)
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      console.warn('Error fetching talent testimonials:', error.message);
-      if (shouldUseMockFallback()) {
-        return MOCK_TALENT_TESTIMONIALS[talentId] ?? [];
-      }
-      return [];
-    }
-
-    return data && data.length > 0
-      ? data
-      : (shouldUseMockFallback() ? (MOCK_TALENT_TESTIMONIALS[talentId] ?? []) : []);
-  } catch (_error) {
-    console.warn('Error in getTalentTestimonials:', _error);
-    if (shouldUseMockFallback()) {
-      return MOCK_TALENT_TESTIMONIALS[talentId] ?? [];
-    }
-    return [];
-  }
+  // No direct table reads for public pages.
+  // Testimonials data not yet exposed via secure RPC.
+  console.info('[talent-testimonials] No public data available:', talentId);
+  return [];
 }

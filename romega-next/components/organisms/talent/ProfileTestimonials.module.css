@@ -55,9 +55,9 @@
 
 .ProfileTestimonials__rating {
   display: flex;
+  align-items: center;
   gap: 0.25rem;
   margin-bottom: 1rem;
-  font-size: 1.25rem;
 }
 
 .ProfileTestimonials__starFilled {

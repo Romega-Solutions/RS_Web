@@ -10,6 +10,16 @@ export interface Job {
 
 export type JobsState = 'loading' | 'error' | 'empty' | 'success';
 
+export interface ExperienceItem {
+  company_name: string;
+  role_title: string;
+  start_date: string; // ISO date
+  end_date?: string; // ISO date, optional if is_current=true
+  is_current?: boolean;
+  highlights?: string;
+  tools?: string[];
+}
+
 export interface Talent {
   id: string;
   name: string;
@@ -47,6 +57,7 @@ export interface Talent {
   created_at?: string;
   updated_at?: string;
   last_active_at?: string;
+  experience_items?: ExperienceItem[];
   // Helper properties for display
   experience?: string; // Computed: "8 years"
   rate?: string; // Computed: "$80-120/hr"

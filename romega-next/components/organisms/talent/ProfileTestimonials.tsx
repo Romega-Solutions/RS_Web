@@ -1,4 +1,4 @@
-import { Quote } from 'lucide-react';
+import { Quote, Star } from 'lucide-react';
 import styles from './ProfileTestimonials.module.css';
 
 interface Testimonial {
@@ -34,16 +34,17 @@ export default function ProfileTestimonials({ testimonials }: ProfileTestimonial
             
             <div className={styles.ProfileTestimonials__rating}>
               {Array.from({ length: 5 }).map((_, index) => (
-                <span
+                <Star
                   key={index}
+                  size={18}
                   className={
                     index < testimonial.rating
                       ? styles.ProfileTestimonials__starFilled
                       : styles.ProfileTestimonials__starEmpty
                   }
-                >
-                  ★
-                </span>
+                  fill={index < testimonial.rating ? 'currentColor' : 'none'}
+                  aria-hidden="true"
+                />
               ))}
             </div>
 

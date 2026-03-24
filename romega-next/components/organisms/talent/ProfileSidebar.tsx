@@ -1,5 +1,5 @@
 import type { Talent } from '@/types/jobs';
-import { Mail, Globe, Linkedin, Github, TrendingUp, Eye } from 'lucide-react';
+import { Mail, Globe, Linkedin, Github, TrendingUp, Eye, BadgeCheck } from 'lucide-react';
 import Link from 'next/link';
 import styles from './ProfileSidebar.module.css';
 
@@ -111,7 +111,10 @@ export function ProfileSidebar({ talent }: ProfileSidebarProps) {
             {talent.category.charAt(0).toUpperCase() + talent.category.slice(1)}
           </span>
           {talent.verified && (
-            <span className={styles.ProfileSidebar__verified}>✓ Verified</span>
+            <span className={styles.ProfileSidebar__verified}>
+              <BadgeCheck size={16} aria-hidden="true" />
+              Verified
+            </span>
           )}
         </div>
       </div>
