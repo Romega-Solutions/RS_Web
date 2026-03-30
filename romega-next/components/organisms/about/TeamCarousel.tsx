@@ -11,7 +11,7 @@ interface TeamCarouselProps {
 }
 
 export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(3); // Start with CEO in center
+  const [currentIndex, setCurrentIndex] = useState(2); // Start with CEO in center
   const [isAnimating, setIsAnimating] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);

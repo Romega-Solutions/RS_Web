@@ -70,7 +70,7 @@ export interface Testimonial {
   name: string;
   title: string;
   school: string;
-  image: string;
+  image?: string;
   rating: number;
   quote: string;
   linkedin?: string;
@@ -123,31 +123,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/edmayelle-villavicencio-alforja-8a1580199/',
   },
   {
-    id: 'audrey-maureen-molina',
-    name: 'Audrey Maureen Molina',
-    title: 'Marketing Lead & Recruiter',
-    role: 'Marketing Lead/HR Business Partner',
-    location: 'San Luis',
-    image: '/images/about/IC/IC_Marketing_Audrey.png',
-    bio: [
-      'Blending strategy with heart as Marketing Lead and HRBP',
-      'Passionate about growing teams and telling stories that stick',
-      'Matcha-fueled, wellness-driven, and always chasing the next adrenaline rush',
-    ],
-    expertise: [
-      'Magna Cum Laude, BS in Legal Management at DLSU Manila',
-      'Certified Human Resource Associate',
-      'Certified Six Sigma Yellow Belt',
-    ],
-    achievements: [
-      'Wellness and fitness',
-      'Matcha runs',
-      'Travel and adventure sports',
-      'Hosting and reading',
-    ],
-    linkedin: 'https://www.linkedin.com/in/audreympm/',
-  },
-  {
     id: 'robbie-galoso',
     name: 'Robbie Galoso',
     title: 'Founder and CEO',
@@ -162,26 +137,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     ],
     achievements: ['Innovation', 'Entrepreneurship', 'Team Building'],
     linkedin: 'https://www.linkedin.com/in/robbie-galoso-9913389/',
-  },
-  {
-    id: 'cherry-ann-reyes',
-    name: 'Cherry Ann Reyes',
-    title: 'Chief of Staff',
-    role: 'Chief of Staff',
-    location: 'San Luis',
-    image: '/images/about/IC/IC_HR_Cherry.png',
-    bio: 'Experienced HR consultant specializing in strategic human resource management. Focused on building effective HR systems and developing talent acquisition strategies.',
-    expertise: [
-      'Certified HR Professional (CHRP)',
-      'Strategic HR Management',
-      'Talent Development',
-    ],
-    achievements: [
-      'HR Best Practices',
-      'Leadership Development',
-      'Organizational Culture',
-    ],
-    linkedin: 'https://www.linkedin.com/in/cherry-ann-reyes-chrp-9b978061/',
   },
   {
     id: 'christine-valencia',
@@ -340,11 +295,21 @@ export const TESTIMONIALS: Testimonial[] = [
     id: 'edmayelle-alforja',
     name: 'Edmayelle Alforja',
     title: 'Market Intelligence Intern',
-    school: 'University of Sto. Thomas',
+    school: 'University of Sto. Tomas',
     image: '/images/about/Edmayelle.jpg',
     rating: 5,
     quote: 'My internship at Romega Solutions deepened my understanding of semiconductors through real-world analytics, while the collaborative culture strengthened my skills in research and strategic thinking.',
     linkedin: 'https://www.linkedin.com/in/edmayelle-alforja/',
+  },
+  {
+    id: 'lyle-paraboles',
+    name: 'Lyle Joseph P. Paraboles',
+    title: 'Former Human Resources Intern',
+    school: 'University of Sto. Tomas',
+    image: '/images/about/Lyle.jpg',
+    rating: 5,
+    quote: 'My time at Romega Solutions gave me meaningful, hands-on experience in technical recruitment and market research while sharpening both my analytical thinking and attention to detail.',
+    linkedin: 'https://www.linkedin.com/',
   },
 ];
 

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, GraduationCap } from 'lucide-react';
+import AvatarPlaceholder from '@/components/atoms/AvatarPlaceholder';
 import { TESTIMONIALS } from '@/lib/constants';
 import styles from './TestimonialsCarousel.module.css';
 
@@ -205,14 +206,22 @@ export default function TestimonialsCarousel() {
                   {/* Profile Image */}
                   <div className={styles['testimonials-carousel__image-container']}>
                     <div className={styles['testimonials-carousel__image-border']}>
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        width={120}
-                        height={120}
-                        className={styles['testimonials-carousel__image']}
-                        sizes="(max-width: 539px) 100px, (max-width: 767px) 110px, 120px"
-                      />
+                      {testimonial.image ? (
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          width={120}
+                          height={120}
+                          className={styles['testimonials-carousel__image']}
+                          sizes="(max-width: 539px) 100px, (max-width: 767px) 110px, 120px"
+                        />
+                      ) : (
+                        <AvatarPlaceholder
+                          size={120}
+                          variant="neutral"
+                          className={styles['testimonials-carousel__image']}
+                        />
+                      )}
                     </div>
                   </div>
 
