@@ -202,58 +202,6 @@
   font-size: 0.875rem;
 }
 
-/* Consent */
-.contact-form__consent {
-  border: 1px solid var(--rs-neutral-300);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  background-color: var(--rs-neutral-100);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.contact-form__consent-title {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--rs-primary-800);
-}
-
-.contact-form__consent-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
-
-.contact-form__consent-checkbox {
-  margin-top: 0.2rem;
-  accent-color: var(--rs-accent-600);
-}
-
-.contact-form__consent-label {
-  font-size: 0.9rem;
-  color: var(--rs-neutral-600);
-  line-height: 1.4;
-}
-
-.contact-form__consent-label a {
-  color: var(--rs-accent-700);
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.contact-form__consent-required {
-  color: #b91c1c;
-  font-weight: 700;
-}
-
-.contact-form__consent-note {
-  margin: 0;
-  font-size: 0.75rem;
-  color: var(--rs-neutral-500);
-}
-
 /* Actions */
 .contact-form__actions {
   display: flex;
