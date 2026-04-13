@@ -1,0 +1,198 @@
+/* ===========================
+   PROFILE SIDEBAR
+   BEM: ProfileSidebar
+   =========================== */
+
+.ProfileSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  animation: slideRightFadeIn 0.7s ease-out 0.3s both;
+}
+
+@keyframes slideRightFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.ProfileSidebar__card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--rs-neutral-200);
+}
+
+.ProfileSidebar__cardTitle {
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rs-primary-800);
+  margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.ProfileSidebar__ctaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: var(--rs-primary-600);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 115, 230, 0.2);
+}
+
+.ProfileSidebar__ctaButton:hover {
+  background: var(--rs-primary-700);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 115, 230, 0.3);
+}
+
+.ProfileSidebar__ctaButton:active {
+  transform: translateY(0);
+}
+
+.ProfileSidebar__note {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--rs-neutral-600);
+  text-align: center;
+}
+
+/* Stats Section */
+.ProfileSidebar__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ProfileSidebar__statItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rs-neutral-200);
+}
+
+.ProfileSidebar__statItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ProfileSidebar__statIcon {
+  color: var(--rs-primary-500);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.ProfileSidebar__statLabel {
+  font-size: 0.875rem;
+  color: var(--rs-neutral-600);
+  margin-bottom: 0.25rem;
+}
+
+.ProfileSidebar__statValue {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--rs-neutral-900);
+}
+
+/* Links Section */
+.ProfileSidebar__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ProfileSidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--rs-neutral-50);
+  border: 1px solid var(--rs-neutral-200);
+  border-radius: 8px;
+  color: var(--rs-primary-700);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ProfileSidebar__link:hover {
+  background: var(--rs-primary-50);
+  border-color: var(--rs-primary-300);
+  transform: translateX(4px);
+}
+
+.ProfileSidebar__link svg {
+  flex-shrink: 0;
+}
+
+/* Category Section */
+.ProfileSidebar__category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.ProfileSidebar__categoryBadge {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  background: var(--rs-primary-100);
+  color: var(--rs-primary-800);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.ProfileSidebar__verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: var(--rs-success);
+  color: white;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .ProfileSidebar {
+    position: static;
+    max-height: none;
+  }
+
+  .ProfileSidebar__card {
+    padding: 1.25rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .ProfileSidebar__card {
+    padding: 2rem;
+  }
+}

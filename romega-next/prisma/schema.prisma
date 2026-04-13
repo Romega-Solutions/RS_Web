@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["postgresqlExtensions"]
 }
 
@@ -7,10 +7,130 @@ datasource db {
   provider   = "postgresql"
   url        = env("DATABASE_URL")
   directUrl  = env("DIRECT_URL")
-  extensions = [pgcrypto, uuid_ossp]
+  extensions = [pgcrypto, uuid_ossp(map: "uuid-ossp", schema: "extensions")]
 }
 
-model Placeholder {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
+model Talent {
+  id                        String                      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name                      String                      @db.VarChar(255)
+  email                     String                      @unique @db.VarChar(255)
+  phone                     String?                     @db.VarChar(50)
+  role                      String                      @db.VarChar(255)
+  tagline                   String?                     @db.VarChar(500)
+  bio                       String?
+  skills                    String[]
+  experienceYears           Int                         @map("experience_years")
+  experienceLevel           String?                     @map("experience_level") @db.VarChar(50)
+  availability              String                      @db.VarChar(50)
+  hourlyRateMin             Int?                        @map("hourly_rate_min")
+  hourlyRateMax             Int?                        @map("hourly_rate_max")
+  rateCurrency              String?                     @default("USD") @map("rate_currency") @db.VarChar(3)
+  location                  String                      @db.VarChar(255)
+  timezone                  String?                     @db.VarChar(100)
+  remoteOnly                Boolean?                    @default(true) @map("remote_only")
+  category                  String                      @db.VarChar(100)
+  subcategories             String[]
+  avatarUrl                 String?                     @map("avatar_url")
+  portfolioUrl              String?                     @map("portfolio_url")
+  linkedinUrl               String?                     @map("linkedin_url")
+  githubUrl                 String?                     @map("github_url")
+  gender                    String?                     @db.VarChar(20)
+  featured                  Boolean?                    @default(false)
+  verified                  Boolean?                    @default(false)
+  viewsCount                Int?                        @default(0) @map("views_count")
+  contactCount              Int?                        @default(0) @map("contact_count")
+  successRate               Decimal?                    @map("success_rate") @db.Decimal(3, 2)
+  createdAt                 DateTime?                   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                 DateTime?                   @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  lastActiveAt              DateTime?                   @default(now()) @map("last_active_at") @db.Timestamptz(6)
+  talent_availability_slots talent_availability_slots[]
+  talent_certifications     talent_certifications[]
+  talent_experience         talent_experience[]
+  projects                  TalentProject[]
+  testimonials              TalentTestimonial[]
+
+  @@index([availability], map: "idx_talents_availability")
+  @@index([category], map: "idx_talents_category")
+  @@index([category, availability], map: "idx_talents_category_availability")
+  @@index([hourlyRateMin, hourlyRateMax], map: "idx_talents_hourly_rate")
+  @@index([skills], map: "idx_talents_skills", type: Gin)
+  @@map("talents")
+}
+
+model TalentProject {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  talentId       String    @map("talent_id") @db.Uuid
+  title          String    @db.VarChar(255)
+  description    String?
+  projectUrl     String?   @map("project_url")
+  imageUrl       String?   @map("image_url")
+  technologies   String[]
+  completionDate DateTime? @map("completion_date") @db.Date
+  featured       Boolean?  @default(false)
+  createdAt      DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+  talent         Talent    @relation(fields: [talentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([talentId], map: "idx_talent_projects_talent_id")
+  @@map("talent_projects")
+}
+
+model TalentTestimonial {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  talentId      String    @map("talent_id") @db.Uuid
+  clientName    String    @map("client_name") @db.VarChar(255)
+  clientCompany String?   @map("client_company") @db.VarChar(255)
+  clientRole    String?   @map("client_role") @db.VarChar(255)
+  testimonial   String
+  rating        Int?
+  projectName   String?   @map("project_name") @db.VarChar(255)
+  createdAt     DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+  talent        Talent    @relation(fields: [talentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([talentId], map: "idx_talent_testimonials_talent_id")
+  @@map("talent_testimonials")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model talent_availability_slots {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  talent_id      String    @db.Uuid
+  start_date     DateTime  @db.Date
+  end_date       DateTime  @db.Date
+  hours_per_week Int?
+  note           String?
+  created_at     DateTime? @default(now()) @db.Timestamptz(6)
+  talents        Talent    @relation(fields: [talent_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model talent_certifications {
+  id                   String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  talent_id            String    @db.Uuid
+  name                 String    @db.VarChar(255)
+  issuing_organization String?   @db.VarChar(255)
+  issue_date           DateTime? @db.Date
+  expiry_date          DateTime? @db.Date
+  credential_id        String?   @db.VarChar(255)
+  credential_url       String?
+  created_at           DateTime? @default(now()) @db.Timestamptz(6)
+  talents              Talent    @relation(fields: [talent_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([talent_id], map: "idx_talent_certifications_talent_id")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model talent_experience {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  talent_id    String    @db.Uuid
+  company_name String    @db.VarChar(255)
+  role         String    @db.VarChar(255)
+  start_date   DateTime  @db.Date
+  end_date     DateTime? @db.Date
+  description  String?
+  achievements String[]
+  technologies String[]
+  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+  talents      Talent    @relation(fields: [talent_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([talent_id], map: "idx_talent_experience_talent_id")
 }

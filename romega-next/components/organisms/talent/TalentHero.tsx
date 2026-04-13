@@ -1,77 +1,62 @@
 'use client';
 
+import { FlaskConical } from 'lucide-react';
 import styles from './TalentHero.module.css';
 
 export default function TalentHero() {
   return (
     <section className={styles['talent-hero']} aria-labelledby="talent-hero-heading">
       {/* Background Pattern */}
-      <div className={styles['talent-hero__bg']} aria-hidden="true"></div>
+      <div className={styles['talent-hero__bg']} aria-hidden="true">
+        <FlaskConical className={styles['talent-hero__bg-flask']} aria-hidden="true" />
+      </div>
 
       <div className={styles['talent-hero__container']}>
         <div className={styles['talent-hero__content']}>
-          {/* Badge */}
-          <span className={styles['talent-hero__badge']}>Our Talent Pool</span>
+          {/* Badge with Stars */}
+          <p className={styles['talent-hero__badge']}>
+            <span className={styles['talent-hero__stars']} aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span className={styles['talent-hero__badge-text']}>Trusted by industry leaders</span>
+          </p>
 
           {/* Heading */}
           <h1 id="talent-hero-heading" className={styles['talent-hero__title']}>
-            Meet Our <span className={styles['talent-hero__title-highlight']}>Exceptional Talent</span>
+            Explore Leadership Opportunities
           </h1>
 
           {/* Description */}
           <p className={styles['talent-hero__description']}>
-            Discover a curated selection of highly skilled professionals ready to bring 
-            expertise and innovation to your projects. Our talent pool features developers, 
-            designers, and tech experts vetted for excellence.
+            Find your next impactful role or join our talent network for future opportunities always with discretion.
           </p>
 
-          {/* Stats */}
-          <div className={styles['talent-hero__stats']}>
-            <div className={styles['talent-hero__stat']}>
-              <span className={styles['talent-hero__stat-number']}>500+</span>
-              <span className={styles['talent-hero__stat-label']}>Professionals</span>
+          {/* Feature Cards */}
+          <div className={styles['talent-hero__features']}>
+            <div className={styles['talent-hero__feature']}>
+              <div className={styles['talent-hero__feature-icon']} aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <span className={styles['talent-hero__feature-label']}>Fully Confidential</span>
             </div>
-            <div className={styles['talent-hero__stat']}>
-              <span className={styles['talent-hero__stat-number']}>50+</span>
-              <span className={styles['talent-hero__stat-label']}>Skills</span>
+            <div className={styles['talent-hero__feature']}>
+              <div className={styles['talent-hero__feature-icon']} aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L6.343 6.343m7.777 7.777l3.535 3.536m0-14.142l-3.536 3.535" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <span className={styles['talent-hero__feature-label']}>Role Stays Private</span>
             </div>
-            <div className={styles['talent-hero__stat']}>
-              <span className={styles['talent-hero__stat-number']}>100%</span>
-              <span className={styles['talent-hero__stat-label']}>Vetted</span>
+            <div className={styles['talent-hero__feature']}>
+              <div className={styles['talent-hero__feature-icon']} aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <span className={styles['talent-hero__feature-label']}>GDPR Compliant</span>
             </div>
           </div>
         </div>
-
-        {/* Hero Image */}
-        <div className={styles['talent-hero__image-wrapper']}>
-          <div className={styles['talent-hero__image-container']}>
-            <svg
-              width="600"
-              height="500"
-              viewBox="0 0 600 500"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={styles['talent-hero__image']}
-              role="img"
-              aria-label="Professional talent pool illustration"
-            >
-              <rect width="600" height="500" fill="#E0F2FE" rx="12" />
-              <g transform="translate(200, 120)">
-                <circle cx="100" cy="80" r="60" fill="#0369A1" opacity="0.2" />
-                <circle cx="100" cy="60" r="35" fill="#0369A1" />
-                <ellipse cx="100" cy="140" rx="55" ry="45" fill="#0369A1" />
-              </g>
-              <text x="300" y="450" fontSize="20" fill="#0369A1" textAnchor="middle" fontWeight="600">
-                Exceptional Talent Pool
-              </text>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Wave Divider */}
-      <div className={styles['talent-hero__wave']} aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" className={styles['talent-hero__wave-image']}><path d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z" fill="#374151" opacity="1"></path></svg>
       </div>
     </section>
   );

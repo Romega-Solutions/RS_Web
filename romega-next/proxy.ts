@@ -1,5 +1,6 @@
 import { updateSession } from '@/lib/supabase/middleware';
 import { NextRequest, NextResponse } from 'next/server';
+import { metricsStore } from '@/lib/metrics/store';
 
 // Rate limiting storage (in-memory for simplicity, use Redis in production)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -80,9 +81,9 @@ function isSuspiciousRequest(request: NextRequest): boolean {
   return false;
 }
 
-function addSecurityHeaders(response: NextResponse): NextResponse {
+function addSecurityHeaders(response: NextResponse, pathname: string): NextResponse {
   // Comprehensive security headers
-  const headers = {
+  const headers: Record<string, string> = {
     // Prevent clickjacking
     'X-Frame-Options': 'SAMEORIGIN',
     
@@ -96,17 +97,17 @@ function addSecurityHeaders(response: NextResponse): NextResponse {
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     
     // Permissions Policy (formerly Feature Policy)
-    'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
     
     // Content Security Policy (CSP)
     'Content-Security-Policy': [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://cdn.jsdelivr.net",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: https: blob:",
       "media-src 'self' blob:",
-      "connect-src 'self' https://www.google-analytics.com https://*.supabase.co",
+      "connect-src 'self' https://www.google-analytics.com https://*.supabase.co https://www.google.com https://api.emailjs.com",
       "frame-src 'self' https://www.google.com",
       "object-src 'none'",
       "base-uri 'self'",
@@ -118,12 +119,23 @@ function addSecurityHeaders(response: NextResponse): NextResponse {
     // Remove server information
     'X-Powered-By': '',
     'Server': '',
-    
-    // Cache control for sensitive routes
-    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-    'Pragma': 'no-cache',
-    'Expires': '0',
   };
+
+  // Only disable caching for API routes and sensitive pages
+  // Allow back/forward cache for public pages
+  const isApiRoute = pathname.startsWith('/api/');
+  const isSensitiveRoute = pathname.includes('/admin') || pathname.includes('/dashboard');
+  
+  if (isApiRoute || isSensitiveRoute) {
+    // Strict no-cache for API and sensitive routes
+    headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, proxy-revalidate';
+    headers['Pragma'] = 'no-cache';
+    headers['Expires'] = '0';
+  } else {
+    // Allow back/forward cache for public pages
+    // This significantly improves performance for browser navigation
+    headers['Cache-Control'] = 'public, max-age=0, must-revalidate';
+  }
 
   Object.entries(headers).forEach(([key, value]) => {
     response.headers.set(key, value);
@@ -132,7 +144,7 @@ function addSecurityHeaders(response: NextResponse): NextResponse {
   return response;
 }
 
-function createErrorResponse(message: string, status: number = 403): NextResponse {
+function createErrorResponse(message: string, status: number = 403, pathname: string = ''): NextResponse {
   // Obfuscated error messages to not reveal system information
   const obfuscatedMessages: Record<number, string> = {
     403: 'Access Denied',
@@ -148,33 +160,43 @@ function createErrorResponse(message: string, status: number = 403): NextRespons
     { status }
   );
 
-  return addSecurityHeaders(response);
+  return addSecurityHeaders(response, pathname);
 }
 
 export default async function proxy(request: NextRequest) {
+  // Start metrics tracking
+  const startTime = Date.now();
+  const isE2ETestMode = process.env.E2E_TEST_MODE === 'true';
+  
   const { pathname } = request.nextUrl;
+  const hostname = request.nextUrl.hostname.toLowerCase();
+  const isLocalhostRequest = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
+  
+  // Skip metrics tracking for the metrics endpoint itself
+  const shouldTrackMetrics = pathname !== '/api/metrics';
+  
+  // Log to verify proxy is running
+  console.log(`[Proxy] Processing: ${pathname}, shouldTrack: ${shouldTrackMetrics}`);
   
   // Get client identifier
   const clientId = getClientIdentifier(request);
 
   // Check for suspicious requests
-  if (isSuspiciousRequest(request)) {
+  if (!isE2ETestMode && !isLocalhostRequest && isSuspiciousRequest(request)) {
     console.warn(`Suspicious request detected from ${clientId}: ${pathname}`);
-    return createErrorResponse('Invalid request', 403);
+    return createErrorResponse('Invalid request', 403, pathname);
   }
 
   // Rate limiting based on route type
   const isApiRoute = pathname.startsWith('/api/');
   const maxRequests = isApiRoute ? API_RATE_LIMIT_MAX_REQUESTS : RATE_LIMIT_MAX_REQUESTS;
 
-  // Skip rate limiting in development for localhost
-  const isDevelopment = process.env.NODE_ENV === 'development';
-  const isLocalhost = clientId.includes('localhost') || clientId.includes('127.0.0.1');
-  
-  if (!isDevelopment || !isLocalhost) {
+  // Skip middleware rate limiting for localhost requests (dev + CI Playwright).
+  // API routes still have their own per-route guards via withSecurity().
+  if (!isE2ETestMode && !isLocalhostRequest) {
     if (isRateLimited(clientId, maxRequests)) {
       console.warn(`Rate limit exceeded for ${clientId}: ${pathname}`);
-      return createErrorResponse('Rate limit exceeded', 429);
+      return createErrorResponse('Rate limit exceeded', 429, pathname);
     }
   }
 
@@ -185,7 +207,7 @@ export default async function proxy(request: NextRequest) {
       const contentType = request.headers.get('content-type');
       
       if (!contentType || !contentType.includes('application/json')) {
-        return createErrorResponse('Invalid content type', 400);
+        return createErrorResponse('Invalid content type', 400, pathname);
       }
     }
 
@@ -193,7 +215,7 @@ export default async function proxy(request: NextRequest) {
     const supabaseResponse = await updateSession(request);
     
     // Add security headers and CORS
-    addSecurityHeaders(supabaseResponse);
+    addSecurityHeaders(supabaseResponse, pathname);
     
     // Strict CORS for API routes
     const origin = request.headers.get('origin');
@@ -215,12 +237,27 @@ export default async function proxy(request: NextRequest) {
       supabaseResponse.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     }
 
+    // Track metrics for API routes too
+    if (shouldTrackMetrics) {
+      const duration = (Date.now() - startTime) / 1000;
+      metricsStore.trackRequest(duration);
+    }
+
     return supabaseResponse;
   }
 
   // For non-API routes, update Supabase session and add security headers
   const response = await updateSession(request);
-  return addSecurityHeaders(response);
+  const finalResponse = addSecurityHeaders(response, pathname);
+  
+  // Track metrics at the end of the request
+  if (shouldTrackMetrics) {
+    const duration = (Date.now() - startTime) / 1000;
+    console.log(`[Proxy] Tracking request: path=${finalResponse.url}, duration=${duration}s`);
+    metricsStore.trackRequest(duration);
+  }
+  
+  return finalResponse;
 }
 
 export const config = {

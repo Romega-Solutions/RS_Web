@@ -5,19 +5,20 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
     container_name: romega-solutions-website
     ports:
-      - "8080:80"
+      - "3000:3000"
     restart: unless-stopped
     
-    # Security: Read-only root filesystem
+    # Security: Read-only root filesystem (excluding Next.js cache)
     read_only: true
     
     # Security: Capability restrictions
     cap_drop:
       - ALL
     cap_add:
-      - NET_BIND_SERVICE
       - CHOWN
       - SETGID
       - SETUID
@@ -25,37 +26,48 @@ services:
     # Security: Run as non-root user
     user: "1001:1001"
     
-    # Security: Resource limits
+    # Security: Resource limits (adjusted for Next.js)
     deploy:
       resources:
         limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
           cpus: '0.5'
           memory: 256M
-        reservations:
-          cpus: '0.25'
-          memory: 128M
     
     # Security: Disable new privileges
     security_opt:
       - no-new-privileges:true
     
-    # Security: Temporary filesystems
+    # Security: Temporary filesystems for Next.js
     tmpfs:
-      - /tmp:noexec,nosuid,size=50m
-      - /var/cache/nginx:noexec,nosuid,size=50m
-      - /var/run:noexec,nosuid,size=10m
+      - /tmp:noexec,nosuid,size=100m
+      - /app/.next/cache:noexec,nosuid,size=200m
     
-    # Health check with improved security
+    # Health check for Next.js
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"] 
       interval: 30s
-      timeout: 3s
+      timeout: 5s
       retries: 3
-      start_period: 10s
+      start_period: 40s
     
-    # Environment variables (minimal exposure)
+    # Environment variables
+    env_file:
+      - .env.production
     environment:
-      - NGINX_ENTRYPOINT_QUIET_LOGS=1
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - ENABLE_METRICS=true
+    
+    # Docker secrets for sensitive data
+    secrets:
+      - smtp_password
+      - api_keys
+      - resend_api_key
     
     networks:
       - romega-network
@@ -66,6 +78,91 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+      # NOTE: Also being collected by Promtail for Loki
+
+  # ==============================================================================
+  # OBSERVABILITY STACK - Prometheus, Grafana, Loki
+  # ==============================================================================
+
+  # Prometheus - Metrics collection and storage
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: romega-prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+      - '--storage.tsdb.retention.time=30d'
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      - romega-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    user: "65534:65534"  # nobody user
+
+  # Grafana - Visualization and dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: romega-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=http://localhost:3001
+      - GF_INSTALL_PLUGINS=
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    networks:
+      - romega-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      - prometheus
+      - loki
+
+  # Loki - Log aggregation
+  loki:
+    image: grafana/loki:latest
+    container_name: romega-loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/loki-config.yml
+    volumes:
+      - ./monitoring/loki-config.yml:/etc/loki/loki-config.yml:ro
+      - loki-data:/loki
+    networks:
+      - romega-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+  # Promtail - Log collector for Loki
+  promtail:
+    image: grafana/promtail:latest
+    container_name: romega-promtail
+    command: -config.file=/etc/promtail/promtail-config.yml
+    volumes:
+      - ./monitoring/promtail-config.yml:/etc/promtail/promtail-config.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - romega-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      - loki
 
 networks:
   romega-network:
@@ -75,3 +172,22 @@ networks:
     driver_opts:
       com.docker.network.bridge.name: romega-br0
       com.docker.network.bridge.enable_ip_masquerade: "true"
+
+# Docker Secrets for sensitive data
+# Create secret files in ./secrets/ directory
+secrets:
+  smtp_password:
+    file: ./secrets/smtp_password.txt
+  api_keys:
+    file: ./secrets/api_keys.txt
+  resend_api_key:
+    file: ./secrets/resend_api_key.txt
+
+# Persistent volumes for observability stack
+volumes:
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+  loki-data:
+    driver: local

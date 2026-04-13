@@ -1,17 +1,19 @@
 'use client';
 
-import { useState, FormEvent, useEffect, useRef } from 'react';
+import { useState, FormEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
 import { trackEvent } from '@/components/analytics/GoogleAnalytics';
 import styles from './ContactForm.module.css';
 
-// Declare global types for EmailJS and reCAPTCHA
+// Declare global type for reCAPTCHA
 declare global {
   interface Window {
-    emailjs: any;
-    grecaptcha: any;
+    grecaptcha: {
+      getResponse: () => string;
+      reset: () => void;
+    };
   }
 }
 
@@ -49,9 +51,6 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [emailJsLoaded, setEmailJsLoaded] = useState(false);
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
-  const recaptchaRef = useRef<string | null>(null);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -94,10 +93,7 @@ export default function ContactForm() {
     // Honeypot check - silent rejection for bots
     const formElement = e.currentTarget;
     const botfield = formElement.querySelector<HTMLInputElement>('input[name="botfield"]');
-    if (botfield && botfield.value.trim() !== '') {
-      console.log('Bot detected via honeypot - silently rejecting');
-      return; // Silent rejection
-    }
+    const honeypotValue = botfield?.value.trim() || '';
 
     if (!validateForm()) {
       return;
@@ -105,19 +101,13 @@ export default function ContactForm() {
 
     // Validate reCAPTCHA
     if (!window.grecaptcha) {
-      setErrors(prev => ({ ...prev, recaptcha: 'reCAPTCHA is not loaded. Please refresh the page.' }));
+      setErrors(prev => ({ ...prev, recaptcha: 'Please refresh the page and try again.' }));
       return;
     }
 
     const recaptchaResponse = window.grecaptcha.getResponse();
     if (!recaptchaResponse) {
-      setErrors(prev => ({ ...prev, recaptcha: '⚠️ Please complete the reCAPTCHA verification.' }));
-      return;
-    }
-
-    // Check EmailJS availability
-    if (!window.emailjs || !emailJsLoaded) {
-      setSubmitStatus('error');
+      setErrors(prev => ({ ...prev, recaptcha: 'Please complete the verification.' }));
       return;
     }
 
@@ -126,55 +116,56 @@ export default function ContactForm() {
     setErrors({});
 
     try {
-      // Get current timestamp
-      const currentTime = new Date().toLocaleString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        timeZoneName: 'short'
+      // Send to secure API endpoint (server-side Nodemailer)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          subject: formData.subject,
+          company: formData.company,
+          phone: formData.phone,
+          message: formData.message,
+          recaptchaToken: recaptchaResponse,
+          botfield: honeypotValue
+        }),
       });
 
-      const templateParams = {
-        from_name: `${formData.firstName} ${formData.lastName}`,
-        from_email: formData.email,
-        subject: formData.subject || 'general',
-        message: formData.message,
-        company: formData.company || 'Not specified',
-        phone: formData.phone,
-        to_name: 'Romega Solutions Team',
-        reply_to: currentTime,
-        'g-recaptcha-response': recaptchaResponse
-      };
+      const data = await response.json();
 
-      await window.emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        templateParams
-      );
+      if (response.ok && data.success) {
+        // Track form submission with Google Analytics
+        trackEvent('form_submission', 'Contact', 'Contact Form Submitted', 1);
 
-      // Track form submission with Google Analytics
-      trackEvent('form_submission', 'Contact', 'Contact Form Submitted', 1);
+        setSubmitStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          subject: '',
+          company: '',
+          phone: '',
+          message: '',
+        });
 
-      setSubmitStatus('success');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        subject: '',
-        company: '',
-        phone: '',
-        message: '',
-      });
+        // Reset reCAPTCHA
+        if (window.grecaptcha) {
+          window.grecaptcha.reset();
+        }
+      } else {
+        setSubmitStatus('error');
 
-      // Reset reCAPTCHA
-      if (window.grecaptcha) {
-        window.grecaptcha.reset();
+        // Reset reCAPTCHA on error
+        if (window.grecaptcha) {
+          window.grecaptcha.reset();
+        }
       }
-    } catch (error) {
-      console.error('Form submission error:', error);
+    } catch (_error) {
+      console.error('Form submission error:', _error);
       setSubmitStatus('error');
 
       // Reset reCAPTCHA on error
@@ -189,7 +180,7 @@ export default function ContactForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
@@ -198,27 +189,10 @@ export default function ContactForm() {
 
   return (
     <div className={styles['contact-form']}>
-      {/* Load EmailJS */}
-      <Script
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-        strategy="lazyOnload"
-        onLoad={() => {
-          if (window.emailjs) {
-            window.emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
-            setEmailJsLoaded(true);
-            console.log('EmailJS initialized successfully');
-          }
-        }}
-      />
-
       {/* Load Google reCAPTCHA */}
       <Script
         src="https://www.google.com/recaptcha/api.js"
         strategy="lazyOnload"
-        onLoad={() => {
-          setRecaptchaLoaded(true);
-          console.log('reCAPTCHA loaded successfully');
-        }}
       />
 
       <form onSubmit={handleSubmit} className={styles['contact-form__form']} noValidate>
@@ -402,8 +376,8 @@ export default function ContactForm() {
 
         {/* reCAPTCHA */}
         <div className="flex flex-col items-center gap-2 my-4">
-          <div 
-            className="g-recaptcha" 
+          <div
+            className="g-recaptcha"
             data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
           />
           {errors.recaptcha && (
@@ -491,7 +465,6 @@ export default function ContactForm() {
           alt=""
           width={300}
           height={300}
-          style={{ height: 'auto' }}
         />
       </div>
     </div>

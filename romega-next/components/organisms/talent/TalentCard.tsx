@@ -1,84 +1,69 @@
 'use client';
 
-import { MapPin, Clock, DollarSign } from 'lucide-react';
-import AvatarPlaceholder from '@/components/atoms/AvatarPlaceholder';
+import Link from 'next/link';
+import { MapPin } from 'lucide-react';
 import styles from './TalentCard.module.css';
+import type { Talent } from '@/types/jobs';
 
 interface TalentCardProps {
-  talent: {
-    id: string;
-    name: string;
-    role: string;
-    skills: string[];
-    experience: string;
-    availability: 'Available' | 'Busy' | 'Part-time';
-    location: string;
-    rate: string;
-  };
+  talent: Talent;
+}
+
+function getSeniorityLabel(level?: string): string {
+  switch (level) {
+    case 'Junior': return 'JUNIOR';
+    case 'Mid-Level': return 'MIDDLE';
+    case 'Senior': return 'SENIOR';
+    case 'Lead': return 'LEAD';
+    case 'Principal': return 'PRINCIPAL';
+    default: return 'MIDDLE';
+  }
 }
 
 export default function TalentCard({ talent }: TalentCardProps) {
-  const availabilityColors = {
-    Available: styles['talent-card__status--available'],
-    Busy: styles['talent-card__status--busy'],
-    'Part-time': styles['talent-card__status--part-time'],
-  };
+  const seniority = getSeniorityLabel(talent.experience_level);
+  const country = talent.location ? talent.location.toUpperCase() : '';
 
   return (
     <article className={styles['talent-card']}>
-      {/* Header with Image and Status */}
+      {/* Header Row */}
       <div className={styles['talent-card__header']}>
-        <div className={styles['talent-card__image-wrapper']}>
-          <AvatarPlaceholder
-            size={80}
-            variant={talent.id === '1' || talent.id === '3' || talent.id === '5' ? 'female' : 'male'}
-            className={styles['talent-card__image']}
-          />
-        </div>
-        <span className={`${styles['talent-card__status']} ${availabilityColors[talent.availability]}`}>
-          {talent.availability}
-        </span>
-      </div>
-
-      {/* Content */}
-      <div className={styles['talent-card__content']}>
-        <h3 className={styles['talent-card__name']}>{talent.name}</h3>
-        <p className={styles['talent-card__role']}>{talent.role}</p>
-
-        {/* Info */}
         <div className={styles['talent-card__info']}>
-          <div className={styles['talent-card__info-item']}>
-            <MapPin size={16} aria-hidden="true" />
-            <span>{talent.location}</span>
+          <div className={styles['talent-card__name-row']}>
+            <span className={styles['talent-card__name']}>{talent.name}</span>
+            <span className={styles['talent-card__country']}>
+              <MapPin size={12} aria-hidden="true" />
+              {country}
+            </span>
           </div>
-          <div className={styles['talent-card__info-item']}>
-            <Clock size={16} aria-hidden="true" />
-            <span>{talent.experience}</span>
-          </div>
-          <div className={styles['talent-card__info-item']}>
-            <DollarSign size={16} aria-hidden="true" />
-            <span>{talent.rate}</span>
-          </div>
+          <p className={styles['talent-card__role']}>{talent.role}</p>
+          <p className={styles['talent-card__level']}>{seniority}</p>
         </div>
 
-        {/* Skills */}
-        <div className={styles['talent-card__skills']}>
-          {talent.skills.slice(0, 4).map((skill, index) => (
-            <span key={index} className={styles['talent-card__skill']}>
-              {skill}
-            </span>
-          ))}
-        </div>
+        <span className={styles['talent-card__id']}>ID: {talent.id}</span>
       </div>
 
-      {/* CTA */}
+      {/* Skills Row */}
+      <div className={styles['talent-card__skills']}>
+        {(talent.skills || []).slice(0, 3).map((skill, i) => (
+          <span key={i} className={styles['talent-card__skill']}>{skill}</span>
+        ))}
+        {talent.skills && talent.skills.length > 3 && (
+          <span className={styles['talent-card__skill-more']}>
+            +{talent.skills.length - 3} more
+          </span>
+        )}
+      </div>
+
+      {/* Footer Row */}
       <div className={styles['talent-card__footer']}>
-        <button
+        <Link
+          href={`/talent/${talent.id}`}
           className={styles['talent-card__cta']}
           aria-label={`View ${talent.name}'s profile`}
         >
-          View Profile
-        </button>
+          VIEW PROFILE
+        </Link>
       </div>
     </article>
   );

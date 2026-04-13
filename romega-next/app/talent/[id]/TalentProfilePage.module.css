@@ -1,0 +1,50 @@
+/* ===========================
+   TALENT PROFILE PAGE
+   BEM: ProfilePage
+   =========================== */
+
+.ProfilePage {
+  min-height: 100vh;
+  background: var(--rs-neutral-50);
+  padding-top: 104px; /* Account for fixed header height */
+}
+
+.ProfilePage__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.ProfilePage__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.ProfilePage__main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Tablet and up: Two-column layout */
+@media (min-width: 768px) {
+  .ProfilePage__grid {
+    grid-template-columns: 1fr 350px;
+  }
+}
+
+/* Desktop: Better spacing */
+@media (min-width: 1024px) {
+  .ProfilePage__container {
+    padding: 4rem 2rem;
+  }
+
+  .ProfilePage__grid {
+    gap: 3rem;
+  }
+
+  .ProfilePage__main {
+    gap: 3rem;
+  }
+}

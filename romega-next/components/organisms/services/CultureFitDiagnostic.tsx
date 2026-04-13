@@ -89,7 +89,7 @@ export default function CultureFitDiagnostic() {
               <p className={`${styles['culture-fit__step-text']} ${styles['culture-fit__step-text--cyan']}`}>
                 You receive a{' '}
                 <span className={styles['culture-fit__step-text--highlight']}>side-by-side report</span>
-                {' '}that shows every candidate's{' '}
+                {' '}that shows every candidate&apos;s{' '}
                 <span className={styles['culture-fit__step-text--primary-600']}>culture-fit score</span>,
                 key strengths, risks, and our hire / no-hire recommendation. We also outline onboarding next steps.
               </p>
@@ -105,7 +105,7 @@ export default function CultureFitDiagnostic() {
 
           {/* CTA Button */}
           <div className={styles['culture-fit__cta']}>
-            <Link 
+            <Link
               href="https://calendly.com/romega-solutions/discoverycall"
               className={styles['culture-fit__cta-button']}
             >

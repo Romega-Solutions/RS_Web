@@ -6,28 +6,22 @@ import styles from './WhyJoinUs.module.css';
 export default function WhyJoinUs() {
   const cultureValues = [
     {
-      id: 'curiosity',
-      title: 'Curiosity',
-      description: 'Ask. Learn. Innovate.',
-      icon: '/images/careers/curiosity.svg',
+      id: 'reliable',
+      title: 'Reliable & Opportunity-Driven',
+      description: 'We honor our commitments and create meaningful growth, delivering with integrity, consistency, and long-term vision.',
+      icon: '/images/careers/excellence.svg',
     },
     {
       id: 'collaboration',
-      title: 'Collaboration',
-      description: 'One team. Shared success.',
+      title: 'Meaningful Collaboration & Excellence',
+      description: 'We work hand-in-hand with our partners, executing every project with clarity, quality, and purpose.',
       icon: '/images/careers/people.svg',
     },
     {
       id: 'growth',
-      title: 'Growth Mindset',
-      description: 'Progress that changes lives.',
+      title: 'Growth-Focused & Adaptable',
+      description: 'We innovate boldly and stay agile, building teams and brands that thrive in a changing world.',
       icon: '/images/careers/growht.svg',
-    },
-    {
-      id: 'excellence',
-      title: 'Excellence',
-      description: 'High standards in every placement.',
-      icon: '/images/careers/excellence.svg',
     },
   ];
 

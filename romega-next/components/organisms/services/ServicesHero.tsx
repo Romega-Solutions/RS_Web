@@ -42,13 +42,16 @@ export default function ServicesHero() {
       <div className={styles['services-hero__container']}>
         {/* Background Logo */}
         <div className={styles['services-hero__bg-wrapper']}>
-          <img
+          <Image
             src="/images/contact/bg-romega.svg"
+            width={530}
+            height={654}
             className={styles['services-hero__bg-logo']}
-            aria-hidden="true"
+            aria-hidden={true}
             alt=""
+            priority
           />
-          
+
           {/* Header Content */}
           <div className={styles['services-hero__header']}>
             <h1 id="hero-heading" className={styles['services-hero__title']}>
@@ -71,7 +74,7 @@ export default function ServicesHero() {
         {/* Service Grid */}
         <section className={styles['services-hero__grid']} aria-labelledby="services-grid-heading">
           <h2 id="services-grid-heading" className="sr-only">Our Service Categories</h2>
-          
+
           {/* First Row */}
           <div className={styles['services-hero__row']}>
             {SERVICES.slice(0, 2).map((service) => (
@@ -80,9 +83,9 @@ export default function ServicesHero() {
                 className={styles['services-hero__card']}
                 aria-labelledby={`${service.id}-title`}
               >
-                <div 
-                  className={styles['services-hero__icon']} 
-                  role="img" 
+                <div
+                  className={styles['services-hero__icon']}
+                  role="img"
                   aria-label={service.iconLabel}
                 >
                   <Image
@@ -113,9 +116,9 @@ export default function ServicesHero() {
                 className={styles['services-hero__card']}
                 aria-labelledby={`${service.id}-title`}
               >
-                <div 
-                  className={styles['services-hero__icon']} 
-                  role="img" 
+                <div
+                  className={styles['services-hero__icon']}
+                  role="img"
                   aria-label={service.iconLabel}
                 >
                   <Image

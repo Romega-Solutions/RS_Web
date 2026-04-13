@@ -4,7 +4,7 @@ import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about Romega Solutions - a US-based holding company founded by Robbie Galoso. Discover our mission to transform HR operations through innovative solutions, our vision for the future of work, and meet the talented team driving innovation in remote work and tech talent solutions.',
+  description: 'Learn about Romega Solutions - a US-based company founded by Robbie Galoso. Discover our mission to be a steady growth partner for businesses by building strong teams and credible brands, and our vision for the future of work.',
   keywords: [
     'about romega solutions',
     'robbie galoso',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'About Us | Romega Solutions',
-    description: 'Learn about Romega Solutions, our mission, vision, and the talented team driving innovation in remote work and tech talent solutions.',
+    description: 'Learn about Romega Solutions, our mission, vision, and the team helping businesses grow with strong teams and credible brands.',
     url: 'https://www.romegasolutions.com/about',
     type: 'website',
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About Us | Romega Solutions',
-    description: 'Learn about our mission, vision, and team driving innovation in HR solutions.',
+    description: 'Learn about our mission, vision, and team helping businesses grow with strong teams and credible brands.',
     images: ['/images/og-about.png'],
   },
   alternates: {

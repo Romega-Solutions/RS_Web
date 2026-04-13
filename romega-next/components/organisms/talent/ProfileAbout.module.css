@@ -1,0 +1,121 @@
+/* ===========================
+   PROFILE ABOUT
+   BEM: ProfileAbout
+   =========================== */
+
+.ProfileAbout {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--rs-neutral-200);
+}
+
+.ProfileAbout__section {
+  margin-bottom: 2rem;
+}
+
+.ProfileAbout__section:last-child {
+  margin-bottom: 0;
+}
+
+.ProfileAbout__heading {
+  font-family: 'Merriweather', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--rs-primary-800);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--rs-primary-200);
+}
+
+.ProfileAbout__subheading {
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--rs-primary-700);
+  margin-bottom: 1rem;
+}
+
+.ProfileAbout__bio {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--rs-neutral-700);
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* Skills */
+.ProfileAbout__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ProfileAbout__skillBadge {
+  display: inline-flex;
+  padding: 0.625rem 1.25rem;
+  background: var(--rs-primary-50);
+  color: var(--rs-primary-800);
+  border: 1px solid var(--rs-primary-200);
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.ProfileAbout__skillBadge:hover {
+  background: var(--rs-primary-100);
+  border-color: var(--rs-primary-300);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Subcategories */
+.ProfileAbout__subcategories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.ProfileAbout__subcategoryBadge {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  background: var(--rs-accent-100);
+  color: var(--rs-accent-900);
+  border: 1px solid var(--rs-accent-300);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .ProfileAbout {
+    padding: 1.5rem;
+  }
+
+  .ProfileAbout__heading {
+    font-size: 1.5rem;
+  }
+
+  .ProfileAbout__bio {
+    font-size: 1rem;
+  }
+
+  .ProfileAbout__skillBadge {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .ProfileAbout {
+    padding: 2.5rem;
+  }
+
+  .ProfileAbout__section {
+    margin-bottom: 2.5rem;
+  }
+}

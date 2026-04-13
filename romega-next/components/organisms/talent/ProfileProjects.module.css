@@ -1,0 +1,166 @@
+/* ===========================
+   PROFILE PROJECTS
+   BEM: ProfileProjects
+   =========================== */
+
+.ProfileProjects {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  animation: slideUpFadeIn 0.7s ease-out 0.4s both;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ProfileProjects__title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--rs-neutral-900);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.ProfileProjects__subtitle {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1rem;
+  color: var(--rs-neutral-600);
+  margin-bottom: 2rem;
+}
+
+.ProfileProjects__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.ProfileProjects__card {
+  position: relative;
+  background: var(--rs-primary-50);
+  border: 1px solid var(--rs-primary-100);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ProfileProjects__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--rs-primary-300);
+}
+
+.ProfileProjects__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--rs-accent-500);
+  color: var(--rs-neutral-900);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ProfileProjects__cardTitle {
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rs-neutral-900);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.ProfileProjects__cardDesc {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.95rem;
+  color: var(--rs-neutral-700);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.ProfileProjects__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.ProfileProjects__techBadge {
+  font-family: 'Source Sans 3', sans-serif;
+  background: white;
+  color: var(--rs-primary-700);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--rs-primary-200);
+}
+
+.ProfileProjects__date {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.875rem;
+  color: var(--rs-neutral-600);
+  margin-bottom: 1rem;
+}
+
+.ProfileProjects__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--rs-primary-600);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ProfileProjects__link:hover {
+  color: var(--rs-primary-700);
+  text-decoration: underline;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .ProfileProjects {
+    padding: 2.5rem;
+  }
+
+  .ProfileProjects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ProfileProjects__title {
+    font-size: 2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .ProfileProjects__title {
+    font-size: 2.25rem;
+  }
+}

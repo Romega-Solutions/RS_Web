@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, GraduationCap } from 'lucide-react';
+import AvatarPlaceholder from '@/components/atoms/AvatarPlaceholder';
 import { TESTIMONIALS } from '@/lib/constants';
 import styles from './TestimonialsCarousel.module.css';
 
@@ -10,6 +11,12 @@ export default function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [cardsPerView, setCardsPerView] = useState(1);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
 
   // Create extended array for infinite scroll (duplicate items at both ends)
   const extendedTestimonials = [
@@ -27,7 +34,7 @@ export default function TestimonialsCarousel() {
         setCardsPerView(4);
       } else if (window.innerWidth >= 768) {
         setCardsPerView(3);
-      } else if (window.innerWidth >= 640) {
+      } else if (window.innerWidth >= 540) {
         setCardsPerView(2);
       } else {
         setCardsPerView(1);
@@ -51,6 +58,45 @@ export default function TestimonialsCarousel() {
     setIsTransitioning(true);
     setCurrentIndex(index + 1); // +1 because of the prepended item
   };
+
+  // Touch handlers for mobile swipe
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleScroll(1);
+    } else if (isRightSwipe) {
+      handleScroll(-1);
+    }
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        handleScroll(-1);
+      } else if (e.key === 'ArrowRight') {
+        handleScroll(1);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isTransitioning]);
 
   // Handle infinite loop
   useEffect(() => {
@@ -131,8 +177,14 @@ export default function TestimonialsCarousel() {
         </div>
 
         {/* Carousel */}
-        <div className={styles['testimonials-carousel__wrapper']}>
+        <div 
+          className={styles['testimonials-carousel__wrapper']}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           <div
+            ref={trackRef}
             className={styles['testimonials-carousel__track']}
             style={{
               transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
@@ -154,13 +206,22 @@ export default function TestimonialsCarousel() {
                   {/* Profile Image */}
                   <div className={styles['testimonials-carousel__image-container']}>
                     <div className={styles['testimonials-carousel__image-border']}>
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        width={120}
-                        height={120}
-                        className={styles['testimonials-carousel__image']}
-                      />
+                      {testimonial.image ? (
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          width={120}
+                          height={120}
+                          className={styles['testimonials-carousel__image']}
+                          sizes="(max-width: 539px) 100px, (max-width: 767px) 110px, 120px"
+                        />
+                      ) : (
+                        <AvatarPlaceholder
+                          size={120}
+                          variant="neutral"
+                          className={styles['testimonials-carousel__image']}
+                        />
+                      )}
                     </div>
                   </div>
 

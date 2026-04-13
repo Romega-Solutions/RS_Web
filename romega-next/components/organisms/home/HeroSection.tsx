@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Button from '@/components/atoms/Button/Button';
 import { Calendar } from 'lucide-react';
 import styles from './HeroSection.module.css';
+import HeroMedia from './HeroMedia';
 
 export default function HeroSection() {
   const features = [
@@ -24,13 +25,15 @@ export default function HeroSection() {
           {/* Background Pattern */}
           <Image
             src="/images/home/hero-bg-romega.png"
-            alt="Romega Solutions background pattern"
+            alt=""
             fill
             sizes="100vw"
             className={styles['hero-section__bg-pattern']}  // Element
             loading="eager"
             priority
             fetchPriority="high"
+            quality={75}
+            aria-hidden="true"
           />
 
           {/* Heading */}
@@ -40,25 +43,24 @@ export default function HeroSection() {
           >
             Empower Your Team with
             <span className={styles['hero-section__title-highlight']}>  {/* Element */}
-              Smarter
+              Smarte
               <Image
                 src="/images/home/hero-rs-text-hd.png"
-                alt="RS Solutions logo"
+                alt="RS Solutions"
                 width={208}
                 height={80}
                 className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--mobile']}`}
-                loading="eager"
                 priority
-                fetchPriority="high"
+                quality={85}
               />
               <Image
                 src="/images/home/hero-rs-text-hd.png"
-                alt="RS Solutions logo"
+                alt="RS Solutions"
                 width={208}
                 height={80}
                 className={`${styles['hero-section__logo-inline']} ${styles['hero-section__logo-inline--desktop']}`}
-                loading="eager"
                 priority
+                quality={85}
               />
             </span>
           </h1>
@@ -105,22 +107,12 @@ export default function HeroSection() {
         </div>
 
         {/* Right side - video */}
-        <div className={styles['hero-section__video-wrapper']}>  {/* Element */}
-          <video
-            className={styles['hero-section__video']}  // Element
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="Romega Solutions promotional video"
-            poster="/images/home/hero-right.png"
-            role="img"
-          >
-            <source src="/images/home/webp/WebsiteAssetVideo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <HeroMedia
+          wrapperClassName={styles['hero-section__video-wrapper']}
+          mediaClassName={styles['hero-section__video']}
+          defaultPosterSrc="/images/home/hero-right.png"
+          ariaLabel="Romega Solutions promotional video showing our services"
+        />
 
         {/* Desktop CTA Button */}
         <div className={styles['hero-section__cta-desktop']}>  {/* Element */}

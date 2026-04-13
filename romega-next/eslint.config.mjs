@@ -13,6 +13,21 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    // Allow underscore-prefixed vars/args to be "intentionally unused"
+    // Convention: _param means "required by signature but not used in body"
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+      "no-unused-vars": "off", // Defer to @typescript-eslint/no-unused-vars
+    },
+  },
 ]);
 
 export default eslintConfig;

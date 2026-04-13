@@ -1,6 +1,6 @@
 # Romega Solutions Website - Next.js 16
 
-> A secure, modern, production-ready website built with Next.js 16.1.4, featuring enterprise-grade security hardening and comprehensive vulnerability protection.
+> A secure, modern, production-ready website built with Next.js 16.1.4, featuring enterprise-grade security hardening, comprehensive vulnerability protection, and full-stack observability with Prometheus + Grafana + Loki.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.1.4-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
@@ -338,6 +338,11 @@ See [docker-compose.yaml](../docker-compose.yaml) for full configuration.
 - ✅ Improved rate limiting with localhost bypass
 - ✅ Added comprehensive security documentation
 - ✅ Docker security hardening
+- ✅ **Production observability stack** (Prometheus + Grafana + Loki):
+  - Metrics collection and visualization
+  - Centralized log aggregation
+  - Pre-built monitoring dashboards
+  - Security vulnerability scanning
 - ✅ **Comprehensive SEO implementation**:
   - Dynamic sitemap.xml generation
   - robots.txt with bad bot blocking
@@ -395,13 +400,122 @@ curl http://localhost:3000/manifest.json
 
 ---
 
-## 📚 Additional Resources
+## � Observability & Monitoring
+
+### What's Included
+
+Complete **Prometheus + Grafana + Loki** stack for production monitoring:
+
+| Component | Purpose | Port |
+|-----------|---------|------|
+| **Prometheus** | Metrics collection & storage | 9090 |
+| **Grafana** | Dashboards & visualization | 3001 |
+| **Loki** | Log aggregation | 3100 |
+| **Promtail** | Log collection | - |
+
+### Metrics Tracked
+
+- ✅ **HTTP Requests**: Total count, request rate
+- ✅ **Response Times**: P50, P95, P99 latencies
+- ✅ **Memory Usage**: Heap size, external memory
+- ✅ **Health Status**: Application uptime
+- ✅ **Node.js Metrics**: Process metrics, uptime
+
+### Quick Start (Development)
+
+```bash
+# View metrics endpoint
+curl http://localhost:3000/api/metrics
+
+# Start monitoring stack with Docker
+docker-compose up -d
+
+# Access Grafana dashboard
+open http://localhost:3001  # Login: admin / admin123
+```
+
+### Production Deployment
+
+**1. Configure Environment:**
+```bash
+# Copy production environment
+cp .env.example .env.production
+
+# Add required variables (minimum):
+# - NEXT_PUBLIC_SUPABASE_URL
+# - NEXT_PUBLIC_SUPABASE_ANON_KEY
+# - ENABLE_METRICS=true
+```
+
+**2. Set Up Secrets (Recommended):**
+```bash
+mkdir -p secrets
+echo "your-smtp-password" > secrets/smtp_password.txt
+echo "your-resend-api-key" > secrets/resend_api_key.txt
+chmod 600 secrets/*  # Linux/Mac only
+```
+
+**3. Deploy with Monitoring:**
+```bash
+# Build and start all services (app + monitoring)
+docker-compose up -d
+
+# Verify services are running
+docker-compose ps
+
+# Check logs
+docker logs -f romega-solutions-website
+```
+
+**4. Access Monitoring:**
+- **Grafana Dashboard**: `http://your-domain:3001` (admin / admin123)
+- **Prometheus**: `http://your-domain:9090`
+- **Application Metrics**: `http://your-domain:3000/api/metrics`
+
+### Pre-built Dashboard
+
+Navigate to **Dashboards** → **Romega Solutions - Website Overview** to view:
+- HTTP request rate & total requests
+- Response time percentiles (P50, P95, P99)
+- Memory usage trends
+- Application health status
+- Centralized logs from Loki
+
+### Security Scanning
+
+Run automated security scans on Docker images:
+
+```bash
+# Windows
+.\script\security-scan.bat
+
+# Linux/Mac
+chmod +x script/security-scan.sh
+./script/security-scan.sh
+```
+
+Scans for:
+- Dependency vulnerabilities
+- Dockerfile best practices
+- Exposed secrets
+- Security misconfigurations
+
+### Monitoring Documentation
+- [OBSERVABILITY_QUICKSTART.md](../OBSERVABILITY_QUICKSTART.md) - Complete setup guide
+- [MONITORING_SETUP.md](./docs/MONITORING_SETUP.md) - Detailed configuration
+- [DOCKER.md](./docs/DOCKER.md) - Docker deployment guide
+
+---
+
+## �📚 Additional Resources
 
 ### Documentation
 - **Security**: [SECURITY_GUIDE.md](./SECURITY_GUIDE.md)
 - **SEO**: [SEO_GUIDE.md](./docs/SEO_GUIDE.md)
+- **Monitoring**: [OBSERVABILITY_QUICKSTART.md](../OBSERVABILITY_QUICKSTART.md)
 - **API Security**: [CAREERS_SECURITY_FIXES.md](./CAREERS_SECURITY_FIXES.md)
 - **Migration**: [PROXY_MIGRATION.md](./PROXY_MIGRATION.md)
+- **Docker**: [DOCKER.md](./docs/DOCKER.md)
 - **Quick Reference**: [SECURITY_QUICK_REFERENCE.md](../SECURITY_QUICK_REFERENCE.md)
 
 ### External Resources
@@ -485,8 +599,11 @@ sudo systemctl restart nginx
 - [ ] Security headers verified (check with [securityheaders.com](https://securityheaders.com))
 - [ ] CSP tested and no console errors
 - [ ] Analytics (Google Analytics) tracking
+- [ ] **Monitoring stack deployed** (Grafana, Prometheus, Loki)
+- [ ] **Grafana dashboards accessible** and showing data
 - [ ] Error monitoring setup (Sentry recommended)
 - [ ] Database backups configured (Supabase auto-backup enabled)
+- [ ] Security scans run and vulnerabilities addressed
 
 ---
 turbopack: {}, // Empty config to acknowledge Turbopack

@@ -6,13 +6,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Button from '@/components/atoms/Button/Button';
 import { Calendar } from 'lucide-react';
-import { trackEvent } from '@/components/analytics/GoogleAnalytics';
 import styles from './Header.module.css';
 
 const navLinks = [
   { href: '/', label: 'Home', id: 'home' },
   { href: '/about', label: 'About', id: 'about' },
   { href: '/services', label: 'Services', id: 'services' },
+  { href: '/talent', label: 'Talent', id: 'talent' },
   { href: '/careers', label: 'Careers', id: 'careers' },
   { href: '/contact', label: 'Contact', id: 'contact' },
 ];
@@ -29,17 +29,19 @@ export function Header() {
         aria-label="Main navigation"
       >
         <div className={styles.header__container}>  {/* Element */}
-          
+
           {/* Logo */}
           <div className={styles.header__logo}>  {/* Element */}
             <Link href="/" className={styles['header__logo-link']}>
               <Image
                 src="/images/navbar-company-logo.svg"
-                alt="Romega Solutions Logo"
+                alt="Romega Solutions"
                 width={200}
                 height={56}
                 className={styles['header__logo-image']}  // Element
-                priority                fetchPriority="high"              />
+                priority
+                quality={90}
+              />
             </Link>
           </div>
 

@@ -5,12 +5,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Button from '@/components/atoms/Button/Button'
 import { Linkedin, Facebook, Calendar } from 'lucide-react'
-import { trackEvent } from '@/components/analytics/GoogleAnalytics'
-import PrivacyModal from '@/components/organisms/shared/PrivacyModal'
 import TermsModal from '@/components/organisms/shared/TermsModal'
 
 export function Footer() {
-  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false)
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false)
   return (
     <footer
@@ -151,10 +148,10 @@ export function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/careers"
+                      href="/talent"
                       className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
                     >
-                      Careers
+                      Talent
                     </Link>
                   </li>
                 </ul>
@@ -181,10 +178,10 @@ export function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/talent"
+                      href="/careers"
                       className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline"
                     >
-                      Talent
+                      Careers
                     </Link>
                   </li>
                   <li>
@@ -200,16 +197,12 @@ export function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setIsPrivacyModalOpen(true);
-                      }}
+                    <Link
+                      href="/privacy"
                       className="text-(--rs-neutral-600) text-base font-medium transition-colors duration-300 hover:text-(--rs-accent-600) hover:underline cursor-pointer"
                     >
                       Privacy Policy
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -299,7 +292,6 @@ export function Footer() {
       </div>
 
       {/* Modals */}
-      <PrivacyModal isOpen={isPrivacyModalOpen} onClose={() => setIsPrivacyModalOpen(false)} />
       <TermsModal isOpen={isTermsModalOpen} onClose={() => setIsTermsModalOpen(false)} />
     </footer>
   )
