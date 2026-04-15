@@ -1,0 +1,215 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - navigation "Main navigation" [ref=e4]:
+      - generic [ref=e5]:
+        - link "Romega Solutions" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "Romega Solutions" [ref=e8]
+        - list [ref=e10]:
+          - listitem [ref=e11]:
+            - link "Home" [ref=e12] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e13]:
+            - link "About" [ref=e14] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e15]:
+            - link "Services" [ref=e16] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e17]:
+            - link "Talent" [ref=e18] [cursor=pointer]:
+              - /url: /talent
+          - listitem [ref=e19]:
+            - link "Careers" [ref=e20] [cursor=pointer]:
+              - /url: /careers
+          - listitem [ref=e21]:
+            - link "Contact" [ref=e22] [cursor=pointer]:
+              - /url: /contact
+        - link "Book a call with Romega Solutions" [ref=e24] [cursor=pointer]:
+          - /url: https://calendly.com/romega-solutions/discoverycall
+          - img [ref=e25]
+          - generic [ref=e27]: Book a Call
+  - main [ref=e28]:
+    - img [ref=e29]
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - heading "Contact Us" [level=1] [ref=e36]
+        - paragraph [ref=e37]: Any question or remarks? Just write us a message!
+      - generic [ref=e39]:
+        - complementary "Contact Information" [ref=e40]:
+          - generic [ref=e43]:
+            - heading "Contact Information" [level=2] [ref=e44]
+            - paragraph [ref=e45]: If you're interested in collaborating, please provide your information, and we will contact you soon. We look forward to connecting with you.
+            - generic [ref=e47]:
+              - heading "Reach us out" [level=3] [ref=e49]
+              - generic [ref=e50]:
+                - generic [ref=e51]:
+                  - heading "EMAIL US" [level=4] [ref=e52]
+                  - generic [ref=e53]:
+                    - img [ref=e54]
+                    - link "info@romega-solutions.com" [ref=e56] [cursor=pointer]:
+                      - /url: mailto:info@romega-solutions.com
+                - generic [ref=e57]:
+                  - heading "HEADQUARTERS" [level=4] [ref=e58]
+                  - generic [ref=e59]:
+                    - img [ref=e60]
+                    - 'link "222 Pacific Coast Hwy, #10 in El Segundo, CA 90245" [ref=e62] [cursor=pointer]':
+                      - /url: https://www.google.com/maps?q=222+Pacific+Coast+Hwy,+%2310,+El+Segundo,+CA+90245
+            - generic [ref=e63]:
+              - text: Follow us on
+              - generic [ref=e64]:
+                - link "LINKEDIN" [ref=e65] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/romega-solutions
+                  - img [ref=e66]
+                  - generic [ref=e68]: LINKEDIN
+                - link "FACEBOOK" [ref=e69] [cursor=pointer]:
+                  - /url: https://www.facebook.com/romegasolutions
+                  - img [ref=e70]
+                  - generic [ref=e72]: FACEBOOK
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]:
+              - generic [ref=e77]: First Name *
+              - textbox "First Name *" [ref=e78]:
+                - /placeholder: John
+            - generic [ref=e79]:
+              - generic [ref=e80]: Last Name *
+              - textbox "Last Name *" [ref=e81]:
+                - /placeholder: Doe
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: Email *
+              - textbox "Email *" [ref=e85]:
+                - /placeholder: johndoe@example.com
+            - generic [ref=e86]:
+              - generic [ref=e87]: Select Subject *
+              - generic [ref=e88]:
+                - generic:
+                  - img
+                - combobox "Select Subject *" [ref=e89] [cursor=pointer]:
+                  - option "Select a subject" [selected]
+                  - option "General Inquiry"
+                  - option "Business Partnership"
+                  - option "Technical Support"
+                  - option "Career Opportunities"
+                - generic:
+                  - img
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - generic [ref=e92]: Company Name(Optional)
+              - textbox "Company Name(Optional)" [ref=e93]:
+                - /placeholder: Your company name
+              - generic [ref=e94]: Optional field for your company or organization name
+            - generic [ref=e95]:
+              - generic [ref=e96]: Phone Number *
+              - textbox "Phone Number *" [ref=e97]:
+                - /placeholder: +1 (555) 123-4567
+              - generic [ref=e98]: Enter your phone number including country code if international
+          - generic [ref=e99]:
+            - generic [ref=e100]: Message *
+            - textbox "Message *" [ref=e101]:
+              - /placeholder: Write your message...
+          - iframe [ref=e106]:
+            - generic [ref=f1e2]:
+              - generic [ref=f1e3]:
+                - checkbox "I'm not a robot" [ref=f1e7]
+                - generic [ref=f1e11]: I'm not a robot
+              - generic [ref=f1e15]: reCAPTCHA
+          - generic [ref=e107]:
+            - button "Send Message" [ref=e108] [cursor=pointer]:
+              - text: Send Message
+              - img [ref=e109]
+            - generic [ref=e110]:
+              - link "Schedule a Meeting" [ref=e111] [cursor=pointer]:
+                - /url: https://calendly.com/romega-solutions/discoverycall
+                - generic [ref=e113]: Schedule a Meeting
+              - generic [ref=e114]: via Calendly
+      - generic [ref=e117]:
+        - paragraph [ref=e118]: © 2025 Romega Solutions. All rights reserved
+        - generic [ref=e119]:
+          - link "View Privacy Policy" [ref=e120] [cursor=pointer]:
+            - /url: /privacy
+            - text: Privacy Policy
+          - button "Open Terms of Service" [ref=e121] [cursor=pointer]: Terms of Service
+  - contentinfo [ref=e122]:
+    - link "Scroll to top of page":
+      - /url: "#main-content"
+      - button "Scroll to top" [ref=e123]:
+        - img "Scroll to top" [ref=e124]
+    - generic [ref=e126]:
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - img "Romega Solutions Logo" [ref=e130]
+          - generic [ref=e131]:
+            - paragraph [ref=e132]: Romega Solutions, a US-based holding company founded by Robbie Galoso.
+            - generic [ref=e133]: Follow us on
+            - generic [ref=e134]:
+              - link "Visit our LinkedIn page" [ref=e135] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/romega-solutions
+                - img [ref=e136]
+                - generic [ref=e140]: LINKEDIN
+              - link "Visit our Facebook page" [ref=e141] [cursor=pointer]:
+                - /url: https://www.facebook.com/romegasolutions
+                - img [ref=e142]
+                - generic [ref=e144]: FACEBOOK
+        - link "Schedule a meeting with Romega Solutions" [ref=e146] [cursor=pointer]:
+          - /url: https://calendly.com/romega-solutions/discoverycall
+          - img [ref=e147]
+          - generic [ref=e149]: Schedule a Meeting
+      - generic [ref=e150]:
+        - generic [ref=e151]:
+          - generic [ref=e152]:
+            - heading "COMPANY" [level=3] [ref=e153]
+            - list [ref=e154]:
+              - listitem [ref=e155]:
+                - link "Home" [ref=e156] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e157]:
+                - link "About" [ref=e158] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e159]:
+                - link "Services" [ref=e160] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e161]:
+                - link "Talent" [ref=e162] [cursor=pointer]:
+                  - /url: /talent
+          - generic [ref=e165]:
+            - heading "HELP" [level=3] [ref=e166]
+            - list [ref=e167]:
+              - listitem [ref=e168]:
+                - link "Contact" [ref=e169] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e170]:
+                - link "Careers" [ref=e171] [cursor=pointer]:
+                  - /url: /careers
+              - listitem [ref=e172]:
+                - link "Terms of Service" [ref=e173] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e174]:
+                - link "Privacy Policy" [ref=e175] [cursor=pointer]:
+                  - /url: /privacy
+        - generic [ref=e176]:
+          - generic [ref=e178]:
+            - heading "REACH US OUT" [level=3] [ref=e180]
+            - generic [ref=e181]:
+              - generic [ref=e182]:
+                - heading "EMAIL US" [level=4] [ref=e183]
+                - link "info@romega-solutions.com" [ref=e185] [cursor=pointer]:
+                  - /url: mailto:info@romega-solutions.com
+                  - img [ref=e186]
+                  - generic [ref=e188]: info@romega-solutions.com
+              - generic [ref=e189]:
+                - heading "HEADQUARTERS" [level=4] [ref=e190]
+                - 'link "222 Pacific Coast Hwy, #10 in El Segundo, CA 90245" [ref=e192] [cursor=pointer]':
+                  - /url: https://www.google.com/maps?q=222+Pacific+Coast+Hwy,+%2310,+El+Segundo,+CA+90245
+                  - img [ref=e193]
+                  - text: "222 Pacific Coast Hwy, #10 in El Segundo, CA 90245"
+          - generic [ref=e195]: © 2025 Romega Solutions. All rights reserved
+  - button "Open Next.js Dev Tools" [ref=e201] [cursor=pointer]:
+    - img [ref=e202]
+  - alert [ref=e205]
+```

@@ -7,21 +7,27 @@ export default function WhyJoinUs() {
   const cultureValues = [
     {
       id: 'reliable',
-      title: 'Reliable & Opportunity-Driven',
-      description: 'We honor our commitments and create meaningful growth, delivering with integrity, consistency, and long-term vision.',
+      title: 'Reliable',
+      description: 'We deliver with consistency and care.',
       icon: '/images/careers/excellence.svg',
     },
     {
       id: 'collaboration',
-      title: 'Meaningful Collaboration & Excellence',
-      description: 'We work hand-in-hand with our partners, executing every project with clarity, quality, and purpose.',
+      title: 'Collaborative',
+      description: 'We partner closely to do strong work.',
       icon: '/images/careers/people.svg',
     },
     {
       id: 'growth',
-      title: 'Growth-Focused & Adaptable',
-      description: 'We innovate boldly and stay agile, building teams and brands that thrive in a changing world.',
+      title: 'Adaptable',
+      description: 'We stay agile and open to change.',
       icon: '/images/careers/growht.svg',
+    },
+    {
+      id: 'ownership',
+      title: 'Accountable',
+      description: 'We take ownership and follow through.',
+      icon: '/images/careers/shield.svg',
     },
   ];
 
