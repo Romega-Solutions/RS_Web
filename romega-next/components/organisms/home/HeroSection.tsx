@@ -110,7 +110,6 @@ export default function HeroSection() {
         <HeroMedia
           wrapperClassName={styles['hero-section__video-wrapper']}
           mediaClassName={styles['hero-section__video']}
-          defaultPosterSrc="/images/home/hero-right.png"
           ariaLabel="Romega Solutions promotional video showing our services"
         />
 

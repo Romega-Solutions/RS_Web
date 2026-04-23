@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 interface HeroMediaProps {
   wrapperClassName: string;
   mediaClassName: string;
-  defaultPosterSrc: string;
   ariaLabel: string;
 }
 
@@ -51,14 +50,13 @@ function shouldSkipVideoForVisitor(): boolean {
 export default function HeroMedia({
   wrapperClassName,
   mediaClassName,
-  defaultPosterSrc,
   ariaLabel,
 }: HeroMediaProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const [hasPlaybackError, setHasPlaybackError] = useState(false);
 
-  const posterSrc = HERO_VIDEO_POSTER_URL || defaultPosterSrc;
+  const posterSrc = HERO_VIDEO_POSTER_URL || undefined;
   const hasConfiguredVideoSource = HERO_VIDEO_MP4_URL.length > 0 || HERO_VIDEO_WEBM_URL.length > 0;
 
   useEffect(() => {
@@ -110,16 +108,9 @@ export default function HeroMedia({
           Your browser does not support the video tag.
         </video>
       ) : (
-        // Dynamic poster URLs can be external; keep native img fallback to avoid
-        // coupling this fallback path to Next Image remotePatterns.
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={posterSrc}
-          alt=""
+        <div
           aria-hidden="true"
           className={mediaClassName}
-          loading="eager"
-          decoding="async"
           data-testid="home-hero-poster"
         />
       )}
