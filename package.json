@@ -13,8 +13,22 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
+    "roots": [
+      "<rootDir>/js"
+    ],
+    "testMatch": [
+      "**/*.test.js"
+    ],
     "setupFilesAfterEnv": [
       "<rootDir>/js/test-setup.js"
-    ]
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/romega-next/"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/romega-next/"
+    ],
+    "passWithNoTests": true
   }
 }
